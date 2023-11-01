@@ -22,7 +22,7 @@ router.post('/auth/sign-up', async (req, res) => {
         // user가 없다면 user에 다음을 생성
         user = await User.create({
             email,
-            password : hashedPassword,
+            password: hashedPassword,
             username,
             phoneNumber,
             address,
