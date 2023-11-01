@@ -12,8 +12,8 @@ mongoose.connect('mongodb+srv://WebProjectDB:45654654@alicewebprojectteam8.pqahg
 
 // view 엔진을 ejs를 쓰겠다는 설정
 app.set("view engine", "ejs");
-app.use(express.json({ extended: false }));
-app.use(express.bodyParser());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // 페이지 로딩 함수
 app.get("/", function (req, res) {
