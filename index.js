@@ -1,6 +1,7 @@
 const express = require("express");
 const ejs = require("ejs"); 
 const app = express();
+const mongoose = mongoose();
 
 // view 엔진을 ejs를 쓰겠다는 설정
 app.set("view engine", "ejs");
