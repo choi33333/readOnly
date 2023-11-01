@@ -22,7 +22,7 @@ router.post('/auth/sign-up', async (req, res) => {
         // user가 없다면 user에 다음을 생성
         user = await User.create({
             email,
-            password : hashPedPassword,
+            password : hashedPassword,
             username,
             phoneNumber,
             address,
@@ -30,7 +30,7 @@ router.post('/auth/sign-up', async (req, res) => {
         });
        
         // Password 암호화
-        const hashPedPassword = hashPassword(password);
+        const hashedPassword = hashPassword(password);
         
         // 새로운 user를 db에 저장
         await user.save();
