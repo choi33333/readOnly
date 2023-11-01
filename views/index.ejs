@@ -1,15 +1,14 @@
-<p>HI!</p>
 <button>회원가입</button>
-<form action="/sign-up" method="post" onsubmit="return check()">
+<form action="/auth/sign-up" method="post" onsubmit="return check()">
     <table>
         <tbody>
             <tr>
                 <td>이메일</td>
-                <td><input type="text" name="email"></td>
+                <td><input type="text" name="email" /></td>
             </tr>
             <tr>
                 <td>이름</td>
-                <td><input type="name" name="name"></td>
+                <td><input type="name" name="username"></td>
             </tr>
             <tr>
                 <td>비밀번호</td>
@@ -25,7 +24,7 @@
             </tr>
             <tr>
                 <td>상세주소</td>
-                <td><input type="text" name="address-detail"></td>
+                <td><input type="text" name="addressDetail"></td>
             </tr>
             <tr>
                 <td colspan="2"></td>
