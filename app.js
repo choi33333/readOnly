@@ -17,9 +17,16 @@ app.use(express.urlencoded({ extended: true }));
 
 // 페이지 로딩 함수
 app.get("/", function (req, res) {
-    //console.log(res);
-    res.render("index", {}); // views 폴더 밑에 있는 파일을 참조함
+    res.render("index"); // views 폴더 밑에 있는 파일을 참조함
 });
+app.get("/sign-up", function (req, res) {
+    res.render("sign-up");
+});
+app.get("/sign-in", function (req, res) {
+    res.render("sign-in");
+});
+
+
 
 // 회원가입 페이지 router 이동
 const indexRouter = require('./routes/sign-up');
