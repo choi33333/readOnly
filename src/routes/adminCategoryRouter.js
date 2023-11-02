@@ -7,7 +7,8 @@ const router = Router();
 
 router.post("/api/admin/cartegoris", async (req, res) => {
   const { name } = req.body;
-
+  console.log(name)
+  
   let category = await Category.findOne({ name });
 
   if (category) {
