@@ -1,0 +1,65 @@
+<!-- 회원가입 페이지 html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입</title>
+  <link rel="stylesheet" href="join.css">
+</head>
+<body>
+  <p class="general">일반회원</p>
+  <form>
+    <div class="input">
+      <p>이메일</p>
+      <input type="email" id="email">
+      <div id="emailAlarm" class="alarmoff"></div>
+    </div>
+    <div class="input">
+      <p>비밀번호</p>
+      <input type="password" id="password">
+      <div id="passwordAlarm" class="alarmoff"></div>
+    </div>
+    <div class="input">
+    <p></p>
+      <div>
+        <p class="passwordRule">8~20 글자</p>
+        <p class="passwordRule">영문/숫자/특수문자(!@#$%^*+=-) 조합</p>
+      </div>
+    </div>
+    <div class="input">
+      <p>비밀번호 확인</p>
+      <input type="password" id="repassword">
+      <div id="repasswordAlarm" class="alarmoff"></div>
+    </div>
+    <div class="input">
+      <p>이름</p>
+      <input type="text" id="username">
+      <div id="usernameAlarm" class="alarmoff"></div>
+    </div>
+    <div class="input">
+      <p>전화번호</p>
+      <input type="text" id="phoneNumber"  maxlength="13">
+      <div id="phoneNumberAlarm" class="alarmoff"></div>
+    </div>
+    <div class="input">
+      <p>주소</p>
+      <div class="addressDetail">
+        <div>
+          <input type="text" id="postalCode">
+          <button id="addressBtn">주소찾기</button>
+        </div>
+        <input type="text" id="address">
+        <input type="text" placeholder="상세주소" id="addressDetail">
+        <div id="addressAlarm" class="alarmoff"></div>
+      </div>
+    </div>
+  </form>
+  <button id="joinBtn">회원가입</button>
+
+  <!-- 주소찾기(카카오 API)  -->
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+  <script src="join.js"></script>
+</body>
+</html>

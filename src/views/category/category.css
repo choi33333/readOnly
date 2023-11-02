@@ -1,0 +1,74 @@
+/* main css */
+
+header {
+    display: flex;
+    /* width: 100%; */
+    justify-content: space-between;
+    background-color: rgb(62, 101, 65);
+   
+}
+
+.search{
+    justify-content: center;
+    width: 300px;
+    margin: auto;
+}
+
+input {
+    width: 220px;
+    height: 30px;
+
+}
+button {
+    height: 35px;
+}
+
+.register {
+    margin-right: 10px;
+}
+
+
+/* category css */
+.body a {
+    color: black;
+}
+
+.body {
+    width: 90%;
+    text-align: left;
+    margin-left: 30px;
+    /* margin-right: auto; */
+
+}
+
+.bestseller-novel {
+    width: 50%;
+    float: left;
+    margin-bottom: 30px;
+}
+
+.body h5 {
+    margin-top: 5px;
+    margin-bottom: 8px;
+    vertical-align: text-top;
+    font-size: 18px;
+    
+}
+
+.body h6 {
+    margin-top: 6px;
+    margin-bottom: 6px;
+    vertical-align: text-top;
+    font-size: 15px;
+}
+
+.body p {
+    margin-right: 15px;
+    font-size: 15px;
+}
+img {
+    width: 20%;
+    float: left;
+    margin-right: 10px;
+    
+}

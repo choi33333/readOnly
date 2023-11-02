@@ -1,0 +1,51 @@
+<!-- 사용자 정보 페이지 html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>내 정보</title>
+  <link rel="stylesheet" href="userInformation.css">
+</head>
+<body>
+  <h1>회원정보</h1>
+  <div class="content">
+      <ul>
+        <a href="index.html"><li>사용자 정보</li></a>
+        <a href="changeInformation.html"><li>사용자 정보 수정</li></a>
+        <li>주문/배송 확인</li>
+        <li>취소/반품/교환 확인</li>
+      </ul>
+    <main>
+      <form>
+        <div id="name" class="userInformation">
+          <p>이름</p>
+          <p>백의연</p>
+        </div>
+        <div id="id" class="userInformation">
+          <p>아이디</p>
+          <p>uiyeon</p>
+        </div>
+        <div id="email" class="userInformation">
+          <p>이메일</p>
+          <p>uiyeon45@gmail.com</p>
+        </div>
+        <div id="phoneNumber" class="userInformation">
+          <p>전화번호</p>
+          <p>010-0000-0000</p>
+        </div>
+        <div id="address" class="userInformation">
+          <p>주소</p>
+            <div class="detailAddress">
+            <p>0000</p>
+            <p>서울특별시 성동구 아차산로 17길 48</p>
+            <p>성수낙낙 2층</p>
+        </div>
+        </div>
+      </form>
+      <button class="withdrawal">회원탈퇴</button>
+    </main>
+  </div>
+  <a href="changeInformation.html"><button class="changeBtn">수정하기</button></a>
+</body>
+</html>
