@@ -1,11 +1,11 @@
 const { Router } = require("express");
-const { Category } = require("../models"); 
+const { Category } = require("../models/index"); 
 const router = Router();
 
 
 // make category
 
-router.post("/api/admin/cartegoris", async (req, res) => {
+router.post("/api/admin/cartegories", async (req, res) => {
   const { name } = req.body;
   console.log(name)
   
