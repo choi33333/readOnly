@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>select-item</title>
+    <link rel="stylesheet" href="/components/sidebar.css">
+    <link rel="stylesheet" href="/components/header.css">
+    <link rel="stylesheet" href="./select-item.css">
+    
+</head>
+<header>
+    <a href="/mainpage/index.html" class="logo"><h3>Logo</h3></a>
+    <div class="search">
+        <input type="text" placeholder="도서를 찾아보세요!">
+        <button>검색</button>
+    </div>
+    
+    <a href="#register" class="register">회원가입</a>
+    <!-- <p>|</p> -->
+    <a href="log-in" class="log-in">로그인</a>
+</header>
+<body>
+    <div class="sidebar">
+        <div class="menu">
+            <h4 id="category">카테고리</h4>
+            <a href="/category/novel.html">소설</a>
+            <a href="#">시/에세이</a>
+            <a href="#">인문</a>
+            <a href="#">가정/육아</a>
+            <a href="#">요리</a>
+            <a href="#">건강</a>
+            <a href="#">취미/실용</a>
+            <a href="#">경제/경영</a>
+            <a href="#">자기계발</a>
+            <a href="#">정치/사회</a>
+        </div>
+        <div class="body">
+            
+            <div class="selected-item-info">
+    
+                <img src="/mainpage/img/bestseller-novel1.jpeg">
+                <h4>카테고리 > 소설</h4>
+                <!-- 추후에 "소설"부분은 해당 카데고리별로 자동으로 가져올 수 있도록 코드 수정 필요-->
+                <h3>도시와 그 불확실한 벽</h3>
+                <h5>무라카미 하루키</h5>
+                <h5>19,500원</h5>
+                <p>무라카미 하루키의 신작 장편소설 『도시와 그 불확실한 벽』은 집필과 출간에 얽힌 이야기가 특별하다. 
+                    1979년 데뷔 이래, 하루키는 각종 문예지에 소설을 비롯한 다양한 글을 발표했고, 대부분 그...</p>
+                <button id="add-cart">장바구니 추가</button>
+                <button id="buy-now">바로구매</button>
+            </div>
+
+        
+
+        </div>    
+    </div> 
+    
+    <script src="select-item.js"></script>
+
+</body>
+</html>
