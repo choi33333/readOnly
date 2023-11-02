@@ -33,7 +33,6 @@ router.post("/api/auth/sign-in", async (req, res, next) => {
     { expiresIn: "1h" }
   );
 
-  console.log("로그인 성공!");
   res.json({
     error: null,
     data: token,
@@ -44,7 +43,6 @@ router.post("/api/auth/sign-in", async (req, res, next) => {
 
 router.post("/api/auth/sign-up", async (req, res) => {
   const { email, password, username, phoneNumber, address, addressDetail } = req.body;
-  console.log(req.body);
 
   let user = await User.findOne({ email });
 
@@ -63,7 +61,6 @@ router.post("/api/auth/sign-up", async (req, res) => {
     addressDetail: addressDetail,
   });
 
-  console.log("회원가입 완료!");
   res.redirect("/");
 });
 
