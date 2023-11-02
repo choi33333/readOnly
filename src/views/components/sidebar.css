@@ -1,0 +1,45 @@
+* {
+    /* padding: 0px;
+    margin: 0px; */
+    /* box-sizing: border-box; */
+    
+}
+
+.sidebar {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    text-align: center;
+   
+
+}
+
+.menu {
+    width: 10%;
+    background-color: rgb(220, 220, 220);
+    
+
+}
+
+#category{
+    font-size: 20px;
+    letter-spacing: 4px;
+    padding: 10px;
+    border-bottom: 1.5px solid black;
+    margin: 0px;
+
+}
+
+.menu a {
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size:  15px;
+    color: black;
+    display: list-item;
+    padding: 15px;
+
+    
+    border-top: 0.5px solid black;
+    border-bottom: 0.5px solid black;
+
+}

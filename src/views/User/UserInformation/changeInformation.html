@@ -1,0 +1,71 @@
+<!-- 사용자 정보 페이지 html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>내 정보</title>
+  <link rel="stylesheet" href="changeInformation.css">
+</head>
+<body>
+  <h1>회원정보</h1>
+  <div class="content">
+    <ul>
+      <a href="index.html"><li>사용자 정보</li></a>
+      <a href="changeInformation.html"><li>사용자 정보 수정</li></a>
+      <li>주문/배송 확인</li>
+      <li>취소/반품/교환 확인</li>
+    </ul>
+    <main>
+      <form>
+        <div id="name" class="input">
+          <p>이름</p>
+          <input type="text" placeholder="백의연">
+        </div>
+        <div id="id" class="input">
+          <p>아이디</p>
+          <input type="text" placeholder="uiyeon">
+        </div>
+        <div id="password" class="input">
+          <p>비밀번호 변경</p>
+          <div class="changePassword">
+            <div class="passwordInput">
+              <p>현재 비밀번호</p>
+              <input type="password">
+            </div>
+            <div class="passwordInput">
+              <p>새 비밀번호</p>
+              <input type="password">
+            </div>
+            <div class="passwordInput">
+              <p>비밀번호 확인</p>
+              <input type="password">
+            </div>  
+          </div>
+        </div>
+        <div id="email" class="input">
+          <p>이메일</p>
+          <input type="email" placeholder="uiyeon45@gmail.com">
+        </div>
+        <div id="phoneNumber" class="input">
+          <p>전화번호</p>
+          <input type="text" placeholder="000-0000-0000">
+        </div>
+        <div id="address" class="input">
+          <p>주소</p>
+          <div class="detailAddress">
+            <div>
+              <input type="text" class="postalCode" placeholder="00000">
+              <button class="addressBtn">주소찾기</button>
+            </div>
+            <input type="text" placeholder="서울특별시 성동구 아차산로 17길 48">
+            <input type="text" placeholder="성수낙낙 2층">
+          </div>
+        </div>
+      </form>
+      <button class="withdrawal">회원탈퇴</button>
+    </main>
+  </div>
+  <a href="index.html"><button class="changeBtn">수정하기</button></a>
+</body>
+</html>
