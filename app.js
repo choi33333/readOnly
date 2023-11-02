@@ -27,7 +27,6 @@ app.get("/sign-in", function (req, res) {
 });
 
 
-
 // 회원가입 페이지 router 이동
 const indexRouter = require('./routes/sign-up');
 app.use('/', indexRouter);
