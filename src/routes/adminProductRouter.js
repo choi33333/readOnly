@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { Product } = require("../models"); // user model
+const { Product } = require("../models/index"); // user model
 
 const router = Router();
 
@@ -12,8 +12,8 @@ router.get('/', async(req, res, next) => {
 })
 
 // 상품 등록)
-router.post('/', async(req, res, next) => {
-    const { productName, category, author, price, image, productInfo, releasedDate, soldAmount } = req.body;
+router.post('/products', async(req, res, next) => {
+    const { productName, category, author, price, image, productInfo, releasedDate } = req.body;
 
    await Product.create({
         productName: productName, 

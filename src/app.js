@@ -37,7 +37,7 @@ app.use("/", adminCategoryRouter);
 
 // 상품등록
 const adminProductRouter = require("./routes/adminProductRouter");
-app.use("/products", authRouter);
+app.use("/", adminProductRouter);
 
 // 서버 띄울때 포트 정보 셋팅 및 처음 실행 시 필요한 기능 수행 가능
 app.listen(3000, function () {

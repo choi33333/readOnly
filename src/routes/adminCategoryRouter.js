@@ -18,7 +18,6 @@ router.post("/api/admin/cartegories", async (req, res) => {
   category = await Category.create({
     name: name,
   });
-
 });
 
 module.exports = router;
