@@ -1,7 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
-
 const app = express();
+
+const authRouter = require("./routes/authRouter");
+const adminCategoryRouter = require("./routes/adminCategoryRouter");
+
+
 
 mongoose
   .connect(
@@ -27,8 +31,9 @@ app.get("/sign-in", function (req, res) {
 });
 
 // 회원가입 페이지 router 이동
-const authRouter = require("./routes/authRouter");
 app.use("/", authRouter);
+// 카테고리 만들기 router
+app.use("/", adminCategoryRouter);
 
 // 서버 띄울때 포트 정보 셋팅 및 처음 실행 시 필요한 기능 수행 가능
 app.listen(3000, function () {

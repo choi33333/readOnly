@@ -61,7 +61,6 @@ router.post("/api/auth/sign-up", async (req, res) => {
     addressDetail: addressDetail,
   });
 
-  res.redirect("/");
 });
 
 module.exports = router;

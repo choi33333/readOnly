@@ -1,37 +1,17 @@
 const { Schema } = require("mongoose");
 
-const User = new Schema(
+const Category = new Schema(
   {
-    email: {
-      type: String,
-      required: true,
-    },
-    password: {
-      type: String,
-      required: true,
-    },
-    username: {
-      type: String,
-      required: true,
-    },
-    phoneNumber: {
-      type: String,
-      required: true,
-    },
-    address: {
-      type: String,
-      required: true,
-    },
-    addressDetail: {
+    name: {
       type: String,
       required: true,
     },
   },
   {
     timestamps: true,
-    collection: "users",
+    collection: "categories",
     versionKey: false,
   }
 );
 
-module.exports = User;
+module.exports = Category;
