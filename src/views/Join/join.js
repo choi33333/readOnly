@@ -9,7 +9,6 @@ const postalCode = document.getElementById('postalCode');
 const addressBtn = document.getElementById('addressBtn');
 const joinBtn = document.getElementById('joinBtn');
 
-
 //모든 값이 입력 되었을 때 백엔드로 입력값 보내기
 joinBtn.addEventListener('click', () => {
   const checkValue = inputCheck();
@@ -24,7 +23,7 @@ joinBtn.addEventListener('click', () => {
       addressDetail: addressDetail.value,
     }
 
-    fetch('http://localhost:3000/api/auth/sign-up',{
+    fetch(URL_PATH.BACK_URL + '/api/auth/sign-up',{
       method: 'POST',
       headers:{
         "Content-Type": "application/json",
