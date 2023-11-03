@@ -8,10 +8,19 @@ const router = Router();
 router.get('/', async(req, res, next) => {
     const { products } = Product.find({});
 
-    res.json(products);
+    // 상품이 없을때
+    if (products == 0) {
+        return res.status(404).json({ error: "제품이 존재하지 않습니다." });
+      };
+
+    // 상품이 있을때
+    res.json({
+        error: null,
+        data: products,
+    });
 })
 
-// 상품 등록)
+// 상품 등록
 router.post('/products', async(req, res, next) => {
     const { productName, category, author, price, image, productInfo, releasedDate } = req.body;
 
@@ -25,11 +34,28 @@ router.post('/products', async(req, res, next) => {
         releasedDate: releasedDate, 
         soldAmount: "0",
     });
+
 });
 
 // 상품 수정
-router.put('/', async(req, res, next) => {
 
-})
+router.put('/products/:id', async(req, res, next) => {
+    const { id } = req.params;
+    const { productName, category, author, price, image, productInfo, releasedDate } = req.body;
+
+    await Product.updateOne(
+        { id },
+        {
+        productName: productName, 
+        category: category, 
+        author: author, 
+        price: price, 
+        image: image,
+        productInfo: productInfo, 
+        releasedDate: releasedDate, 
+        });
+    
+    res.redirect('/products/:id');
+}) 
 
 module.exports = router;
