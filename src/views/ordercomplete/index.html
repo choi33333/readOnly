@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>주문완료페이지</title>
+    <link rel="stylesheet" href="./ordercomplete.css" (type="text/css")>
+    <link rel="stylesheet" href="../components/header.css">
+    <link rel="stylesheet" href="./select-item.css">
+    <link rel="stylesheet" href="../components/sidebar.css">
+    <script src="./ordercomplete.js"></script>
+</head>
+<header>
+    <a href="../mainpage/index.html" class="logo"><h3>Logo</h3></a>
+    <div class="search">
+        <input type="text" placeholder="도서를 찾아보세요!">
+        <button>검색</button>
+    </div>
+    
+    <a href="#register" class="register">회원가입</a>
+    <!-- <p>|</p> -->
+    <a href="log-in" class="log-in">로그인</a>
+</header>
+<body>
+    <div class="menu">
+        <h4 id="category">카테고리</h4>
+        <a href="#">소설</a>
+        <a href="#">시/에세이</a>
+        <a href="#">인문</a>
+        <a href="#">가정/육아</a>
+        <a href="#">요리</a>
+        <a href="#">건강</a>
+        <a href="#">취미/실용</a>
+        <a href="#">경제/경영</a>
+        <a href="#">자기계발</a>
+        <a href="#">정치/사회</a>
+    </div>
+        <main id="product">
+            <section class="complete">
+                <article class="message">
+                    <h2>
+                        고객님의 주문이 정상적으로 완료되었습니다.
+                    </h2>
+                </article>
+                <!-- 상품정보 -->
+                <article class="info">
+                    <h1>상품정보</h1>
+                    <table border="0">
+                        <tr>
+                            <th>상품명</th>
+                            <th>상품금액</th>
+                            <th>할인금액</th>
+                            <th>수량</th>
+                            <th>주문금액</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <article>
+                                    <img src="" alt="">
+                                    <div>
+                                        <h2>
+                                            <a href="#">상품명</a>
+                                        </h2>
+                                        <p>상품설명</p>
+                                    </div>
+                                </article>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <article>
+                                    <img src="" alt="">
+                                    <div>
+                                        <h2>
+                                            <a href="#">상품명</a>
+                                        </h2>
+                                        <p>상품설명</p>
+                                    </div>
+                                </article>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <article>
+                                    <img src="" alt="">
+                                    <div>
+                                        <h2>
+                                            <a href="#">상품명</a>
+                                        </h2>
+                                        <p>상품설명</p>
+                                    </div>
+                                </article>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="total">
+                            <td colspan="4"></td>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td>총상품금액</td>
+                                        <td>
+                                            <span></span>
+                                        </td>
+                                    </tr>
+                                   
+                                    <tr>
+                                        <td>배송비</td>
+                                        <td>
+                                            <span>원</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>총결제금액</td>
+                                        <td>
+                                            <span></span>원
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </article>
+                <!-- 주문정보 -->
+                <article class="order">
+                    <h1>주문정보</h1>
+                    <table border="0">
+                        <tr>
+                            <td>주문번호</td>
+                            <td></td>
+                            <td rowspan="3">총결제금액</td>
+                            <td rowspan="3">
+                                <span></span>원
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>결제방법</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>주문자/연락처</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </article>
+                <!-- 배송정보 -->
+                <article class="delivery">
+                    <h1>배송정보</h1>
+                    <table border="0">
+                        <tr>
+                            <td>수취인</td>
+                            <td></td>
+                            <td>주문자 정보</td>
+                        </tr>
+                        <tr>
+                            <td>연락처</td>
+                            <td></td>
+                            <td rowspan="2">
+                                <br> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>배송지 주소</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </article>
+            </section>
+        </main>
+    
+</body>
+</html>
