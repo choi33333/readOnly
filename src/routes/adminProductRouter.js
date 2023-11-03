@@ -1,11 +1,13 @@
 const { Router } = require("express");
 const { Product } = require("../models/index"); // user model
 
+// const isAuthentificated = require('../middlewares/index');
+
 const router = Router();
 
 
 // 상품 조회
-router.get('/products', async(req, res, next) => {
+router.get('/api/admin/products', async(req, res, next) => {
     const { products } = Product.find({});
 
     // 상품이 없을때
@@ -21,10 +23,8 @@ router.get('/products', async(req, res, next) => {
 })
 
 // 상품 등록
-router.post('/products', async(req, res, next) => {
+router.post('/api/admin/products', async(req, res, next) => {
     const { productName, category, author, price, image, productInfo, releasedDate } = req.body;
-
-    // 필수요소가 포함되지 않았을때
 
    await Product.create({
         productName: productName, 
@@ -40,7 +40,7 @@ router.post('/products', async(req, res, next) => {
 });
 
 // 상품 수정
-router.put('/products/:id', async(req, res, next) => {
+router.put('/api/admin/products/:id', async(req, res, next) => {
     const { id } = req.query;
     const product = await Product.findOne({ _id: id });
     const { productName, category, author, price, image, productInfo, releasedDate } = req.body;
@@ -67,7 +67,7 @@ router.put('/products/:id', async(req, res, next) => {
 
 
 // 상품 삭제
-router.delete('/products/:id', async (req, res) => {
+router.delete('/api/admin/products/:id', async (req, res) => {
     const { id } = req.query;
     const product = await Product.findOne({ _id: id });
     const deletedProduct = await Product.deleteOne(product);

@@ -15,13 +15,13 @@ router.post("/api/auth/sign-in", async (req, res, next) => {
   const user = await User.findOne({ email });
 
   if (!user) {
-    return res.status(400).send("이메일이나 비밀번호가 올바르지 않습니다.");
+    return res.status(401).json({ error: "이메일이나 비밀번호가 올바르지 않습니다."});
   }
 
   let isValidUser = await bcrypt.compare(password, user.password);
 
   if (!isValidUser) {
-    return res.status(400).send("이메일이나 비밀번호가 올바르지 않습니다.");
+    return res.status(401).json({ error: "이메일이나 비밀번호가 올바르지 않습니다." });
   }
 
   const token = jsonwebtoken.sign(
