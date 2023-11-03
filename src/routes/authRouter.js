@@ -61,7 +61,7 @@ router.post("/api/auth/sign-up", async (req, res) => {
     addressDetail: addressDetail,
   });
 
-  res.status(402).json({ message: "회원가입이 완료 되었습니다." });
+  res.status(201).json({ message: "회원가입이 완료 되었습니다." });
 });
 
 module.exports = router;
