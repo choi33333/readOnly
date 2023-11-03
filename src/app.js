@@ -38,10 +38,20 @@ app.use("/", authRouter);
 app.use("/", adminCategoryRouter);
 
 // admin 상품등록
-app.use("/", adminProductRouter);
+app.use("/api/admin", adminProductRouter);
 
 // 상품 조회
-app.use('/', productRouter);
+app.use('/api/products', productRouter);
+
+
+// 해당되는 URL이 없을 때를 대비한 미들웨어
+app.use((req, res, next) => {
+
+  const error = new Error("Resource not found");
+  error.statusCode = 404;
+  next(error);
+  
+});
 
 // 서버 띄울때 포트 정보 셋팅 및 처음 실행 시 필요한 기능 수행 가능
 app.listen(3000, function () {
