@@ -1,11 +1,11 @@
-// bookdata ==> setlocalstoregy 를 위한 임시데이터  bookdata2 ==> 가격 변동이 있을때 장바구니 최신화를 위한 임시데이터
+//임시 데이터
 let bookdata = [
     { bookname: '책이름1', author: '도라에몽', price: 3000, count: 1,id:0},
     { bookname: '책이름2', author: '진구', price: 4000, count: 1,id:1},
     { bookname: '책이름3', author: '비실이', price: 2000, count: 1,id:2},
 ]
 let bookdata2 = [
-    { bookname: '책이름1', author: '도라에몽', price: 10000, count: 1,id:0},
+    { bookname: '책이름1', author: '도라에몽', price: 5000, count: 1,id:0},
     { bookname: '책이름2', author: '진구', price: 4000, count: 1,id:1},
     { bookname: '책이름3', author: '비실이', price: 2000, count: 1,id:2},
 ]
@@ -39,7 +39,6 @@ if (cartArr?.length > 0) {
     
     sumPrice += data.price * data.count;
     })
-    // console.log(sumPrice);
     document.querySelector('.totalprice').innerHTML=`${sumPrice}원`
     sumPrice=0;
 }
@@ -151,7 +150,7 @@ const changeprice = () =>{
     
         if (book2 && book1.price !== book2.price) {
             // book2가 존재하고 가격이 다를 경우 최신화
-            bookdata[i] = { ...book1, price: book2.price };
+            cartArr[i] = { ...book1, price: book2.price };
         }
     }
     localStorage.setItem('bookdata', JSON.stringify(cartArr))

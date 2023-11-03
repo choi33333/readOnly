@@ -21,13 +21,10 @@ main{
     border-bottom:1px solid grey;
     padding-left: 100px;
     padding-right: 100px;
-    /* background-color: antiquewhite; */
 }
 .main_label{
     height:50px;
-    /* width: 1300px; */
-    width:77%;
-    /* background-color: aqua; */
+    width: 77%;
     font-size: 20px;
     display: flex;
     align-items: center;
@@ -42,7 +39,6 @@ main{
     align-items: center;
     justify-content: center;
     border-radius: 20px;
-    /* background-color: red; */
     &:hover{
         color: white;
         color: white;
@@ -52,18 +48,15 @@ main{
 }
 footer{
     height: 310px;
-    /* background-color: blue; */
 }
 .cartdiv{
     min-width: 1200px;
     height: 600px;
-    /* background-color:darkgray; */
     display: flex;
 }
 .cart_product{
     width: 75%;
     height: 100%;
-    /* background-color: red; */
     overflow: scroll;
     padding: 0 5%;
     border-top:1px solid grey ;
@@ -88,8 +81,6 @@ footer{
 }
 .cart_card{
     height:30%;
-    /* background-color: darkgray; */
-    width:95%;
     display: flex;
     align-items: center;
     margin: 3% 0;
@@ -97,41 +88,33 @@ footer{
     border-radius: 10px;
 }
 .card_imgDiv{
-    width:18%;
+    width:15%;
     height: 100%;
-    /* background-color: aliceblue; */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .card_img{
-    width:70%;
+    width:80%;
     height:90%
 }
 .card_namePrice{
-    width:45%;
+    width:50%;
     height:100%;
-    /* background-color: wheat; */
-    /* border-right: 0.5px solid grey; */
-    /* border-left:1px solid grey */
 }
 .bookname{
     height: 40%;
-    /* background-color: aliceblue; */
     display: flex;
-    /* justify-content: center; */
     align-items: center;
 }
 .bookprice{
     height: 60%;
-    /* background-color: blueviolet; */
     display: flex;
     align-items: center;
 }
 .card_cntPrice{
     width:25%;
     height:80%;
-    /* background-color: aquamarine; */
     border-right: 1px solid grey;
     border-left: 1px solid grey;
     display: flex;
@@ -141,22 +124,18 @@ footer{
 }
 .book_totalPrice{
     height:50%;
-    /* background-color: blueviolet; */
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background-color: black; */
 }
 .book_cntbtn{
     width: 40%;
     height: 20%;
     border :1px solid black;
     border-radius: 20px;
-    /* background-color: aquamarine; */
     display: flex;
     justify-content: space-around;
     align-items: center;
-    /* background-color: red; */
 
 }
 .plusbtn{
@@ -179,7 +158,6 @@ footer{
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background-color: aliceblue; */
 }
 .minusbtn{
     font-size: 20px;
@@ -201,7 +179,6 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: red; */
 }
 .carddelete{
     display: flex;
@@ -216,7 +193,6 @@ footer{
     border-radius: 20%;
     &:hover{
         color: white;
-        color: white;
         border-color: blue;
         background-color: black;
     }
@@ -224,16 +200,13 @@ footer{
 .pay_div{
     width:25%;
     height:100%;
-    /* background-color: pink; */
     display: flex;
     justify-content: center;
-    /* align-items: center; */
 }
 .borderdiv{
     width:70%;
     height:50%;
     margin-top: 10%;
-    /* background-color: red; */
     border: 1px solid grey;
     border-radius: 5%;
 }
@@ -244,19 +217,16 @@ footer{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background-color: aqua; */
 }
 .pay_btn{
     height:30%;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: red; */
 }
 .orderbtn{
     width:80%;
     height: 50%;
-    /* background-color: blue; */
     border: 1px solid black;
     display: flex;
     align-items: center;
@@ -264,8 +234,6 @@ footer{
     border-radius: 20px;
     &:hover{
         color: white;
-        color: white;
-        /* border-color: blue; */
         background-color: black;
     }
 }
