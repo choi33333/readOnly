@@ -31,3 +31,5 @@ router.post('/products', async(req, res, next) => {
 router.put('/', async(req, res, next) => {
 
 })
+
+module.exports = router;

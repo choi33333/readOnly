@@ -4,7 +4,8 @@ const app = express();
 
 const authRouter = require("./routes/authRouter");
 const adminCategoryRouter = require("./routes/adminCategoryRouter");
-
+const adminProductRouter = require("./routes/adminProductRouter");
+const productRouter = require('./routes/productRouter');
 
 
 mongoose
@@ -35,9 +36,11 @@ app.use("/", authRouter);
 // 카테고리 만들기 router
 app.use("/", adminCategoryRouter);
 
-// 상품등록
-const adminProductRouter = require("./routes/adminProductRouter");
+// admin 상품등록
 app.use("/", adminProductRouter);
+
+// 상품 조회
+app.use('/', productRouter);
 
 // 서버 띄울때 포트 정보 셋팅 및 처음 실행 시 필요한 기능 수행 가능
 app.listen(3000, function () {

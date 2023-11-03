@@ -1,12 +1,14 @@
 const { Router } = require("express");
-const { Product } = require("../models"); // user model
+const { Product } = require("../models/index"); // user model
 
 const router = Router();
 
 
 // 상품 조회
-router.get('/', async(req, res, next) => {
-    const { products } = Product.find({});
-
+router.get('/products', async(req, res) => {
+    const products = await Product.find({});
     res.json(products);
 })
+
+
+module.exports = router;
