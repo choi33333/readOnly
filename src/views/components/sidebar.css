@@ -1,9 +1,8 @@
-* {
+/* * {
     /* padding: 0px;
     margin: 0px; */
-    /* box-sizing: border-box; */
-    
-}
+    /* box-sizing: border-box; }*/
+
 
 .sidebar {
     width: 100%;
@@ -17,8 +16,6 @@
 .menu {
     width: 10%;
     background-color: rgb(220, 220, 220);
-    
-
 }
 
 #category{
