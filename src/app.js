@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const ejs = require("ejs");
+const path = path
 const app = express();
 
 const authRouter = require("./routes/authRouter");
@@ -17,24 +18,21 @@ mongoose
   .catch(() => console.log("failed"));
 
 // view 엔진을 ejs를 쓰겠다는 설정
-app.set("view engine", "ejs");
+app.set('view engine', 'ejs');
+app.engine('html', require('ejs').renderFile);
+app.set('views', __dirname + '/views');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use(express.static(path)
+
 // 페이지 로딩 함수
 app.get("/", function (req, res) {
-  res.render("index"); // views 폴더 밑에 있는 파일을 참조함
-});
-app.get("/sign-up", function (req, res) {
-  res.render("sign-up");
-});
-app.get("/sign-in", function (req, res) {
-  res.render("sign-in");
+  res.render("./mainpage/index.html"); // views 폴더 밑에 있는 파일을 참조함
 });
 
 // 회원가입 페이지 router 이동
 app.use("/", authRouter);
-
 // 카테고리 만들기 router
 app.use("/", adminCategoryRouter);
 
