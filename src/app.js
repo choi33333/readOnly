@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const ejs = require("ejs");
-const path = path
+const path = require('path');
 const app = express();
 
 const authRouter = require("./routes/authRouter");
@@ -24,7 +24,7 @@ app.set('views', __dirname + '/views');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static(path)
+app.use(express.static(path.join(__dirname, 'views')));
 
 // 페이지 로딩 함수
 app.get("/", function (req, res) {
