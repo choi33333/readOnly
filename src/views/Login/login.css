@@ -59,6 +59,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 50px;
 }
 
 form {
@@ -135,4 +136,14 @@ a {
   color: black;
   font-size: small;
   text-decoration: none;
+}
+
+.alarmoff {
+  display: none;
+}
+
+.alarmon {
+  font-size: small;
+  color: red;
+  display: block;
 }
