@@ -8,6 +8,7 @@ const authRouter = require("./routes/authRouter");
 const adminCategoryRouter = require("./routes/adminCategoryRouter");
 const adminProductRouter = require("./routes/adminProductRouter");
 const productRouter = require('./routes/productRouter');
+const orderRouter = require('./routes/orderRouter');
 const isAuthentificated = require('./middlewares/index');
 
 
@@ -38,6 +39,8 @@ app.use("/", authRouter);
 //상품
 app.use('/', productRouter);
 
+//주문
+app.use('/', orderRouter);
 
 
 // ADMIN
