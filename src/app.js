@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const ejs = require("ejs");
 const path = require('path');
 const app = express();
+const isAuthentificated = require("./middlewares/index");
 
 const authRouter = require("./routes/authRouter");
 const adminCategoryRouter = require("./routes/adminCategoryRouter");
@@ -24,7 +25,7 @@ app.set('views', __dirname + '/views');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static(path.join(__dirname, 'views')));
+app.use(express.static(path.join(__dirname, '/views')));
 
 // 페이지 로딩 함수
 app.get("/", function (req, res) {
