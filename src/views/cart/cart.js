@@ -77,7 +77,7 @@ minusbtn.forEach(minusbtn=> minusbtn.addEventListener
     const id = minusbtn.classList[1];
     console.log(id)
     cartArr[id].count -= 1;
-    if(cartArr[id].count<=1){
+    if(cartArr[id].count<1){
         cartArr[id].count = 1;
         alert('수량은 1보다 적을수 없습니다.')
     }

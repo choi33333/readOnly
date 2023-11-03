@@ -25,7 +25,8 @@ main{
 }
 .main_label{
     height:50px;
-    width: 1000px;
+    /* width: 1300px; */
+    width:77%;
     /* background-color: aqua; */
     font-size: 20px;
     display: flex;
@@ -76,7 +77,7 @@ footer{
     flex-direction: column;
 }
 .emptySVG{
-    width:10%;
+    width:8%;
     height:15%;
     display: flex;
     align-items: center;
@@ -88,6 +89,7 @@ footer{
 .cart_card{
     height:30%;
     /* background-color: darkgray; */
+    width:95%;
     display: flex;
     align-items: center;
     margin: 3% 0;
@@ -103,7 +105,7 @@ footer{
     align-items: center;
 }
 .card_img{
-    width:80%;
+    width:70%;
     height:90%
 }
 .card_namePrice{
