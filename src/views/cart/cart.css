@@ -1,221 +1,239 @@
+
 div{
     display: block;
 }
-/* .header{
-    min-width: 1440px;
-    height: 80px;
-    background-color: olive;
-    border-bottom: 1px solid gray;
-} */
-/* .header-inner{
-    width:1400px;
-    height: 80px;
-    position: relative;
-    margin: 0 auto;
-    background-color: palegreen;
-} */
-/* .main{
 
-    height:1000px;
-    padding-top:50px;
-} */
-/* .main-inner{
-    background-color: red;
-    width:1400px;
-    height: auto;
-    margin:0 auto;
-} */
-/* .cart-top{
-    height: 128px;
-    background-color: aquamarine;
-}
-.cart-body{
-    margin-top: 50px;
-} */
-/* .cart-body-inner{
-    width:890px;
-    height: 534px;
-    background-color: aquamarine;
-} */
-/* .cart-data{
-    width:100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-} */
-/* .bookcard{
-    width:80%;
-    height: 250px;
-    display: flex;
-    background-color: red;
-    margin-bottom: 3%;
-    border: 1px soild black;
-} */
-/* .bookimg{
-    width:25%;
-    height:100%;
-    background-color: green;
-    margin-right: 5%;
-} */
-/* .bookinfo{
-    width:70%;
-    height:100%;
-    background-color: yellowgreen;
-} */
-/* .cart-body-pay{
-    width:350px;
-    height:500px;
-    position: relative;
-    left:1000px;
-    background-color: pink;
-} */
-/* .footer{
-    background-color: beige;
-    height:364px;
-} */
 body{
     margin: 0;
  }
 .wrap{
     height: 100vh;
-    /* background-color: red; */
 }
 header{
-    height:100px;
-    /* background-color: aqua; */
+    min-height: 15%;
+    height:15%;
     border-bottom:1px solid grey;
 }
 main{
+    height: 85%;
     min-width: none;
-    min-height: 600px;
+    min-height: 80%;
     border-bottom:1px solid grey;
     padding-left: 100px;
     padding-right: 100px;
-    background-color: antiquewhite;
 }
 .main_label{
     height:50px;
-    /* background-color: aqua; */
+    width: 77%;
     font-size: 20px;
-    border-bottom: 1px solid grey;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    
+}
+.removeall{
+    width:10%;
+    height: 80%;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    &:hover{
+        color: white;
+        color: white;
+        border-color: blue;
+        background-color: black;
+    }
 }
 footer{
     height: 310px;
-    /* background-color: blue; */
 }
 .cartdiv{
     min-width: 1200px;
-    height: 550px;
-    /* background-color:darkgray; */
+    height: 600px;
     display: flex;
 }
 .cart_product{
-    width: 80%;
-    height: 550px;
-    /* background-color: red; */
+    width: 75%;
+    height: 100%;
     overflow: scroll;
     padding: 0 5%;
+    border-top:1px solid grey ;
+}
+.emptyCart{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.emptySVG{
+    width:8%;
+    height:15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:white;
+    border-radius: 50px;
+    background-color: black;
 }
 .cart_card{
     height:30%;
-    background-color: darkgray;
     display: flex;
+    align-items: center;
     margin: 3% 0;
-    border :1px solid grey
+    border :1px solid grey;
+    border-radius: 10px;
 }
 .card_imgDiv{
-    width:20%;
+    width:15%;
     height: 100%;
-    /* background-color: aliceblue; */
     display: flex;
     justify-content: center;
     align-items: center;
 }
+.card_img{
+    width:80%;
+    height:90%
+}
 .card_namePrice{
-    width:45%;
+    width:50%;
     height:100%;
-    /* background-color: wheat; */
-    border-right: 1px solid grey;
-    border-left:1px solid grey
 }
 .bookname{
     height: 40%;
-    /* background-color: aliceblue; */
     display: flex;
-    /* justify-content: center; */
     align-items: center;
 }
 .bookprice{
     height: 60%;
-    /* background-color: blueviolet; */
     display: flex;
     align-items: center;
 }
 .card_cntPrice{
     width:25%;
-    height:100%;
-    /* background-color: aquamarine; */
+    height:80%;
     border-right: 1px solid grey;
-    border-left:1px solid grey
+    border-left: 1px solid grey;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 .book_totalPrice{
-    height:40%;
-    /* background-color: blueviolet; */
+    height:50%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .book_cntbtn{
-    height: 60%;
-    /* background-color: aquamarine; */
+    width: 40%;
+    height: 20%;
+    border :1px solid black;
+    border-radius: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 
 }
 .plusbtn{
-    height:20%;
+    font-size: 20px;
+    width: 25%;
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    &:hover{
+        color: white;
+        background-color: black;
+    }
+}
+.countvalue{
+    width:50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .minusbtn{
-    height:20%;
+    font-size: 20px;
+    width: 25%;
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    &:hover{
+        color: white;
+        background-color: black;
+    }
 }
 .card_del{
-    width:10%;
+    width:15%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+.carddelete{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.1em 0.36em;
+    color: black;
+      font-size: 1rem;
+      text-transform: uppercase;
+      text-decoration: none;
+    border: 1px solid black;
+    border-radius: 20%;
+    &:hover{
+        color: white;
+        border-color: blue;
+        background-color: black;
+    }
+}
 .pay_div{
-    width:20%;
+    width:25%;
     height:100%;
-    background-color: pink;
     display: flex;
     justify-content: center;
-    /* align-items: center; */
 }
 .borderdiv{
-    width:80%;
+    width:70%;
     height:50%;
     margin-top: 10%;
-    /* background-color: red; */
     border: 1px solid grey;
     border-radius: 5%;
 }
-.totalprice{
+.totalpricediv{
     height:70%;
     border-bottom: 1px solid grey;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background-color: aqua; */
 }
 .pay_btn{
     height:30%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.orderbtn{
+    width:80%;
+    height: 50%;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    &:hover{
+        color: white;
+        background-color: black;
+    }
 }

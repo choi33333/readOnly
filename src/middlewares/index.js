@@ -1,3 +1,6 @@
+const jsonwebtoken = require("jsonwebtoken");
+const secret = "bpD6HJhBWhGFmmnpB9tf"; 
+
 function isAuthentificated(req, res, next) {
   if (req.headers["authorization"] === undefined) {
     res.status(401).json({
@@ -7,12 +10,14 @@ function isAuthentificated(req, res, next) {
     });
   }
 
+  console.log("유저인증 정상작동!")
+
   const token = req.headers["authorization"].slice(7);
+  
 
   const userInfo = jsonwebtoken.verify(token, secret);
-
   res.locals.user = userInfo;
   next();
 }
 
-module.exports = { isAuthentificated };
+module.exports =  isAuthentificated;
