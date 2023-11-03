@@ -2,36 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./order.css" (type="text/css")>
+    <meta name="vewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./order2.css">
+    <link rel="stylesheet" href="../components/header.css">
+    <link rel="stylesheet" href="./select-item.css">
+    <link rel="stylesheet" href="../components/sidebar.css">
     <title>주문페이지</title>
-    <script src="./order.js"></script>
+    <script src="./order2.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
-  <body>
-    <div id="wrapper">
-      <header>
-          <div class="top">
-              <div>
-                  <a href="">로그인</a>
-                  <a href="">회원가입</a>
-                  <a href="">마이페이지</a>
-                  <a href="">장바구니</a>
-              </div>
-          </div>
-          <div class="logo">
-              <div>
-                  <a href="#">
-                      <img src="" alt="로고">
-                  </a>
-              </div>
-          </div>
-          <!-- 검색창 -->
-          <div class="search">
-            <input type="text">
-            <button>검색</button>
-          </div>
-      </header>
+<header>
+  <a href="../mainpage/index.html" class="logo"><h3>Logo</h3></a>
+  <div class="search">
+      <input type="text" placeholder="도서를 찾아보세요!">
+      <button>검색</button>
+  </div>
+  
+  <a href="#register" class="register">회원가입</a>
+  <!-- <p>|</p> -->
+  <a href="log-in" class="log-in">로그인</a>
+</header>
+  <body>  
     <main>
         <div class="menu">
             <h4 id="category">카테고리</h4>
@@ -46,9 +37,8 @@
             <a href="#">자기계발</a>
             <a href="#">정치/사회</a>
         </div>
-
+      <div class="body">
       <h1 class="order">주문/결제</h1>
-      <br />
       <div>
         <div class="orderedMan"><p>주문자</p>
           <input type = "text" name = "name" />
@@ -103,7 +93,7 @@
       <br />
 
       <div class="cardOrcashContainer">
-        <h2 class="cardOrcashTitle">결제수단</h2>
+        <h1 class="cardOrcashTitle">결제수단</h1>
         <div class="cardOrcashBtnGroup">
           <div class="cardOrcashBtn">
             <input type="radio" class="card" name="radio" checked />
@@ -120,6 +110,7 @@
         <button class="purchase" onclick="newPage();">주문하기</button>
         <button class="moveToCart">장바구니로 돌아가기</button>
       </div>
+    </div>
     </main>
   </body>
 </html>
