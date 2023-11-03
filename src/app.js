@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const ejs = require("ejs");
 const app = express();
 
 const authRouter = require("./routes/authRouter");
@@ -33,6 +34,7 @@ app.get("/sign-in", function (req, res) {
 
 // 회원가입 페이지 router 이동
 app.use("/", authRouter);
+
 // 카테고리 만들기 router
 app.use("/", adminCategoryRouter);
 
