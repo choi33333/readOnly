@@ -3,7 +3,8 @@ const { Schema } = require("mongoose");
 const Order = new Schema(
   {
     productId: {
-      ref: "Product",
+      type: Schema.Types.ObjectId,
+      ref: "Products",
     },
     quantity: {
         type: String,
@@ -17,4 +18,4 @@ const Order = new Schema(
   }
 );
 
-module.exports = Category;
+module.exports = Order;
