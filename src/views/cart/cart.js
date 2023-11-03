@@ -1,11 +1,11 @@
-//임시 데이터
+// bookdata ==> setlocalstoregy 를 위한 임시데이터  bookdata2 ==> 가격 변동이 있을때 장바구니 최신화를 위한 임시데이터
 let bookdata = [
     { bookname: '책이름1', author: '도라에몽', price: 3000, count: 1,id:0},
     { bookname: '책이름2', author: '진구', price: 4000, count: 1,id:1},
     { bookname: '책이름3', author: '비실이', price: 2000, count: 1,id:2},
 ]
 let bookdata2 = [
-    { bookname: '책이름1', author: '도라에몽', price: 5000, count: 1,id:0},
+    { bookname: '책이름1', author: '도라에몽', price: 10000, count: 1,id:0},
     { bookname: '책이름2', author: '진구', price: 4000, count: 1,id:1},
     { bookname: '책이름3', author: '비실이', price: 2000, count: 1,id:2},
 ]
