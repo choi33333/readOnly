@@ -5,7 +5,7 @@ const router = Router();
 
 
 // 카테고리 조회
-router.get('/api/cartegories', async(req, res) => {
+router.get('/api/admin/cartegories', async(req, res) => {
   const categories = await Category.find({});
   res.json(categories);
 })
