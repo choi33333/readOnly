@@ -13,10 +13,16 @@
             <div class="logo"></div>
             <div class="search"></div>
             <div class="link"></div>
-
+            <button class="setlocal">localstoregy초기화</button>
+            <button class="addbook">장바구니 담기</button>
+            <!-- <button class="removeall">전체삭제</button> -->
+            <button class="test">chagepricetest</button>
         </header>
         <main>
-            <div class="main_label">장바구니</div>
+            <div class="main_label">
+                <h4>장바구니</h4>
+                <a class="removeall">장바구니 비우기</a>
+            </div>
             <div class="cartdiv">
                 <div class="cart_product">
                     
@@ -45,22 +51,19 @@
                 </div>
                 <div class="pay_div">
                     <div class="borderdiv">
-                        <div class="totalprice">
-                            결제 예정 금액:0원
+                        <div class="totalpricediv">
+                            <h3>결제 예정 금액</h3>
+                            <h3 class="totalprice">6000원</h5>
                         </div>
                         <div class="pay_btn">
-                            <button>주문하기</button>
+                            <a class="orderbtn">주문하기</a>
                         </div>
                     </div>
                 </div>
             </div>
         </main>
-        <footer>
-            <button class="setlocal">localstoregy초기화</button>
-            <button class="addbook">장바구니 담기</button>
-            <button class="removeall">전체삭제</button>
-            <button class="test">test</button>
-        </footer>
+        <!-- <footer>
+        </footer> -->
     </div>
     <script src="cart.js"></script>
 </body>
