@@ -33,6 +33,7 @@ app.get("/", function (req, res) {
 
 // 회원가입 페이지 router 이동
 app.use("/", authRouter);
+
 // 카테고리 만들기 router
 app.use("/", adminCategoryRouter);
 
