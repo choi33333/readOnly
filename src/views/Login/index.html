@@ -8,32 +8,44 @@
   <link rel="stylesheet" href="login.css">
 </head>
 <body>
-  <form>
-    <div class="whetherMember">
-      <a href="index.html"><p class="member">회원 로그인</p></a>
-      <a href="nonmemberLogin.html"><p class="nonMember">비회원 주문 조회</p></a>
-    </div>
-    <div class="loginInput">
-      <input type="text" placeholder="이메일" id="email">
-      <input type="password" placeholder="비밀번호" id="password">
-      <div class="check">
-        <div>
-          <input type="checkbox">
-          <p>이메일 저장</p>
-        </div>
-        <!-- <div>
-          <input type="checkbox">
-          <p>로그인 상태 유지</p>
-        </div> -->
+  <header>
+    <a href="../mainpage/index.html"><h1>Logo</h1></a>
+  </header>
+  <main>
+    <form>
+      <div class="whetherMember">
+        <a href="index.html"><p class="member">회원 로그인</p></a>
+        <a href="nonmemberLogin.html"><p class="nonMember">비회원 주문 조회</p></a>
       </div>
-    </div>
-    <button id="loginBtn">로그인</button>
-    <div class="find">
-      <!-- <p><a href="">아이디찾기</a> / <a href="">비밀번호 찾기</a></p> -->
-      <p><a href="../Join/index.html">회원가입</a></p>
-    </div>
-  </form>
+      <div class="loginInput">
+        <div id="loginAlarm" class="alarmoff"></div>
+        <input type="text" placeholder="이메일" id="email">
+        <div id="emailAlarm" class="alarmoff"></div>
+        <input type="password" placeholder="비밀번호" id="password">
+        <div id="passwordAlarm" class="alarmoff"></div>
+        <!-- <div class="check"> -->
+          <!-- <div>
+            <input type="checkbox">
+            <p>이메일 저장</p>
+          </div> -->
+          <!-- <div>
+            <input type="checkbox">
+            <p>로그인 상태 유지</p>
+          </div> -->
+        <!-- </div> -->
+      </div>
+      <button id="loginBtn">로그인</button>
+      <div class="find">
+        <!-- <p><a href="">아이디찾기</a> / <a href="">비밀번호 찾기</a></p> -->
+        <p><a href="../Join/index.html">회원가입</a></p>
+      </div>
+    </form>
+  </main>
+  <footer>
 
+  </footer>
+
+  <script src="../config/url_path.js"></script>
   <script src="login.js"></script>
 </body>
 </html>
