@@ -9,23 +9,36 @@ const postalCode = document.getElementById('postalCode');
 const addressBtn = document.getElementById('addressBtn');
 const joinBtn = document.getElementById('joinBtn');
 
-
-//모든 값이 입력 되었을 때 백엔드로 입력값 보내기(아직은 console만)
+//모든 값이 입력 되었을 때 백엔드로 입력값 보내기
 joinBtn.addEventListener('click', () => {
   const checkValue = inputCheck();
   if(checkValue === 0){
-    console.log(
-      `
-      email: ${email.value}
-      password: ${password.value}
-      username: ${username.value}
-      phoneNumber: ${phoneNumber.value}
-      address: ${address.value}
-      addressDetail: ${addressDetail.value}
-      `
-    )
 
-    location.href = './joinSuccess.html';
+    const data = {
+      email: email.value,
+      password: password.value,
+      username: username.value,
+      phoneNumber: phoneNumber.value,
+      address: address.value,
+      addressDetail: addressDetail.value,
+    }
+
+    fetch(URL_PATH.BACK_URL + '/api/auth/sign-up',{
+      method: 'POST',
+      headers:{
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data)
+    })
+    .then(async (response) => {
+      console.log('response: ', await response.json());
+      if(response.status === 409){
+        location.href = './joinOverlap.html';
+      }else if(response.status === 201){
+        location.href = './joinSuccess.html';
+      }
+    })
+    .catch((error) => console.log('error: ', error));
   }
 });
 
@@ -100,7 +113,7 @@ const inputCheck = () => {
 }
 
 
-//이메일
+//이메일 입력을 안했거나 형식이 올바르지 않을 때
 email.oninput = (e) => {
   const emailController = document.getElementById('emailAlarm');
   emailController.className='alarmoff';
@@ -125,7 +138,7 @@ const emailCheck = (email) => {
 }
 
 
-//비밀번호
+//비밀번호 입력을 안했거나 형식이 올바르지 않을 때
 password.oninput = () => {
   const passwordController = document.getElementById('passwordAlarm');
   passwordController.className='alarmoff';
@@ -150,7 +163,7 @@ const passwordCheck = (password) => {
 }
 
 
-//비밀번호 확인
+//비밀번호 확인 입력을 안했거나 형식이 올바르지 않을 때
 repassword.oninput = () => {
   const repasswordController = document.getElementById('repasswordAlarm');
   repasswordController.className='alarmoff';
@@ -165,7 +178,7 @@ repassword.oninput = () => {
 }
 
 
-//이름
+//이름 입력을 안했을 때
 username.oninput = () => {
   const usernameController = document.getElementById('usernameAlarm');
   usernameController.className='alarmoff';
@@ -177,7 +190,7 @@ username.oninput = () => {
 }
 
 
-//전화번호
+//전화번호 입력을 안했거나 형식이 올바르지 않을 때
 phoneNumber.oninput = (e) => {
   oninputPhone(e.target);
 
