@@ -1,0 +1,36 @@
+.top{
+    text-align: right;
+}
+.search{
+    text-align: center;
+}
+#search{
+    border: solid 1px gray; 
+    padding: 20px;
+}
+.category{
+    padding: 30px;
+    margin: 20px;
+    width: 100px;
+    height: 100%;
+    overflow: auto;
+    position: fixed;
+    text-decoration: none;
+    display: block;
+    font-weight: bold;
+    font-size: 20px;
+    list-style: none;
+}
+#backbody{
+    margin-left: 200px;
+}
+#productInfo{
+    width: 100%;
+    border: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-top: 2px solid #000;
+}
+#productInfo tr{
+    border-bottom: 1px solid #d3d3d3;
+}
