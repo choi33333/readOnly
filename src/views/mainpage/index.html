@@ -4,37 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MainPage</title>
-    <link rel="stylesheet" href="./mainpage.css"></header>
+    <link rel="stylesheet" href="mainpage.css">
     <link rel="stylesheet" href="../components/footer.css">
 </head>
-<header>
-
-    <!-- <script>
-        fetch("/components/header.html")
-        .then(response => {
-            return response.text()
-        })
-        .then(data => {
-            document.querySelector("header").innerHTML = data
-        });
-    </script> -->
-
-    <a href="#mainpage" class="logo"><h3>Logo</h3></a>
-    <div class="search">
-        <input type="text" placeholder="도서를 찾아보세요!">
-        <button>검색</button>
-    </div>
-    
-    <a href="#register" class="register">회원가입</a>
-    
-    <a href="log-in" class="log-in">로그인</a> 
-</header>
 
 <body>
+    <header>
+        <!-- 아래 script태그 주석은 html inlcude 시도했던 코드입니다 -->
+        <!-- <script>
+            fetch("/components/header.html")
+            .then(response => {
+                return response.text()
+            })
+            .then(data => {
+                document.querySelector("header").innerHTML = data
+            });
+        </script> -->
+    
+        <a href="#mainpage" class="logo"><h3>Logo</h3></a>
+        <div class="search">
+            <input type="text" placeholder="도서를 찾아보세요!">
+            <button>검색</button>
+        </div>
+        
+        <a href="../Join/index.html" class="register">회원가입</a>
+        
+        <a href="../Login/index.html" class="log-in">로그인</a> 
+    </header>
+
     <div class="category">
         <h4>카테고리</h4>
         <ul>
-            <a href="/backend/src/views/category/index.html"><li>소설</li></a>
+            <a href="../category/index.html"><li>소설</li></a>
             <a href=""><li>시/에세이</li></a>
             <a href=""><li>인문</li></a>
             <a href=""><li>가정/육아</li></a>
@@ -84,12 +85,14 @@
             </div>
     </div>
     
+    <footer>
+        <h4>Logo</h4>
+        <h5>회사명 : 000    대표자 : 000</h5>
+        <h5>대표 이메일 : test@elice.com</h5>
+        <h5>주소 : 서울특별시 성동구 성수2가 제3동 광나루로6길 49 성수낙낙</h5>
+        <h5>Copyright ⓒ 2023 000</h5>
+    </footer>
+    
 </body>
-<footer>
-    <h4>Logo</h4>
-    <h5>회사명 : 000    대표자 : 000</h5>
-    <h5>대표 이메일 : test@elice.come</h5>
-    <h5>주소 : 서울특별시 성동구 성수2가 제3동 광나루로6길 49 성수낙낙</h5>
-    <h5>Copyright ⓒ 2023 000</h5>
-</footer>
+
 </html>
