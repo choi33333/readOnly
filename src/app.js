@@ -3,12 +3,13 @@ const mongoose = require("mongoose");
 const ejs = require("ejs");
 const path = require('path');
 const app = express();
-const isAuthentificated = require("./middlewares/index");
 
 const authRouter = require("./routes/authRouter");
 const adminCategoryRouter = require("./routes/adminCategoryRouter");
 const adminProductRouter = require("./routes/adminProductRouter");
 const productRouter = require('./routes/productRouter');
+const orderRouter = require('./routes/orderRouter');
+const isAuthentificated = require('./middlewares/index');
 
 
 mongoose
@@ -35,16 +36,32 @@ app.get("/", function (req, res) {
 // 회원가입 페이지 router 이동
 app.use("/", authRouter);
 
-// 카테고리 만들기 router
-app.use("/", adminCategoryRouter);
-
-// admin 상품등록
-app.use("/", adminProductRouter);
-
-// 상품 조회
+//상품
 app.use('/', productRouter);
+
+//주문
+app.use('/', orderRouter);
+
+
+// ADMIN
+
+// 카테고리 만들기 router
+app.use("/", isAuthentificated, adminCategoryRouter);
+
+// admin 상품
+app.use("/", isAuthentificated, adminProductRouter);
+
+// 해당되는 URL이 없을 때를 대비한 미들웨어
+app.use((req, res, next) => {
+
+  const error = new Error("Resource not found");
+  error.statusCode = 404;
+  next(error);
+
+});
 
 // 서버 띄울때 포트 정보 셋팅 및 처음 실행 시 필요한 기능 수행 가능
 app.listen(3000, function () {
   console.log("server running");
 });
+

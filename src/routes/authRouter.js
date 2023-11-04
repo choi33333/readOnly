@@ -21,7 +21,7 @@ router.post("/api/auth/sign-in", async (req, res, next) => {
   let isValidUser = await bcrypt.compare(password, user.password);
 
   if (!isValidUser) {
-    return res.status(401).json({ error: "이메일이나 비밀번호가 올바르지 않습니다."});
+    return res.status(401).json({ error: "이메일이나 비밀번호가 올바르지 않습니다." });
   }
 
   const token = jsonwebtoken.sign(
@@ -61,7 +61,6 @@ router.post("/api/auth/sign-up", async (req, res) => {
     addressDetail: addressDetail,
   });
 
-  res.status(201).json({ message: "회원가입이 완료 되었습니다." });
 });
 
 module.exports = router;
