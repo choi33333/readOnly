@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="vewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./order2.css">
+    <link rel="stylesheet" href="../components/header.css">
+    <link rel="stylesheet" href="./select-item.css">
+    <link rel="stylesheet" href="../components/sidebar.css">
+    <title>주문페이지</title>
+    <script src="./order2.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+</head>
+<header>
+  <a href="../mainpage/index.html" class="logo"><h3>Logo</h3></a>
+  <div class="search">
+      <input type="text" placeholder="도서를 찾아보세요!">
+      <button>검색</button>
+  </div>
+  
+  <a href="#register" class="register">회원가입</a>
+  <!-- <p>|</p> -->
+  <a href="log-in" class="log-in">로그인</a>
+</header>
+  <body>  
+    <main>
+        <div class="menu">
+            <h4 id="category">카테고리</h4>
+            <a href="#">소설</a>
+            <a href="#">시/에세이</a>
+            <a href="#">인문</a>
+            <a href="#">가정/육아</a>
+            <a href="#">요리</a>
+            <a href="#">건강</a>
+            <a href="#">취미/실용</a>
+            <a href="#">경제/경영</a>
+            <a href="#">자기계발</a>
+            <a href="#">정치/사회</a>
+        </div>
+      <div class="body">
+      <h1 class="order">주문/결제</h1>
+      <div>
+        <div class="orderedMan"><p>주문자</p>
+          <input type = "text" name = "name" />
+        </div>
+      </div>
+      <br />
+      <div class="orderedInfoContainer">
+        <div class="orderedAdress">
+          <p class="orderedAdressTitle">배송지</p>
+          <p>
+            <input type="text" id="zip-code" placeholder="우편번호">
+            <input type="button" onclick="execDaumPostcode()" value="우편번호 찾기">
+          <p>
+          </p>
+            <input type="text" id="address-1" placeholder="도로명주소" style="width: 500px">
+          <p>
+          </p>
+            <input type="text" id="address-2" placeholder="상세주소" style="width: 500px">
+          </p>
+        </div>
+        <br />
+        <div class="deliveryMsgContainer">
+          <p class="deliveryMsgTitle">배송메세지</p>
+          <select class="deliveryMsg">
+            <option name="msg">배송메세지를 선택하세요.</option>
+            <option name="msg">도착전 전화해주세요.</option>
+            <option name="msg">부재시 문자남겨주세요.</option>
+            <option name="msg">경비실에 맡겨주세요.</option>
+          </select>
+        </div>
+      </div>
+      <br />
+
+      <div class="couponContainer">
+        <p class="couponTitle">쿠폰</p>
+        <select class="couponSelect">
+          <option class="initOption" id="none" value="0">
+            쿠폰을 선택하세요.
+          </option>
+        </select>
+      </div>
+
+      <div class="productContainer">
+        <p class="productTitle">주문상품</p>
+      </div>
+
+      <div class="totalPriceContainer">
+        <p class="priceTitle">결제금액</p>
+        <p class="totalPrice"></p>
+      </div>
+
+      <br />
+
+      <div class="cardOrcashContainer">
+        <h1 class="cardOrcashTitle">결제수단</h1>
+        <div class="cardOrcashBtnGroup">
+          <div class="cardOrcashBtn">
+            <input type="radio" class="card" name="radio" checked />
+            <label>카드결제</label>
+          </div>
+          <div class="cardOrcashBtn">
+            <input type="radio" class="cash" name="radio" />
+            <label>무통장입금</label>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="btnGroup">
+        <button class="purchase" onclick="newPage();">주문하기</button>
+        <button class="moveToCart">장바구니로 돌아가기</button>
+      </div>
+    </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./ordercheck.css" (type="text/css")>
+    <title>주문조회페이지</title>
+    <script src="./ordercheck.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <div class="top">
+                <div>
+                    <a href="">로그인</a>
+                    <a href="">회원가입</a>
+                    <a href="">마이페이지</a>
+                    <a href="">장바구니</a>
+                </div>
+            </div>
+            <div class="logo">
+                <div>
+                    <a href="#">
+                        <img src="" alt="로고">
+                    </a>
+                </div>
+            </div>
+            <!-- 검색창 -->
+            <div class="search">
+                <form action="#">
+                    <input type="text" name="search">
+                    <button>검색
+                    </button>
+                </form>
+            </div>
+        </header>
+        <aside>
+            <ul class="category">
+                    카테고리
+                    <li>
+                    <a href="#">
+                        <i></i>사용자 정보 수정
+                        </i>
+                    </a>
+                    
+                </li>
+                <li>
+                    <a href="#">
+                        <i></i>주문내역/배송조회
+                        </i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i></i>취소내역
+                        </i>
+                    </a>
+                    
+                </li>
+                
+            </ul>
+        </aside>
+    <div id="backbody">
+        <div id="frame">
+        <form>
+                    <div id="frame2">
+                        <span style="font-size: 16pt; font-weight: bold;">주문조회</span>
+                        <span> </span>
+            </div> 
+            <br/> 
+            <br/>
+            <div id="search">
+                    <select style="padding: 5px;">
+                        <option>전체 주문처리상태</option>
+                        <option>입금전</option>
+                        <option>배송준비중</option>
+                        <option>배송중</option>
+                        <option>배송완료</option>
+                        <option>취소</option>
+                    </select>&nbsp;
+                    <input type="date" style="padding: 3px;" />~<input type="date" style="padding: 3px;" />&nbsp;
+                    <span style="border: solid 1px gray; font-size: 12pt; font-weight: bold; background-color: #6699ff;"></span>
+                    <button class="btn">조회</button>
+                </div>
+                
+                <ol style="padding: 10px 20px; font-size: 10pt; color:gray">
+                    <li>기간 검색시 지난 주문내역을 조회하실 수 있습니다.</li>
+                    <li>주문번호를 클릭하시면 해당 주문에 대한 상세내역을 확인하실 수 있습니다.</li>
+                </ol>
+            </div>
+
+            <table id="productInfo"> 
+                <thead> 
+                    <tr>
+                        <th>주문일자[주문번호]</th>
+                        <th style="width: 300px;">상품명</th>
+                        <th style="width: 300px;">상품금액</th>
+                        <th style="width: 300px;">수량</th>
+                        <th style="width: 300px;">주문처리상태</th>
+                        <th style="width: 300px;">배송조회</th>
+                        <th>취소</th>
+                    </tr> 
+                </thead>
+                
+                <tbody>
+                    <tr>
+                        
+                    </tr>
+                </tbody>
+            </table>
+        
+            <div align="center">
+                <span style=" display:inline-block; padding-top: 30px;">주문 내역이 없습니다.</span>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
