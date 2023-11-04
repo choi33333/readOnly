@@ -59,6 +59,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 50px;
 }
 
 form {
@@ -81,18 +82,19 @@ a {
 .whetherMember > a > p {
   width: 150px;
   height: 40px;
-  background-color: rgb(214, 214, 214);
+  background-color: #F5F5F5;
   border: 1px solid black;
-  border-radius: 3px;
+  border-radius: 0;
   text-align: center;
   line-height: 40px;
   color: black;
 }
 
-.whetherMember > :first-child > p {
+.whetherMember > :last-child > p {
   background-color: white;
   border: 1px solid black;
-  border-radius: 3px;
+  border-left: 0;
+  border-bottom: 0;
 }
 
 .loginInput {
@@ -104,6 +106,8 @@ a {
 .loginInput > input {
   width: 300px;
   height: 40px;
+  border: 1px solid black;
+  border-radius: 10px;
 }
 
 .check {
@@ -121,14 +125,14 @@ a {
 
 .loginBtn {
   width: 300px;
-  height: 50px;
+  height: 55px;
   border: 1px solid black;
-  border-radius: 3px;
+  border-radius: 10px;
 }
 
 .find {
   display: flex;
-  gap: 40px;
+  gap: 230px
 }
 
 .find > p > a {
