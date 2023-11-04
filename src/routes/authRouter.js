@@ -32,7 +32,7 @@ router.post("/api/auth/sign-in", async (req, res, next) => {
     { expiresIn: "1h" }
   );
 
-  res.status(200).json({ message: "로그인에 성공했습니다"});
+  res.status(201).json({ message: "로그인에 성공했습니다"});
 });
 
 // sign-up
@@ -56,6 +56,8 @@ router.post("/api/auth/sign-up", async (req, res) => {
     address: address,
     addressDetail: addressDetail,
   });
+
+  res.status(201).json({ message: "회원가입에 성공했습니다"});
 
 });
 
