@@ -10,7 +10,6 @@ const secret = "bpD6HJhBWhGFmmnpB9tf";
 
 router.post("/api/auth/sign-in", async (req, res, next) => {
   const { email, password } = req.body;
-  console.log(req.body);
 
   const user = await User.findOne({ email });
 
