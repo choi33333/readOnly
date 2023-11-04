@@ -11,13 +11,12 @@ const productRouter = require('./routes/productRouter');
 const orderRouter = require('./routes/orderRouter');
 const isAuthenticated = require('./middlewares/index');
 
-const cookieParser = require('cookie-parser');
-app.use(cookieParser());
-
+require("dotenv").config();
+const mongodbUrI = process.env.MONGODB;
 
 mongoose
   .connect(
-    "mongodb+srv://WebProjectDB:45654654@alicewebprojectteam8.pqahg4p.mongodb.net/WebPro8"
+    mongodbUrI
   )
   .then(() => console.log("connected"))
   .catch(() => console.log("failed"));

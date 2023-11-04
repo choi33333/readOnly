@@ -1,12 +1,12 @@
 const { Schema } = require("mongoose");
 
-const Product = new Schema({
-    productName: {
+const product = new Schema({
+    name: {
         type: String,
         required: true,
     },
     category: {
-        type: String,
+        type: Schema.Types.ObjectId,
         required: true,
     },
     author: {
@@ -14,10 +14,10 @@ const Product = new Schema({
         required: true,
     },
     price: {
-        type: String,
+        type: Number,
         required: true,
     },
-    image: {
+    imageUrl: {
         type: String,
         required: true,
     },
@@ -25,11 +25,11 @@ const Product = new Schema({
         type: String,
     },
     releasedDate: {
-        type: String,
+        type: Date,
         required: true,
     },
     soldAmount: {
-        type: String,
+        type: Number,
         required: true,
     },
 },{
@@ -38,4 +38,4 @@ const Product = new Schema({
     versionKey: false,
 });
 
-module.exports = Product;
+module.exports = product;

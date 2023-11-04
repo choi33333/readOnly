@@ -7,7 +7,7 @@ const router = Router();
 router.get('/products', async(req, res) => {
     const { productId } = req.body;
 
-    const products = await Product.find({});
+    const products = await Product.find({}).lean();
     
     res.json(products);
 

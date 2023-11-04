@@ -1,35 +1,36 @@
 const { Router } = require("express");
-const { User } = require("../models/index"); // user model
+const { user } = require("../models/"); // user model
 const router = Router();
 const jsonwebtoken = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
-const secret = "bpD6HJhBWhGFmmnpB9tf"; 
+require("dotenv").config();
+const secret = process.env.SECRET;
 
 // sign-in
 
 router.post("/api/auth/sign-in", async (req, res, next) => {
   const { email, password } = req.body;
 
-  const user = await User.findOne({ email });
+  const users = await user.findOne({ email }).lean();
 
-  if (!user) {
-    return res
-      .status(401)
-      .json({ error: "이메일이나 비밀번호가 올바르지 않습니다." });
+  if (!users) {
+    const error = new Error("이메일이나 비밀번호가 올바르지 않습니다.");
+    error.status = 401;
+    return next(error);
   }
 
-  let isValidUser = await bcrypt.compare(password, user.password);
+  let isValidUser = await bcrypt.compare(password, users.password);
 
   if (!isValidUser) {
-    return res
-      .status(401)
-      .json({ error: "이메일이나 비밀번호가 올바르지 않습니다." });
+    const error = new Error("이메일이나 비밀번호가 올바르지 않습니다.");
+    error.status = 401;
+    return next(error);
   }
 
   const token = jsonwebtoken.sign(
     {
-      em: user.email,
+      em: users.email,
     },
     secret,
     { expiresIn: "1h" }
@@ -39,23 +40,26 @@ router.post("/api/auth/sign-in", async (req, res, next) => {
     data: token,
     message: "로그인에 성공했습니다",
   });
-
 });
 
 // sign-up
 
-router.post("/api/auth/sign-up", async (req, res) => {
-  const { email, password, username, phoneNumber, address, addressDetail } = req.body;
+router.post("/api/auth/sign-up", async (req, res, next) => {
+  const { email, password, username, phoneNumber, address, addressDetail } =
+    req.body;
 
-  let user = await User.findOne({ email });
 
-  if (user) {
-    return res.status(409).json({ error: "이미 가입된 email 입니다." });
+  let users = await user.findOne({ email }).lean();
+
+  if (users) {
+    const error = new Error("이미 가입된 email 입니다.");
+    error.status = 409;
+    return next(error);
   }
 
   const hashedPassword = await bcrypt.hash(password, 12);
 
-  user = await User.create({
+  users = await user.create({
     email: email,
     password: hashedPassword,
     username: username,
@@ -64,8 +68,7 @@ router.post("/api/auth/sign-up", async (req, res) => {
     addressDetail: addressDetail,
   });
 
-  res.status(201).json({ message: "회원가입에 성공했습니다"});
-
+  res.status(201).json({ message: "회원가입에 성공했습니다" });
 });
 
 module.exports = router;

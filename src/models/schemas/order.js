@@ -1,32 +1,28 @@
 const { Schema } = require("mongoose");
 
-const Order = new Schema(
+const order = new Schema(
   {
-    orderId: {
-      type: Schema.Types.ObjectId,
-      ref: "order",
-    },
     orderNumber: {
       type: String,
       required: true,
     },
-    orderUserId: {
+    orderedBy: {
       type: String,
       required: true,
     },
-    orderUserAddress: {
+    address: {
       type: String,
       required: true,
     },
-    orderUserPhoneNumber: {
+    phoneNumber: {
       type: String,
       required: true,
     },
-    orderProcces: {
+    orderStatus: {
       type: String,
       required: true,
     },
-    orderList: {
+    products: {
       type: String,
       required: true,
     },
@@ -38,4 +34,4 @@ const Order = new Schema(
   }
 );
 
-module.exports = Order;
+module.exports = order;

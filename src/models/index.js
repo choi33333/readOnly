@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
-const User = require('./schemas/user');
-const Category = require('./schemas/category');
-const Product = require('./schemas/product');
-const Order = require('./schemas/order');
+const user = require('./schemas/user');
+const category = require('./schemas/category');
+const product = require('./schemas/product');
+const order = require('./schemas/order');
 
-exports.User = mongoose.model('User', User);
-exports.Category = mongoose.model('Category', Category);
-exports.Product = mongoose.model('Product', Product);
-exports.Order = mongoose.model('Order', Order);
+module.exports.user = mongoose.model('user', user);
+module.exports.category = mongoose.model('category', category);
+module.exports.product = mongoose.model('product', product);
+module.exports.order = mongoose.model('order', order);
