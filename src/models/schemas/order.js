@@ -2,14 +2,34 @@ const { Schema } = require("mongoose");
 
 const Order = new Schema(
   {
-    productId: {
+    orderId: {
       type: Schema.Types.ObjectId,
-      ref: "Products",
+      ref: "order",
     },
-    quantity: {
-        type: String,
-        required: true,
-    }
+    orderNumber: {
+      type: String,
+      required: true,
+    },
+    orderUserId: {
+      type: String,
+      required: true,
+    },
+    orderUserAddress: {
+      type: String,
+      required: true,
+    },
+    orderUserPhoneNumber: {
+      type: String,
+      required: true,
+    },
+    orderProcces: {
+      type: String,
+      required: true,
+    },
+    orderList: {
+      type: String,
+      required: true,
+    },
   },
   {
     timestamps: true,

@@ -2,8 +2,32 @@ const { Router } = require("express");
 const { Order } = require("../models/index"); 
 const router = Router();
 
+// 주문하기
+router.post('/api/orders', async(req, res) => {
+    const { orderUserId, orderUserAddress,orderUserPhoneNumber ,orderList } = req.query;
+
+    // 서버연결없이도 겹치지않는 번호만들기
+    const orderNumber = 3;
+
+    const order = await Category.create({
+        orderNumber: orderNumber,
+        orderUserId: orderUserId,
+        orderUserAddress: orderUserAddress,
+        orderUserPhoneNumber: orderUserPhoneNumber,
+        orderProcces: "배송준비중",
+        orderList: orderList,
+      });
+      
+    res.json({
+        error: null,
+        data: order
+    });
+  });
+
 // 전체 주문 조회 (해당유저의 주문기록만 가져오려면... 어쩌죠?)
 router.get('/api/orders', async(req, res) => {
+
+
     const orders = await Order.find({});
 
     if(orders == 0){
@@ -14,7 +38,7 @@ router.get('/api/orders', async(req, res) => {
         error: null,
         data: orders
     });
-  })
+  });
 
 // 특정 주문 조회
 router.get('/api/orders/:id', async(req, res) => {

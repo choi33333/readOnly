@@ -17,7 +17,6 @@ router.get("/api/admin/cartegories", async (req, res) => {
 // 카테고리 만들기
 router.post("/api/admin/cartegories", async (req, res) => {
   const { name } = req.body;
-  console.log(name)
   
   let category = await Category.findOne({ name });
 
@@ -28,6 +27,8 @@ router.post("/api/admin/cartegories", async (req, res) => {
   category = await Category.create({
     name: name,
   });
+
+  res.status(201).json({ message: category.name + "카테고리 생성을 완료했습니다."});
 });
 
 // 카테고리 삭제
