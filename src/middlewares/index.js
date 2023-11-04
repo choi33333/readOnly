@@ -12,10 +12,7 @@ function isAuthentificated(req, res, next) {
     });
   }
 
-  console.log("유저인증 정상작동!")
-
   const token = req.headers["authorization"].slice(7);
-  
 
   const userInfo = jsonwebtoken.verify(token, secret);
   res.locals.user = userInfo;
