@@ -57,7 +57,7 @@ body {
   margin: 200px;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 100px;
 }
 
 h1 {

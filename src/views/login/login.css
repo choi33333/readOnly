@@ -82,18 +82,19 @@ a {
 .whetherMember > a > p {
   width: 150px;
   height: 40px;
-  background-color: rgb(214, 214, 214);
+  background-color: #F5F5F5;
   border: 1px solid black;
-  border-radius: 3px;
+  border-radius: 0;
   text-align: center;
   line-height: 40px;
   color: black;
 }
 
-.whetherMember > :last-child > p {
+.whetherMember > :first-child > p {
   background-color: white;
   border: 1px solid black;
-  border-radius: 3px;
+  border-bottom: 0;
+  border-right: 0;
 }
 
 .loginInput {
@@ -105,6 +106,8 @@ a {
 .loginInput > input {
   width: 300px;
   height: 40px;
+  border: 1px solid black;
+  border-radius: 10px;
 }
 
 .check {
@@ -122,19 +125,19 @@ a {
 
 #loginBtn {
   width: 300px;
-  height: 50px;
+  height: 55px;
   border: 1px solid black;
-  border-radius: 3px;
+  border-radius: 10px;
 }
 
 .find {
   display: flex;
-  gap: 80px;
+  gap: 230px
 }
 
 .find > p > a {
   color: black;
-  font-size: small;
+  font-size: small;      
   text-decoration: none;
 }
 
