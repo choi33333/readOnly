@@ -32,7 +32,7 @@ router.post("/api/auth/sign-in", async (req, res, next) => {
     { expiresIn: "1h" }
   );
 
-  res.status(401).json({ message: "로그인에 성공했습니다"});
+  res.status(200).json({ message: "로그인에 성공했습니다"});
 });
 
 // sign-up
