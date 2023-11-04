@@ -1,9 +1,8 @@
+require('dotenv').config();
 const jsonwebtoken = require("jsonwebtoken");
-const secret = "bpD6HJhBWhGFmmnpB9tf"; 
+const secret = process.env.SECRET;
 
-function isAuthentificated(req, res, next) {
-  console.log(req.headers["authorization"])
-
+function isAuthenticated(req, res, next) {
   if (req.headers["authorization"] === undefined) {
     return res.status(401).json({
       error:
@@ -19,4 +18,4 @@ function isAuthentificated(req, res, next) {
   next();
 }
 
-module.exports =  isAuthentificated;
+module.exports =  isAuthenticated;
