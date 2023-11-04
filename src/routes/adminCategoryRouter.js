@@ -1,7 +1,7 @@
 const { Router } = require("express");
-const { Category } = require("../models/index"); 
+const { Category } = require("../models/index");
+
 const router = Router();
-const isAuthentificated = require("../middlewares/index")
 
 
 // 카테고리 조회

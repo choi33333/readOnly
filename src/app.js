@@ -11,6 +11,9 @@ const productRouter = require('./routes/productRouter');
 const orderRouter = require('./routes/orderRouter');
 const isAuthentificated = require('./middlewares/index');
 
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
+
 
 mongoose
   .connect(
@@ -29,7 +32,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '/views')));
 
 // 페이지 로딩 함수
-app.get("/", function (req, res) {
+app.get("/api/auth/sign-in", function (req, res) {
   res.render("./mainpage/index.html"); // views 폴더 밑에 있는 파일을 참조함
 });
 
@@ -46,10 +49,10 @@ app.use('/', orderRouter);
 // ADMIN
 
 // 카테고리 만들기 router
-app.use("/", isAuthentificated, adminCategoryRouter);
+app.use("/",  isAuthentificated, adminCategoryRouter);
 
 // admin 상품
-app.use("/", isAuthentificated, adminProductRouter);
+app.use("/", adminProductRouter);
 
 // 해당되는 URL이 없을 때를 대비한 미들웨어
 app.use((req, res, next) => {
