@@ -2,6 +2,7 @@ const { Router } = require("express");
 const { product } = require("../models/"); 
 const { productType } = require("../models/"); 
 const { category } = require("../models/");
+const user = require("../models/schemas/user");
 
 const router = Router();
 
@@ -17,11 +18,11 @@ router.get('/api/products', async(req, res, next) => {
 router.post('/api/admin/products', async(req, res, next) => {
     const { name, categories, author, price, imageUrl, productInfo, releasedDate } = req.body;
 
-    const categoryId = category.find({ categories }).lean();
+    const categoryId = category.find({ categories }).populate('id');
 
    const products = await productType.create({
         name: name, 
-        category: categoryName.id, 
+        category: categoryId, 
         author: author, 
         price: price,  
         imageUrl: imageUrl, 

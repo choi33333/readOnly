@@ -5,6 +5,7 @@ const router = Router();
 // 주문하기
 // orderedBy에 고객이 입력한 이름? or user.id? - 협의필요
 router.post("/api/orders", async (req, res) => {
+  //토큰 -> 헤더 -> 페이지마다 해당 유저 이메일 판단/ 해당유저 이름, 전화번호, 주소 send
   const { orderedBy, address, phoneNumber, products } = req.body;
 
   // 서버연결없이도 겹치지않는 번호만들기 - 수정중
