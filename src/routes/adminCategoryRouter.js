@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { category } = require("../models/index");
+const { category } = require("../models/");
 
 const router = Router();
 
@@ -13,7 +13,7 @@ router.get("/api/admin/cartegories", async (req, res) => {
 
 // 카테고리 만들기
 router.post("/api/admin/cartegories/:name", async (req, res) => {
-  const { name } = req.params.name;
+  const { name } = req.params;
 
   if(String.IsNullOrEmpty(name)){
     const error = new Error("카테고리를 입력해주세요.");
@@ -39,8 +39,8 @@ router.post("/api/admin/cartegories/:name", async (req, res) => {
 });
 
 // 카테고리 삭제
-router.delete("/api/admin/cartegories", async (req, res) => {
-  const { name } = req.body;
+router.delete("/api/admin/cartegories/:name", async (req, res) => {
+  const { name } = req.params.name;
 
   const categories = await category.deleteOne({ name });
 

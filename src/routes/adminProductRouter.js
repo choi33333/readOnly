@@ -1,34 +1,38 @@
 const { Router } = require("express");
-const { product } = require("../models/"); // user model
+const { product } = require("../models/"); 
+const { productType } = require("../models/"); 
+const { category } = require("../models/");
 
 const router = Router();
 
 
 // 상품 조회
 router.get('/api/products', async(req, res, next) => {
-    const { products } = product.find({}).lean();
+    const { products } = productType.find({}).lean();
 
     res.json(products);
 })
 
 // 상품 등록)
-router.post('/api/products', async(req, res, next) => {
-    const { productName, category, author, price, image, productInfo, releasedDate } = req.body;
+router.post('/api/admin/products', async(req, res, next) => {
+    const { name, categories, author, price, imageUrl, productInfo, releasedDate } = req.body;
 
-   await product.create({
-        productName: productName, 
-        category: category, 
+    const categoryId = category.find({ categories }).lean();
+
+   const products = await productType.create({
+        name: name, 
+        category: categoryName.id, 
         author: author, 
-        price: price, 
-        image: image, 
+        price: price,  
+        imageUrl: imageUrl, 
         productInfo: productInfo, 
-        releasedDate: releasedDate, 
-        soldAmount: "0",
+        releasedDate: releasedDate,
+        soldAmount: 0,
     });
 
     res.json({
         error: null,
-        data: product.toObject(),
+        data: products.toObject(),
       });
 });
 
