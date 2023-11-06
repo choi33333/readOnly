@@ -9,16 +9,24 @@ const router = Router();
 
 // 상품 조회
 router.get('/api/products', async(req, res, next) => {
-    const { products } = ProductType.find({}).lean();
+    const products = await ProductType.find({}).lean();
 
-    res.json(products);
+    if(!products){
+        const error = new Error("제품이 존재하지 않습니다.");
+        error.status = 404;
+        return next(error);
+    }
+    res.json({
+        error: null,
+        data: products,
+      });
 })
 
 // 상품 등록)
 router.post('/api/admin/products', async(req, res, next) => {
-    const { name, categories, author, price, imageUrl, productInfo, releasedDate } = req.body;
+    const { name, category, author, price, imageUrl, productInfo, releasedDate } = req.body;
 
-    const categoryId = Category.find({ categories }).populate('id');
+    const categoryId = Category.find({ category }).populate('id');
 
    const products = await ProductType.create({
         name: name, 
@@ -37,9 +45,57 @@ router.post('/api/admin/products', async(req, res, next) => {
       });
 });
 
-// 상품 수정 - 제작중
-// router.put('/', async(req, res, next) => {
+// 상품 수정
+router.put('/api/admin/products/:id', async(req, res, next) => {
+    const { id } = req.params.id;
+    const { productName, category, author, price, image, productInfo, releasedDate } = req.body;
+    const product = await Product.findOne({ _id: id }).lean();
 
-// })
+    if (!product) {
+        const error = new Error("제품이 존재하지 않습니다.");
+        error.status = 401;
+        return next(error);
+      }
+
+    const categoryId = Category.find({ category }).populate('id');
+    
+
+    await Product.updateOne(
+        product,
+        {
+        productName: productName, 
+        category: categoryId, 
+        author: author, 
+        price: price, 
+        image: image,
+        productInfo: productInfo, 
+        releasedDate: releasedDate, 
+        }
+        );
+    
+    res.json({
+        error: null,
+        data: product,
+    })
+});
+
+
+// 상품 삭제
+router.delete('/api/admin/products/:id', async (req, res) => {
+    const { id } = req.params.id;
+    const product = await Product.findOne({ _id: id }).lean();
+    const deletedProduct = await Product.deleteOne(product);
+
+    if(!product){
+        const error = new Error("제품이 존재하지 않습니다.");
+        error.status = 401;
+        return next(error);
+    };
+
+    res.json({
+        error: null,
+        data: deletedProduct
+    });
+});
 
 module.exports = router;
