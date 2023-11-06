@@ -9,6 +9,7 @@ const adminCategoryRouter = require("./routes/adminCategoryRouter");
 const adminProductRouter = require("./routes/adminProductRouter");
 const productRouter = require('./routes/productRouter');
 const orderRouter = require('./routes/orderRouter');
+const categoryRouter = require("./routes/categoryRouter");
 const isAuthenticated = require('./middlewares/index');
 
 require("dotenv").config();
@@ -42,6 +43,9 @@ app.use('/', productRouter);
 
 //주문
 app.use('/', orderRouter);
+
+//카테고리 조회
+app.use('/', categoryRouter);
 
 
 // ADMIN
