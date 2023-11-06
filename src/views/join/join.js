@@ -30,22 +30,26 @@ joinBtn.addEventListener('click', () => {
       addressDetail: addressDetail.value,
     }
 
-    fetch(URL_PATH.BACK_URL + '/api/auth/sign-up',{
-      method: 'POST',
-      headers:{
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data)
-    })
-    .then(async (response) => {
-      console.log('response: ', await response.json());
-      if(response.status === 409){
-        location.href = '/joinOverlap';
-      }else if(response.status === 201){
-        location.href = '/joinSuccess';
-      }
-    })
-    .catch((error) => console.log('error: ', error));
+    try {
+      fetch(URL_PATH.BACK_URL + '/api/auth/sign-up',{
+        method: 'POST',
+        headers:{
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data)
+      })
+      .then(async (response) => {
+        console.log('response: ', await response.json());
+        if(response.status === 409){
+          location.href = '/joinOverlap';
+        }else if(response.status === 201){
+          location.href = '/joinSuccess';
+        }
+      })
+      .catch((error) => console.log('error: ', error));
+    } catch (error) {
+      console.log('error: ', error);
+    }
   }
 });
 
@@ -129,11 +133,7 @@ email.oninput = (e) => {
 const emailCheck = (email) => {
   emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
   
-  if(!emailRegex.test(email)){ 
-    return false; 
-  }else{
-    return true;
-  }
+  return emailRegex.test(email);
 }
 
 
@@ -153,11 +153,7 @@ password.oninput = () => {
 const passwordCheck = (password) => {
   passwordRegex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,20}$/;
   
-  if(!passwordRegex.test(password)){ 
-    return false; 
-  }else{
-    return true;
-  }
+  return passwordRegex.test(password);
 }
 
 
@@ -210,11 +206,7 @@ const oninputPhone = (target) => {
 const phoneNumberCheck = (phoneNumber) => {
   phoneNumberRegex = /^(01[016789]{1})-[0-9]{3,4}-[0-9]{4}$/;
   
-  if(!phoneNumberRegex.test(phoneNumber)){ 
-    return false; 
-  }else{
-    return true;
-  }
+  return phoneNumberRegex.test(phoneNumber);
 }
 
 

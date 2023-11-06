@@ -27,28 +27,33 @@ loginBtn.addEventListener('click', (e) => {
       password: password.value,
     }
 
-    fetch(URL_PATH.BACK_URL + '/api/auth/sign-in',{
-      method: 'POST',
-      headers:{
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-    .then(async (response) => {
-      const res = await response.json();
-      console.log('response: ', res);
-      if(response.status === 201){
-        console.log('성공');
-        window.localStorage.setItem('Token', res.data);
-        location.href = '../mainpage/index.html';
-      }else if(response.status === 401){
-        loginController.innerHTML = '이메일이나 비밀번호가 틀렸습니다';
-        loginController.className='alarmon';
-      }
-    })
-    .catch((error) => {
+    try {
+      fetch(URL_PATH.BACK_URL + '/api/auth/sign-in',{
+        method: 'POST',
+        headers:{
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+      .then(async (response) => {
+        const res = await response.json();
+        console.log('response: ', res);
+        if(response.status === 201){
+          console.log('성공');
+          window.localStorage.setItem('Token', res.data);
+          location.href = '/';
+        }else if(response.status === 401){
+          loginController.innerHTML = '이메일이나 비밀번호가 틀렸습니다';
+          loginController.className='alarmon';
+        }
+      })
+      .catch((error) => {
+        console.log('error: ', error);
+      });
+    } catch (error) {
       console.log('error: ', error);
-    });
+    }
+    
   }
 });
 
