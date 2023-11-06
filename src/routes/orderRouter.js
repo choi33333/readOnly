@@ -45,9 +45,9 @@ router.get("/api/orders", async (req, res, next) => {
 
 // 특정 주문 수정 상태 수정
 router.put("/api/orders/:id", async (req, res, next) => {
-  const { id } = req.params.id;
+  const id = req.params.id;
   const { orderStatus } = req.body;
-  const order = await OrderModel.findOne({ _id: id }).lean();
+  let order = await OrderModel.findOne({ _id: id }).lean();
 
   if (!order) {
     const error = new Error("주문이 존재하지 않습니다.");
