@@ -1,6 +1,6 @@
 const { Schema } = require("mongoose");
 
-const user = new Schema(
+const userSchema = new Schema(
   {
     email: {
       type: String,
@@ -26,6 +26,10 @@ const user = new Schema(
       type: String,
       required: true,
     },
+    role: {
+      type: String,
+      required: true,
+    },
   },
   {
     timestamps: true,
@@ -34,4 +38,4 @@ const user = new Schema(
   }
 );
 
-module.exports = user;
+module.exports = userSchema;
