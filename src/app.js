@@ -36,6 +36,8 @@ app.get("/", function (req, res) {
   res.render("./mainpage/index.html"); // views 폴더 밑에 있는 파일을 참조함
 });
 
+app.use('/', authRouter);
+
 //카테고리 조회
 app.use('/', categoryRouter);
 
