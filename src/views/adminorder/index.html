@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관리자주문현황</title>
+    <link rel="stylesheet" href="./adminorder.css">
+</head>
+<body>
+    <header>
+    
+        <a href="../mainpage/index.html" class="logo"><h3>Logo</h3></a>
+        <!-- <div class="search">
+            <input type="text" placeholder="도서를 찾아보세요!">
+            <button>검색</button>
+        </div> -->
+        
+        <a href="#" class="admin-page">관리자페이지</a>
+        <a>|</a>
+        <a href="#" class="log-out">로그아웃</a> 
+    </header>
+    
+    <div class="sidebar-admin">
+        <div class="menu">
+            <h4 id="category">관리자</h4>
+            <a href="#">주문현황</a>
+            <a href="#">회원관리</a>
+            <a href="#">상품조회</a>
+            <a href="#">상품등록</a>
+            <a href="#">상품정보수정</a>
+            <a href="#">상품삭제</a>
+            <a href="#">카테고리등록</a>
+            <a href="#">카테고리수정</a>
+            <a href="#">카테고리삭제</a>
+        </div>
+        <div class="body">
+            <h2>주문현황</h2>
+        </div>
+        <div class="order-list"><br><br>
+            <label for="orderNumber">주문번호:</label>
+            <input type="text" id="orderNumber" placeholder="주문번호를 입력하세요">
+            <button id="searchButton">조회</button>
+    
+            <table>
+                <thead>
+                    <tr><br><br><br><br>
+                        <th>주문 번호</th>
+                        <th>상품명</th>
+                        <th>수량</th>
+                        <th>금액</th>
+                        <th>배송상태</th>
+                        
+                    </tr>
+                </thead>
+                <tbody id="orderResults">
+                    
+                </tbody>
+            </table>
+        </div>
+    
+        <script src="./adminorder.js"></script>
+    </body>
+    </html>
