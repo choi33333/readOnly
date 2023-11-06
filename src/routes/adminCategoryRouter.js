@@ -1,11 +1,11 @@
 const { Router } = require("express");
-const { category } = require("../models/");
+const { Category } = require("../models/");
 
 const router = Router();
 
 // 카테고리 조회
 router.get("/api/admin/cartegories", async (req, res) => {
-  const categories = await category.find({}).lean();
+  const categories = await Category.find({}).lean();
   res.json({
     category: categories,
   });
@@ -21,7 +21,7 @@ router.post("/api/admin/cartegories/:name", async (req, res) => {
     return next(error);
   }
 
-  const categories = await category.findOne({ name }).lean();
+  const categories = await Category.findOne({ name }).lean();
 
   if (categories) {
     const error = new Error("이미 존재하는 카테고리입니다.");
@@ -29,7 +29,7 @@ router.post("/api/admin/cartegories/:name", async (req, res) => {
     return next(error);
   }
 
-  categories = await category.create({
+  categories = await Category.create({
     name: name,
   });
 
@@ -42,7 +42,7 @@ router.post("/api/admin/cartegories/:name", async (req, res) => {
 router.delete("/api/admin/cartegories/:name", async (req, res) => {
   const { name } = req.params.name;
 
-  const categories = await category.deleteOne({ name });
+  const categories = await Category.deleteOne({ name });
 
   if (categories) {
     const error = new Error("존재하지 않는 카테고리입니다.");
