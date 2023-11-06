@@ -22,7 +22,7 @@ router.get("/api/users/me", async (req, res, next) => {
 // my page 수정
 router.put("/api/users/me", async (req, res, next) => {
   const { em } = res.locals.user;
-  const { phoneNumber, address, addressDetail } = req.body;
+  const { postCode, phoneNumber, address, addressDetail } = req.body;
 
   if (!user) {
     const error = new Error("로그인 해주세요.");
@@ -34,6 +34,7 @@ router.put("/api/users/me", async (req, res, next) => {
     { email : em },
     {
       phoneNumber: phoneNumber,
+      postCode: postCode,
       address: address,
       addressDetail: addressDetail,
     }

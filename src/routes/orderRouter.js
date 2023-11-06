@@ -55,7 +55,7 @@ router.put("/api/orders/:id", async (req, res, next) => {
     return next(error);
   }
 
-  order = await order.update({
+  order = await OrderModel.updateOne({
     orderStatus: orderStatus,
   });
   
