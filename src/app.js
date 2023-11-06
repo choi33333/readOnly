@@ -35,17 +35,20 @@ app.get("/", function (req, res) {
   res.render("./mainpage/index.html"); // views 폴더 밑에 있는 파일을 참조함
 });
 
-// 회원가입 페이지 router 이동
-app.use("/", authRouter);
+//카테고리 조회
+app.use('/', categoryRouter);
 
 //상품
 app.use('/', productRouter);
 
-//주문
-app.use('/', orderRouter);
+// 회원가입 페이지 router 이동
+app.use("/", authRouter);
 
-//카테고리 조회
-app.use('/', categoryRouter);
+// 카테고리 만들기 router
+app.use("/", adminCategoryRouter);
+
+//주문
+app.use('/',isAuthenticated, orderRouter);
 
 
 // ADMIN
@@ -65,14 +68,14 @@ app.use((req, res, next) => {
 });
 
 // 에러 핸들러 등록
-app.use((error, req, res, next) => {
-  console.log(error);
-  res.statusCode = error.statusCode ?? 500;
-  res.json({
-    data: null,
-    error: error.message,
-  });
-});
+// app.use((error, req, res, next) => {
+//   console.log(error);
+//   res.statusCode = error.statusCode ?? 500;
+//   res.json({
+//     data: null,
+//     error: error.message,
+//   });
+// });
 
 
 // 서버 띄울때 포트 정보 셋팅 및 처음 실행 시 필요한 기능 수행 가능
