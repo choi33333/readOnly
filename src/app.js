@@ -52,14 +52,14 @@ app.use('/', productRouter);
 app.use("/", adminCategoryRouter);
 
 //주문
-app.use('/api',isAuthenticated, orderRouter);
+app.use('/',isAuthenticated, orderRouter);
 
 
 // admin 상품
 app.use("/", adminProductRouter);
 
 // user 조회
-app.use("/api", isAuthenticated, userRouter);
+app.use("/", isAuthenticated, userRouter);
 
 
 // 해당되는 URL이 없을 때를 대비한 미들웨어
