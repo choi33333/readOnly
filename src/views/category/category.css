@@ -1,10 +1,22 @@
 /* main css */
 
+a {
+    text-decoration: none;
+    color:rgb(16, 16, 160)
+}
+
+.logo {
+    color: rgb(16, 16, 160);
+    font-size: 20px;
+    font-style: italic;
+
+}
+
 header {
     display: flex;
     /* width: 100%; */
     justify-content: space-between;
-    background-color: rgb(62, 101, 65);
+    border-bottom: 1px solid rgb(176, 176, 176);
    
 }
 
@@ -12,13 +24,19 @@ header {
     justify-content: center;
     width: 300px;
     margin: auto;
+    text-align: center;
+    
 }
 
 input {
-    width: 220px;
-    height: 30px;
+    width: 240px;
+    height: 33px;
+    border: 1px solid;
+    border-color: rgb(16, 16, 160);
+    border-radius: 10px;
 
 }
+
 button {
     height: 35px;
 }
@@ -27,6 +45,9 @@ button {
     margin-right: 10px;
 }
 
+.cart {
+    margin-left: 10px;
+}
 
 /* category css */
 .body a {
