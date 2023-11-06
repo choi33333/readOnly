@@ -30,6 +30,7 @@ app.set('views', __dirname + '/views');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '/views')));
+app.use("/public", express.static("public"));
 
 // 페이지 로딩 함수
 app.get("/", function (req, res) {
@@ -48,18 +49,20 @@ app.use('/', productRouter);
 
 // ADMIN
 
-// 카테고리 만들기 router
-app.use("/", adminCategoryRouter);
-
-//주문
-app.use('/',isAuthenticated, orderRouter);
-
 
 // admin 상품
 app.use("/", adminProductRouter);
 
+
+// 카테고리 만들기 router
+app.use("/", adminCategoryRouter);
+
 // user 조회
-app.use("/", isAuthenticated, userRouter);
+app.use("/",isAuthenticated, userRouter);
+
+//주문
+app.use('/',isAuthenticated, orderRouter);
+
 
 
 // 해당되는 URL이 없을 때를 대비한 미들웨어

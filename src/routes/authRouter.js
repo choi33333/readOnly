@@ -33,8 +33,10 @@ router.post("/api/auth/sign-in", async (req, res, next) => {
       em: users.email,
     },
     secret,
-    { expiresIn: "1y" }
+    { expiresIn: "10h" }
   );
+
+  res.setHeader('Authorization', `Bearer ${token}`);
 
   res.status(201).json({
     data: token,

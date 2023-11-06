@@ -32,6 +32,7 @@ loginBtn.addEventListener('click', (e) => {
         method: 'POST',
         headers:{
           "Content-Type": "application/json",
+          "Authorization": data
         },
         body: JSON.stringify(data),
       })
