@@ -36,6 +36,8 @@ app.get("/", function (req, res) {
   res.render("./mainpage/index.html"); // views 폴더 밑에 있는 파일을 참조함
 });
 
+
+//유저 라우터
 app.use('/', authRouter);
 
 //카테고리 조회
@@ -44,11 +46,7 @@ app.use('/', categoryRouter);
 //상품
 app.use('/', productRouter);
 
-//주문
-app.use('/', orderRouter);
 
-//카테고리 조회
-app.use('/', categoryRouter);
 
 
 // ADMIN
@@ -58,12 +56,6 @@ app.use("/", adminCategoryRouter);
 
 //주문
 app.use('/',isAuthenticated, orderRouter);
-
-
-// ADMIN
-
-// 카테고리 만들기 router
-app.use("/", adminCategoryRouter);
 
 
 // admin 상품
