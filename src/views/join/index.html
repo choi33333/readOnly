@@ -9,14 +9,14 @@
 </head>
 <body>
   <header>
-    <a href="../mainpage/index.html"><h1>Logo</h1></a>
+    <a href="/"><h1 id="logo">Logo</h1></a>
   </header>
   <main>
     <form>
       <div class="input">
         <p>이메일</p>
         <div>
-          <input type="email" id="email">
+          <input type="email" id="email" placeholder="readOnly@gmail.com">
           <div id="emailAlarm" class="alarmoff"></div>
         </div>
       </div>
@@ -24,15 +24,8 @@
         <div class="input">
           <p>비밀번호</p>
           <div>
-            <input type="password" id="password">
+            <input type="password" id="password" placeholder="영문/숫자/특수문자 조합 (8~20 글자)">
             <div id="passwordAlarm" class="alarmoff"></div>
-          </div>
-        </div>
-        <div class="input">
-        <p></p>
-          <div>
-            <p class="passwordRule">8~20 글자</p>
-            <p class="passwordRule">영문/숫자/특수문자(!@#$%^*+=-) 조합</p>
           </div>
         </div>
       </div>
@@ -53,7 +46,7 @@
       <div class="input">
         <p>전화번호</p>
         <div>
-          <input type="text" id="phoneNumber"  maxlength="13">
+          <input type="text" id="phoneNumber"  maxlength="13" placeholder="010-1234-1234 (숫자만 입력)">
           <div id="phoneNumberAlarm" class="alarmoff"></div>
         </div>
       </div>
@@ -66,7 +59,7 @@
           </div>
           <input type="text" id="address">
           <div>
-            <input type="text" placeholder="  상세주소" id="addressDetail">
+            <input type="text" placeholder="상세주소" id="addressDetail">
             <div id="addressAlarm" class="alarmoff"></div>
           </div>
         </div>

@@ -57,14 +57,27 @@ body {
   margin: 50px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
   justify-content: center;
   align-items: center;
+  gap: 70px;
 }
 
 .content {
   display: flex;
-  gap: 60px;
+  gap: 80px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+main > h1 {
+  font-size: 20px;
+  font-weight: 600;
 }
 
 ul {
@@ -80,7 +93,7 @@ li {
   color: black;
 }
 
-form {
+.information {
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -90,7 +103,6 @@ form {
 
   padding: 20px;
   border-top: 1px solid black;
-  border-bottom: 1px solid black;
 }
 
 .userInformation {
@@ -98,44 +110,53 @@ form {
   gap: 10px;
 
   justify-content: center;
-  /* align-items: center; */
+  align-items: center;
 }
 
 
-.detailAddress {
+.addressDetail {
   display: flex;
   flex-direction: column;
+  gap: 8px;
+  color: gray;
 }
 
 .userInformation > p {
   width: 120px;
 }
 
-.detailAddress {
+.btns {
   display: flex;
-  gap: 10px;
-  color: gray;
-}
-
-.withdrawal {
-  padding-left: 450px;
-  background-color: white;
-  border: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
 }
 
 .changeBtn {
-  width: 200px;
-  height: 50px;
+  width: 150px;
+  height: 53px;
+  border: 1px solid black;
+  border-radius: 10px;
 }
 
-form > div > p {
+.information > div > p {
   color: gray;
 }
 
-form > div > :first-child {
+.information > div > :first-child {
   color: black;
 }
 
 a {
   text-decoration: none;
 }
+
+h1 {
+  color: black;
+}
+
+.withdrawal {
+  font-size: 12px;
+}
+

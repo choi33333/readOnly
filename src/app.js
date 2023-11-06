@@ -51,7 +51,7 @@ app.use('/', categoryRouter);
 // ADMIN
 
 // 카테고리 만들기 router
-app.use("/", isAuthenticated, adminCategoryRouter);
+app.use("/", adminCategoryRouter);
 
 
 // admin 상품
