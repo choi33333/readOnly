@@ -12,6 +12,15 @@ router.get('/api/products', async(req, res) => {
         data: products,
     });
 })
+router.get('/api/products/:id', async(req, res) => {
+    const productId = req.params.id;
+    const product = await ProductModel.find({_id: productId}).lean();
+    
+    res.json({
+        error: null,
+        data: product,
+    });
+})
 
 
 module.exports = router;

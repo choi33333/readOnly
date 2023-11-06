@@ -20,7 +20,7 @@ router.get("/api/admin/orders", async (req, res, next) => {
 
 // 특정 주문 수정 상태 수정
 // orderedBy에 고객이 입력한 이름이이면 이름도 수정가능 - 협의필요
-router.put("/api/orders/:id", async (req, res, next) => {
+router.put("/api/admin/orders/:id", async (req, res, next) => {
   const { id } = req.params.id;
   const { orderStatus } = req.body;
   const order = await OrderModel.findOne({ _id: id }).lean();
