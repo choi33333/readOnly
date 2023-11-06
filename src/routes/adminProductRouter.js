@@ -33,7 +33,6 @@ router.post('/api/admin/products', async(req, res, next) => {
     });
 
     res.json({
-        message: "제품이 추가되었습니다.",
         error: null,
         data: products,
       });
@@ -87,7 +86,6 @@ router.delete('/api/admin/products/:id', async (req, res) => {
     };
 
     res.json({
-        message: "제품이 삭제되었습니다.",
         error: null,
         data: deletedProduct
     });

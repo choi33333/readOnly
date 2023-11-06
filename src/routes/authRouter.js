@@ -72,4 +72,11 @@ router.post("/api/auth/sign-up", async (req, res, next) => {
   res.status(201).json({ message: "회원가입에 성공했습니다" });
 });
 
+
+// my page 
+router.get('/api/users/me', async (req, res, next) => {
+  
+})
+
+
 module.exports = router;
