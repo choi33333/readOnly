@@ -1,6 +1,6 @@
 const { Schema } = require("mongoose");
 
-const category = new Schema(
+const categorySchema = new Schema(
   {
     name: {
       type: String,
@@ -14,4 +14,4 @@ const category = new Schema(
   }
 );
 
-module.exports = category;
+module.exports = categorySchema;

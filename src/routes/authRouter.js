@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { User } = require("../models/"); // user model
+const { UserModel } = require("../models"); // user model
 const router = Router();
 const jsonwebtoken = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
@@ -12,7 +12,7 @@ const secret = process.env.SECRET;
 router.post("/api/auth/sign-in", async (req, res, next) => {
   const { email, password } = req.body;
 
-  const users = await User.findOne({ email }).lean();
+  const users = await UserModel.findOne({ email }).lean();
 
   if (!users) {
     const error = new Error("이메일이나 비밀번호가 올바르지 않습니다.");
@@ -49,7 +49,7 @@ router.post("/api/auth/sign-up", async (req, res, next) => {
     req.body;
 
 
-  let users = await User.findOne({ email }).lean();
+  let users = await UserModel.findOne({ email }).lean();
 
   if (users) {
     const error = new Error("이미 가입된 email 입니다.");
@@ -59,7 +59,7 @@ router.post("/api/auth/sign-up", async (req, res, next) => {
 
   const hashedPassword = await bcrypt.hash(password, 12);
 
-  users = await User.create({
+  users = await UserModel.create({
     email: email,
     password: hashedPassword,
     username: username,
@@ -69,7 +69,9 @@ router.post("/api/auth/sign-up", async (req, res, next) => {
     athorized: "customer",
   });
 
-  res.status(201).json({ message: "회원가입에 성공했습니다" });
+  res.status(201).json({ 
+    message: "회원가입에 성공했습니다" 
+  });
 });
 
 
