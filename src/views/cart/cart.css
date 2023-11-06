@@ -23,16 +23,16 @@ main{
     padding-right: 100px;
 }
 .main_label{
-    height:50px;
-    width: 77%;
+    height:8%;
+    width: 80%;
     font-size: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
+    /* background-color: red; */
 }
 .removeall{
-    width:10%;
+    width:15%;
     height: 80%;
     font-size: 15px;
     display: flex;
@@ -50,8 +50,8 @@ footer{
     height: 310px;
 }
 .cartdiv{
-    min-width: 1200px;
-    height: 600px;
+    min-width: 80%;
+    height: 90%;
     display: flex;
 }
 .cart_product{
@@ -70,8 +70,8 @@ footer{
     flex-direction: column;
 }
 .emptySVG{
-    width:8%;
-    height:15%;
+    width:80px;
+    height:80px;
     display: flex;
     align-items: center;
     justify-content: center;
