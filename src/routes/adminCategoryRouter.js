@@ -4,16 +4,16 @@ const { CategoryModel } = require("../models");
 const router = Router();
 
 // 카테고리 조회
-router.get("/api/admin/cartegories", async (req, res) => {
-  const catetories = await CategoryModel.find({}).lean();
+router.get("/api/admin/categories", async (req, res) => {
+  const categories = await CategoryModel.find({}).lean();
   res.json({
     error: null,
-    data: catetories,
+    data: categories,
 })
 });
 
 // 카테고리 만들기
-router.post("/api/admin/cartegories", async (req, res, next) => {
+router.post("/api/admin/categories", async (req, res, next) => {
   const { name } = req.body;
 
   if(!name){
@@ -36,12 +36,12 @@ router.post("/api/admin/cartegories", async (req, res, next) => {
 
   res.status(201).json({
     data: token,
-    message: catetory.name + "카테고리 생성을 완료했습니다."
+    message: category.name + "카테고리 생성을 완료했습니다."
   });
 });
 
 // 카테고리 삭제
-router.delete("/api/admin/cartegories/:name", async (req, res, next) => {
+router.delete("/api/admin/categories/:name", async (req, res, next) => {
   const name = req.params.name;
 
   const category = await CategoryModel.deleteOne({ name });
