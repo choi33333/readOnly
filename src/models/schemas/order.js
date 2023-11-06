@@ -22,20 +22,18 @@ const order = new Schema(
     orderStatus: {
       type: String,
       // 아래 값 중 하나일때만 허용
-      enum: [
-        "결제 완료",
-        "배송 준비중",
-        "배송 시작",
-        "배송 완료"
-      ],
+      enum: ["결제 완료", "배송 준비중", "배송 시작", "배송 완료"],
       required: true,
     },
-    
-      products: {
-        type: [product],
-        required: true,
-      }
-    
+
+    products: {
+      type: [product],
+      required: true,
+    },
+    orderedBy: {
+      type: String,
+      required: true,
+    },
   },
   {
     timestamps: true,

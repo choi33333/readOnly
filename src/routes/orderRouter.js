@@ -1,37 +1,36 @@
 const { Router } = require("express");
 const { OrderModel, UserModel } = require("../models");
+const order = require("../models/schemas/order");
 const router = Router();
 
 // 주문하기
-// orderedBy에 고객이 입력한 이름? or user.id? - 협의필요
-router.post("/api/orders", async (req, res) => {
-  //토큰 -> 헤더 -> 페이지마다 해당 유저 이메일 판단/ 해당유저 이름, 전화번호, 주소 send
+router.post("/api/orders", async (req, res, next) => {
   const { orderedBy, address, phoneNumber, products } = req.body;
   const { em } = res.locals.userInfo;
 
-  // 서버연결없이도 겹치지않는 번호만들기 - 수정중
+  // 서버연결없이도 겹치지않는 난수만들기
   const orderNumber = 3;
 
-  const orders = await OrderModel.create({
+  const order = await OrderModel.create({
     orderNumber: orderNumber,
     orderedBy: orderedBy,
     address: address,
     phoneNumber: phoneNumber,
     orderStatus: "배송준비중",
     products: products,
+    orderedEmail: em,
   });
 
   res.json({
     error: null,
-    data: orders.toObject(),
+    data: order.toObject(),
   });
 });
 
 // 전체 주문 조회 (해당유저의 주문기록만 가져오려면... 어쩌죠?)
-// api/users/me/:id 같은형식으로 orderedBy: id 를 찾아서 콜하는게..ㅠ - 협의필요
-router.get("/api/orders/", async (req, res, next) => {
+router.get("/api/orders", async (req, res, next) => {
     const { em } = res.locals.userInfo;
-    const orders = await OrderModel.find({ orderedBy: id }.lean( ));
+    const orders = await OrderModel.find({ email: em }.lean( ));
 
   if (orders == 0) {
     const error = new Error("주문이 존재하지 않습니다.");
@@ -46,19 +45,25 @@ router.get("/api/orders/", async (req, res, next) => {
 });
 
 // 특정 주문 조회
-router.get("/api/orders/:id", async (req, res, next) => {
-  const { id } = req.params.id;
-  const orders = await OrderModel.findOne({ _id: id }).lean();
+router.get("/api/orders/search", async (req, res, next) => {
+  const { orderNumber, phoneNumber} = req.body;
+  const order = await OrderModel.findOne({ orderNumber: orderNumber }).lean();
 
-  if (!orders) {
+  if (!order) {
     const error = new Error("주문이 존재하지 않습니다.");
+    error.status = 401;
+    return next(error);
+  }
+
+  if (order.phoneNumber ==  phoneNumber) {
+    const error = new Error("전화번호가 일치하지 않습니다.");
     error.status = 401;
     return next(error);
   }
 
   res.json({
     error: null,
-    data: orders,
+    data: order,
   });
 });
 
