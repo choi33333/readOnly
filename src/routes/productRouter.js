@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { ProductModel } = require("../models/index"); 
+const { ProductModel } = require("../models"); 
 const router = Router();
 
 
@@ -10,6 +10,15 @@ router.get('/api/products', async(req, res) => {
     res.json({
         error: null,
         data: products,
+    });
+})
+router.get('/api/products/:id', async(req, res) => {
+    const productId = req.params.id;
+    const product = await ProductModel.find({_id: productId}).lean();
+    
+    res.json({
+        error: null,
+        data: product,
     });
 })
 

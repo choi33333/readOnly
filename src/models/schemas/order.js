@@ -1,5 +1,5 @@
 const { Schema } = require("mongoose");
-const { product } = require("./product");
+const { productSchema } = require("./product");
 
 const order = new Schema(
   {
@@ -22,14 +22,28 @@ const order = new Schema(
     orderStatus: {
       type: String,
       // 아래 값 중 하나일때만 허용
-      enum: ["결제 완료", "배송 준비중", "배송 시작", "배송 완료"],
+      enum: ["결제 완료", "배송 준비중", "배송 시작", "배송 완료", "취소"],
       required: true,
     },
 
     products: {
-      type: [product],
+      type: [
+        {
+          productId: {
+            type: Schema.Types.ObjectId,
+            ref: "ProductModel",
+            required: true,
+          },
+          quantity: {
+            type: Number,
+            required: true,
+          },
+        },
+      ],
       required: true,
+
     },
+
     orderedBy: {
       type: String,
       required: true,

@@ -1,12 +1,11 @@
 const { Router } = require("express");
 const { OrderModel, UserModel } = require("../models");
-const order = require("../models/schemas/order");
 const router = Router();
 
 // 주문하기
 router.post("/api/orders", async (req, res, next) => {
   const { orderedBy, address, phoneNumber, products } = req.body;
-  const { em } = res.locals.userInfo;
+  const { em } = res.locals.user;
 
   // 서버연결없이도 겹치지않는 난수만들기
   const orderNumber = 3;
@@ -16,7 +15,7 @@ router.post("/api/orders", async (req, res, next) => {
     orderedBy: orderedBy,
     address: address,
     phoneNumber: phoneNumber,
-    orderStatus: "배송준비중",
+    orderStatus: "배송 준비중",
     products: products,
     orderedEmail: em,
   });
@@ -27,9 +26,9 @@ router.post("/api/orders", async (req, res, next) => {
   });
 });
 
-// 전체 주문 조회 (해당유저의 주문기록만 가져오려면... 어쩌죠?)
+// 본인 전체 주문 조회 (해당유저의 주문기록만 가져오려면... 어쩌죠?)
 router.get("/api/orders", async (req, res, next) => {
-    const { em } = res.locals.userInfo;
+    const { em } = res.locals.user;
     const orders = await OrderModel.find({ email: em }.lean( ));
 
   if (orders == 0) {
@@ -44,7 +43,29 @@ router.get("/api/orders", async (req, res, next) => {
   });
 });
 
-// 특정 주문 조회
+// 특정 주문 수정 상태 수정
+router.put("/api/orders/:id", async (req, res, next) => {
+  const { id } = req.params.id;
+  const { orderStatus } = req.body;
+  const order = await OrderModel.findOne({ _id: id }).lean();
+
+  if (!order) {
+    const error = new Error("주문이 존재하지 않습니다.");
+    error.status = 401;
+    return next(error);
+  }
+
+  order = await order.update({
+    orderStatus: orderStatus,
+  });
+  
+  res.json({
+    error: null,
+    data: order,
+  });
+});
+
+// 비회원 특정 주문 조회
 router.get("/api/orders/search", async (req, res, next) => {
   const { orderNumber, phoneNumber} = req.body;
   const order = await OrderModel.findOne({ orderNumber: orderNumber }).lean();
@@ -73,15 +94,15 @@ router.get("/api/orders/search", async (req, res, next) => {
 router.put("/api/orders/:id", async (req, res, next) => {
   const { id } = req.params.id;
   const { orderedBy, address, phoneNumber} = req.body;
-  const orders = await OrderModel.findOne({ _id: id }).lean();
+  const order = await OrderModel.findOne({ _id: id }).lean();
 
-  if (!orders) {
+  if (!order) {
     const error = new Error("주문이 존재하지 않습니다.");
     error.status = 401;
     return next(error);
   }
 
-  orders = await order.update({
+  order = await order.update({
     orderedBy: orderedBy,
     address: address,
     phoneNumber: phoneNumber,
@@ -90,17 +111,17 @@ router.put("/api/orders/:id", async (req, res, next) => {
 
   res.json({
     error: null,
-    data: orders,
+    data: order,
   });
 });
 
-// 특정 주문 삭제
+// 특정 주문 취소
 router.delete("/api/orders/:id", async (req, res, next) => {
   const { id } = req.params.id;
 
   const order = await OrderModel.findOne({ _id: id }).lean();
 
-  if (!orders) {
+  if (!order) {
     const error = new Error("주문이 존재하지 않습니다.");
     error.status = 401;
     return next(error);

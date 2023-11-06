@@ -33,8 +33,10 @@ router.post("/api/auth/sign-in", async (req, res, next) => {
       em: users.email,
     },
     secret,
-    { expiresIn: "1h" }
+    { expiresIn: "10h" }
   );
+
+  res.setHeader('Authorization', `Bearer ${token}`);
 
   res.status(201).json({
     data: token,
@@ -73,12 +75,6 @@ router.post("/api/auth/sign-up", async (req, res, next) => {
     message: "회원가입에 성공했습니다" 
   });
 });
-
-
-// my page 
-router.get('/api/users/me', async (req, res, next) => {
-  
-})
 
 
 module.exports = router;
