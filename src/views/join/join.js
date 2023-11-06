@@ -9,6 +9,13 @@ const postalCode = document.getElementById('postalCode');
 const addressBtn = document.getElementById('addressBtn');
 const joinBtn = document.getElementById('joinBtn');
 
+const emailController = document.getElementById('emailAlarm');
+const passwordController = document.getElementById('passwordAlarm');
+const usernameController = document.getElementById('usernameAlarm');
+const phoneNumberController = document.getElementById('phoneNumberAlarm');
+const addressController = document.getElementById('addressAlarm');
+const repasswordController = document.getElementById('repasswordAlarm');
+
 //모든 값이 입력 되었을 때 백엔드로 입력값 보내기
 joinBtn.addEventListener('click', () => {
   const checkValue = inputCheck();
@@ -33,9 +40,9 @@ joinBtn.addEventListener('click', () => {
     .then(async (response) => {
       console.log('response: ', await response.json());
       if(response.status === 409){
-        location.href = './joinOverlap.html';
+        location.href = '/joinOverlap';
       }else if(response.status === 201){
-        location.href = './joinSuccess.html';
+        location.href = '/joinSuccess';
       }
     })
     .catch((error) => console.log('error: ', error));
@@ -45,13 +52,6 @@ joinBtn.addEventListener('click', () => {
 
 //모든 값이 올바르게 입력되었는지 확인하는 함수
 const inputCheck = () => {
-  const emailController = document.getElementById('emailAlarm');
-  const passwordController = document.getElementById('passwordAlarm');
-  const usernameController = document.getElementById('usernameAlarm');
-  const phoneNumberController = document.getElementById('phoneNumberAlarm');
-  const addressController = document.getElementById('addressAlarm');
-  const repasswordController = document.getElementById('repasswordAlarm');
-
   emailController.className='alarmoff';
   passwordController.className='alarmoff';
   usernameController.className='alarmoff';
@@ -115,7 +115,6 @@ const inputCheck = () => {
 
 //이메일 입력을 안했거나 형식이 올바르지 않을 때
 email.oninput = (e) => {
-  const emailController = document.getElementById('emailAlarm');
   emailController.className='alarmoff';
   
   if(email.value == '') {
@@ -140,7 +139,6 @@ const emailCheck = (email) => {
 
 //비밀번호 입력을 안했거나 형식이 올바르지 않을 때
 password.oninput = () => {
-  const passwordController = document.getElementById('passwordAlarm');
   passwordController.className='alarmoff';
 
   if(password.value == '') {
@@ -165,7 +163,6 @@ const passwordCheck = (password) => {
 
 //비밀번호 확인 입력을 안했거나 형식이 올바르지 않을 때
 repassword.oninput = () => {
-  const repasswordController = document.getElementById('repasswordAlarm');
   repasswordController.className='alarmoff';
 
   if(repassword.value == ''){
@@ -180,7 +177,6 @@ repassword.oninput = () => {
 
 //이름 입력을 안했을 때
 username.oninput = () => {
-  const usernameController = document.getElementById('usernameAlarm');
   usernameController.className='alarmoff';
 
   if(username.value == '') {
@@ -194,7 +190,6 @@ username.oninput = () => {
 phoneNumber.oninput = (e) => {
   oninputPhone(e.target);
 
-  const phoneNumberController = document.getElementById('phoneNumberAlarm');
   phoneNumberController.className='alarmoff';
 
   if(phoneNumber.value == '') {

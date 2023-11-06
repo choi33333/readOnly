@@ -10,6 +10,7 @@ const adminProductRouter = require("./routes/adminProductRouter");
 const productRouter = require('./routes/productRouter');
 const orderRouter = require('./routes/orderRouter');
 const categoryRouter = require("./routes/categoryRouter");
+const userRouter = require('./routes/userRouter');
 const isAuthenticated = require('./middlewares/index');
 
 require("dotenv").config();
@@ -35,26 +36,34 @@ app.get("/", function (req, res) {
   res.render("./mainpage/index.html"); // views 폴더 밑에 있는 파일을 참조함
 });
 
-// 회원가입 페이지 router 이동
-app.use("/", authRouter);
+
+//유저 라우터
+app.use('/', authRouter);
+
+//카테고리 조회
+app.use('/', categoryRouter);
 
 //상품
 app.use('/', productRouter);
 
-//주문
-app.use('/', orderRouter);
 
-//카테고리 조회
-app.use('/', categoryRouter);
+
 
 // ADMIN
 
 // 카테고리 만들기 router
 app.use("/", adminCategoryRouter);
 
+//주문
+app.use('/',isAuthenticated, orderRouter);
+
 
 // admin 상품
 app.use("/", adminProductRouter);
+
+// user 조회
+app.use("/", isAuthenticated, userRouter);
+
 
 // 해당되는 URL이 없을 때를 대비한 미들웨어
 app.use((req, res, next) => {

@@ -9,6 +9,3 @@ module.exports.UserModel = mongoose.model('user', user);
 module.exports.CategoryModel = mongoose.model('category', category);
 module.exports.ProductModel = mongoose.model('product', product);
 module.exports.OrderModel = mongoose.model('order', order);
-
-
-// + 스키마
