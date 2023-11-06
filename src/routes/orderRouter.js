@@ -10,7 +10,7 @@ router.post("/api/orders", async (req, res) => {
   const { em } = res.locals.userInfo;
 
   // 서버연결없이도 겹치지않는 번호만들기 - 수정중
-  const orderNumber = ();
+  const orderNumber = 3;
 
   const orders = await OrderModel.create({
     orderNumber: orderNumber,
