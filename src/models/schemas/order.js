@@ -1,5 +1,5 @@
 const { Schema } = require("mongoose");
-const { product } = require("./product");
+const { productSchema } = require("./product");
 
 const order = new Schema(
   {
@@ -27,9 +27,10 @@ const order = new Schema(
     },
 
     products: {
-      type: [product],
+      type: [productSchema],
       required: true,
     },
+
     orderedBy: {
       type: String,
       required: true,

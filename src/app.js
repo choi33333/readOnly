@@ -35,22 +35,23 @@ app.get("/", function (req, res) {
   res.render("./mainpage/index.html"); // views 폴더 밑에 있는 파일을 참조함
 });
 
-// 회원가입 페이지 router 이동
-app.use("/", authRouter);
+//카테고리 조회
+app.use('/', categoryRouter);
 
 //상품
 app.use('/', productRouter);
 
-//주문
-app.use('/', orderRouter);
-
-//카테고리 조회
-app.use('/', categoryRouter);
-
-// ADMIN
+// 회원가입 페이지 router 이동
+app.use("/", authRouter);
 
 // 카테고리 만들기 router
 app.use("/", adminCategoryRouter);
+
+//주문
+app.use('/',isAuthenticated, orderRouter);
+
+
+// ADMIN
 
 
 // admin 상품

@@ -1,12 +1,11 @@
 const { Router } = require("express");
 const { OrderModel, UserModel } = require("../models");
-const order = require("../models/schemas/order");
 const router = Router();
 
 // 주문하기
 router.post("/api/orders", async (req, res, next) => {
   const { orderedBy, address, phoneNumber, products } = req.body;
-  const { em } = res.locals.userInfo;
+  const { em } = res.locals.user;
 
   // 서버연결없이도 겹치지않는 난수만들기
   const orderNumber = 3;
@@ -29,7 +28,7 @@ router.post("/api/orders", async (req, res, next) => {
 
 // 전체 주문 조회 (해당유저의 주문기록만 가져오려면... 어쩌죠?)
 router.get("/api/orders", async (req, res, next) => {
-    const { em } = res.locals.userInfo;
+    const { em } = res.locals.user;
     const orders = await OrderModel.find({ email: em }.lean( ));
 
   if (orders == 0) {
@@ -94,7 +93,7 @@ router.put("/api/orders/:id", async (req, res, next) => {
   });
 });
 
-// 특정 주문 삭제
+// 특정 주문 취소
 router.delete("/api/orders/:id", async (req, res, next) => {
   const { id } = req.params.id;
 

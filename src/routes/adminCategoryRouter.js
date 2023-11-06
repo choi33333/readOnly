@@ -35,7 +35,6 @@ router.post("/api/admin/categories", async (req, res, next) => {
   });
 
   res.status(201).json({
-    data: token,
     message: category.name + "카테고리 생성을 완료했습니다."
   });
 });
