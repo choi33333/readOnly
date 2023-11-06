@@ -16,12 +16,6 @@ loginBtn.addEventListener('click', (e) => {
 
   const checkValue = logininputCheck();
   if(checkValue === 0){
-    // console.log(
-    //   `
-    //   email: ${email.value}
-    //   password: ${password.value}
-    //   `
-    // )
     const data = {
       email: email.value,
       password: password.value,
@@ -38,7 +32,7 @@ loginBtn.addEventListener('click', (e) => {
       .then(async (response) => {
         const res = await response.json();
         console.log('response: ', res);
-        if(response.status === 201){
+        if(response.status == 201){
           console.log('성공');
           window.localStorage.setItem('Token', res.data);
           location.href = '/';

@@ -11,59 +11,64 @@
   <header>
     <a href="/"><h1 id="logo">Logo</h1></a>
   </header>
-    <div class="content">
-      <nav>
-        <ul>
-          <a href="/userInformation"><li>사용자 정보</li></a>
-          <a href="/changeUserInformation"><li>사용자 정보 수정</li></a>
-          <li>주문/배송 확인</li>
-          <li>취소/반품/교환 확인</li>
-        </ul>
-      </nav>
-      <main>
-        <h1>회원정보 수정</h1>
-        <form>
-          <div id="name" class="input">
-            <p>이름</p>
-            <input type="text" placeholder="readOnly">
-          </div>
-          <div id="email" class="input">
-            <p>이메일</p>
-            <input type="email" placeholder="readOnly@gmail.com">
-          </div>
-          <div id="password" class="input">
-            <p>비밀번호</p>
-            <div class="changePassword">
-              <div class="passwordInput">
-                <input type="password" placeholder="새 비밀번호를 입력해주세요">
-              </div>
-              <div class="passwordInput">
-                <input type="password" placeholder="새 비밀번호를 다시 입력해주세요">
-              </div>  
-            </div>
-          </div>
-          <div id="phoneNumber" class="input">
-            <p>전화번호</p>
-            <input type="text" placeholder="010-1234-123">
-          </div>
-          <div id="address" class="input">
-            <p>주소</p>
-            <div class="addressDetail">
-              <div>
-                <input type="text" id="postalCode" placeholder="00000">
-                <button id="addressBtn">주소찾기</button>
-              </div>
-              <input type="text" placeholder="서울특별시 성동구 아차산로 17길 48">
-              <input type="text" placeholder="성수낙낙 2층">
-            </div>
-          </div>
-        </form>
-        <div class="complet">
-          <a href="/userInformation"><button id="cancelBtn" class="btn">취소</button></a>
-          <a href="/userInformation"><button id="completBtn" class="btn">완료</button></a>
+  <div class="content">
+    <nav>
+      <ul>
+        <a href="/userInformation"><li>사용자 정보</li></a>
+        <a href="/changeUserInformation"><li>사용자 정보 수정</li></a>
+        <li>주문/배송 확인</li>
+        <li>취소/반품/교환 확인</li>
+      </ul>
+    </nav>
+    <main>
+      <h1>회원정보 수정</h1>
+      <form>
+        <div id="name" class="input">
+          <p>이름</p>
+          <input type="text" id="nameValue" disabled>
         </div>
-      </main>
-    </div>
+        <div id="email" class="input">
+          <p>이메일</p>
+          <input type="email" id="emailValue" disabled>
+        </div>
+        <div id="password" class="input">
+          <p>비밀번호</p>
+          <div class="changePassword">
+            <div class="passwordInput">
+              <input type="password" placeholder="새 비밀번호를 입력해주세요">
+            </div>
+            <div class="passwordInput">
+              <input type="password" placeholder="새 비밀번호를 다시 입력해주세요">
+            </div>  
+          </div>
+        </div>
+        <div id="phoneNumber" class="input">
+          <p>전화번호</p>
+          <input type="text" id="phoneValue">
+        </div>
+        <div id="address" class="input">
+          <p>주소</p>
+          <div class="addressDetail">
+            <div>
+              <input type="text" id="postalCode">
+              <button id="addressBtn">주소찾기</button>
+            </div>
+            <input type="text" id="addressValue">
+            <input type="text" id="addressDetailValue">
+          </div>
+        </div>
+      </form>
+      <div class="complet">
+        <button id="cancelBtn" class="btn">취소</button>
+        <button id="completBtn" class="btn">완료</button>
+      </div>
+    </main>
+  </div>
 
+  <!-- 주소찾기(카카오 API)  -->
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+  <script src="../config/url_path.js"></script>
+  <script src="changeUserInformation.js"></script>
 </body>
 </html>
