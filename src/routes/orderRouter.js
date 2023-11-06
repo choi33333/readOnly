@@ -4,7 +4,7 @@ const router = Router();
 
 // 주문하기
 router.post("/api/orders", async (req, res, next) => {
-  const { orderedBy, address, phoneNumber, products } = req.body;
+  const { orderedBy, postCode ,address,addressDetail,phoneNumber, products } = req.body;
   const { em } = res.locals.user;
 
   // 서버연결없이도 겹치지않는 난수만들기
@@ -13,7 +13,9 @@ router.post("/api/orders", async (req, res, next) => {
   const order = await OrderModel.create({
     orderNumber: orderNumber,
     orderedBy: orderedBy,
+    postCode: postCode,
     address: address,
+    addressDetail: addressDetail,
     phoneNumber: phoneNumber,
     orderStatus: "배송 준비중",
     products: products,
