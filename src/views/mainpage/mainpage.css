@@ -1,6 +1,19 @@
-a {
+header a {
     text-decoration: none;
-    color:rgb(16, 16, 160)
+    color:rgb(16, 16, 160);
+    
+
+}
+
+#category-wrapper {
+    margin: auto;
+}
+
+#category-wrapper a {
+    color: black;
+    text-decoration: none;
+    margin-right: 20px;
+
 }
 
 .logo {
@@ -21,22 +34,23 @@ header {
 
 .search{
     justify-content: center;
+    text-align: center;
     width: 300px;
     margin: auto;
 
 }
 
 input {
-    width: 220px;
-    height: 30px;
-    border-radius: 20px;
-    border-style: 1px solid ;
-    border-color: navy;
+    width: 240px;
+    height: 33px;
+    border: 1px solid;
+    border-color: rgb(16, 16, 160);
+    border-radius: 10px;
 
 }
+
 button {
     height: 35px;
-    border-radius: 10px;
 }
 
 .register {
@@ -47,40 +61,61 @@ button {
     margin-left: 10px;
 }
 
-.category {
-    /* background-color: rgb(136, 168, 136); */
-    /* border: black;
-    border-style: solid;
-    border-width: 90%; */
-    width: 90%;
+.category-wrap {
+    background-color: rgb(234, 234, 234);
+    
+    /* width: 85%; */
+    width: 1200px;
     height: 200px;
-    margin: auto;
-    /* text-align: center; */
+    margin: 0 auto;
+    border-radius: 20px;
     
 }
 
-.category> h4 {
+
+.category {
+    float: left;
+    text-align: center;
+
+}
+.category-wrap> h4 {
     text-align: center;
     margin-bottom: 40px;
 }
 
-.category > ul > a {
+.category > li {
+    display: inline-block;
+    text-align: center;
+   
+}
+/* .category > ul {
+    width: 85%;
+    float: left;
+    text-align: center;
+    /* margin-left: auto;
+    margin-right: auto; */
+    /* margin: 0 auto; */
+  
+
+
+
+.category > a {
     float: left;
     text-decoration: none;
     color: black;
-    width: 18%;
+    width: 20%;
     margin-bottom: 30px;
     /* text-align: center; */
     /* margin-right: 50px; */
     
+         
 }
 
-.category > ul {
-    /* text-align: center;*/
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-}
+
+/* 카테고리 css 끝  */
+
+
+
 
 .this-week-bestseller {
     /* border: black;
