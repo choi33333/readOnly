@@ -1,4 +1,4 @@
-/* 회원가입 성공 css */
+/* 사용자 정보 페이지 css */
 
 /* 기본적인 css 초기화 */
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -54,31 +54,114 @@ table {
 
 /* 내가 설정한 css */
 body {
-  margin: 200px;
+  margin: 50px;
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+}
+
+.content {
+  display: flex;
+  gap: 80px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+main > h1 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-top: 30px;
+  gap: 50px;
+}
+
+li {
+  color: black;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  padding: 20px;
+  border-top: 1px solid black;
+}
+
+.input {
+  display: flex;
+  gap: 10px;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.changePassword {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.addressDetail {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+input {
+  width: 230px;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.addressDetail > input {
+  width: 300px;
+}
+
+.input > p {
+  width: 120px;
+}
+
+#postalCode {
+  width: 140px;
+}
+
+#addressBtn {
+  width: 82px;
+  height: 31px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.btn {
+  width: 150px;
+  height: 53px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+a {
+  text-decoration: none;
 }
 
 h1 {
-  font-size: 80px;
-  justify-content: center;
-  align-self: center;
-}
-
-.move {
-	display: flex;
-	justify-content: center;
-  align-self: center;
-	gap: 150px;
-}
-
-.move > a {
-  text-decoration: none;
-  justify-content: center;
-  align-self: center;
-}
-
-.move > a > p {
   color: black;
 }

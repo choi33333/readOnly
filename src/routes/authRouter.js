@@ -75,10 +75,4 @@ router.post("/api/auth/sign-up", async (req, res, next) => {
 });
 
 
-// my page 
-router.get('/api/users/me', async (req, res, next) => {
-  
-})
-
-
 module.exports = router;
