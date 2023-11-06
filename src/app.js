@@ -42,7 +42,7 @@ app.use("/", authRouter);
 app.use('/', productRouter);
 
 //주문
-app.use('/', orderRouter);
+app.use('/', isAuthenticated, orderRouter);
 
 //카테고리 조회
 app.use('/', categoryRouter);
@@ -65,14 +65,14 @@ app.use((req, res, next) => {
 });
 
 // 에러 핸들러 등록
-app.use((error, req, res, next) => {
-  console.log(error);
-  res.statusCode = error.statusCode ?? 500;
-  res.json({
-    data: null,
-    error: error.message,
-  });
-});
+// app.use((error, req, res, next) => {
+//   console.log(error);
+//   res.statusCode = error.statusCode ?? 500;
+//   res.json({
+//     data: null,
+//     error: error.message,
+//   });
+// });
 
 
 // 서버 띄울때 포트 정보 셋팅 및 처음 실행 시 필요한 기능 수행 가능

@@ -14,7 +14,7 @@ function isAuthenticated(req, res, next) {
   const token = req.headers["authorization"].slice(7);
 
   const userInfo = jsonwebtoken.verify(token, secret);
-  res.locals.user = userInfo;
+  res.locals.user = userInfo; 
   next();
 }
 

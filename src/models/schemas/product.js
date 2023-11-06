@@ -1,6 +1,6 @@
 const { Schema, Mongoose } = require("mongoose");
 
-const productType = new Schema({
+const product = new Schema({
     name: {
         type: String,
         required: true,
@@ -39,6 +39,5 @@ const productType = new Schema({
     versionKey: false,
 });
 
-const product = new Schema(productType);
 
-module.exports = { productType, product };
+module.exports = product;
