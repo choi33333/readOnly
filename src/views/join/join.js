@@ -26,6 +26,7 @@ joinBtn.addEventListener('click', () => {
       password: password.value,
       username: username.value,
       phoneNumber: phoneNumber.value,
+      postCode: postalCode.value,
       address: address.value,
       addressDetail: addressDetail.value,
     }
