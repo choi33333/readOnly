@@ -36,8 +36,6 @@ router.post("/api/auth/sign-in", async (req, res, next) => {
     { expiresIn: "10h" }
   );
 
-  res.setHeader('Authorization', `Bearer ${token}`);
-
   res.status(201).json({
     data: token,
     message: "로그인에 성공했습니다",
