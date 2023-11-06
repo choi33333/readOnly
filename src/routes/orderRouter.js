@@ -16,7 +16,7 @@ router.post("/api/orders", async (req, res, next) => {
     orderedBy: orderedBy,
     address: address,
     phoneNumber: phoneNumber,
-    orderStatus: "배송준비중",
+    orderStatus: "배송 준비중",
     products: products,
     orderedEmail: em,
   });
@@ -73,15 +73,15 @@ router.get("/api/orders/search", async (req, res, next) => {
 router.put("/api/orders/:id", async (req, res, next) => {
   const { id } = req.params.id;
   const { orderedBy, address, phoneNumber} = req.body;
-  const orders = await OrderModel.findOne({ _id: id }).lean();
+  const order = await OrderModel.findOne({ _id: id }).lean();
 
-  if (!orders) {
+  if (!order) {
     const error = new Error("주문이 존재하지 않습니다.");
     error.status = 401;
     return next(error);
   }
 
-  orders = await order.update({
+  order = await order.update({
     orderedBy: orderedBy,
     address: address,
     phoneNumber: phoneNumber,
@@ -90,7 +90,7 @@ router.put("/api/orders/:id", async (req, res, next) => {
 
   res.json({
     error: null,
-    data: orders,
+    data: order,
   });
 });
 
@@ -100,7 +100,7 @@ router.delete("/api/orders/:id", async (req, res, next) => {
 
   const order = await OrderModel.findOne({ _id: id }).lean();
 
-  if (!orders) {
+  if (!order) {
     const error = new Error("주문이 존재하지 않습니다.");
     error.status = 401;
     return next(error);
