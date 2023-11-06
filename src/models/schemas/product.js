@@ -1,4 +1,4 @@
-const { Schema } = require("mongoose");
+const { Schema, Mongoose } = require("mongoose");
 
 const productType = new Schema({
     name: {
@@ -8,6 +8,7 @@ const productType = new Schema({
     category: {
         type: Schema.Types.ObjectId,
         required: true,
+        ref: "Category",
     },
     author: {
         type: String,
