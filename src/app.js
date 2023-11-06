@@ -46,9 +46,6 @@ app.use('/', categoryRouter);
 //상품
 app.use('/', productRouter);
 
-
-
-
 // ADMIN
 
 // 카테고리 만들기 router
