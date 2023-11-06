@@ -26,7 +26,7 @@ router.get('/api/products', async(req, res, next) => {
 router.post('/api/admin/products', async(req, res, next) => {
     const { name, category, author, price, imageUrl, productInfo, releasedDate } = req.body;
 
-    const categoryId = Category.find({ category }).populate('id');
+    const categoryId = await Category.findOne({ _id: category })
 
    const products = await ProductType.create({
         name: name, 
@@ -40,15 +40,17 @@ router.post('/api/admin/products', async(req, res, next) => {
     });
 
     res.json({
+        message: "제품이 추가되었습니다.",
         error: null,
-        data: products.toObject(),
+        data: products,
       });
 });
 
 // 상품 수정
 router.put('/api/admin/products/:id', async(req, res, next) => {
-    const { id } = req.params.id;
+    const id = req.params.id;
     const { productName, category, author, price, image, productInfo, releasedDate } = req.body;
+
     const product = await Product.findOne({ _id: id }).lean();
 
     if (!product) {
@@ -57,17 +59,17 @@ router.put('/api/admin/products/:id', async(req, res, next) => {
         return next(error);
       }
 
-    const categoryId = Category.find({ category }).populate('id');
-    
+    // category를 프론트에서 id 값으로 받아와야한다.
+    const categoryId = await Category.findOne({ _id : category });
 
-    await Product.updateOne(
-        product,
+    const updatedProduct = await Product.updateOne(
+        { _id : id },
         {
-        productName: productName, 
+        name: productName, 
         category: categoryId, 
         author: author, 
         price: price, 
-        image: image,
+        imageUrl: image,
         productInfo: productInfo, 
         releasedDate: releasedDate, 
         }
@@ -75,14 +77,13 @@ router.put('/api/admin/products/:id', async(req, res, next) => {
     
     res.json({
         error: null,
-        data: product,
+        data: updatedProduct,
     })
 });
 
-
 // 상품 삭제
 router.delete('/api/admin/products/:id', async (req, res) => {
-    const { id } = req.params.id;
+    const id = req.params.id;
     const product = await Product.findOne({ _id: id }).lean();
     const deletedProduct = await Product.deleteOne(product);
 
@@ -93,6 +94,7 @@ router.delete('/api/admin/products/:id', async (req, res) => {
     };
 
     res.json({
+        message: "제품이 삭제되었습니다.",
         error: null,
         data: deletedProduct
     });
