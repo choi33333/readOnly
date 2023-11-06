@@ -185,16 +185,10 @@ const changeprice = () =>{
 }
 
 
-<<<<<<< HEAD
-const carttest = async() =>{
-    await fetch(URL_PATH.BACK_URL+ '/api/products/')
-    .then((response)=>response.json())
-    .then(data => console.log(data))
-=======
+
 const carttest = () =>{
     fetch(URL_PATH.BACK_URL+ '/api/products/').then((response)=>
     response.json()).then(data => console.log(data))
->>>>>>> dev
     console.log(2)
 }
 document.querySelector('.test').addEventListener('click',carttest)
