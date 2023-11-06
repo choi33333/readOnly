@@ -22,15 +22,15 @@ router.post("/api/admin/cartegories", async (req, res, next) => {
     return next(error);
   }
 
-  let catetory = await CategoryModel.findOne({ name }).lean();
+  let category = await CategoryModel.findOne({ name }).lean();
 
-  if (catetory) {
+  if (category) {
     const error = new Error("이미 존재하는 카테고리입니다.");
     error.status = 409;
     return next(error);
   }
 
-  catetory = await CategoryModel.create({
+  category = await CategoryModel.create({
     name: name,
   });
 
@@ -44,9 +44,9 @@ router.post("/api/admin/cartegories", async (req, res, next) => {
 router.delete("/api/admin/cartegories/:name", async (req, res, next) => {
   const name = req.params.name;
 
-  const catetory = await CategoryModel.deleteOne({ name });
+  const category = await CategoryModel.deleteOne({ name });
 
-  if (!catetory) {
+  if (!category) {
     const error = new Error("존재하지 않는 카테고리입니다.");
     error.status = 404;
     return next(error);
@@ -55,7 +55,7 @@ router.delete("/api/admin/cartegories/:name", async (req, res, next) => {
 
   res.status(201).json({
     data: token,
-    message: catetory.name + "카테고리를 성공적으로 제거 했습니다."
+    message: category.name + "카테고리를 성공적으로 제거 했습니다."
   });
 });
 

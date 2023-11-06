@@ -1,16 +1,16 @@
 const { Router } = require("express");
-const { Product } = require("../models/index"); 
+const { ProductModel } = require("../models/index"); 
 const router = Router();
 
 
 // 상품 조회
-router.get('/products', async(req, res) => {
-    const { productId } = req.body;
-
-    const products = await Product.find({}).lean();
+router.get('/api/products', async(req, res) => {
+    const products = await ProductModel.find({}).lean();
     
-    res.json(products);
-
+    res.json({
+        error: null,
+        data: products,
+    });
 })
 
 
