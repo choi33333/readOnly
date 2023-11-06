@@ -26,7 +26,7 @@ router.post("/api/orders", async (req, res, next) => {
   });
 });
 
-// 전체 주문 조회 (해당유저의 주문기록만 가져오려면... 어쩌죠?)
+// 본인 전체 주문 조회 (해당유저의 주문기록만 가져오려면... 어쩌죠?)
 router.get("/api/orders", async (req, res, next) => {
     const { em } = res.locals.user;
     const orders = await OrderModel.find({ email: em }.lean( ));
@@ -43,7 +43,7 @@ router.get("/api/orders", async (req, res, next) => {
   });
 });
 
-// 특정 주문 조회
+// 비회원 특정 주문 조회
 router.get("/api/orders/search", async (req, res, next) => {
   const { orderNumber, phoneNumber} = req.body;
   const order = await OrderModel.findOne({ orderNumber: orderNumber }).lean();

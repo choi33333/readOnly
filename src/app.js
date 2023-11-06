@@ -46,23 +46,20 @@ app.use('/', categoryRouter);
 //상품
 app.use('/', productRouter);
 
-
-
-
 // ADMIN
 
 // 카테고리 만들기 router
 app.use("/", adminCategoryRouter);
 
 //주문
-app.use('/',isAuthenticated, orderRouter);
+app.use('/api',isAuthenticated, orderRouter);
 
 
 // admin 상품
 app.use("/", adminProductRouter);
 
 // user 조회
-app.use("/", isAuthenticated, userRouter);
+app.use("/api", isAuthenticated, userRouter);
 
 
 // 해당되는 URL이 없을 때를 대비한 미들웨어
