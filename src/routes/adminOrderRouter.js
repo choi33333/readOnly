@@ -2,7 +2,7 @@ const { Router } = require("express");
 const { OrderModel } = require("../models");
 const router = Router();
 
-// 전체 주문 조회 (해당유저의 주문기록만 가져오려면... 어쩌죠?)
+// 전체 주문 조회
 router.get("/api/admin/orders", async (req, res, next) => {
     const orders = await OrderModel.find({ }.lean( ));
 
