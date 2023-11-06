@@ -60,6 +60,9 @@ app.use('/',isAuthenticated, orderRouter);
 
 // ADMIN
 
+// 카테고리 만들기 router
+app.use("/", adminCategoryRouter);
+
 
 // admin 상품
 app.use("/", adminProductRouter);

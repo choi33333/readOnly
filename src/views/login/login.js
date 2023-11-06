@@ -4,6 +4,11 @@ const loginBtn = document.getElementById('loginBtn');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 
+const emailController = document.getElementById('emailAlarm');
+const passwordController = document.getElementById('passwordAlarm');
+
+const loginController = document.getElementById('loginAlarm');
+
 
 //로그인 버튼을 눌렀을 때 백엔드로 입력값 보내기(아직은 console만)
 loginBtn.addEventListener('click', (e) => {
@@ -37,7 +42,6 @@ loginBtn.addEventListener('click', (e) => {
         window.localStorage.setItem('Token', res.data);
         location.href = '../mainpage/index.html';
       }else if(response.status === 401){
-        const loginController = document.getElementById('loginAlarm');
         loginController.innerHTML = '이메일이나 비밀번호가 틀렸습니다';
         loginController.className='alarmon';
       }
@@ -49,9 +53,6 @@ loginBtn.addEventListener('click', (e) => {
 });
 
 const logininputCheck = () => {
-  const emailController = document.getElementById('emailAlarm');
-  const passwordController = document.getElementById('passwordAlarm');
-
   emailController.className='alarmoff';
   passwordController.className='alarmoff';
 
@@ -75,7 +76,6 @@ const logininputCheck = () => {
 
 //이메일
 email.oninput = (e) => {
-  const emailController = document.getElementById('emailAlarm');
   emailController.className='alarmoff';
   
   if(email.value == '') {
@@ -87,7 +87,6 @@ email.oninput = (e) => {
 
 //비밀번호
 password.oninput = () => {
-  const passwordController = document.getElementById('passwordAlarm');
   passwordController.className='alarmoff';
 
   if(password.value == '') {
