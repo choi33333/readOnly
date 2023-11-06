@@ -1,8 +1,21 @@
+a {
+    text-decoration: none;
+    color:rgb(16, 16, 160)
+}
+
+.logo {
+    color: rgb(16, 16, 160);
+    font-size: 20px;
+    font-style: italic;
+
+}
+
 header {
     display: flex;
     /* width: 100%; */
     justify-content: space-between;
-    background-color: rgb(62, 101, 65);
+
+    border-bottom: 1px solid rgb(176, 176, 176);
    
 }
 
@@ -10,26 +23,35 @@ header {
     justify-content: center;
     width: 300px;
     margin: auto;
+
 }
 
 input {
     width: 220px;
     height: 30px;
+    border-radius: 20px;
+    border-style: 1px solid ;
+    border-color: navy;
 
 }
 button {
     height: 35px;
+    border-radius: 10px;
 }
 
 .register {
     margin-right: 10px;
 }
 
+.cart {
+    margin-left: 10px;
+}
+
 .category {
     /* background-color: rgb(136, 168, 136); */
-    border: black;
+    /* border: black;
     border-style: solid;
-    border-width: 90%;
+    border-width: 90%; */
     width: 90%;
     height: 200px;
     margin: auto;
@@ -61,8 +83,8 @@ button {
 }
 
 .this-week-bestseller {
-    border: black;
-    border-style: solid;
+    /* border: black;
+    border-style: solid; */
     border-width: 90%;
     width: 90%;
     height: 80vh;

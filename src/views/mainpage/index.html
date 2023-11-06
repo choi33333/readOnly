@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MainPage</title>
-    <link rel="stylesheet" href="./mainpage/mainpage.css">
+    <link rel="stylesheet" href="../mainpage/mainpage.css">
     <link rel="stylesheet" href="../components/footer.css">
 </head>
 
@@ -21,22 +21,24 @@
             });
         </script> -->
     
-        <a href="#mainpage" class="logo"><h3>Logo</h3></a>
+        <a href="#mainpage" class="logo"><h3>readOnly</h3></a>
         <div class="search">
             <input type="text" placeholder="도서를 찾아보세요!">
             <button>검색</button>
         </div>
         
-        <a href="../Join/index.html" class="register">회원가입</a>
+        <a href="../join/index.html" class="register">회원가입</a>
         
-        <a href="../Login/index.html" class="log-in">로그인</a> 
+        <a href="../login/index.html" class="log-in">로그인</a> 
+
+        <a href="../cart/index.html" class="cart">장바구니</a>
     </header>
 
     <div class="category">
         <h4>카테고리</h4>
         <ul>
             <a href="../category/index.html"><li>소설</li></a>
-            <a href=""><li>시/에세이</li></a>
+            <a href="../category/index.html/2"><li>시/에세이</li></a>
             <a href=""><li>인문</li></a>
             <a href=""><li>가정/육아</li></a>
             <a href=""><li>요리</li></a>
@@ -47,6 +49,15 @@
             <a href=""><li>정치/사회</li></a>
         </ul>
     </div>
+    <script>
+        // http://localhost:3000/category/2
+        const category = location.href.split("index.html/")[1];
+        if (category==="2"){
+            console.log("시/에세이");
+           
+        }
+        
+    </script>
 
     <div class="this-week-bestseller">
         <h4>이번 주의 베스트셀러</h4>
