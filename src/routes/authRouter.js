@@ -33,7 +33,7 @@ router.post("/api/auth/sign-in", async (req, res, next) => {
       em: users.email,
     },
     secret,
-    { expiresIn: "1h" }
+    { expiresIn: "1y" }
   );
 
   res.status(201).json({
