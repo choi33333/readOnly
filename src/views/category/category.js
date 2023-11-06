@@ -10,7 +10,7 @@ window.addEventListener("load", async () => {
         for (let i=0; i<categories.length; i++){
             const categoryElem = document.createElement("a");
             categoryElem.innerHTML = categories[i].name;
-            categoryElem.setAttribute("href", "?category="+categories[i]._id);   // 다른파일에서 불러오는법
+            categoryElem.setAttribute("href", "?category="+categories[i]._id);   
             categoryWrapperElem.append(categoryElem);
         }
     } 
