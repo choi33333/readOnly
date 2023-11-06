@@ -42,7 +42,7 @@ app.use("/", authRouter);
 app.use('/', productRouter);
 
 //주문
-app.use('/', isAuthenticated, orderRouter);
+app.use('/', orderRouter);
 
 //카테고리 조회
 app.use('/', categoryRouter);
@@ -50,7 +50,7 @@ app.use('/', categoryRouter);
 // ADMIN
 
 // 카테고리 만들기 router
-app.use("/", isAuthenticated, adminCategoryRouter);
+app.use("/", adminCategoryRouter);
 
 
 // admin 상품
