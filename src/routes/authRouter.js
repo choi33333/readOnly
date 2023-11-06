@@ -66,7 +66,7 @@ router.post("/api/auth/sign-up", async (req, res, next) => {
     phoneNumber: phoneNumber,
     address: address,
     addressDetail: addressDetail,
-    athorized: "customer",
+    role: "customer",
   });
 
   res.status(201).json({ 
