@@ -1,3 +1,5 @@
+
+
 //임시 데이터
 let bookdata = [
     { bookname: '책이름1', author: '도라에몽', price: 3000, count: 1,id:0},
@@ -12,10 +14,34 @@ let bookdata2 = [
 let cartArr = JSON.parse(localStorage.getItem('bookdata'));
 let sumPrice = 0;
 
+const getCartItemTemplate = (data,index) =>{
+    const {bookname,price,count} = data;
+    return
+    `<div id=${index} class="cart_card">
+    <div class="card_imgDiv">
+        <img class='card_img' src=./thisweekbestseller1.jpeg>
+    </div>
+    <div class="card_namePrice">
+        <div class="bookname">${data.bookname}</div>
+        <div class="bookprice">${data.price}원</div>
+    </div>
+    <div class="card_cntPrice">
+        <div id='sum${index}' class="book_totalPrice">${data.price*data.count}원</div>
+        <div class="book_cntbtn">
+            <a class="minusbtn ${index}">-</a>
+            <div id=count${index} class="countvalue">${data.count}  </div>
+            <a class="plusbtn ${index}">+</a>
+        </div>
+    </div>
+    <div class="card_del">
+        <a class='carddelete ${index}'>X</a>
+    </div>
+</div>`                    //안됨....
+}
 // 만약 localStorage에서 받아온 값이 있으면 장바구니 표출, 아닐경우 카트가 비었다고 표시하기 위한 소스
 if (cartArr?.length > 0) {
     cartArr.forEach((data,index) => {
-        document.querySelector('.cart_product').innerHTML +=
+        document.querySelector('.cart_product').innerHTML += 
     `<div id=${index} class="cart_card">
         <div class="card_imgDiv">
             <img class='card_img' src=./thisweekbestseller1.jpeg>
@@ -36,7 +62,7 @@ if (cartArr?.length > 0) {
             <a class='carddelete ${index}'>X</a>
         </div>
     </div>`
-    
+    // console.log(getCartItemTemplate(index,data))
     sumPrice += data.price * data.count;
     })
     document.querySelector('.totalprice').innerHTML=`${sumPrice}원`
@@ -157,4 +183,11 @@ const changeprice = () =>{
     console.log(cartArr)
     location.reload();
 }
-document.querySelector('.test').addEventListener('click',changeprice)
+
+
+const carttest = () =>{
+    fetch(URL_PATH.BACK_URL+ '/api/products/').then((response)=>
+    response.json()).then(data => console.log(data))
+    console.log(2)
+}
+document.querySelector('.test').addEventListener('click',carttest)
