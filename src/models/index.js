@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const { validationResult } = require("express-validator");
+
 
 const user = require('./schemas/user');
 const category = require('./schemas/category');

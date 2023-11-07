@@ -1,11 +1,10 @@
 const { Router } = require("express");
 const { OrderModel } = require("../../models");
-const { validateError } = require('../../../middlewares/validators/validateError');
-const { userOrderValidator } = require('../../../middlewares/validators/order');
 const router = Router();
 
+
 // 주문하기
-router.post("/", userOrderValidator(), validateError, async (req, res, next) => {
+router.post("/", async (req, res, next) => {
   const { orderedBy, postCode, address, addressDetail, phoneNumber, products } =
     req.body;
   const { em } = res.locals.user;
