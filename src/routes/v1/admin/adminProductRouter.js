@@ -1,10 +1,9 @@
 const { Router } = require("express");
 const { ProductModel, CategoryModel } = require("../../../models");
-const isAdmin = require("../../../middlewares/admin");
 const router = Router();
 
 // 상품 조회
-router.get("/", isAdmin, async (req, res, next) => {
+router.get("/", async (req, res, next) => {
   const products = await ProductModel.find({}).lean();
 
   res.json({
@@ -14,7 +13,7 @@ router.get("/", isAdmin, async (req, res, next) => {
 });
 
 // 상품 등록
-router.post("/", isAdmin, async (req, res, next) => {
+router.post("/", async (req, res, next) => {
   const { name, category, author, price, imageUrl, productInfo, releasedDate } =
     req.body;
 
@@ -38,7 +37,7 @@ router.post("/", isAdmin, async (req, res, next) => {
 });
 
 // 상품 수정
-router.put("/:id", isAdmin, async (req, res, next) => {
+router.put("/:id", async (req, res, next) => {
   const id = req.params.id;
   const {
     productName,
@@ -81,7 +80,7 @@ router.put("/:id", isAdmin, async (req, res, next) => {
 });
 
 // 상품 삭제
-router.delete("/:id", isAdmin, async (req, res, next) => {
+router.delete("/:id", async (req, res, next) => {
   const id = req.params.id;
   const product = await ProductModel.findById({ id }).lean();
   const deletedProduct = await ProductModel.deleteOne(product);

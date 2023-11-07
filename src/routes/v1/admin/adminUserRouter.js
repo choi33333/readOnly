@@ -1,10 +1,9 @@
 const { Router } = require("express");
 const { UserModel } = require("../../../models");
-const isAdmin = require("../../../middlewares/admin");
 const router = Router();
 
 // user 조회
-router.get("/", isAdmin, async (req, res, next) => {
+router.get("/", async (req, res, next) => {
   const users = await UserModel.find({}).lean();
 
   if (!users) {
@@ -20,7 +19,7 @@ router.get("/", isAdmin, async (req, res, next) => {
 });
 
 // user 삭제
-router.delete("/:id", isAdmin, async (req, res, next) => {
+router.delete("/:id", async (req, res, next) => {
   const id = req.params.id;
 
   const deletedUser = await UserModel.deleteOne({ _id: id })
@@ -30,7 +29,7 @@ router.delete("/:id", isAdmin, async (req, res, next) => {
       error.status = 404;
       return next(error);
     });
-    
+
   if (!deletedUser || deletedUser.length === 0) {
     const error = new Error("사용자가 존재하지 않습니다.");
     error.status = 404;

@@ -1,10 +1,9 @@
 const { Router } = require("express");
 const { OrderModel } = require("../../../models");
-const isAdmin = require("../../../middlewares/admin");
 const router = Router();
 
 // 전체 주문 조회
-router.get("/",isAdmin , async (req, res, next) => {
+router.get("/", async (req, res, next) => {
   const orders = await OrderModel.find({}).lean();
 
   if (orders == 0) {
@@ -21,7 +20,7 @@ router.get("/",isAdmin , async (req, res, next) => {
 
 // 특정 주문 수정 상태 수정
 // orderedBy에 고객이 입력한 이름이이면 이름도 수정가능 - 협의필요
-router.put("/:id",isAdmin , async (req, res, next) => {
+router.put("/:id", async (req, res, next) => {
   const id = req.params.id;
   const { orderStatus } = req.body;
   let order = await OrderModel.findOne({ _id: id }).lean();
@@ -43,7 +42,7 @@ router.put("/:id",isAdmin , async (req, res, next) => {
 });
 
 // 특정 주문 삭제
-router.delete("/:id",isAdmin , async (req, res, next) => {
+router.delete("/:id", async (req, res, next) => {
   const { id }= req.params.id;
 
   const order = await OrderModel.deleteOne({ id });
