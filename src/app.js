@@ -1,35 +1,27 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const ejs = require("ejs");
-const path = require('path');
+const path = require("path");
 const app = express();
 
-const authRouter = require("./routes/authRouter");
-const adminCategoryRouter = require("./routes/adminCategoryRouter");
-const adminProductRouter = require("./routes/adminProductRouter");
-const productRouter = require('./routes/productRouter');
-const orderRouter = require('./routes/orderRouter');
-const categoryRouter = require("./routes/categoryRouter");
-const userRouter = require('./routes/userRouter');
-const isAuthenticated = require('./middlewares/index');
+const router = require("./routes/index");
+const isAuthenticated = require("./middlewares/index");
 
 require("dotenv").config();
 const mongodbUrI = process.env.MONGODB;
 
 mongoose
-  .connect(
-    mongodbUrI
-  )
+  .connect(mongodbUrI)
   .then(() => console.log("connected"))
   .catch(() => console.log("failed"));
 
 // view 엔진을 ejs를 쓰겠다는 설정
 
-app.engine('html', require('ejs').renderFile);
-app.set('views', __dirname + '/views');
+app.engine("html", require("ejs").renderFile);
+app.set("views", __dirname + "/views");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, '/views')));
+app.use(express.static(path.join(__dirname, "/views")));
 app.use("/public", express.static("public"));
 
 // 페이지 로딩 함수
@@ -37,33 +29,7 @@ app.get("/", function (req, res) {
   res.render("./mainpage/index.html"); // views 폴더 밑에 있는 파일을 참조함
 });
 
-
-//유저 라우터
-app.use('/', authRouter);
-
-//카테고리 조회
-app.use('/', categoryRouter);
-
-//상품
-app.use('/', productRouter);
-
-// ADMIN
-
-
-// admin 상품
-app.use("/", adminProductRouter);
-
-
-// 카테고리 만들기 router
-app.use("/", adminCategoryRouter);
-
-// user 조회
-app.use("/", userRouter);
-
-//주문
-app.use('/', orderRouter);
-
-
+app.use("/api", router);
 
 // 해당되는 URL이 없을 때를 대비한 미들웨어
 app.use((req, res, next) => {
@@ -82,9 +48,7 @@ app.use((req, res, next) => {
 //   });
 // });
 
-
 // 서버 띄울때 포트 정보 셋팅 및 처음 실행 시 필요한 기능 수행 가능
 app.listen(3000, function () {
   console.log("server running");
 });
-

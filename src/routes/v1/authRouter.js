@@ -1,15 +1,15 @@
 const { Router } = require("express");
-const { UserModel } = require("../models"); // user model
-const router = Router();
+const { UserModel } = require("../../models"); // user model
 const jsonwebtoken = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const router = Router();
 
 require("dotenv").config();
 const secret = process.env.SECRET;
 
 // sign-in
 
-router.post("/api/auth/sign-in", async (req, res, next) => {
+router.post("/sign-in", async (req, res, next) => {
   const { email, password } = req.body;
 
   const users = await UserModel.findOne({ email }).lean();
@@ -31,6 +31,7 @@ router.post("/api/auth/sign-in", async (req, res, next) => {
   const token = jsonwebtoken.sign(
     {
       em: users.email,
+      ro: users.role,
     },
     secret,
     { expiresIn: "10h" }
@@ -44,10 +45,16 @@ router.post("/api/auth/sign-in", async (req, res, next) => {
 
 // sign-up
 
-router.post("/api/auth/sign-up", async (req, res, next) => {
-  const { email, password, username, phoneNumber, postCode ,address, addressDetail } =
-    req.body;
-
+router.post("/sign-up", async (req, res, next) => {
+  const {
+    email,
+    password,
+    username,
+    phoneNumber,
+    postCode,
+    address,
+    addressDetail,
+  } = req.body;
 
   let users = await UserModel.findOne({ email }).lean();
 
@@ -70,10 +77,9 @@ router.post("/api/auth/sign-up", async (req, res, next) => {
     role: "customer",
   });
 
-  res.status(201).json({ 
-    message: "회원가입에 성공했습니다" 
+  res.status(201).json({
+    message: "회원가입에 성공했습니다",
   });
 });
-
 
 module.exports = router;

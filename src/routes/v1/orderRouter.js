@@ -1,10 +1,11 @@
 const { Router } = require("express");
-const { OrderModel, UserModel } = require("../models");
+const { OrderModel, UserModel } = require("../../models");
 const router = Router();
 
 // 주문하기
-router.post("/api/orders", async (req, res, next) => {
-  const { orderedBy, postCode ,address,addressDetail,phoneNumber, products } = req.body;
+router.post("/", async (req, res, next) => {
+  const { orderedBy, postCode, address, addressDetail, phoneNumber, products } =
+    req.body;
   const { em } = res.locals.user;
 
   // 서버연결없이도 겹치지않는 난수만들기
@@ -29,9 +30,9 @@ router.post("/api/orders", async (req, res, next) => {
 });
 
 // 본인 전체 주문 조회 (해당유저의 주문기록만 가져오려면... 어쩌죠?)
-router.get("/api/orders", async (req, res, next) => {
-    const { em } = res.locals.user;
-    const orders = await OrderModel.find({ email: em }.lean( ));
+router.get("/", async (req, res, next) => {
+  const { em } = res.locals.user;
+  const orders = await OrderModel.find({ email: em }.lean());
 
   if (orders == 0) {
     const error = new Error("주문이 존재하지 않습니다.");
@@ -46,7 +47,7 @@ router.get("/api/orders", async (req, res, next) => {
 });
 
 // 특정 주문 수정 상태 수정
-router.put("/api/orders/:id", async (req, res, next) => {
+router.put("/:id", async (req, res, next) => {
   const id = req.params.id;
   const { orderStatus } = req.body;
   let order = await OrderModel.findOne({ _id: id }).lean();
@@ -60,7 +61,7 @@ router.put("/api/orders/:id", async (req, res, next) => {
   order = await OrderModel.updateOne({
     orderStatus: orderStatus,
   });
-  
+
   res.json({
     error: null,
     data: order,
@@ -68,8 +69,8 @@ router.put("/api/orders/:id", async (req, res, next) => {
 });
 
 // 비회원 특정 주문 조회
-router.get("/api/orders/search", async (req, res, next) => {
-  const { orderNumber, phoneNumber} = req.body;
+router.get("/search", async (req, res, next) => {
+  const { orderNumber, phoneNumber } = req.body;
   const order = await OrderModel.findOne({ orderNumber: orderNumber }).lean();
 
   if (!order) {
@@ -78,7 +79,7 @@ router.get("/api/orders/search", async (req, res, next) => {
     return next(error);
   }
 
-  if (order.phoneNumber ==  phoneNumber) {
+  if (order.phoneNumber == phoneNumber) {
     const error = new Error("전화번호가 일치하지 않습니다.");
     error.status = 401;
     return next(error);
@@ -90,12 +91,11 @@ router.get("/api/orders/search", async (req, res, next) => {
   });
 });
 
-
 // 특정 주문 수정
 // orderedBy에 고객이 입력한 이름이이면 이름도 수정가능 - 협의필요
-router.put("/api/orders/:id", async (req, res, next) => {
+router.put("/:id", async (req, res, next) => {
   const { id } = req.params.id;
-  const { orderedBy, address, phoneNumber} = req.body;
+  const { orderedBy, address, phoneNumber } = req.body;
   const order = await OrderModel.findOne({ _id: id }).lean();
 
   if (!order) {
@@ -109,7 +109,6 @@ router.put("/api/orders/:id", async (req, res, next) => {
     address: address,
     phoneNumber: phoneNumber,
   });
-  
 
   res.json({
     error: null,
@@ -118,7 +117,7 @@ router.put("/api/orders/:id", async (req, res, next) => {
 });
 
 // 특정 주문 취소
-router.delete("/api/orders/:id", async (req, res, next) => {
+router.delete("/:id", async (req, res, next) => {
   const { id } = req.params.id;
 
   const order = await OrderModel.findOne({ _id: id }).lean();
