@@ -1,7 +1,10 @@
 const { Router } = require("express");
 const { UserModel } = require("../../models"); // user model
+const validateError = require("../../middlewares/validators/validateError");
+const { userSignInValidator, userSignUpValidator } = require("../../middlewares/validators/user");
 const jsonwebtoken = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+
 const router = Router();
 
 require("dotenv").config();
@@ -9,7 +12,7 @@ const secret = process.env.SECRET;
 
 // sign-in
 
-router.post("/sign-in", async (req, res, next) => {
+router.post("/sign-in", userSignInValidator, validateError, async (req, res, next) => {
   const { email, password } = req.body;
 
   const users = await UserModel.findOne({ email }).lean();
@@ -38,6 +41,7 @@ router.post("/sign-in", async (req, res, next) => {
   );
 
   res.status(201).json({
+    error: null,
     data: token,
     message: "로그인에 성공했습니다",
   });
@@ -45,7 +49,7 @@ router.post("/sign-in", async (req, res, next) => {
 
 // sign-up
 
-router.post("/sign-up", async (req, res, next) => {
+router.post("/sign-up", userSignUpValidator, validateError, async (req, res, next) => {
   const {
     email,
     password,
@@ -78,6 +82,7 @@ router.post("/sign-up", async (req, res, next) => {
   });
 
   res.status(201).json({
+    error: null,
     message: "회원가입에 성공했습니다",
   });
 });

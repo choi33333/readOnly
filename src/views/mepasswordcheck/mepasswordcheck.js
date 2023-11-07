@@ -9,7 +9,7 @@ btn.addEventListener('click', () => {
       password: password.value,
     }
 
-    fetch(URL_PATH.BACK_URL + '/api/v1/users/me/passcheck', {
+    fetch('/api/v1/users/me/passcheck', {
       method: 'POST',
       headers:{
         "Content-Type": "application/json", //(post,put,delete)항상 필수적으로 추가해야함!!
@@ -27,9 +27,6 @@ btn.addEventListener('click', () => {
         console.log('비밀번호 불일치');
       }
     })
-    .catch((error) => {
-      console.log('error: ', error);
-    });
   } catch (error) {
     console.log('err: ', error);
   }

@@ -22,7 +22,7 @@ loginBtn.addEventListener('click', (e) => {
     }
 
     try {
-      fetch(URL_PATH.BACK_URL + '/api/v1/auth/sign-in',{
+      fetch('/api/v1/auth/sign-in',{
         method: 'POST',
         headers:{
           "Content-Type": "application/json",
@@ -38,12 +38,9 @@ loginBtn.addEventListener('click', (e) => {
           location.href = '/';
         }else if(response.status === 401){
           loginController.innerHTML = '이메일이나 비밀번호가 틀렸습니다';
-          loginController.className='alarmon';
+          loginController.className = 'alarmon';
         }
       })
-      .catch((error) => {
-        console.log('error: ', error);
-      });
     } catch (error) {
       console.log('error: ', error);
     }

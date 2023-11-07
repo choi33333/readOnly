@@ -38,13 +38,13 @@ app.use((req, res, next) => {
 });
 
 // 에러 핸들러 등록
-// app.use((err, req, res, next) => {
-//   console.error(err);
-//   res.status(500).json({
-//     error: "Internal server error",
-//     data: null,
-//   });
-// });
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(err.status).json({
+    error: err.message,
+    data: null,
+  });
+});
 
 // 서버 띄울때 포트 정보 셋팅 및 처음 실행 시 필요한 기능 수행 가능
 app.listen(3000, function () {

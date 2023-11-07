@@ -1,6 +1,8 @@
 const { Router } = require("express");
 const { ProductModel, CategoryModel } = require("../../../models");
-
+const validateError = require("../../../middlewares/validators/validateError");
+const objectIdValidator = require("../../../middlewares/validators/objectId");
+const addProductValidator = require("../../../middlewares/validators/product");
 const router = Router();
 
 // 상품 조회
@@ -14,7 +16,7 @@ router.get("/", async (req, res, next) => {
 });
 
 // 상품 등록
-router.post("/", async (req, res, next) => {
+router.post("/", addProductValidator, validateError, async (req, res, next) => {
   const { name, category, author, price, imageUrl, productInfo, releasedDate } =
     req.body;
 
@@ -38,7 +40,7 @@ router.post("/", async (req, res, next) => {
 });
 
 // 상품 수정
-router.put("/:id", async (req, res, next) => {
+router.put("/:id", objectIdValidator, validateError, async (req, res, next) => {
   const id = req.params.id;
   const {
     productName,
@@ -59,7 +61,7 @@ router.put("/:id", async (req, res, next) => {
   }
 
   // category를 프론트에서 id 값으로 받아와야한다.
-  const categoryId = await CategoryModel.findOne({ id: category });
+  const categoryId = await CategoryModel.findOne({ _id: category });
 
   const updatedProduct = await ProductModel.updateOne(
     { _id: id },
@@ -81,9 +83,9 @@ router.put("/:id", async (req, res, next) => {
 });
 
 // 상품 삭제
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", objectIdValidator, validateError, async (req, res, next) => {
   const id = req.params.id;
-  const product = await ProductModel.findOne({ id: id }).lean();
+  const product = await ProductModel.findById({ id }).lean();
   const deletedProduct = await ProductModel.deleteOne(product);
 
   if (!product) {

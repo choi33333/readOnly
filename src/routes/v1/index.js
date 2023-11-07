@@ -1,5 +1,7 @@
 const { Router } = require('express');
 
+const isAdmin = require("../../middlewares/admin");
+
 const productRouter = require('./productRouter');
 const orderRouter = require('./orderRouter');
 const categoryRouter = require('./categoryRouter');
@@ -17,6 +19,6 @@ router.use('/orders', orderRouter);
 router.use('/users', userRouter);
 
 // ADMIN
-router.use('/admin', adminRouter);
+router.use('/admin',isAdmin, adminRouter);
 
 module.exports = router;

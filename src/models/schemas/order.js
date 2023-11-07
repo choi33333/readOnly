@@ -51,11 +51,6 @@ const order = new Schema(
       required: true,
 
     },
-
-    orderedBy: {
-      type: String,
-      required: true,
-    },
   },
   {
     timestamps: true,

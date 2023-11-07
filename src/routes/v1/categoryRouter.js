@@ -1,9 +1,11 @@
 const { Router } = require("express");
 const { CategoryModel } = require("../../models");
+const validateError = require("../../middlewares/validators/validateError");
+const objectIdValidator = require("../../middlewares/validators/objectId");
 const router = Router();
 
 // 카테고리 조회
-router.get("/", async (req, res) => {
+router.get("/", async (req, res, next) => {
   const categories = await CategoryModel.find({}).lean();
 
   res.json({
@@ -12,14 +14,21 @@ router.get("/", async (req, res) => {
   });
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", objectIdValidator, validateError, async (req, res, next) => {
   const id = req.params.id;
 
-  const category = await CategoryModel.find({ id: id }).lean();
+  const category = await CategoryModel.findById(id)
+    .lean();
+    
+  if (!category) {
+    const error = new Error("카테고리가 존재하지 않습니다.");
+    error.status = 401;
+    return next(error);
+  }
 
   res.json({
     error: null,
-    data: category,
+    category,
   });
 });
 

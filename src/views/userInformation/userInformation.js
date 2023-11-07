@@ -9,7 +9,7 @@ const withdrawal = document.getElementById('withdrawal');
 //페이지 로딩되었을 때 회원정보 보이도록
 window.onload = () => {
   try {
-    fetch(URL_PATH.BACK_URL + '/api/v1/users/me',{
+    fetch('/api/v1/users/me',{
       method: 'GET',
       headers:{
         "authorization": 'Bearer ' + localStorage.getItem('Token'),
@@ -30,9 +30,6 @@ window.onload = () => {
         console.log('로그인 필요');
       }
     })
-    .catch((error) => {
-      console.log('error: ', error);
-    });
   } catch (error) {
     console.log('err: ', error);
   }
@@ -44,7 +41,7 @@ withdrawal.addEventListener('click', () => {
   try {
     const confirmflag = confirm('정말 탈퇴하시겠습니까?');
     if(confirmflag){
-      fetch(URL_PATH.BACK_URL + '/api/v1/users/withdraw',{
+      fetch('/api/v1/users/withdraw',{
         method: 'DELETE',
         headers:{
           "Content-Type": "application/json",
@@ -59,9 +56,6 @@ withdrawal.addEventListener('click', () => {
           return location.href = '/'
         }
       })
-      .catch((error) => {
-        console.log('error2: ', error);
-      });
     }else{
       console.log("취소");
     }
