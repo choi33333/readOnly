@@ -130,7 +130,8 @@ router.delete("/:id", async (req, res, next) => {
 
   const deletedOrder = await order.deleteOne(order);
 
-  res.status(204).json({
+  res.json({
+    error: null,
     message: "주문목록에서 제거되었습니다.",
   });
 });

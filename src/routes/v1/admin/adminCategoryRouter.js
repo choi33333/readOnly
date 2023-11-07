@@ -5,7 +5,9 @@ const router = Router();
 
 // 카테고리 조회
 router.get("/", async (req, res) => {
+
   const categories = await CategoryModel.find({}).lean();
+
   res.json({
     error: null,
     data: categories,
@@ -34,8 +36,10 @@ router.post("/", async (req, res, next) => {
     name: name,
   });
 
-  res.status(201).json({
-    message: category.name + "카테고리 생성을 완료했습니다.",
+  res.json({
+    error: null,
+    data: category,
+    message: category.name + " 카테고리를 성공적으로 제거 했습니다.",
   });
 });
 
@@ -51,9 +55,10 @@ router.delete("/:name", async (req, res, next) => {
     return next(error);
   }
 
-  res.status(201).json({
-    data: token,
-    message: category.name + "카테고리를 성공적으로 제거 했습니다.",
+  res.json({
+    error: null,
+    data: category,
+    message: category.name + " 카테고리를 성공적으로 제거 했습니다.",
   });
 });
 
