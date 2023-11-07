@@ -10,7 +10,7 @@ const router = Router();
 router.post("/", userOrderValidator, validateError, async (req, res, next) => {
   const { orderedBy, postCode, address, addressDetail, phoneNumber, products } =
     req.body;
-  const { em } = res.locals.user;
+  const em = res.locals.user;
 
   // 서버연결없이도 겹치지않는 난수만들기
   const orderNumber = 3;
@@ -88,8 +88,10 @@ router.get("/search", async (req, res, next) => {
     error.status = 401;
     return next(error);
   }
+  console.log(order.phoneNumber)
+  console.log(phoneNumber)
 
-  if (order.phoneNumber == phoneNumber) {
+  if (order.phoneNumber != phoneNumber) {
     const error = new Error("전화번호가 일치하지 않습니다.");
     error.status = 401;
     return next(error);
@@ -102,16 +104,22 @@ router.get("/search", async (req, res, next) => {
 });
 
 // 특정 주문 수정
-// orderedBy에 고객이 입력한 이름이이면 이름도 수정가능 - 협의필요
+// 11-08 진행중
 router.put("/:id", objectIdValidator, validateError, async (req, res, next) => {
-  const { id } = req.params.id;
+  const id = req.params.id;
   const { orderedBy, address, phoneNumber } = req.body;
 
-  const order = await OrderModel.findById(id)
-    .lean();
+  const order = await OrderModel.findById(id).lean();
 
   if (!order) {
     const error = new Error("주문이 존재하지 않습니다.");
+    error.status = 401;
+    return next(error);
+  }
+
+  if (order.orderStatus != "결제 완료")
+  {
+    const error = new Error("주문수정이 불가능합니다.");
     error.status = 401;
     return next(error);
   }
