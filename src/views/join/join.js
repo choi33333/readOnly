@@ -32,7 +32,7 @@ joinBtn.addEventListener('click', () => {
     }
 
     try {
-      fetch(URL_PATH.BACK_URL + '/api/auth/sign-up',{
+      fetch(URL_PATH.BACK_URL + '/api/v1/auth/sign-up',{
         method: 'POST',
         headers:{
           "Content-Type": "application/json",

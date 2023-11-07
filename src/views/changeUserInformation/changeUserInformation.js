@@ -12,7 +12,7 @@ const completBtn = document.getElementById('completBtn');
 //페이지 로딩되었을 때 회원정보 보이도록
 window.onload = () => {
   try {
-    fetch(URL_PATH.BACK_URL + '/api/users/me',{
+    fetch(URL_PATH.BACK_URL + '/api/v1/users/me',{
       method: 'GET',
       headers:{
         "authorization": 'Bearer ' + localStorage.getItem('Token'),
@@ -60,7 +60,7 @@ completBtn.addEventListener('click', () => {
       addressDetail: addressDetailValue.value,
     }
 
-    fetch(URL_PATH.BACK_URL + '/api/users/me', {
+    fetch(URL_PATH.BACK_URL + '/api/v1/users/me', {
       method: 'PUT',
       headers:{
         "Content-Type": "application/json", //(post,put,delete)항상 필수적으로 추가해야함!!
@@ -74,6 +74,7 @@ completBtn.addEventListener('click', () => {
       //백엔드에서 status 붙이지 않으면 default값으로 status 200 옴(ok)
       if(response.status === 200){
         console.log('성공');
+        location.href = '/userInformation'
       }else if(response.status === 401){
         console.log('로그인 필요');
       }
