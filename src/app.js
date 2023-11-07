@@ -7,6 +7,7 @@ const app = express();
 const authRouter = require("./routes/authRouter");
 const adminCategoryRouter = require("./routes/adminCategoryRouter");
 const adminProductRouter = require("./routes/adminProductRouter");
+const adminUserRouter = require("./routes/adminUserRouter");
 const productRouter = require('./routes/productRouter');
 const orderRouter = require('./routes/orderRouter');
 const categoryRouter = require("./routes/categoryRouter");
@@ -53,6 +54,8 @@ app.use('/', productRouter);
 // admin 상품
 app.use("/", adminProductRouter);
 
+// admin user
+app.use('/', adminUserRouter)
 
 // 카테고리 만들기 router
 app.use("/", adminCategoryRouter);
