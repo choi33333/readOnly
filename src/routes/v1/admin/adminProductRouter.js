@@ -83,7 +83,7 @@ router.put("/:id", isAdmin, async (req, res, next) => {
 // 상품 삭제
 router.delete("/:id", isAdmin, async (req, res, next) => {
   const id = req.params.id;
-  const product = await ProductModel.findOne({ id: id }).lean();
+  const product = await ProductModel.findById({ id }).lean();
   const deletedProduct = await ProductModel.deleteOne(product);
 
   if (!product) {
