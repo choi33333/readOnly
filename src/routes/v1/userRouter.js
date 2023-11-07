@@ -25,8 +25,7 @@ router.get("/me", isAuthenticated, async (req, res, next) => {
 // my page passwordCheck
 router.post("/me/passcheck", isAuthenticated, async (req, res, next) => {
   const { em } = res.locals.user;
-  console.log(em);
-  const password = req.body;
+  const password = req.body.password;
   const user = await UserModel.findOne({ email: em }).lean();
 
   let isValidUser = await bcrypt.compare(password, user.password);
