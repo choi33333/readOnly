@@ -1,16 +1,42 @@
+header a {
+    text-decoration: none;
+    color:rgb(16, 16, 160);
+
+}
+.logo {
+    color: rgb(16, 16, 160);
+    font-size: 20px;
+    font-style: italic;
+
+}
+
 header {
     display: flex;
     /* width: 100%; */
     justify-content: space-between;
-    background-color: rgb(62, 101, 65);
+    border-bottom: 1px solid rgb(176, 176, 176);
    
 }
 
 .search{
     justify-content: center;
+    text-align: center;
     width: 300px;
     margin: auto;
+
 }
+button {
+    height: 35px;
+}
+input {
+    width: 240px;
+    height: 33px;
+    border: 1px solid;
+    border-color: rgb(16, 16, 160);
+    border-radius: 10px;
+
+}
+
 .menu {
     width: 10%;
     background-color: rgb(220, 220, 220);

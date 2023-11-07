@@ -33,8 +33,8 @@ document.getElementById('searchButton').addEventListener('click', async function
                         <td>${order.productId}</td>
                         <td>${order.price}</td>
                         <td>${order.quantity}</td>
+                        <td>${order.status}</td>
                         <td>${order.process}</td>
-                        <td><a href="${order.trackingLink}" target="_blank">확인</a></td>
                         <td><button class="cancel-button" data-order-number="${order.orderNumber}">주문 취소</button></td>
                     `;
                     orderResultsTableBody.appendChild(row);

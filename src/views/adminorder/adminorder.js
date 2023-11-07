@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
             });
 
             if (!response.ok) {
-                throw new Error('error ${response.status}');
+                throw new Error('주문 목록이 없습니다. ${response.status}');
             }
 
             const orders = await response.json();
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function() {
             });
     
             if (!response.ok) {
-                throw new Error(`주문 삭제 중 오류 발생 (${response.status})`);
+                throw new Error('주문 삭제 중 오류 발생 (${response.status})');
             }
     
             // 성공적으로 주문을 삭제한 경우 해당 주문을 제거
