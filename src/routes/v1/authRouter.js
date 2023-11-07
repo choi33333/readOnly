@@ -1,5 +1,7 @@
 const { Router } = require("express");
 const { UserModel } = require("../../models"); // user model
+const validateError = require("../../middlewares/validators/validateError");
+const { userSignInValidator, userSignUpValidator } = require("../../middlewares/validators/user");
 const jsonwebtoken = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
@@ -10,7 +12,7 @@ const secret = process.env.SECRET;
 
 // sign-in
 
-router.post("/sign-in", async (req, res, next) => {
+router.post("/sign-in", userSignInValidator, validateError, async (req, res, next) => {
   const { email, password } = req.body;
 
   const users = await UserModel.findOne({ email }).lean();
@@ -47,7 +49,7 @@ router.post("/sign-in", async (req, res, next) => {
 
 // sign-up
 
-router.post("/sign-up", async (req, res, next) => {
+router.post("/sign-up", userSignUpValidator, validateError, async (req, res, next) => {
   const {
     email,
     password,

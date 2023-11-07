@@ -1,5 +1,8 @@
 const { Router } = require("express");
 const { ProductModel } = require("../../models");
+const validateError = require("../../middlewares/validators/validateError");
+const objectIdValidator = require("../../middlewares/validators/objectId");
+
 const router = Router();
 
 // 상품 조회
@@ -19,15 +22,11 @@ router.get("/", async (req, res, next) => {
   });
 });
 
-router.get("/:id", async (req, res, next) => {
+// 특정 상품 조회
+router.get("/:id", objectIdValidator, validateError, async (req, res, next) => {
   const productId = req.params.id;
   const product = await ProductModel.findById(productId)
-    .lean()
-    .catch((error) => {
-      error = new Error("제품이 존재하지 않습니다.");
-      error.status = 401;
-      return next(error);
-    });
+    .lean();
 
   if (!product || product.length === 0) {
     // 데이터베이스에서 제품을 찾지 못한 경우

@@ -2,6 +2,7 @@ const { Router } = require("express");
 const { OrderModel } = require("../../models");
 const validateError = require("../../middlewares/validators/validateError");
 const userOrderValidator = require("../../middlewares/validators/order");
+const objectIdValidator = require("../../middlewares/validators/objectId");
 
 const router = Router();
 
@@ -50,14 +51,10 @@ router.get("/", async (req, res, next) => {
 });
 
 // 특정 주문 수정 상태 수정
-router.put("/:id", async (req, res, next) => {
+router.put("/:id", objectIdValidator, validateError, async (req, res, next) => {
   const id = req.params.id;
   const { orderStatus } = req.body;
-  let order = await OrderModel.findById(id).lean().catch((error) => {
-    error = new Error("올바른 주문번호가 아닙니다.");
-    error.status = 401;
-    return next(error);
-  });
+  let order = await OrderModel.findById(id).lean();
 
 if (!order) {
   const error = new Error("주문이 존재하지 않습니다.");
@@ -106,17 +103,12 @@ router.get("/search", async (req, res, next) => {
 
 // 특정 주문 수정
 // orderedBy에 고객이 입력한 이름이이면 이름도 수정가능 - 협의필요
-router.put("/:id", async (req, res, next) => {
+router.put("/:id", objectIdValidator, validateError, async (req, res, next) => {
   const { id } = req.params.id;
   const { orderedBy, address, phoneNumber } = req.body;
 
   const order = await OrderModel.findById(id)
-    .lean()
-    .catch((error) => {
-      error = new Error("올바른 주문번호가 아닙니다.");
-      error.status = 401;
-      return next(error);
-    });
+    .lean();
 
   if (!order) {
     const error = new Error("주문이 존재하지 않습니다.");
@@ -137,16 +129,11 @@ router.put("/:id", async (req, res, next) => {
 });
 
 // 특정 주문 취소
-router.delete("/:id", async (req, res, next) => {
+router.delete("/:id", objectIdValidator, validateError, async (req, res, next) => {
   const { id } = req.params.id;
 
   const order = await OrderModel.findById(id)
-    .lean()
-    .catch((error) => {
-      error = new Error("올바른 주문번호가 아닙니다.");
-      error.status = 401;
-      return next(error);
-    });
+    .lean();
 
   if (!order) {
     const error = new Error("주문이 존재하지 않습니다.");
