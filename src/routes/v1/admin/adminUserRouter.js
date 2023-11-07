@@ -1,17 +1,16 @@
 const { Router } = require("express");
-const { UserModel } = require("../models");
+const { UserModel } = require("../../../models");
 const router = Router();
 
 // user 조회
-router.get("/api/admin/users", async (req, res, next) => {
+router.get("/", async (req, res, next) => {
   const users = await UserModel.find({}).lean();
 
-
-  if(!product){
+  if (!users) {
     const error = new Error("사용자가 없습니다.");
     error.status = 403;
     return next(error);
-  };
+  }
 
   res.json({
     error: null,
@@ -20,15 +19,14 @@ router.get("/api/admin/users", async (req, res, next) => {
 });
 
 // user 삭제
-router.delete("/api/admin/users/:id", async (req, res, next) => {
+router.delete("/:id", async (req, res, next) => {
   const id = req.params.id;
-  const deletedUser = await UserModel.deleteOne({ _id : id }).lean(); 
+  const deletedUser = await UserModel.deleteOne({ _id: id }).lean();
 
   res.json({
     error: null,
     data: deletedUser,
   });
 });
-
 
 module.exports = router;
