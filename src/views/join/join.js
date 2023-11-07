@@ -32,7 +32,7 @@ joinBtn.addEventListener('click', () => {
     }
 
     try {
-      fetch(URL_PATH.BACK_URL + '/api/v1/auth/sign-up',{
+      fetch('/api/v1/auth/sign-up',{
         method: 'POST',
         headers:{
           "Content-Type": "application/json",
@@ -47,7 +47,6 @@ joinBtn.addEventListener('click', () => {
           location.href = '/joinSuccess';
         }
       })
-      .catch((error) => console.log('error: ', error));
     } catch (error) {
       console.log('error: ', error);
     }
