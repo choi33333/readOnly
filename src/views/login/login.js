@@ -22,7 +22,7 @@ loginBtn.addEventListener('click', (e) => {
     }
 
     try {
-      fetch(URL_PATH.BACK_URL + '/api/auth/sign-in',{
+      fetch(URL_PATH.BACK_URL + '/api/v1/auth/sign-in',{
         method: 'POST',
         headers:{
           "Content-Type": "application/json",

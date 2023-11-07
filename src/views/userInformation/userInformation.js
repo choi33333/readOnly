@@ -4,11 +4,12 @@ const phoneValue = document.getElementById('phoneValue');
 const addressValue = document.getElementById('addressValue');
 const addressDetailValue = document.getElementById('addressDetailValue');
 const postalCode = document.getElementById('postalCode');
+const withdrawal = document.getElementById('withdrawal');
 
 //페이지 로딩되었을 때 회원정보 보이도록
 window.onload = () => {
   try {
-    fetch(URL_PATH.BACK_URL + '/api/users/me',{
+    fetch(URL_PATH.BACK_URL + '/api/v1/users/me',{
       method: 'GET',
       headers:{
         "authorization": 'Bearer ' + localStorage.getItem('Token'),
@@ -36,3 +37,35 @@ window.onload = () => {
     console.log('err: ', error);
   }
 }
+
+
+//회원탈퇴
+withdrawal.addEventListener('click', () => {
+  try {
+    const confirmflag = confirm('정말 탈퇴하시겠습니까?');
+    if(confirmflag){
+      fetch(URL_PATH.BACK_URL + '/api/v1/users/withdraw',{
+        method: 'DELETE',
+        headers:{
+          "Content-Type": "application/json",
+          "authorization": 'Bearer ' + localStorage.getItem('Token'),
+        },
+      })
+      .then(async (response) => {
+        const res = await response.json();
+        console.log('response2: ', res);
+        if(response.status === 200){
+          console.log('성공');
+          return location.href = '/'
+        }
+      })
+      .catch((error) => {
+        console.log('error2: ', error);
+      });
+    }else{
+      console.log("취소");
+    }
+  } catch (error) {
+    console.log('err2: ', error);
+  }
+})
