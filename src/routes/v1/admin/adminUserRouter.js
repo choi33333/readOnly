@@ -1,9 +1,10 @@
 const { Router } = require("express");
 const { UserModel } = require("../../../models");
+const isAdmin = require("../../../middlewares/admin");
 const router = Router();
 
 // user 조회
-router.get("/", async (req, res, next) => {
+router.get("/",isAdmin , async (req, res, next) => {
   const users = await UserModel.find({}).lean();
 
   if (!users) {
@@ -19,7 +20,7 @@ router.get("/", async (req, res, next) => {
 });
 
 // user 삭제
-router.delete("/:id", async (req, res, next) => {
+router.delete("/:id",isAdmin , async (req, res, next) => {
   const id = req.params.id;
   const deletedUser = await UserModel.deleteOne({ _id: id }).lean();
 
