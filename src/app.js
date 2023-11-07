@@ -58,10 +58,10 @@ app.use("/", adminProductRouter);
 app.use("/", adminCategoryRouter);
 
 // user 조회
-app.use("/",isAuthenticated, userRouter);
+app.use("/", userRouter);
 
 //주문
-app.use('/',isAuthenticated, orderRouter);
+app.use('/', orderRouter);
 
 
 

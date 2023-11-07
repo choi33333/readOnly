@@ -25,23 +25,23 @@
       <div class="information">
         <div id="name" class="userInformation">
           <p>이름</p>
-          <p>readOnly</p>
+          <p id="nameValue" class="resData"></p>
         </div>
         <div id="email" class="userInformation">
           <p>이메일</p>
-          <p>readOnly@gmail.com</p>
+          <p id="emailValue" class="resData"></p>
         </div>
         <div id="phoneNumber" class="userInformation">
           <p>전화번호</p>
-          <p>010-1234-1234</p>
+          <p id="phoneValue" class="resData"></p>
         </div>
         <div id="address" class="userInformation">
           <p>주소</p>
             <div class="addressDetail">
-            <p>0000</p>
-            <p>서울특별시 성동구 아차산로 17길 48</p>
-            <p>성수낙낙 2층</p>
-        </div>
+              <p id="postalCode" class="resData"></p>
+              <p id="addressValue" class="resData"></p>
+              <p id="addressDetailValue" class="resData"></p>
+            </div>
         </div>
       </div>
       <div class="btns">
@@ -50,5 +50,8 @@
       </div>
     </main>
   </div>
+
+  <script src="../config/url_path.js"></script>
+  <script src="userInformation.js"></script>
 </body>
 </html>

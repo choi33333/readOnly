@@ -11,7 +11,15 @@ const order = new Schema(
       type: String,
       required: true,
     },
+    postCode: {
+      type: Number,
+      required: true,
+    },
     address: {
+      type: String,
+      required: true,
+    },
+    addressDetail: {
       type: String,
       required: true,
     },

@@ -20,12 +20,13 @@ router.delete("/api/users/me", async (req, res, next) => {
   const { em } = res.locals.user;
   const user = await UserModel.findOne({ email: em }).lean();
   console.log(user);
-  const { phoneNumber, address, addressDetail } = req.body;
+  const { phoneNumber, postCode, address, addressDetail } = req.body;
 
   const updatedUser = await UserModel.updateOne(
     { email : em },
     {
       phoneNumber: phoneNumber,
+      postCode: postCode,
       address: address,
       addressDetail: addressDetail,
     }

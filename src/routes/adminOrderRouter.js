@@ -53,7 +53,7 @@ router.delete("/api/orders/:id", async (req, res, next) => {
     return next(error);
   }
 
-  const deletedOrder = await order.deleteOne(order);
+  const deletedOrder = await OrderModel.deleteOne(order);
 
   res.status(204).json({
     message: "주문목록에서 제거되었습니다.",

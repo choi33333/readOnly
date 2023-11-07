@@ -45,7 +45,7 @@ router.post("/api/auth/sign-in", async (req, res, next) => {
 // sign-up
 
 router.post("/api/auth/sign-up", async (req, res, next) => {
-  const { email, password, username, phoneNumber, address, addressDetail } =
+  const { email, password, username, phoneNumber, postCode ,address, addressDetail } =
     req.body;
 
 
@@ -64,6 +64,7 @@ router.post("/api/auth/sign-up", async (req, res, next) => {
     password: hashedPassword,
     username: username,
     phoneNumber: phoneNumber,
+    postCode: postCode,
     address: address,
     addressDetail: addressDetail,
     role: "customer",

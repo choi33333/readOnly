@@ -125,6 +125,10 @@ li {
   width: 120px;
 }
 
+.resData {
+  width: 300px;
+}
+
 .btns {
   display: flex;
   flex-direction: column;
