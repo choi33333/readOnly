@@ -11,7 +11,15 @@ const order = new Schema(
       type: String,
       required: true,
     },
+    postCode: {
+      type: Number,
+      required: true,
+    },
     address: {
+      type: String,
+      required: true,
+    },
+    addressDetail: {
       type: String,
       required: true,
     },
@@ -27,8 +35,21 @@ const order = new Schema(
     },
 
     products: {
-      type: [productSchema],
+      type: [
+        {
+          productId: {
+            type: Schema.Types.ObjectId,
+            ref: "ProductModel",
+            required: true,
+          },
+          quantity: {
+            type: Number,
+            required: true,
+          },
+        },
+      ],
       required: true,
+
     },
 
     orderedBy: {

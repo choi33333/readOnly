@@ -4,7 +4,7 @@ const router = Router();
 
 // 주문하기
 router.post("/api/orders", async (req, res, next) => {
-  const { orderedBy, address, phoneNumber, products } = req.body;
+  const { orderedBy, postCode ,address,addressDetail,phoneNumber, products } = req.body;
   const { em } = res.locals.user;
 
   // 서버연결없이도 겹치지않는 난수만들기
@@ -13,7 +13,9 @@ router.post("/api/orders", async (req, res, next) => {
   const order = await OrderModel.create({
     orderNumber: orderNumber,
     orderedBy: orderedBy,
+    postCode: postCode,
     address: address,
+    addressDetail: addressDetail,
     phoneNumber: phoneNumber,
     orderStatus: "배송 준비중",
     products: products,
@@ -40,6 +42,28 @@ router.get("/api/orders", async (req, res, next) => {
   res.json({
     error: null,
     data: orders,
+  });
+});
+
+// 특정 주문 수정 상태 수정
+router.put("/api/orders/:id", async (req, res, next) => {
+  const id = req.params.id;
+  const { orderStatus } = req.body;
+  let order = await OrderModel.findOne({ _id: id }).lean();
+
+  if (!order) {
+    const error = new Error("주문이 존재하지 않습니다.");
+    error.status = 401;
+    return next(error);
+  }
+
+  order = await OrderModel.updateOne({
+    orderStatus: orderStatus,
+  });
+  
+  res.json({
+    error: null,
+    data: order,
   });
 });
 
