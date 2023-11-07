@@ -1,7 +1,7 @@
 const { body } = require('express-validator');
 
 // 주문정보 validation
-const userOrderValidator = () => {
+const userOrderValidator = (req, res, next) => {
     return [
         body('orderedBy')
             .notEmpty()
@@ -15,7 +15,7 @@ const userOrderValidator = () => {
         body('addressDetail')
             .notEmpty()
             .withMessage('상세주소를 입력해주세요')
-    ]
+    ], next();
 };
 
 module.exports = userOrderValidator;
