@@ -81,7 +81,7 @@ router.put("/:id", async (req, res, next) => {
 });
 
 // 상품 삭제
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", async (req, res, next) => {
   const id = req.params.id;
   const product = await ProductModel.findOne({ id: id }).lean();
   const deletedProduct = await ProductModel.deleteOne(product);
