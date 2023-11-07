@@ -18,7 +18,7 @@ const userSignUpValidator = () => {
         body('username')
             .notEmpty()
             .withMessage('이름을 입력해주세요')
-            .isLength({ min: 2 })
+            .isLength({ min : 2 })
             .trim(),
         body('phoneNumber')
             .notEmpty()
