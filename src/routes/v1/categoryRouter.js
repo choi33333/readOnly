@@ -15,7 +15,7 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   const id = req.params.id;
 
-  const category = await CategoryModel.find({ id: id }).lean();
+  const category = await CategoryModel.find({ _id: id }).lean();
 
   res.json({
     error: null,

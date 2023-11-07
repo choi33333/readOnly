@@ -50,7 +50,7 @@ router.get("/", async (req, res, next) => {
 router.put("/:id", async (req, res, next) => {
   const id = req.params.id;
   const { orderStatus } = req.body;
-  let order = await OrderModel.findOne({ id: id }).lean();
+  let order = await OrderModel.findOne({ _id: id }).lean();
 
   if (!order) {
     const error = new Error("주문이 존재하지 않습니다.");
@@ -96,7 +96,7 @@ router.get("/search", async (req, res, next) => {
 router.put("/:id", async (req, res, next) => {
   const { id } = req.params.id;
   const { orderedBy, address, phoneNumber } = req.body;
-  const order = await OrderModel.findOne({ id: id }).lean();
+  const order = await OrderModel.findOne({ _id: id }).lean();
 
   if (!order) {
     const error = new Error("주문이 존재하지 않습니다.");
@@ -120,7 +120,7 @@ router.put("/:id", async (req, res, next) => {
 router.delete("/:id", async (req, res, next) => {
   const { id } = req.params.id;
 
-  const order = await OrderModel.findOne({ id: id }).lean();
+  const order = await OrderModel.findOne({ _id: id }).lean();
 
   if (!order) {
     const error = new Error("주문이 존재하지 않습니다.");
