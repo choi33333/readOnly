@@ -31,6 +31,7 @@ router.post("/sign-in", async (req, res, next) => {
   const token = jsonwebtoken.sign(
     {
       em: users.email,
+      ro: users.role,
     },
     secret,
     { expiresIn: "10h" }
