@@ -5,7 +5,6 @@ const path = require("path");
 const app = express();
 
 const router = require("./routes/index");
-const isAuthenticated = require("./middlewares/index");
 
 require("dotenv").config();
 const mongodbUrI = process.env.MONGODB;
@@ -39,12 +38,11 @@ app.use((req, res, next) => {
 });
 
 // 에러 핸들러 등록
-// app.use((error, req, res, next) => {
-//   console.log(error);
-//   res.statusCode = error.statusCode ?? 500;
-//   res.json({
+// app.use((err, req, res, next) => {
+//   console.error(err);
+//   res.status(500).json({
+//     error: "Internal server error",
 //     data: null,
-//     error: error.message,
 //   });
 // });
 

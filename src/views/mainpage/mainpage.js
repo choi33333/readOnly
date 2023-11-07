@@ -1,5 +1,5 @@
 window.addEventListener("load", async () => {
-    const categories = await fetch("/api/categories") 
+    const categories = await fetch("/api/v1/categories") 
                             .then(result => result.json())
                             .catch(err => null);
     
