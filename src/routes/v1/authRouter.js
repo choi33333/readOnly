@@ -40,7 +40,7 @@ router.post("/sign-in", async (req, res, next) => {
 
   res.json({
     error: null,
-    data: deletedUser,
+    data: token,
     message: "로그인에 성공했습니다",
   });
 });

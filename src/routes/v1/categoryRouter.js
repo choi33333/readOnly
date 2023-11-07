@@ -15,11 +15,23 @@ router.get("/", async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
   const id = req.params.id;
 
-  const category = await CategoryModel.find({ _id: id }).lean();
+  const category = await CategoryModel.findById(id)
+    .lean()
+    .catch((error) => {
+      error = new Error("카테고리가 존재하지 않습니다.");
+      error.status = 401;
+      return next(error);
+    });
+
+  if (!category) {
+    const error = new Error("카테고리가 존재하지 않습니다.");
+    error.status = 401;
+    return next(error);
+  }
 
   res.json({
     error: null,
-    data: category,
+    category,
   });
 });
 
