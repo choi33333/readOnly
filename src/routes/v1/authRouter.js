@@ -38,7 +38,7 @@ router.post("/sign-in", async (req, res, next) => {
     { expiresIn: "10h" }
   );
 
-  res.json({
+  res.status(201).json({
     error: null,
     data: token,
     message: "로그인에 성공했습니다",
@@ -79,10 +79,10 @@ router.post("/sign-up", async (req, res, next) => {
     role: "customer",
   });
 
-  res.json({
-    message: "회원가입에 성공했습니다",
+  res.status(201).json({
     error: null,
-    data: deletedUser,
+    data: token,
+    message: "회원가입에 성공했습니다",
   });
 });
 
