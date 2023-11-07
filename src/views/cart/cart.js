@@ -1,23 +1,27 @@
 //임시 데이터
 let bookdata = [
-	{ count: 1, id: "6549140ad11299b256f2d87d" },
-	{ count: 1, id: "65491352d11299b256f2d87a" },
+	{ soldAmount: 1, _id: "6549140ad11299b256f2d87d" },
+	{ soldAmount: 1, _id: "65491352d11299b256f2d87a" },
 ];
-let cartArr = JSON.parse(localStorage.getItem("bookdata"));
 let renderData = JSON.parse(localStorage.getItem("cartdata"));
+let cartArr = JSON.parse(localStorage.getItem("bookdata"));
 let sumPrice = 0;
+// sumLocalData();
 window.addEventListener("load", async () => {
-	let bookAdd = [];
+	// sumLocalData();
 	cartArr = JSON.parse(localStorage.getItem("bookdata"));
+	let bookAdd = JSON.parse(localStorage.getItem("cartdata"));
 	await cartArr.forEach((data) => {
-		const book = fetch(URL_PATH.BACK_URL + `/api/products/${data.id}`)
+		console.log(data);
+		const book = fetch(URL_PATH.BACK_URL + `/api/v1/products/${data._id}`)
 			.then((response) => response.json())
 			.then((set) => {
-				bookAdd.push(set.data[0]);
-				localStorage.setItem("cartdata", JSON.stringify(bookAdd));
+				console.log(set.data[0]);
 			})
 			.catch((err) => null);
 	});
+	// cartArr = [];
+	// localStorage.setItem("bookdata", JSON.stringify(cartArr));
 });
 const getCartItemTemplate = (data, index) => {
 	return `<div id=${index} class="cart_card">
@@ -144,59 +148,36 @@ const totalsum = () => {
 localbtn.addEventListener("click", setLocal);
 //장바구니 담기 소스
 document.querySelector(".addbook").addEventListener("click", function () {
-	// renderData.push({
-	// 	name: "책이름1",
-	// 	author: "도라에몽",
-	// 	price: 3000,
-	// 	soldAmount: 1,
-	// 	id: 2,
-	// });
-	localStorage.setItem("bookdata", JSON.stringify(bookdata));
-	totalsum();
-	location.reload();
+	cartArr.push({ _id: "65491352d11299b256f2d87a", soldAmount: 1 });
+	localStorage.setItem("bookdata", JSON.stringify(cartArr));
+	// totalsum();
+	// location.reload();
 });
 //전체삭제 구현 소스
 document.querySelector(".removeall").addEventListener("click", function () {
-	renderData = [];
 	cartArr = [];
+	renderData = [];
 	localStorage.setItem("cartdata", JSON.stringify(renderData));
 	localStorage.setItem("bookdata", JSON.stringify(cartArr));
 	location.reload();
 });
+
+const sumLocalData = () => {
+	let groupedBookdata = {};
+	cartArr.forEach((item) => {
+		console.log(item);
+		const itemId = item._id;
+		if (groupedBookdata[itemId]) {
+			groupedBookdata[itemId].soldAmount += item.soldAmount;
+		} else {
+			groupedBookdata[itemId] = { _id: itemId, soldAmount: item.soldAmount };
+		}
+	});
+	cartArr = Object.values(groupedBookdata);
+	console.log(cartArr);
+	localStorage.setItem("bookdata", JSON.stringify(cartArr));
+};
 //localstoregy 지우기 위한 용도
 // removebtn.addEventListener('click', remove);
 
-//비교하기! 백에서 장바구니 담기를 누르면 그 정보값을 백에서 받아온다.
-//그리고 로컬에 값을 넣는다.
-//그리고 리프레쉬시 백에서 정보를 받아와서 객체 안에 값을 수정..
-// const changeprice = () => {
-// 	for (let i = 0; i < cartArr.length; i++) {
-// 		const book1 = cartArr[i];
-// 		const book2 = bookdata2.find((b) => b.id === book1.id); // id를 기준으로 bookdata2에서 해당 책을 찾음
-
-// 		if (book2 && book1.price !== book2.price) {
-// 			// book2가 존재하고 가격이 다를 경우 최신화
-// 			cartArr[i] = { ...book1, price: book2.price };
-// 		}
-// 	}
-// 	localStorage.setItem("bookdata", JSON.stringify(cartArr));
-// 	console.log(cartArr);
-// 	location.reload();
-// };
-
-// const carttest = async () => {
-// 	let bookAdd = [];
-// 	await cartArr.forEach((data) => {
-// 		const book = fetch(URL_PATH.BACK_URL + `/api/products/${data.id}`)
-// 			.then((response) => response.json())
-// 			.then((set) => {
-// 				bookAdd.push(set.data[0]);
-// 				localStorage.setItem("cartdata", JSON.stringify(bookAdd));
-// 				cartArr = JSON.parse(localStorage.getItem("cartdata"));
-// 			})
-// 			.catch((err) => null);
-// 		// console.log(bookAdd);
-// 	});
-// 	console.log(bookAdd);
-// };
-// document.querySelector(".test").addEventListener("click", carttest);
+document.querySelector(".test").addEventListener("click", sumLocalData);
