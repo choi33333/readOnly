@@ -6,8 +6,6 @@ const router = Router();
 
 require("dotenv").config();
 const secret = process.env.SECRET;
-const jsonwebtoken = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
 
 // sign-in
 
