@@ -4,13 +4,15 @@ window.addEventListener("load", async () => {
                             .catch(err => null);
     
     if (categories !== null) {
+        // console.log(categories);
+
         const categoryWrapperElem = document.getElementById("category-wrapper");
         categoryWrapperElem.innerHTML = '';
 
-        for (let i=0; i<categories.length; i++){
+        for (let i=0; i<categories.data.length; i++){
             const categoryElem = document.createElement("a");
-            categoryElem.innerHTML = categories[i].name;
-            categoryElem.setAttribute("href", "?category="+categories[i]._id);   
+            categoryElem.innerHTML = categories.data[i].name;
+            categoryElem.setAttribute("href", "?category="+categories.data[i]._id);   
             categoryWrapperElem.append(categoryElem);
         }
     } 

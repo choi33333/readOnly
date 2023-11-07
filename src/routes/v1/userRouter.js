@@ -1,9 +1,11 @@
 const { Router } = require("express");
-const { UserModel } = require("../models");
+const { UserModel } = require("../../models");
+const isAuthenticated = require('../../middlewares/index')
 const router = Router();
 
+
 // my page
-router.get("/api/users/me", async (req, res, next) => {
+router.get("/me", isAuthenticated, async (req, res, next) => {
   const { em } = res.locals.user;
   const user = await UserModel.findOne({ email: em }).lean();
 
@@ -11,7 +13,7 @@ router.get("/api/users/me", async (req, res, next) => {
     const error = new Error("로그인 해주세요.");
     error.status = 401;
     return next(error);
-  };
+  }
 
   res.json({
     error: null,
@@ -20,18 +22,19 @@ router.get("/api/users/me", async (req, res, next) => {
 });
 
 // my page 수정
-router.put("/api/users/me", async (req, res, next) => {
+router.put("/me", isAuthenticated, async (req, res, next) => {
   const { em } = res.locals.user;
+  const user = await UserModel.findOne({ email: em }).lean();
   const { postCode, phoneNumber, address, addressDetail } = req.body;
 
   if (!user) {
     const error = new Error("로그인 해주세요.");
     error.status = 401;
     return next(error);
-  };
+  }
 
   const updatedUser = await UserModel.updateOne(
-    { email : em },
+    { email: em },
     {
       phoneNumber: phoneNumber,
       postCode: postCode,
@@ -46,24 +49,22 @@ router.put("/api/users/me", async (req, res, next) => {
   });
 });
 
-
 // my page 삭제
-router.delete("/api/users/withdraw", async (req, res, next) => {
-    const { em } = res.locals.user;
-    const deletedUser = await UserModel.deleteOne({ email : em });
-  
-    if (!user) {
-        const error = new Error("로그인 해주세요.");
-        error.status = 401;
-        return next(error);
-    };
+router.delete("/withdraw", isAuthenticated, async (req, res, next) => {
+  const { em } = res.locals.user;
+  const deletedUser = await UserModel.deleteOne({ email: em });
 
-    res.json({
-      message: "안녕히가세요. 다음에 또 만나요!",
-      error: null,
-      data: deletedUser,
-    });
+  if (!deletedUser) {
+    const error = new Error("로그인 해주세요.");
+    error.status = 401;
+    return next(error);
+  }
+
+  res.json({
+    message: "안녕히가세요. 다음에 또 만나요!",
+    error: null,
+    data: deletedUser,
   });
-  
+});
 
 module.exports = router;
