@@ -1,5 +1,8 @@
 const { Router } = require("express");
 const { ProductModel, CategoryModel } = require("../../../models");
+const isAdmin = require("../../../middlewares/admin");
+const validateError = require("../../../middlewares/validators/validateError");
+const addProductValidator = require("../../../middlewares/validators/product");
 const router = Router();
 
 // 상품 조회
@@ -13,7 +16,7 @@ router.get("/", async (req, res, next) => {
 });
 
 // 상품 등록
-router.post("/", async (req, res, next) => {
+router.post("/", isAdmin, addProductValidator, validateError, async (req, res, next) => {
   const { name, category, author, price, imageUrl, productInfo, releasedDate } =
     req.body;
 
