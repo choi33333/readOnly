@@ -1,6 +1,10 @@
-/* 주문완료페이지이동 */
-function newPage()  {
-  window.open('http://127.0.0.1:5500/ordercomplete.html');
+function redirectToShoppingCartPage() {
+  // 장바구니 페이지 URL로 리다이렉트
+  window.location.href = "http://localhost:3000/cart/"; // 장바구니 페이지의 실제 경로로 수정
+}
+function redirectToOrderCompletePage() {
+  // 주문 완료 페이지 URL로 리다이렉트
+  window.location.href = "http://localhost:3000/ordercomplete/"; // 주문 완료 페이지의 실제 경로로 수정
 }
 /*배송지*/
 function execDaumPostcode() {
