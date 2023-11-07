@@ -5,7 +5,6 @@ const path = require("path");
 const app = express();
 
 const router = require("./routes/index");
-const isAuthenticated = require("./middlewares/index");
 
 require("dotenv").config();
 const mongodbUrI = process.env.MONGODB;
