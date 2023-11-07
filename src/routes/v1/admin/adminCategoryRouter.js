@@ -1,10 +1,11 @@
 const { Router } = require("express");
 const { CategoryModel } = require("../../../models");
+const isAdmin = require("../../../middlewares/admin");
 
 const router = Router();
 
 // 카테고리 조회
-router.get("/", async (req, res, next) => {
+router.get("/",isAdmin , async (req, res, next) => {
 
   const categories = await CategoryModel.find({}).lean();
 
@@ -15,7 +16,7 @@ router.get("/", async (req, res, next) => {
 });
 
 // 카테고리 만들기
-router.post("/", async (req, res, next) => {
+router.post("/",isAdmin , async (req, res, next) => {
   const { name } = req.body;
 
   if (!name) {
@@ -44,7 +45,7 @@ router.post("/", async (req, res, next) => {
 });
 
 // 카테고리 삭제
-router.delete("/:name", async (req, res, next) => {
+router.delete("/:name",isAdmin , async (req, res, next) => {
   const name = req.params.name;
 
   const category = await CategoryModel.deleteOne({ name });
