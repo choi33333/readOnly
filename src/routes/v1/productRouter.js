@@ -15,16 +15,16 @@ router.get("/", async (req, res, next) => {
 
 router.get("/:id", async (req, res, next) => {
   const productId = req.params.id;
-  const product = await ProductModel.find({ _id: productId }).lean();
+  console.log(productId)
+  const product = await ProductModel.findOne({ id: productId }).lean();
 
   if (!product || product.length === 0) {
     // 데이터베이스에서 제품을 찾지 못한 경우
-    return res.status(404).json({
-      error: "Product not found",
-      data: null,
-    });
+    const error = new Error("제품이 존재하지 않습니다.");
+    error.status = 401;
+    return next(error);
   }
-  
+
   res.json({
     error: null,
     data: product,

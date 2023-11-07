@@ -59,7 +59,7 @@ router.put("/:id", async (req, res, next) => {
   }
 
   // category를 프론트에서 id 값으로 받아와야한다.
-  const categoryId = await CategoryModel.findOne({ _id: category });
+  const categoryId = await CategoryModel.findOne({ id: category });
 
   const updatedProduct = await ProductModel.updateOne(
     { _id: id },
@@ -83,7 +83,7 @@ router.put("/:id", async (req, res, next) => {
 // 상품 삭제
 router.delete("/:id", async (req, res) => {
   const id = req.params.id;
-  const product = await ProductModel.findOne({ _id: id }).lean();
+  const product = await ProductModel.findOne({ id: id }).lean();
   const deletedProduct = await ProductModel.deleteOne(product);
 
   if (!product) {
