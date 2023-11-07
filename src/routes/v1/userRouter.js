@@ -21,6 +21,27 @@ router.get("/me", isAuthenticated, async (req, res, next) => {
   });
 });
 
+// my page passwordCheck
+router.post("/me/passcheck", isAuthenticated, async (req, res, next) => {
+  const { em } = res.locals.user;
+  const password = req.body;
+  const user = await UserModel.findOne({ email: em }).lean();
+
+  let isValidUser = await bcrypt.compare(password, user.password);
+
+  if (!isValidUser) {
+    const error = new Error("비밀번호가 일치하지 않습니다.");
+    error.status = 401;
+    return next(error);
+  }
+
+  res.json({
+    error: null,
+    data: user,
+    message: "비밀번호가 일치합니다."
+  });
+});
+
 // my page 수정
 router.put("/me", isAuthenticated, async (req, res, next) => {
   const { em } = res.locals.user;
