@@ -12,7 +12,7 @@ const completBtn = document.getElementById('completBtn');
 //페이지 로딩되었을 때 회원정보 보이도록
 window.onload = () => {
   try {
-    fetch(URL_PATH.BACK_URL + '/api/v1/users/me',{
+    fetch('/api/v1/users/me',{
       method: 'GET',
       headers:{
         "authorization": 'Bearer ' + localStorage.getItem('Token'),
@@ -33,9 +33,6 @@ window.onload = () => {
         console.log('로그인 필요');
       }
     })
-    .catch((error) => {
-      console.log('error: ', error);
-    });
   } catch (error) {
     console.log('err: ', error);
   }
@@ -60,7 +57,7 @@ completBtn.addEventListener('click', () => {
       addressDetail: addressDetailValue.value,
     }
 
-    fetch(URL_PATH.BACK_URL + '/api/v1/users/me', {
+    fetch('/api/v1/users/me', {
       method: 'PUT',
       headers:{
         "Content-Type": "application/json", //(post,put,delete)항상 필수적으로 추가해야함!!
@@ -79,9 +76,6 @@ completBtn.addEventListener('click', () => {
         console.log('로그인 필요');
       }
     })
-    .catch((error) => {
-      console.log('error: ', error);
-    });
   } catch (error) {
     console.log('err: ', error);
   }

@@ -1,7 +1,7 @@
 const { body } = require('express-validator');
 
 // 회원가입 validation
-const userSignUpValidator = () => {
+const userSignUpValidator = (req, res, next) => {
     return [
         body('email')
             .notEmpty()
@@ -33,11 +33,11 @@ const userSignUpValidator = () => {
         body('addressDetail')
             .notEmpty()
             .withMessage('상세주소를 입력해주세요'),
-        ]
+        ], next();
 };
 
 // 로그인 validation
-const userSignInValidator = () => {
+const userSignInValidator = (req, res, next) => {
     return [
         body('email')
             .notEmpty()
@@ -46,7 +46,7 @@ const userSignInValidator = () => {
             .notEmpty()
             .isLength({ min : 8 })
             .withMessage('비밀번호를 입력해주세요')
-    ]
-}
+    ], next();
+};
 
 module.exports = { userSignUpValidator, userSignInValidator };
