@@ -1,6 +1,6 @@
 window.addEventListener("load", async () => {
     // 카테고리 데이터 불러오기
-    const categories = await fetch("/api/categories") 
+    const categories = await fetch("/api/v1/categories") 
                             .then(result => result.json())
                             .catch(err => null);
     
@@ -63,14 +63,20 @@ window.addEventListener("load", async () => {
 
 
     // 도서 정보 불러오기
-    const products = await fetch("/api/products") 
+    const products = await fetch("/api/v1/products") 
                             .then(result => result.json())
                             .catch(err => null);
     
     if (products !== null) {
         console.log(products);
+
         const nameElem = document.getElementById("name");
-        
+        nameElem.innerHTML = "";
+
+        const bestsellerNameElem = document.createElement("h5");
+        bestsellerNameElem.innerHTML = 
+        bestsellerNameElem.append()
+
     }
 })
 
