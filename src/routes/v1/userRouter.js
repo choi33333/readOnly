@@ -3,6 +3,11 @@ const { UserModel } = require("../../models");
 const isAuthenticated = require('../../middlewares/index')
 const router = Router();
 
+require("dotenv").config();
+const secret = process.env.SECRET;
+const jsonwebtoken = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
+
 
 // my page
 router.get("/me", isAuthenticated, async (req, res, next) => {
