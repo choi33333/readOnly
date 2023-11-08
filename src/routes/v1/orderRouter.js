@@ -103,7 +103,7 @@ router.get("/search", async (req, res, next) => {
 
 // 특정 주문 수정
 // 11-08 진행중
-router.put("/:id", objectIdValidator, validateError, async (req, res, next) => {
+router.put("/:id", objectIdValidator, userOrderValidator, validateError, async (req, res, next) => {
   const id = req.params.id;
   const { orderedBy, postCode, address, addressDetail,phoneNumber } = req.body;
 
