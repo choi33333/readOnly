@@ -66,7 +66,18 @@ window.addEventListener("load", async () => {
     const products = await fetch("/api/v1/products") 
                             .then(result => result.json())
                             .catch(err => null);
+
+    console.log(products.data);
+
+    if (products.error || !Array.isArray(products.data.category)){
+        return;
+    }
+
+    const categorize = location.href.split("category=")[1];
+    const filteredProducts = products.data.filter(product => product.category === categorize);
+   
     
+                            
     if (products !== null) {
         console.log(products);
 
