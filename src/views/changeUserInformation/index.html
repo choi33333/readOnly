@@ -36,16 +36,22 @@
           <p>비밀번호</p>
           <div class="changePassword">
             <div class="passwordInput">
-              <input type="password" placeholder="새 비밀번호를 입력해주세요">
+              <input type="password" placeholder="새 비밀번호를 입력해주세요" id="passwordValue">
+              <div id="passwordAlarm" class="alarmoff"></div>
             </div>
             <div class="passwordInput">
-              <input type="password" placeholder="새 비밀번호를 다시 입력해주세요">
+              <input type="password" placeholder="새 비밀번호를 다시 입력해주세요" id="repasswordValue">
+              <div id="repasswordAlarm" class="alarmoff"></div>
             </div>  
           </div>
         </div>
         <div id="phoneNumber" class="input">
           <p>전화번호</p>
-          <input type="text" id="phoneValue">
+          <div>
+            <input type="text" id="phoneValue" maxlength="13">
+            <div id="phoneNumberAlarm" class="alarmoff"></div>
+          </div>
+          
         </div>
         <div id="address" class="input">
           <p>주소</p>

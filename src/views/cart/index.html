@@ -5,15 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>장바구니</title>
     <link rel="stylesheet" href="cart.css"></link>
+    <link rel="stylesheet" href="../mainpage/mainpage.css"></link>
+
 </head>
 <body>
     <div class="wrap">
-        <header>
+        <!-- <header>
             testbutton
             <button class="setlocal">localstoregy초기화</button>
             <button class="addbook">장바구니 담기</button>
-            <!-- <button class="removeall">전체삭제</button> -->
             <button class="test">chagepricetest</button>
+        </header> -->
+        <header>
+    
+            <a href="/" class="logo"><h3>readOnly📖</h3></a>
+            <div class="search">
+                <input type="text" placeholder="도서를 찾아보세요!">
+                <button>검색</button>
+            </div>
+            <div id="pageRoute"></div>
+            
         </header>
         <main>
             <div class="main_label">
@@ -22,35 +33,12 @@
             </div>
             <div class="cartdiv">
                 <div class="cart_product">
-                    
-                    <!--css 용으로 나둠 이곳에 장바구니 하나씩 들어온다-->
-                    <!-- <div class="cart_card">
-                        <div class="card_imgDiv">
-                            <div>사진</div>
-                        </div>
-                        <div class="card_namePrice">
-                            <div class="bookname">짱구</div>
-                            <div class="bookprice">17000원</div>
-                        </div>
-                        <div class="card_cntPrice">
-                            <div class="book_totalPrice">34000원</div>
-                            <div class="book_cntbtn">
-                                <button class="plusbtn">-</button>
-                                <div class="countvalue">5</div>
-                                <button class="minusbtn">+</button>
-                            </div>
-                        </div>
-                        <div class="card_del">
-                            <button class='carddelete'>삭제</button>
-                        </div>
-                    </div> -->
-                    
                 </div>
                 <div class="pay_div">
                     <div class="borderdiv">
                         <div class="totalpricediv">
                             <h3>결제 예정 금액</h3>
-                            <h3 class="totalprice">6000원</h5>
+                            <h3 class="totalprice">0원</h5>
                         </div>
                         <div class="pay_btn">
                             <a class="orderbtn">주문하기</a>
@@ -63,6 +51,8 @@
             dddddd
         </footer> -->
     </div>
+    <script src="../frontUtils/jwtUtil.js"></script>
+    <script src="../frontUtils/loginStatus.js"></script>
     <script src="cart.js"></script>
 </body>
 </html>

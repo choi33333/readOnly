@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>admin/mainpage</title>
+    <title>admin</title>
+    <link rel="stylesheet" href="../admin/adminList.css">
     <link rel="stylesheet" href="../admin/admin.css">
 </head>
 
@@ -19,22 +20,22 @@
             <a href="/admin">주문현황</a>
             <a href="/adminUsers">회원관리</a>
             <a href="/admin">상품조회</a>
-            <a href="/admin">상품등록</a>
-            <a href="/admin">상품정보수정</a>
-            <a href="/admin">상품삭제</a>
+            <a href="/adminChangeProduct">상품정보수정/삭제</a>
+            <a href="/adminProductRegistration">상품등록</a>
             <a href="/admin">카테고리등록</a>
             <a href="/admin">카테고리수정</a>
             <a href="/admin">카테고리삭제</a>
         </div>
 
         <main>
-            <h2 class="title">상품 목록 조회</h2>
+            <h2 class="title">상품 등록</h2>
             <table id="userContainer"></table>
         </main>
     </div>
 
     <script src="../frontUtils/jwtUtil.js"></script>
-    <script src="../frontUtils/loginStatus.js"></script> 
-    <script src="./adminProduct.js"></script>
+    <script src="../frontUtils/loginStatus.js"></script>
+    <script src="../frontUtils/fetchCustom.js"></script> 
+    <script src="./adminProductRegistration.js"></script>
 </body>
 </html>

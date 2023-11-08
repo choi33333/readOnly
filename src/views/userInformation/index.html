@@ -1,59 +1,61 @@
 <!-- 사용자 정보 페이지 html -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>내 정보</title>
-  <link rel="stylesheet" href="userInformation.css">
-</head>
-<body>
-  <header>
-    <a href="/" class="logo"><h3>readOnly📖</h3></a>
-    <div id="pageRoute"></div>
-  </header>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>내 정보</title>
+		<link rel="stylesheet" href="userInformation.css" />
+	</head>
+	<body>
+		<header>
+			<a href="/" class="logo"><h3>readOnly📖</h3></a>
+			<div id="pageRoute"></div>
+		</header>
 
-  <div class="container">
-    <nav class="menu">
-      <h4 id="category">카테고리</h4>
-      <a href="/userInformation">사용자 정보</a>
-      <a href="/mepasswordcheck">사용자 정보 수정</a>
-      <a href="/ordercheck">주문조회</a>
-    </nav>
+		<div class="container">
+			<nav class="menu">
+				<h4 id="category">카테고리</h4>
+				<a href="/userInformation">사용자 정보</a>
+				<a href="/mepasswordcheck">사용자 정보 수정</a>
+				<a href="/ordercheck">주문조회</a>
+			</nav>
 
-    <main>
-        <h2>사용자 정보 조회</h2>
-        <div class="information">
-          <div id="name" class="userInformation">
-            <p>이름</p>
-            <p id="nameValue" class="resData"></p>
-          </div>
-          <div id="email" class="userInformation">
-            <p>이메일</p>
-            <p id="emailValue" class="resData"></p>
-          </div>
-          <div id="phoneNumber" class="userInformation">
-            <p>전화번호</p>
-            <p id="phoneValue" class="resData"></p>
-          </div>
-          <div id="address" class="userInformation">
-            <p>주소</p>
-              <div class="addressDetail">
-                <p id="postalCode" class="resData"></p>
-                <p id="addressValue" class="resData"></p>
-                <p id="addressDetailValue" class="resData"></p>
-              </div>
-          </div>
-        </div>
-        <div class="btns">
-          <a href="/mepasswordcheck"><button class="changeBtn">수정하기</button></a>
-          <p id="withdrawal">회원탈퇴</p>
-        </div>
-    </main>
-  </div>
+			<main>
+				<h2>사용자 정보 조회</h2>
+				<div class="information">
+					<div id="name" class="userInformation">
+						<p>이름</p>
+						<p id="nameValue" class="resData"></p>
+					</div>
+					<div id="email" class="userInformation">
+						<p>이메일</p>
+						<p id="emailValue" class="resData"></p>
+					</div>
+					<div id="phoneNumber" class="userInformation">
+						<p>전화번호</p>
+						<p id="phoneValue" class="resData"></p>
+					</div>
+					<div id="address" class="userInformation">
+						<p>주소</p>
+						<div class="addressDetail">
+							<p id="postalCode" class="resData"></p>
+							<p id="addressValue" class="resData"></p>
+							<p id="addressDetailValue" class="resData"></p>
+						</div>
+					</div>
+				</div>
+				<div class="btns">
+					<a href="/mepasswordcheck"
+						><button class="changeBtn">수정하기</button></a
+					>
+					<p id="withdrawal">회원탈퇴</p>
+				</div>
+			</main>
+		</div>
 
-  <script src="../frontUtils/jwtUtil.js"></script>
-  <script src="../frontUtils/loginStatus.js"></script> 
-  <script src="userInformation.js"></script>
-</body>
+		<script src="../frontUtils/jwtUtil.js"></script>
+		<script src="../frontUtils/loginStatus.js"></script>
+		<script src="userInformation.js"></script>
+	</body>
 </html>
