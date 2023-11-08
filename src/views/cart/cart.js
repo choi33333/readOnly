@@ -8,13 +8,12 @@ let cartArr = JSON.parse(localStorage.getItem("bookdata"));
 let bookAdd = JSON.parse(localStorage.getItem("cartdata"));
 
 let sumPrice = 0;
-
 const setCartItem = async () => {
 	console.log(cartArr);
 	for (const data of cartArr) {
 		try {
-			const response = await fetch(`/api/v1/products/${data._id}`);
-			const set = await response.json();
+			let response = await fetch(`/api/v1/products/${data._id}`);
+			let set = await response.json();
 			// console.log(set);
 			console.log(set.data, "1");
 			console.log(data.amount, "2");
@@ -27,7 +26,6 @@ const setCartItem = async () => {
 	}
 	localStorage.setItem("cartdata", JSON.stringify(bookAdd)); // 모든 fetch가 완료된 후에 로컬 스토리지에 저장
 };
-
 window.addEventListener("load", async () => {
 	// console.log("load", bookAdd, cartArr);
 	await setCartItem(); // setCartItem를 비동기 함수로 호출

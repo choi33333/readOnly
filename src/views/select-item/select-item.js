@@ -6,6 +6,7 @@ const urlParams = url.searchParams;
 const id = urlParams.get("id");
 let bookDetail = [];
 let bookDetailData = [{}];
+let categoryName = "6548d90cf5bf2ae69dafd923";
 const setCartItem = async () => {
 	try {
 		const response = await fetch(`/api/v1/products/${id}`);
@@ -16,6 +17,11 @@ const setCartItem = async () => {
 	} catch (err) {
 		console.log("파일을 불러오지 못했어요.");
 	}
+};
+const callCategory = async (categoryName) => {
+	let response = await fetch(`/api/v1/categories/${categoryName}`);
+	let set = await response.json();
+	console.log(set);
 };
 const addClick = () => {
 	let addCart = JSON.parse(localStorage.getItem("bookdata"));
@@ -56,15 +62,18 @@ const sumLocalData = () => {
 	// location.reload();
 };
 document.querySelector(".addBtn").addEventListener("click", addClick);
-document.querySelector(".buyBtn").addEventListener("click", buyClick);
+document.querySelector(".buyBtn").addEventListener("click", callCategory);
 
 window.addEventListener("load", async () => {
 	await setCartItem();
-
+	let response = await fetch(`/api/v1/categories/${bookDetail[0].category}`);
+	let set = await response.json();
 	// document
 	// .querySelector(".imgInsert")
 	// .setAttribute("src", bookDetail[0].imageUrl);
-	// document.querySelector('.categoryInsert').innerHTML=`${}`
+	document.querySelector(
+		".categoryInsert"
+	).innerHTML = `카테고리 > ${set.category.name}`;
 	document.querySelector(".booknameInsert").innerHTML = `${bookDetail[0].name}`;
 	document.querySelector(".bookAuthor").innerHTML = `${bookDetail[0].author}`;
 	document.querySelector(".bookPrice").innerHTML = `${bookDetail[0].price}원`;
