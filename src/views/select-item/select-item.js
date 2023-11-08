@@ -1,12 +1,11 @@
 //URL내부 현재 주소로 바꾸면 됌.
-const url = new URL(
-	"http://localhost:3000/select-item/index.html?id=6549140ad11299b256f2d87d"
-);
+const url = new URL(window.location.href);
 const urlParams = url.searchParams;
+console.log(urlParams);
 const id = urlParams.get("id");
 let bookDetail = [];
 let bookDetailData = [{}];
-let categoryName = "6548d90cf5bf2ae69dafd923";
+// let categoryName = "6548d90cf5bf2ae69dafd923";
 const setCartItem = async () => {
 	try {
 		const response = await fetch(`/api/v1/products/${id}`);
@@ -36,7 +35,7 @@ const addClick = () => {
 	alert("장바구니에 들어갔습니다!");
 };
 const buyClick = () => {
-	console.log(bookDetail);
+	// console.log(bookDetail);
 	const reset = [];
 	localStorage.setItem("bookdata", JSON.stringify(reset));
 };

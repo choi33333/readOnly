@@ -1,0 +1,113 @@
+body {
+	margin: 0;
+}
+.wrap {
+	height: 100vh;
+}
+header {
+	min-height: 10%;
+	height: 10%;
+	border-bottom: 1px solid grey;
+	background-color: antiquewhite;
+}
+main {
+	height: 90%;
+	min-width: none;
+	min-height: 80%;
+	border-bottom: 1px solid grey;
+	padding-left: 5%;
+	padding-right: 5%;
+	background-color: aliceblue;
+	display: flex;
+	/* align-items: center; */
+	justify-content: center;
+}
+.mainWrap {
+	width: 95%;
+	min-height: 100%;
+	background-color: brown;
+}
+.mainHead {
+	width: 100%;
+	height: 15%;
+	background-color: bisque;
+}
+.mainHeadText {
+	width: 100%;
+	height: 20%;
+	border-bottom: 1px solid grey;
+	display: flex;
+	align-items: center;
+}
+.mainHeadTextInfo {
+	width: 100%;
+	height: 80%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.cartInfo {
+	width: 100%;
+	height: 40%;
+	background-color: cadetblue;
+}
+.cartInfoHead {
+	width: 100%;
+	height: 20%;
+	/* border-bottom: 1px solid grey; */
+	display: flex;
+	flex-direction: column;
+	/* align-items: center; */
+}
+.cartInfoHead_text {
+	width: 100%;
+	height: 30%;
+	border-bottom: 2px solid grey;
+}
+.cartInfoHead_table {
+	width: 100%;
+	height: 60%;
+	background-color: aliceblue;
+	display: flex;
+}
+.tableName {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 50%;
+	height: 100%;
+	border-right: 1px solid grey;
+}
+.tablePrice {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 15%;
+	height: 100%;
+	border-right: 1px solid grey;
+}
+.tableAmount {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 15%;
+	height: 100%;
+	border-right: 1px solid grey;
+}
+.tableSum {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 20%;
+	height: 100%;
+	border-right: 1px solid grey;
+}
+.orderInfo {
+	width: 100%;
+	height: 20%;
+	background-color: blanchedalmond;
+}
+.userInfo {
+	width: 100%;
+	height: 20%;
+}

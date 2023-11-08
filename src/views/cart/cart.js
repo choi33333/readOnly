@@ -56,8 +56,6 @@ window.addEventListener("load", async () => {
 	const plusbtn = document.querySelectorAll(".plusbtn");
 	const minusbtn = document.querySelectorAll(".minusbtn");
 	const deletebtn = document.querySelectorAll(".carddelete");
-	const localbtn = document.querySelector(".setlocal");
-	const removebtn = document.querySelector(".remove");
 
 	//카운트 증가 소스
 	plusbtn.forEach((plusbtn) =>
@@ -138,24 +136,28 @@ document.querySelector(".removeall").addEventListener("click", function () {
 	localStorage.setItem("bookdata", JSON.stringify(cartArr));
 	location.reload();
 });
-// const plusbtn = document.querySelectorAll(".plusbtn");
+document
+	.querySelector(".orderbtn")
+	.addEventListener("click", async function () {
+		alert("주문이 완료되었습니다.");
+		const productData = localStorage.getItem("cartdata");
+		// console.log(productData);
+		const data = {
+			products: productData,
+		};
+		console.log(JSON.stringify(data));
+		try {
+			const response = await fetch("/api/v1/orders", {
+				method: "POST",
+				body: JSON.stringify(data),
+			});
+			const result = await response.json();
+			console.log("성공:", result);
+		} catch (error) {
+			console.error("실패:", error);
+		}
+	});
 
-// plusbtn.forEach((plusbtn) =>
-// 	plusbtn.addEventListener("click", function () {
-// 		console.log("click", renderData);
-// 		const id = plusbtn.classList[1];
-// 		renderData[id].amount += 1;
-// 		document.getElementById(
-// 			`count${id}`
-// 		).innerHTML = `${renderData[id].amount}`;
-// 		localStorage.setItem("cartdata", JSON.stringify(renderData));
-// 		document.getElementById(`sum${id}`).innerHTML = `${
-// 			renderData[id].amount * renderData[id].price
-// 		}원`;
-// 		totalsum();
-// 		totalPrice = 0;
-// 	})
-// );
 const getCartItemTemplate = (data, index) => {
 	return `<div id=${index} class="cart_card">
     <div class="card_imgDiv">
