@@ -47,7 +47,7 @@ router.post("/me/passcheck", isAuthenticated, async (req, res, next) => {
 router.put("/me", isAuthenticated, userMeValidator, validateError,  async (req, res, next) => {
   const { em } = res.locals.user;
   const user = await UserModel.findOne({ email: em }).lean();
-  const { postCode, phoneNumber, address, addressDetail } = req.body;
+  const { password, postCode, phoneNumber, address, addressDetail } = req.body;
 
   if (!user) {
     const error = new Error("로그인 해주세요.");
@@ -55,9 +55,20 @@ router.put("/me", isAuthenticated, userMeValidator, validateError,  async (req, 
     return next(error);
   }
 
+  const hashedPassword = await bcrypt.hash(password, 12);
+
+  let isValidUser = await bcrypt.compare(password, user.password);
+
+  if (!isValidUser) {
+    const error = new Error("동일한 비밀번호 입니다.");
+    error.status = 401;
+    return next(error);
+  }
+
   const updatedUser = await UserModel.updateOne(
     { email: em },
     {
+      password: hashedPassword,
       phoneNumber: phoneNumber,
       postCode: postCode,
       address: address,
