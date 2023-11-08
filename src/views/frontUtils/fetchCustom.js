@@ -7,7 +7,6 @@
  * @returns 
  */
 async function fetchCustom(url,method,token = '',data = null) {
-  let query = ''
   const headers = {
     "Content-Type": "application/json",
   }
@@ -20,10 +19,10 @@ async function fetchCustom(url,method,token = '',data = null) {
   };
   if(method == ('GET'||'get')){
     if(data){
-      query = '?'+Object.keys(data).map(k => encodeURIComponent(k) + '=' + encodeURIComponent(data[k])).join('&');
+      url += '?' + ( new URLSearchParams( params ) ).toString();
     }
   }else if(method == ('POST'||'post'||'PUT'||'put'||'DElETE'||'delete')){
     option.body = JSON.stringify(data);
   }
-  return fetch(url+query,option);
+  return fetch(url,option);
 }
