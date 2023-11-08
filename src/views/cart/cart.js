@@ -6,8 +6,8 @@ let bookdata = [
 let renderData = JSON.parse(localStorage.getItem("cartdata"));
 let cartArr = JSON.parse(localStorage.getItem("bookdata"));
 let bookAdd = JSON.parse(localStorage.getItem("cartdata"));
-
 let sumPrice = 0;
+let userData = [];
 const setCartItem = async () => {
 	console.log(cartArr);
 	for (const data of cartArr) {
@@ -108,16 +108,6 @@ window.addEventListener("load", async () => {
 			alert("삭제되었습니다.");
 		})
 	);
-	//일단 임시 localStorage 사용을 위한 함수
-	const setLocal = () => {
-		localStorage.setItem("bookdata", JSON.stringify(bookdata));
-		console.log("성공");
-		location.reload();
-	};
-	//localStorage 내부 청소 소스
-	const remove = () => {
-		localStorage.clear();
-	};
 	//총 결제 예정금액
 	const totalsum = () => {
 		renderData.forEach((data) => {
@@ -136,26 +126,30 @@ document.querySelector(".removeall").addEventListener("click", function () {
 	localStorage.setItem("bookdata", JSON.stringify(cartArr));
 	location.reload();
 });
+//주문하기 누를시 실행되는 코드
 document
 	.querySelector(".orderbtn")
 	.addEventListener("click", async function () {
+		console.log(userData);
 		alert("주문이 완료되었습니다.");
+		await fetchUser();
 		const productData = localStorage.getItem("cartdata");
-		// console.log(productData);
+		console.log(userData);
+		console.log(productData);
 		const data = {
-			products: productData,
+			orderedBy: userData[0].username,
+			postCode: userData[0].postCode,
+			address: userData[0].address,
+			addressDetail: userData[0].phoneNumber,
+			products: [{ productId: "6548e48fca8820427ea089ff", quantity: 1 }],
 		};
-		console.log(JSON.stringify(data));
-		try {
-			const response = await fetch("/api/v1/orders", {
-				method: "POST",
-				body: JSON.stringify(data),
-			});
-			const result = await response.json();
-			console.log("성공:", result);
-		} catch (error) {
-			console.error("실패:", error);
-		}
+		console.log(data);
+		const response = fetch("/api/v1/orders/", {
+			method: "POST",
+			body: data,
+		});
+		const result = response.json();
+		console.log("성공:", result);
 	});
 
 const getCartItemTemplate = (data, index) => {
@@ -182,25 +176,20 @@ const getCartItemTemplate = (data, index) => {
     </div>
     </div>`;
 };
-
-//상품목록에서 누른 localdata합치기
-// const sumLocalData = () => {
-// 	let groupedBookdata = {};
-// 	cartArr.forEach((item) => {
-// 		console.log(item);
-// 		const itemId = item._id;
-// 		if (groupedBookdata[itemId]) {
-// 			groupedBookdata[itemId].soldAmount += item.soldAmount;
-// 		} else {
-// 			groupedBookdata[itemId] = { _id: itemId, soldAmount: item.soldAmount };
-// 		}
-// 	});
-// 	cartArr = Object.values(groupedBookdata);
-// 	console.log(cartArr);
-// 	localStorage.setItem("bookdata", JSON.stringify(cartArr));
-// 	// location.reload();
-// };
-//localstoregy 지우기 위한 용도
-// removebtn.addEventListener('click', remove);
-
-// document.querySelector(".test").addEventListener("click", sumLocalData);
+const fetchUser = async () => {
+	await fetch("/api/v1/users/me", {
+		method: "GET",
+		headers: {
+			authorization: "Bearer " + localStorage.getItem("Token"),
+		},
+	}).then(async (response) => {
+		const res = await response.json();
+		console.log("response: ", res);
+		if (response.status === 200) {
+			console.log("성공");
+			userData.push(res.data);
+		} else if (response.status === 401) {
+			console.log("로그인 필요");
+		}
+	});
+};
