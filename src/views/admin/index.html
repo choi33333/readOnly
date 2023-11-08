@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>admin/mainpage</title>
+    <title>admin</title>
+    <link rel="stylesheet" href="../admin/adminList.css">
     <link rel="stylesheet" href="../admin/admin.css">
 </head>
 
@@ -29,12 +30,13 @@
 
         <main>
             <h2 class="title">상품 목록 조회</h2>
-
+            <table id="userContainer"></table>
         </main>
     </div>
 
     <script src="../frontUtils/jwtUtil.js"></script>
-    <script src="../frontUtils/loginStatus.js"></script> 
+    <script src="../frontUtils/loginStatus.js"></script>
+    <script src="../frontUtils/fetchCustom.js"></script> 
     <script src="./admin.js"></script>
 </body>
 </html>

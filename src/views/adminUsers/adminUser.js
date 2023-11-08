@@ -2,7 +2,7 @@
 const userContainer = document.getElementById('userContainer');
 let data;
 
-//페이지가 로드되었을 때 관리자인지 확인
+//페이지가 로드되었을 때 관리자인지 확인 후  fetch
 window.onload = () => {
   const token = localStorage.getItem('Token');
   if(!isAdmin(token)){
