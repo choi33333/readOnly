@@ -39,4 +39,38 @@ router.get("/:id", objectIdValidator, validateError, async (req, res, next) => {
   });
 });
 
+// 상품 soldAmount 추가
+router.put("/:id", objectIdValidator, validateError, async (req, res, next) => {
+  const id = req.params.id;
+  const { soldAmount } = req.body;
+
+  if (typeof(soldAmount) !== "number") {
+    const error = new Error("구매수량이 올바르지 않습니다.");
+    error.status = 401;
+    return next(error);
+  }
+
+  const product = await ProductModel.findOne({ _id: id }).lean();
+
+  if (!product) {
+    const error = new Error("제품이 존재하지 않습니다.");
+    error.status = 401;
+    return next(error);
+  }
+
+  const newAmount = product.soldAmount + soldAmount;
+
+  const updatedProduct = await ProductModel.updateOne(
+    { _id: id },
+    {
+      soldAmount: newAmount,
+    }
+  );
+
+  res.json({
+    error: null,
+    data: updatedProduct,
+  });
+});
+
 module.exports = router;
