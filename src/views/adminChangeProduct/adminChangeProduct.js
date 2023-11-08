@@ -8,7 +8,7 @@ window.addEventListener('load', async () => {
     location.href = '/notAdmin';
   }else{
     try {
-      const fetchResult = await fetchCustom('/api/v1/admin/products','GET',token);
+      const fetchResult = await fetchCustom('/api/v1/admin/products/','GET',token);
       const fetchData = await fetchResult.json();
 
       if(fetchResult.status === 200){
@@ -35,6 +35,8 @@ const productList = (data) => {
       <th class='category'>category</th>
       <th class='price'>price</th>
       <th class='releasedDate'>releasedDate</th>
+      <th class='modify'></th>
+      <th class='delete'></th>
     </tr>
   `
   for(i = 0; i < data.length; i ++) {
@@ -48,6 +50,8 @@ const productList = (data) => {
         <td class='categoryValue'>${data[i].categoryName}</td>
         <td class='priceValue'>${data[i].price}</td>
         <td class='releasedDateValue'>${releasedDate[0]}</td>
+        <td><button onclick='productModify(${i})'>modify</button></td>
+        <td><button onclick='productDelete(${i})'>delete</button></td>
       </tr>
     `
   }
