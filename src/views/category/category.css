@@ -49,6 +49,8 @@ button {
     margin-left: 10px;
 }
 
+
+
 /* category css */
 .body a {
     color: black;
@@ -63,11 +65,18 @@ button {
 
 }
 
-.bestseller-novel {
-    width: 50%;
-    float: left;
-    margin-bottom: 30px;
+.body #bestseller, .body #newbook {
+    width: 100%;
+    height: 50%;
 }
+
+.bestseller-info, .newbook-info {
+    width: 50%;
+    /* float: left; */
+    margin-bottom: 30px;
+
+}
+
 
 .body h5 {
     margin-top: 5px;
