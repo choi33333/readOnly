@@ -13,8 +13,7 @@
             <input type="text" placeholder="도서를 찾아보세요!">
             <button>검색</button>
         </div>
-        <a href="" class="myPage">마이페이지</a> &nbsp;
-        <a href="../cart/index.html" class="cart">장바구니</a>
+        <div id="pageRoute"></div>
     </header>
       <div class="menu">
         <h4 id="category">카테고리</h4>
@@ -38,12 +37,12 @@
                 <table>
                     <thead>
                         <tr><br><br><br><br>
-                            <th>주문일자[주문번호]</th>
+                            <th>주문번호</th>
                             <th>상품명</th>
                             <th>상품금액</th>
                             <th>수량</th>
                             <th>주문처리상태</th>
-                            <th>배송조회</th>
+                            <th>배송상태</th>
                             <th>취소</th>
                         </tr>
                     </thead>
@@ -56,5 +55,7 @@
     </div>
 </div>
 <script src="./ordercheck.js"></script>
+<<script src="../frontUtils/jwtUtil.js"></script>
+<script src="../frontUtils/loginStatus.js"></script> 
 </body>
 </html>
