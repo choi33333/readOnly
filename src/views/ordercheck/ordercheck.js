@@ -70,23 +70,23 @@ document.getElementById('searchButton').addEventListener('click', async function
 // 주문 취소 함수
 async function cancelOrder(orderNumber) {
     try {
-        const response = await fetch('/api/v1/orders/'+ orderNumber, {
+        const response = await fetch('/api/v1/orders/' + orderNumber, {
             method: 'DELETE',
-            //headers: {
-                //"Authorization": 'Bearer ' + localStorage.getItem('Token'),
-            //}
+            headers: {
+                "Authorization": 'Bearer ' + localStorage.getItem('Token'),
+            }
         });
 
         if (response.status === 204) {
             // 주문 취소 성공
             alert('주문이 성공적으로 취소되었습니다.');
-            // 주문 결과를 새로고침하는 로직을 여기에 추가
         } else {
-            // 주문 취소 실패 또는 다른 응답 코드
+            // 주문 취소 실패
             const res = await response.json();
             const errorMessage = res.message || '주문 취소에 실패했습니다.';
             alert(errorMessage);
         }
+        //예외처리
     } catch (error) {
         console.error('주문 취소 오류: ', error);
         alert('주문 취소에 오류가 발생했습니다.');
