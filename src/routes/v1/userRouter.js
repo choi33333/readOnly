@@ -55,9 +55,13 @@ router.put("/me", isAuthenticated, userMeValidator, validateError,  async (req, 
     return next(error);
   }
 
-  const hashedPassword = await bcrypt.hash(password, 12);
+  let hashedPassword = await bcrypt.hash(password, 12);
 
   let isValidUser = await bcrypt.compare(password, user.password);
+
+  if (password == ''){
+    hashedPassword = user.password;
+  }
 
   if (isValidUser) {
     const error = new Error("동일한 비밀번호 입니다.");
