@@ -10,8 +10,10 @@ router.post("/", userOrderValidator, validateError, async (req, res, next) => {
     req.body;
   const em = res.locals.user;
 
+  const date = new Date();
+
   // 서버연결없이도 겹치지않는 난수만들기
-  const orderNumber = 3;
+  const orderNumber = date.getTime().toString().slice(5) + String(Math.floor(Math.random()*10000)).padStart(4,"0");
 
   const order = await OrderModel.create({
     orderNumber: orderNumber,
@@ -36,7 +38,7 @@ router.post("/non-member", userOrderValidator, validateError, async (req, res, n
   const { orderedBy, postCode, address, addressDetail, phoneNumber, products } = req.body;
 
   // 서버연결없이도 겹치지않는 난수만들기
-  const orderNumber = 3;
+  const orderNumber = date.getTime().toString().slice(5) + String(Math.floor(Math.random()*10000)).padStart(4,"0");
 
   const order = await OrderModel.create({
     orderNumber: orderNumber,
@@ -57,9 +59,26 @@ router.post("/non-member", userOrderValidator, validateError, async (req, res, n
 });
 
 // 본인 전체 주문 조회 (해당유저의 주문기록만 가져오려면... 어쩌죠?)
-router.get("/", async (req, res, next) => {
-  const { em } = res.locals.user;
-  const orders = await OrderModel.find({ email: em }.lean());
+router.get("/me", async (req, res, next) => {
+  const em = res.locals.user;
+  const orders = await OrderModel.find({ orderedemail: em }.lean());
+
+  if (orders == 0) {
+    const error = new Error("주문이 존재하지 않습니다.");
+    error.status = 401;
+    return next(error);
+  }
+
+  res.json({
+    error: null,
+    data: orders,
+  });
+});
+
+// 주문조회
+router.get("/:id", async (req, res, next) => {
+  const id = req.params.id;
+  const orders = await OrderModel.findById( id ).lean();
 
   if (orders == 0) {
     const error = new Error("주문이 존재하지 않습니다.");
