@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>category/novel</title>
+    <title>category</title>
     
     <link rel="stylesheet" href="../components/sidebar.css">
     <link rel="stylesheet" href="./category.css">
-    <script src="./category.js" defer></script> 
+    
 </head>
 
 <body>
-    <header>
+    <!-- <header>
     
         <a href="/" class="logo"><h3>readOnly</h3></a>
         <div class="search">
@@ -24,8 +24,18 @@
         <a href="../login/index.html" class="log-in">로그인</a> 
 
         <a href="../cart/index.html" class="cart">장바구니</a>
-    </header>
+    </header> -->
+    <header>
     
+        <a href="/" class="logo"><h3>readOnly📖</h3></a>
+        <div class="search">
+            <input type="text" placeholder="도서를 찾아보세요!">
+            <button>검색</button>
+        </div>
+        <div id="pageRoute"></div>
+        
+    </header>
+
     <div class="sidebar">
         <div class="menu">
             <h4 id="category">카테고리</h4>
@@ -56,5 +66,8 @@
                 
         </div>
     </div>
+    <script src="./category.js" defer></script> 
+    <script src="../frontUtils/jwtUtil.js"></script>
+    <script src="../frontUtils/loginStatus.js"></script>
 </body>
 </html>
