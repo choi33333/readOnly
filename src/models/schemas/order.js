@@ -7,6 +7,10 @@ const order = new Schema(
       type: String,
       required: true,
     },
+    orderedEmail: {
+      type: String,
+      required: true,
+    },
     orderedBy: {
       type: String,
       required: true,
@@ -48,11 +52,6 @@ const order = new Schema(
           },
         },
       ],
-      required: true,
-
-    },
-    orderedEmail: {
-      type: String,
       required: true,
     },
   },

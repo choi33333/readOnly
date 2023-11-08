@@ -10,6 +10,9 @@ router.post("/", userOrderValidator, validateError, async (req, res, next) => {
     req.body;
   const em = res.locals.user;
 
+  const date = new Date();
+
+
   // 서버연결없이도 겹치지않는 난수만들기
   const orderNumber = date.getTime().toString().slice(5) + String(Math.floor(Math.random()*10000)).padStart(4,"0");
 
@@ -35,6 +38,7 @@ router.post("/", userOrderValidator, validateError, async (req, res, next) => {
 router.post("/non-member", userOrderValidator, validateError, async (req, res, next) => {
   const { orderedBy, postCode, address, addressDetail, phoneNumber, products } = req.body;
 
+  const date = new Date();
   // 서버연결없이도 겹치지않는 난수만들기
   const orderNumber = date.getTime().toString().slice(5) + String(Math.floor(Math.random()*10000)).padStart(4,"0");
 
