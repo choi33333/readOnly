@@ -35,53 +35,25 @@
 
         <div class="body">
             <!-- 카테고리별 베스트셀러 -->
-            <div id="bestseller-title"></div>
-
-            <div class="test">
-                <!-- 생성한 정보가 표시될 위치-->
+            <div id="bestseller">
+                <div id="bestseller-header"></div>
+                <div id="bestseller-info">
+                    <!-- 생성한 정보가 표시될 위치-->
+                </div>
             </div>
 
-            <script>
-                // const products = await fetch("/api/v1/products") 
-                //             .then(result => result.json())
-                //             .catch(err => null);
-                
-                const template = `
-                <div id="bestseller">
-                    <a href="../select-item/index.html">
-                        <div class="bestseller-info">
-                            <img src="../img/bestseller-novel1.jpeg">
-                            <h5>도시와 그 불확실한 벽</h5>
-                            <h6>무라카미 하루키</h6>
-                            <h6>19,500원</h6>
-                            <p>도서정보</p>
-                        </div>
-                    </a>
-                </div>
-            `;
-
-            
-
-            </script>
-
             <!-- 카테고리별 신간 -->
-            <div id="newbook-title"></div>
-
             <div id="newbook">
-                <a href="../select-item/index.html">
-                    <div class="newbook-info">
-                        <img src="../img/bestseller-novel1.jpeg">
-                        <h5>도시와 그 불확실한 벽</h5>
-                        <h6>무라카미 하루키</h6>
-                        <h6>19,500원</h6>
-                        <p>도서정보</p>
-                    </div>
-                </a>
+                    <div id="newbook-header"></div>
+                    <div id="newbook-info"></div>
             </div>
             
             <!-- 카테고리별 전체보기 -->
-            <div id="view-all"></div>
-                <img src="">
+            <div id="view-all">
+                    <div id="view-all-header"></div>
+                    <div id="view-all-info"></div>
+            </div>
+                
         </div>
     </div>
 </body>
