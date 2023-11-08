@@ -23,7 +23,7 @@ loginBtn.addEventListener('click', async (e) => {
     }
 
     try {
-      const fetchResult = await fetchCustom('/api/v1/auth/sign-in','POST',data);
+      const fetchResult = await fetchCustom('/api/v1/auth/sign-in','POST','',data);
       const fetchData = await fetchResult.json();
       
       if(fetchResult.status == 201){
