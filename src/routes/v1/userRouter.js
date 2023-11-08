@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const { UserModel } = require("../../models");
-const isAuthenticated = require('../../middlewares/index')
+const isAuthenticated = require('../../middlewares/isAuthenticated');
+const { validateError, userMeValidator } = require('../../middlewares/validators/index');
 const router = Router();
 const bcrypt = require("bcrypt");
 
@@ -38,13 +39,12 @@ router.post("/me/passcheck", isAuthenticated, async (req, res, next) => {
 
   res.json({
     error: null,
-    data: user,
     message: "비밀번호가 일치합니다."
   });
 });
 
 // my page 수정
-router.put("/me", isAuthenticated, async (req, res, next) => {
+router.put("/me", isAuthenticated, userMeValidator, validateError,  async (req, res, next) => {
   const { em } = res.locals.user;
   const user = await UserModel.findOne({ email: em }).lean();
   const { postCode, phoneNumber, address, addressDetail } = req.body;

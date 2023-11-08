@@ -1,8 +1,6 @@
 const { Router } = require("express");
 const { OrderModel } = require("../../models");
-const validateError = require("../../middlewares/validators/validateError");
-const userOrderValidator = require("../../middlewares/validators/order");
-const objectIdValidator = require("../../middlewares/validators/objectId");
+const { userOrderValidator, objectIdValidator, validateError} = require("../../middlewares/validators/index");
 
 const router = Router();
 
@@ -25,6 +23,31 @@ router.post("/", userOrderValidator, validateError, async (req, res, next) => {
     orderStatus: "결제 완료",
     products: products,
     orderedEmail: em,
+  });
+
+  res.json({
+    error: null,
+    data: order.toObject(),
+  });
+});
+
+// 비회원 주문하기
+router.post("/non-member", userOrderValidator, validateError, async (req, res, next) => {
+  const { orderedBy, postCode, address, addressDetail, phoneNumber, products } = req.body;
+
+  // 서버연결없이도 겹치지않는 난수만들기
+  const orderNumber = 3;
+
+  const order = await OrderModel.create({
+    orderNumber: orderNumber,
+    orderedBy: orderedBy,
+    postCode: postCode,
+    address: address,
+    addressDetail: addressDetail,
+    phoneNumber: phoneNumber,
+    orderStatus: "결제 완료",
+    products: products,
+    orderedEmail: "비회원",
   });
 
   res.json({
@@ -103,7 +126,7 @@ router.get("/search", async (req, res, next) => {
 
 // 특정 주문 수정
 // 11-08 진행중
-router.put("/:id", objectIdValidator, validateError, async (req, res, next) => {
+router.put("/:id", objectIdValidator, userOrderValidator, validateError, async (req, res, next) => {
   const id = req.params.id;
   const { orderedBy, postCode, address, addressDetail,phoneNumber } = req.body;
 

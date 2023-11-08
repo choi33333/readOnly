@@ -1,6 +1,6 @@
 const { Router } = require('express');
 
-const isAdmin = require("../../middlewares/admin");
+const isAdmin = require("../../middlewares/isAdmin");
 
 const productRouter = require('./productRouter');
 const orderRouter = require('./orderRouter');

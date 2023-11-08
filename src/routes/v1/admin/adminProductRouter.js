@@ -1,8 +1,6 @@
 const { Router } = require("express");
 const { ProductModel, CategoryModel } = require("../../../models");
-const validateError = require("../../../middlewares/validators/validateError");
-const objectIdValidator = require("../../../middlewares/validators/objectId");
-const addProductValidator = require("../../../middlewares/validators/product");
+const { addProductValidator, objectIdValidator, validateError } = require("../../../middlewares/validators/index");
 const router = Router();
 
 // 상품 조회
@@ -25,6 +23,7 @@ router.post("/", addProductValidator, validateError, async (req, res, next) => {
   const products = await ProductModel.create({
     name: name,
     category: categoryId,
+    categoryName: category,
     author: author,
     price: price,
     imageUrl: imageUrl,
@@ -40,7 +39,7 @@ router.post("/", addProductValidator, validateError, async (req, res, next) => {
 });
 
 // 상품 수정
-router.put("/:id", objectIdValidator, validateError, async (req, res, next) => {
+router.put("/:id", objectIdValidator, addProductValidator, validateError, async (req, res, next) => {
   const id = req.params.id;
   const {
     productName,
@@ -68,6 +67,7 @@ router.put("/:id", objectIdValidator, validateError, async (req, res, next) => {
     {
       name: productName,
       category: categoryId,
+      categoryName: category,
       author: author,
       price: price,
       imageUrl: image,
