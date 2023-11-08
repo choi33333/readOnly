@@ -60,8 +60,8 @@ router.post("/non-member", userOrderValidator, validateError, async (req, res, n
 
 // 본인 전체 주문 조회 (해당유저의 주문기록만 가져오려면... 어쩌죠?)
 router.get("/me", async (req, res, next) => {
-  const { em } = res.locals.user;
-  const orders = await OrderModel.find({ email: em }.lean());
+  const em = res.locals.user;
+  const orders = await OrderModel.find({ orderedemail: em }.lean());
 
   if (orders == 0) {
     const error = new Error("주문이 존재하지 않습니다.");
