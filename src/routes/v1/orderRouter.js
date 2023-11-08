@@ -1,15 +1,16 @@
 const { Router } = require("express");
 const { OrderModel } = require("../../models");
 const { userOrderValidator, objectIdValidator, validateError} = require("../../middlewares/validators/index");
-
+const isAuthenticated = require("../../middlewares/isAuthenticated");
 const router = Router();
 
 // 주문하기
-router.post("/", userOrderValidator, validateError, async (req, res, next) => {
+router.post("/",isAuthenticated,  userOrderValidator, validateError, async (req, res, next) => {
   const { orderedBy, postCode, address, addressDetail, phoneNumber, products } =
     req.body;
-  const em = res.locals.user;
+  const { em } = res.locals.user;
 
+  console.log(em);
   const date = new Date();
 
 
@@ -61,9 +62,9 @@ router.post("/non-member", userOrderValidator, validateError, async (req, res, n
 });
 
 // 본인 전체 주문 조회 (해당유저의 주문기록만 가져오려면... 어쩌죠?)
-router.get("/me", async (req, res, next) => {
+router.get("/me", isAuthenticated, async (req, res, next) => {
   const { em } = res.locals.user;
-  const orders = await OrderModel.find({ email: em }.lean());
+  const orders = await OrderModel.find({ orderedEmail: em }).lean();
 
   if (orders == 0) {
     const error = new Error("주문이 존재하지 않습니다.");
