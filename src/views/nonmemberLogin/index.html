@@ -18,10 +18,13 @@
         <a href="/nonmemberLogin"><p class="nonMember">비회원 주문 조회</p></a>
       </div>
       <div class="loginInput">
-        <input type="text" placeholder="  주문번호" class="">
-        <input type="password" placeholder="  주문 비밀번호">
+        <div id="loginAlarm" class="alarmoff"></div>
+        <input type="text" placeholder="주문번호" id="orderNumber">
+        <div id="orderNumberAlarm" class="alarmoff"></div>
+        <input type="password" placeholder="주문 전화번호" id="phoneNumber">
+        <div id="phoneNumberAlarm" class="alarmoff"></div>
       </div>
-      <button class="loginBtn">로그인</button>
+      <button id="loginBtn">로그인</button>
       <div class="find">
         <!-- <p><a href="">주문번호 찾기</a> / <a href="">주문 비밀번호 찾기</a></p> -->
         <p></p>
@@ -30,6 +33,8 @@
     </form>
   </main>
 
+  <script src="../frontUtils/tokenCheck.js"></script>
+  <script src="../frontUtils/fetchCustom.js"></script>
   <script src="nonmemberLogin.js"></script>
 </body>
 </html>
