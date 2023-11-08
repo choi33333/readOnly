@@ -60,12 +60,12 @@ main {
 .information {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 50px;
 
   justify-content: flex-start;
   align-items: flex-start;
 
-  padding: 20px;
+  padding: 40px 20px;
   border-top: 1px solid black;
 }
 
@@ -81,8 +81,16 @@ main {
 .addressDetail {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 20px;
   color: gray;
+}
+
+.userInformation > p {
+  margin: 0;
+}
+
+.addressDetail > p {
+  margin: 0;
 }
 
 .userInformation > p {
