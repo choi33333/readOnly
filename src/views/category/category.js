@@ -20,10 +20,10 @@ window.addEventListener("load", async () => {
         }
 
         // 카테고리 body
-        const bestsellerTextElem = document.getElementById("bestseller-title");
+        const bestsellerTextElem = document.getElementById("bestseller-header");
         bestsellerTextElem.innerHTML = "";
 
-        const newbookTextElem = document.getElementById("newbook-title");
+        const newbookTextElem = document.getElementById("newbook-header");
         newbookTextElem.innerHTML = "";
 
         const viewallTextElem = document.getElementById("view-all");
@@ -69,24 +69,45 @@ window.addEventListener("load", async () => {
 
     console.log(products.data);
 
-    if (products.error || !Array.isArray(products.data.category)){
-        return;
-    }
+    // if (products.error || !Array.isArray(products.data.category)) {
+    //     return;
+    // }
 
-    const categorize = location.href.split("category=")[1];
+    const categorize = location.href.split("category=")[1]; 
+    console.log(categorize); //현재 주소의 카테고리 값
+
     const filteredProducts = products.data.filter(product => product.category === categorize);
-   
+    console.log(filteredProducts); //현재 주소의 카테고리와 같은 카테고리의 상품 필터
+    console.log(filteredProducts[0].author);
     
+    const bestsellerWrapperElem = document.getElementById("bestseller-wrapper");
+    // bestsellerWrapperElem.innerHTML = "";
                             
-    if (products !== null) {
-        console.log(products);
+    if (filteredProducts !== null) {
+        for (let i=0; i<filteredProducts.length; i++){
 
-        const nameElem = document.getElementById("name");
-        nameElem.innerHTML = "";
+            const title = filteredProducts[i].name;
+            const author = filteredProducts[i].author;
+            const price = filteredProducts[i].price;
+            const productInfo = filteredProducts[i].productInfo;
 
-        const bestsellerNameElem = document.createElement("h5");
-        bestsellerNameElem.innerHTML = 
-        bestsellerNameElem.append()
+            const template = `
+            <div id="bestseller">
+                <a href="../select-item/index.html">
+                    <div class="bestseller-info">
+                        <img src="../img/bestseller-novel1.jpeg">
+                        <h5>${title}</h5>
+                        <h6>${author}</h6>
+                        <h6>${price}</h6>
+                        <p>${productInfo}</p>
+                    </div>
+                </a>
+            </div>
+            `;
+            bestsellerWrapperElem.innerHTML += template;
+        }
+
+        
 
     }
 })
