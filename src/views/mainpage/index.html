@@ -6,8 +6,6 @@
     <title>MainPage</title>
     <link rel="stylesheet" href="../mainpage/mainpage.css">
     <link rel="stylesheet" href="../components/footer.css">
-    <script src="./mainpage/mainpage.js" defer></script> 
-
 </head>
 
 <body>
@@ -18,12 +16,8 @@
             <input type="text" placeholder="도서를 찾아보세요!">
             <button>검색</button>
         </div>
+        <div id="pageRoute"></div>
         
-        <a href="../join/index.html" class="register">회원가입</a>
-        
-        <a href="../login/index.html" class="log-in">로그인</a> 
-
-        <a href="../cart/index.html" class="cart">장바구니</a>
     </header>
 
     <div class="category-wrap">
@@ -31,7 +25,7 @@
         <div id="category-wrapper"></div>
         
     </div>
-   
+    
 
     <div class="this-week-bestseller">
         <h4>이번 주의 베스트셀러</h4>
@@ -66,7 +60,7 @@
                     <h6>송길영</h6>
                     <h6>17,820원</h6>
                 </div>
-               
+                
             </div>
     </div>
     
@@ -78,6 +72,10 @@
         <h5>Copyright ⓒ 2023 000</h5>
     </footer>
     
+    
+    <script src="../frontUtils/jwtUtil.js"></script>
+    <script src="../frontUtils/loginStatus.js"></script> 
+    <script src="./mainpage/mainpage.js"></script> 
 </body>
 
 </html>

@@ -1,8 +1,6 @@
 const { Router } = require("express");
 const { OrderModel } = require("../../models");
-const validateError = require("../../middlewares/validators/validateError");
-const userOrderValidator = require("../../middlewares/validators/order");
-const objectIdValidator = require("../../middlewares/validators/objectId");
+const { userOrderValidator, objectIdValidator, validateError} = require("../../middlewares/validators/index");
 
 const router = Router();
 
@@ -22,7 +20,7 @@ router.post("/", userOrderValidator, validateError, async (req, res, next) => {
     address: address,
     addressDetail: addressDetail,
     phoneNumber: phoneNumber,
-    orderStatus: "배송 준비중",
+    orderStatus: "결제 완료",
     products: products,
     orderedEmail: em,
   });
@@ -88,8 +86,6 @@ router.get("/search", async (req, res, next) => {
     error.status = 401;
     return next(error);
   }
-  console.log(order.phoneNumber)
-  console.log(phoneNumber)
 
   if (order.phoneNumber != phoneNumber) {
     const error = new Error("전화번호가 일치하지 않습니다.");
@@ -105,9 +101,9 @@ router.get("/search", async (req, res, next) => {
 
 // 특정 주문 수정
 // 11-08 진행중
-router.put("/:id", objectIdValidator, validateError, async (req, res, next) => {
+router.put("/:id", objectIdValidator, userOrderValidator, validateError, async (req, res, next) => {
   const id = req.params.id;
-  const { orderedBy, address, phoneNumber } = req.body;
+  const { orderedBy, postCode, address, addressDetail,phoneNumber } = req.body;
 
   const order = await OrderModel.findById(id).lean();
 
@@ -126,7 +122,9 @@ router.put("/:id", objectIdValidator, validateError, async (req, res, next) => {
 
   order = await order.update({
     orderedBy: orderedBy,
+    postCode: postCode,
     address: address,
+    addressDetail: addressDetail,
     phoneNumber: phoneNumber,
   });
 

@@ -19,14 +19,15 @@ window.addEventListener("load", async () => {
             categoryWrapperElem.append(categoryElem);
         }
 
+
         // 카테고리 body
-        const bestsellerTextElem = document.getElementById("bestseller-title");
+        const bestsellerTextElem = document.getElementById("bestseller-header");
         bestsellerTextElem.innerHTML = "";
 
-        const newbookTextElem = document.getElementById("newbook-title");
+        const newbookTextElem = document.getElementById("newbook-header");
         newbookTextElem.innerHTML = "";
 
-        const viewallTextElem = document.getElementById("view-all");
+        const viewallTextElem = document.getElementById("view-all-header");
         viewallTextElem.innerHTML = "";
 
         const bestsellerElem = document.createElement("h2");
@@ -66,18 +67,103 @@ window.addEventListener("load", async () => {
     const products = await fetch("/api/v1/products") 
                             .then(result => result.json())
                             .catch(err => null);
+
+    console.log(products.data);
     
-    if (products !== null) {
-        console.log(products);
 
-        const nameElem = document.getElementById("name");
-        nameElem.innerHTML = "";
+    // if (products.error || !Array.isArray(products.data.category)) {
+    //     return;
+    // }
 
-        const bestsellerNameElem = document.createElement("h5");
-        bestsellerNameElem.innerHTML = 
-        bestsellerNameElem.append()
+    const categorize = location.href.split("category=")[1]; 
+    //현재 주소의 카테고리 값
 
+    const filteredProducts = products.data.filter(product => product.category === categorize);
+    //현재 주소의 카테고리와 같은 카테고리의 상품 필터
+
+
+    //베스트셀러 정보 불러오기
+    const bestsellerInfoElem = document.getElementById("bestseller-info");
+
+    const copyFilteredProducts1 = [...filteredProducts];
+
+    copyFilteredProducts1.sort((a,b) => b.soldAmount - a.soldAmount);
+    
+    if (copyFilteredProducts1 !== null) {
+        for (let i=0; i<copyFilteredProducts1.length; i++){
+
+            const title = copyFilteredProducts1[i].name;
+            const author = copyFilteredProducts1[i].author;
+            const price = copyFilteredProducts1[i].price;
+            const productInfo = copyFilteredProducts1[i].productInfo;
+
+            const template = `
+                <a href="../select-item/index.html">
+                    <img src="../img/bestseller-novel1.jpeg">
+                    <h5>${title}</h5>
+                    <h6>${author}</h6>
+                    <h6>${price}</h6>
+                    <p>${productInfo}</p>
+                </a>
+            `;
+            bestsellerInfoElem.innerHTML += template;
+        }
     }
+
+    //신간 정보 불러오기
+    const newbookInfoElem = document.getElementById("newbook-info");
+
+    const copyFilteredProducts2 = [...filteredProducts];
+
+    copyFilteredProducts2.sort((a,b) => b.releasedDate - a.releasedDate);
+
+    if (copyFilteredProducts2 !== null){
+        for (let i=0; i<copyFilteredProducts2.length; i++) {
+
+            const title = copyFilteredProducts2[i].name;
+            const author = copyFilteredProducts2[i].author;
+            const price = copyFilteredProducts2[i].price;
+            const productInfo = copyFilteredProducts2[i].productInfo;
+
+            const template = `
+                <a href="../select-item/index.html">
+                    <img src="../img/bestseller-novel1.jpeg">
+                    <h5>${title}</h5>
+                    <h6>${author}</h6>
+                    <h6>${price}</h6>
+                    <p>${productInfo}</p>
+                </a>
+            `;
+            newbookInfoElem.innerHTML += template;
+
+        }
+    }
+    
+    
+    //전체도서 정보 불러오기
+    const viewAllInfoElem = document.getElementById("view-all-info");
+
+    if (filteredProducts !== null) {
+        for (let i=0; i<filteredProducts.length; i++){
+
+            const title = filteredProducts[i].name;
+            const author = filteredProducts[i].author;
+            const price = filteredProducts[i].price;
+            const productInfo = filteredProducts[i].productInfo;
+
+            const template = `
+                <a href="../select-item/index.html">
+                    <img src="../img/bestseller-novel1.jpeg">
+                    <h5>${title}</h5>
+                    <h6>${author}</h6>
+                    <h6>${price}</h6>
+                    <p>${productInfo}</p>
+                </a>
+            `;
+            viewAllInfoElem.innerHTML += template;
+        }
+    }
+
 })
 
 

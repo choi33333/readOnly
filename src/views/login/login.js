@@ -9,8 +9,9 @@ const passwordController = document.getElementById('passwordAlarm');
 
 const loginController = document.getElementById('loginAlarm');
 
+window.addEventListener('load', tokenCheckfunc);
 
-//로그인 버튼을 눌렀을 때 백엔드로 입력값 보내기(아직은 console만)
+//로그인 버튼을 눌렀을 때 백엔드로 입력값 보내기
 loginBtn.addEventListener('click', (e) => {
   e.preventDefault();
 

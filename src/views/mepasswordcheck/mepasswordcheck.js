@@ -3,6 +3,8 @@
 const btn = document.getElementById('btn');
 const password = document.getElementById('password');
 
+const loginController = document.getElementById('loginAlarm');
+
 btn.addEventListener('click', () => {
   try {
     const data = {
@@ -21,10 +23,11 @@ btn.addEventListener('click', () => {
       const res = await response.json();
       console.log('response: ', res);
       if(response.status === 200){
-        console.log('성공');
+        window.localStorage.setItem('checkOk', 'ok');
         location.href = '/changeUserInformation'
       }else if(response.status === 401){
-        console.log('비밀번호 불일치');
+        loginController.innerHTML = '비밀번호가 틀렸습니다';
+        loginController.className = 'alarmon';
       }
     })
   } catch (error) {
