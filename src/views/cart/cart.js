@@ -1,193 +1,188 @@
-
-
-//임시 데이터
-let bookdata = [
-    { bookname: '책이름1', author: '도라에몽', price: 3000, count: 1,id:0},
-    { bookname: '책이름2', author: '진구', price: 4000, count: 1,id:1},
-    { bookname: '책이름3', author: '비실이', price: 2000, count: 1,id:2},
-]
-let bookdata2 = [
-    { bookname: '책이름1', author: '도라에몽', price: 5000, count: 1,id:0},
-    { bookname: '책이름2', author: '진구', price: 4000, count: 1,id:1},
-    { bookname: '책이름3', author: '비실이', price: 2000, count: 1,id:2},
-]
-let cartArr = JSON.parse(localStorage.getItem('bookdata'));
+let cartArr = JSON.parse(localStorage.getItem("bookdata"));
 let sumPrice = 0;
+let renderData = [];
+let userData = [];
+const setCartItem = async () => {
+	console.log(cartArr);
+	for (const data of cartArr) {
+		try {
+			let response = await fetch(`/api/v1/products/${data._id}`);
+			let set = await response.json();
 
-// const getCartItemTemplate = (data,index) =>{
-//     const {bookname,price,count} = data;
-//     return
-//     `<div id=${index} class="cart_card">
-//     <div class="card_imgDiv">
-//         <img class='card_img' src=./thisweekbestseller1.jpeg>
-//     </div>
-//     <div class="card_namePrice">
-//         <div class="bookname">${data.bookname}</div>
-//         <div class="bookprice">${data.price}원</div>
-//     </div>
-//     <div class="card_cntPrice">
-//         <div id='sum${index}' class="book_totalPrice">${data.price*data.count}원</div>
-//         <div class="book_cntbtn">
-//             <a class="minusbtn ${index}">-</a>
-//             <div id=count${index} class="countvalue">${data.count}  </div>
-//             <a class="plusbtn ${index}">+</a>
-//         </div>
-//     </div>
-//     <div class="card_del">
-//         <a class='carddelete ${index}'>X</a>
-//     </div>
-// </div>`                    //안됨....
-// }
-// 만약 localStorage에서 받아온 값이 있으면 장바구니 표출, 아닐경우 카트가 비었다고 표시하기 위한 소스
-if (cartArr?.length > 0) {
-    cartArr.forEach((data,index) => {
-        document.querySelector('.cart_product').innerHTML += 
-    `<div id=${index} class="cart_card">
-        <div class="card_imgDiv">
-            <img class='card_img' src=./thisweekbestseller1.jpeg>
-        </div>
-        <div class="card_namePrice">
-            <div class="bookname">${data.bookname}</div>
-            <div class="bookprice">${data.price}원</div>
-        </div>
-        <div class="card_cntPrice">
-            <div id='sum${index}' class="book_totalPrice">${data.price*data.count}원</div>
-            <div class="book_cntbtn">
-                <a class="minusbtn ${index}">-</a>
-                <div id=count${index} class="countvalue">${data.count}  </div>
-                <a class="plusbtn ${index}">+</a>
-            </div>
-        </div>
-        <div class="card_del">
-            <a class='carddelete ${index}'>X</a>
-        </div>
-    </div>`
-    // console.log(getCartItemTemplate(index,data))
-    sumPrice += data.price * data.count;
-    })
-    document.querySelector('.totalprice').innerHTML=`${sumPrice}원`
-    sumPrice=0;
-}
-else {
-    document.querySelector('.cart_product').innerHTML = 
-    `<div class='emptyCart'>
-    <div class=emptySVG>
-        <h1>!</h1>
+			set.data.amount = cartArr[0].amount;
+			renderData.push(set.data);
+		} catch (err) {
+			console.log("파일을 불러오지 못했어요.");
+		}
+	}
+};
+window.addEventListener("load", async () => {
+	await setCartItem(); // setCartItem를 비동기 함수로 호출
+	if (renderData?.length > 0) {
+		renderData.forEach((data, index) => {
+			document.querySelector(".cart_product").innerHTML += getCartItemTemplate(
+				data,
+				index
+			);
+			sumPrice += data.price * data.amount;
+		});
+		document.querySelector(".totalprice").innerHTML = `${sumPrice}원`;
+		sumPrice = 0;
+	} else {
+		document.querySelector(".cart_product").innerHTML = `<div class='emptyCart'>
+	  <div class=emptySVG>
+		<h1>!</h1>
+	  </div>
+	  <h3>장바구니가 비었습니다!</h3>
+	  </div>`;
+	}
+
+	const bookcard = document.querySelector(".cart_card");
+	//querySelector로 선택
+	const plusbtn = document.querySelectorAll(".plusbtn");
+	const minusbtn = document.querySelectorAll(".minusbtn");
+	const deletebtn = document.querySelectorAll(".carddelete");
+
+	//카운트 증가 소스
+	plusbtn.forEach((plusbtn) =>
+		plusbtn.addEventListener("click", function () {
+			console.log("click", renderData);
+			const id = plusbtn.classList[1];
+			renderData[id].amount += 1;
+			document.getElementById(
+				`count${id}`
+			).innerHTML = `${renderData[id].amount}`;
+			localStorage.setItem("bookdata", JSON.stringify(renderData));
+			document.getElementById(`sum${id}`).innerHTML = `${
+				renderData[id].amount * renderData[id].price
+			}원`;
+			totalsum();
+			totalPrice = 0;
+		})
+	);
+	//카운트 감소 소스
+	minusbtn.forEach((minusbtn) =>
+		minusbtn.addEventListener("click", function () {
+			const id = minusbtn.classList[1];
+			console.log(id);
+			renderData[id].amount -= 1;
+			if (renderData[id].amount < 1) {
+				renderData[id].amount = 1;
+				alert("수량은 1보다 적을수 없습니다.");
+			}
+			document.getElementById(
+				`count${id}`
+			).innerHTML = `${renderData[id].amount}`;
+			localStorage.setItem("bookdata", JSON.stringify(renderData));
+			document.getElementById(`sum${id}`).innerHTML = `${
+				renderData[id].amount * renderData[id].price
+			}원`;
+			totalsum();
+			totalPrice = 0;
+		})
+	);
+	//card 삭제 소스
+	deletebtn.forEach((deletebtn) =>
+		deletebtn.addEventListener("click", function () {
+			const id = deletebtn.classList[1];
+			renderData.splice(id, 1);
+			localStorage.setItem("bookdata", JSON.stringify(renderData));
+			totalsum();
+			location.reload();
+			totalPrice = 0;
+			alert("삭제되었습니다.");
+		})
+	);
+	//총 결제 예정금액
+	const totalsum = () => {
+		renderData.forEach((data) => {
+			sumPrice += data.price * data.amount;
+		});
+		const totalPrice = sumPrice;
+		sumPrice = 0;
+		document.querySelector(".totalprice").innerHTML = `${totalPrice}원`;
+	};
+});
+document.querySelector(".removeall").addEventListener("click", function () {
+	let reset = [];
+	localStorage.setItem("bookdata", JSON.stringify(set));
+	location.reload();
+});
+//주문하기 누를시 실행되는 코드
+document
+	.querySelector(".orderbtn")
+	.addEventListener("click", async function () {
+		alert("주문이 완료되었습니다.");
+		await fetchUser();
+		const productData = localStorage.getItem("bookdata");
+		console.log(userData);
+		console.log(productData);
+		const data = {
+			orderedBy: userData[0].username,
+			postCode: userData[0].postCode,
+			address: userData[0].address,
+			addressDetail: userData[0].addressDetail,
+			phoneNumber: userData[0].phoneNumber,
+			products: [{ productId: "6549140ad11299b256f2d87d", quantity: 1 }],
+		};
+		const response = await fetch("/api/v1/orders/", {
+			method: "POST",
+			body: JSON.stringify(data), // 데이터를 JSON 문자열로 변환
+			headers: {
+				"Content-Type": "application/json", // JSON 데이터 전송 헤더
+				authorization: "Bearer " + localStorage.getItem("Token"),
+			},
+		});
+
+		if (response.status === 200) {
+			const result = await response.json(); // 결과를 기다리도록 수정
+			console.log("성공:", result);
+			console.log(result.data.orderNumber);
+			window.location.href = `http://localhost:3000/orderumin/?orderNumber=${result.data.orderNumber}`;
+		} else {
+			console.error("주문 실패:", response.status);
+			// 에러 처리 코드 추가
+		}
+	});
+
+const getCartItemTemplate = (data, index) => {
+	return `<div id=${index} class="cart_card">
+    <div class="card_imgDiv">
+        <img class='card_img' src=./thisweekbestseller1.jpeg>
     </div>
-    <h3>장바구니가 비었습니다!</h3>
-    </div>`
-}
-
-const bookcard = document.querySelector('.cart_card');
-//querySelector로 선택
-const plusbtn = document.querySelectorAll('.plusbtn');
-const minusbtn = document.querySelectorAll('.minusbtn');
-const deletebtn = document.querySelectorAll('.carddelete');
-const localbtn = document.querySelector('.setlocal');
-const removebtn = document.querySelector('.remove');
-//카운트 증가 소스
-plusbtn.forEach(plusbtn => plusbtn.addEventListener
-    ('click', function () {
-        const id = plusbtn.classList[1];
-        cartArr[id].count += 1;
-        document.getElementById(`count${id}`).innerHTML = `${cartArr[id].count}`;
-        localStorage.setItem('bookdata', JSON.stringify(cartArr))
-        document.getElementById(`sum${id}`).innerHTML = `${cartArr[id].count*cartArr[id].price}원`
-        totalsum();
-        totalPrice=0;
-    }))
-//카운트 감소 소스
-minusbtn.forEach(minusbtn=> minusbtn.addEventListener
-('click',function(){
-    const id = minusbtn.classList[1];
-    console.log(id)
-    cartArr[id].count -= 1;
-    if(cartArr[id].count<1){
-        cartArr[id].count = 1;
-        alert('수량은 1보다 적을수 없습니다.')
-    }
-    console.log(cartArr[id].count)
-    document.getElementById(`count${id}`).innerHTML = `${cartArr[id].count}`;
-    localStorage.setItem('bookdata', JSON.stringify(cartArr))
-    document.getElementById(`sum${id}`).innerHTML = `${cartArr[id].count*cartArr[id].price}원`
-    totalsum();
-    totalPrice=0;
-}
-))
-//card 삭제 소스
-deletebtn.forEach(deletebtn=>deletebtn.addEventListener('click',
-function(){
-    const id = deletebtn.classList[1];
-    cartArr.splice(id,1);
-    localStorage.setItem('bookdata', JSON.stringify(cartArr))
-    totalsum();
-    location.reload();
-    totalPrice=0;
-    alert('삭제되었습니다.')
-}))
-//일단 임시 localStorage 사용을 위한 함수
-const setLocal = () => {
-    localStorage.setItem('bookdata', JSON.stringify(bookdata));
-    console.log('성공');
-    location.reload();
-}
-//localStorage 내부 청소 소스
-const remove = () => {
-    localStorage.clear();
-}
-//총 결제 예정금액
-const totalsum = () => {
-    cartArr.forEach(data=>{
-        sumPrice += data.price*data.count;
-    })
-    console.log(sumPrice);
-    const totalPrice=sumPrice;
-    sumPrice =0;
-    document.querySelector('.totalprice').innerHTML=`${totalPrice}원`
-    
-}
-//
-localbtn.addEventListener('click', setLocal);
-//장바구니 담기 소스
-document.querySelector('.addbook').addEventListener('click',function(){
-    cartArr.push({ bookname: '책이름1', author: '도라에몽', price: 3000, count: 1,id:2},
-    )
-    localStorage.setItem('bookdata', JSON.stringify(cartArr))
-    totalsum();
-    location.reload();
-})
-//전체삭제 구현 소스
-document.querySelector('.removeall').addEventListener('click',function(){
-    cartArr=[];
-    localStorage.setItem('bookdata',JSON.stringify(cartArr))
-    location.reload();
-})
-//localstoregy 지우기 위한 용도
-// removebtn.addEventListener('click', remove);
-
-
-//비교하기! 백에서 장바구니 담기를 누르면 그 정보값을 백에서 받아온다. 
-//그리고 로컬에 값을 넣는다.
-//그리고 리프레쉬시 백에서 정보를 받아와서 객체 안에 값을 수정..
-const changeprice = () =>{
-    for (let i = 0; i < cartArr.length; i++) {
-        const book1 = cartArr[i];
-        const book2 = bookdata2.find(b => b.id === book1.id); // id를 기준으로 bookdata2에서 해당 책을 찾음
-    
-        if (book2 && book1.price !== book2.price) {
-            // book2가 존재하고 가격이 다를 경우 최신화
-            cartArr[i] = { ...book1, price: book2.price };
-        }
-    }
-    localStorage.setItem('bookdata', JSON.stringify(cartArr))
-    console.log(cartArr)
-    location.reload();
-}
-
-
-const carttest = () =>{
-    fetch(URL_PATH.BACK_URL+ '/api/products/').then((response)=>
-    response.json()).then(data => console.log(data))
-    console.log(2)
-}
-document.querySelector('.test').addEventListener('click',carttest)
+    <div class="card_namePrice">
+        <div class="bookname">${data.name}</div>
+        <div class="bookprice">${data.price}원</div>
+    </div>
+    <div class="card_cntPrice">
+        <div id='sum${index}' class="book_totalPrice">${
+		data.price * data.amount
+	}원</div>
+        <div class="book_cntbtn">
+            <a class="minusbtn ${index}">-</a>
+            <div id=count${index} class="countvalue">${data.amount}  </div>
+            <a class="plusbtn ${index}">+</a>
+        </div>
+    </div>
+    <div class="card_del">
+        <a class='carddelete ${index}'>X</a>
+    </div>
+    </div>`;
+};
+const fetchUser = async () => {
+	await fetch("/api/v1/users/me", {
+		method: "GET",
+		headers: {
+			authorization: "Bearer " + localStorage.getItem("Token"),
+		},
+	}).then(async (response) => {
+		const res = await response.json();
+		console.log("response: ", res);
+		if (response.status === 200) {
+			console.log("성공");
+			userData.push(res.data);
+		} else if (response.status === 401) {
+			console.log("로그인 필요");
+		}
+	});
+};

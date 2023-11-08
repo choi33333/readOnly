@@ -123,7 +123,7 @@ a {
   font-size: small;
 }
 
-.loginBtn {
+#loginBtn {
   width: 300px;
   height: 55px;
   border: 1px solid black;
@@ -139,4 +139,14 @@ a {
   color: black;
   font-size: small;
   text-decoration: none;
+}
+
+.alarmoff {
+  display: none;
+}
+
+.alarmon {
+  font-size: small;
+  color: red;
+  display: block;
 }

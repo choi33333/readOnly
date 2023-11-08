@@ -1,26 +1,25 @@
 .body {
-    width: 90%;
-    text-align: left;
-    margin-left: 30px;
-    /* margin-right: auto; */
-
+	width: 90%;
+	text-align: left;
+	margin-left: 30px;
+	/* margin-right: auto; */
 }
 
 .selected-item-info {
-    width: 70%;
-    /* float: left; */
-    margin: auto;
-    margin-top: 80px;
+	width: 70%;
+	/* float: left; */
+	margin: auto;
+	margin-top: 80px;
+	background-color: red;
 }
 
 img {
-    width: 25%;
-    float: left;
-    margin-right: 10px;
-    
+	width: 25%;
+	float: left;
+	margin-right: 10px;
 }
 
 .selected-item-info button {
-    width: 120px;
-    height: 40px;
+	width: 120px;
+	height: 40px;
 }

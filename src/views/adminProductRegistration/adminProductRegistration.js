@@ -35,6 +35,7 @@ const productList = (data) => {
       <th class='category'>category</th>
       <th class='price'>price</th>
       <th class='releasedDate'>releasedDate</th>
+      <th class='delete'></th>
     </tr>
   `
   for(i = 0; i < data.length; i ++) {
@@ -45,9 +46,10 @@ const productList = (data) => {
         <td class='bookIdValue'>${data[i]._id}</td>
         <td class='booknameValue'>${data[i].name}</td>
         <td class='authorValue'>${data[i].author}</td>
-        <td class='categoryValue'>${data[i].categoryName}</td>
+        <td class='categoryValue'>${data[i].category}</td>
         <td class='priceValue'>${data[i].price}</td>
         <td class='releasedDateValue'>${releasedDate[0]}</td>
+        <td><button onclick='userDelete(${i})'>delete</button></td>
       </tr>
     `
   }

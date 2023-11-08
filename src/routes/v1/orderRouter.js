@@ -95,6 +95,23 @@ router.get("/:id", async (req, res, next) => {
   });
 });
 
+// 주문조회 by 주문번호
+router.get("/me/:orderNumber", async (req, res, next) => {
+  const orderNumber = req.params.orderNumber;
+  const orders = await OrderModel.findOne({ orderNumber: orderNumber }).lean();
+
+  if (orders == 0) {
+    const error = new Error("주문이 존재하지 않습니다.");
+    error.status = 401;
+    return next(error);
+  }
+
+  res.json({
+    error: null,
+    data: orders,
+  });
+});
+
 // 특정 주문 수정 상태 수정
 router.put("/:id", objectIdValidator, validateError, async (req, res, next) => {
   const id = req.params.id;
@@ -124,7 +141,7 @@ if (!order) {
 });
 
 // 비회원 특정 주문 조회
-router.get("/search", async (req, res, next) => {
+router.post("/search", async (req, res, next) => {
   const { orderNumber, phoneNumber } = req.body;
   const order = await OrderModel.findOne({ orderNumber: orderNumber }).lean();
 
