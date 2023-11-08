@@ -51,7 +51,7 @@ router.put("/me", isAuthenticated, userMeValidator, validateError,  async (req, 
 
   if (!user) {
     const error = new Error("로그인 해주세요.");
-    error.status = 401;
+    error.status = 404;
     return next(error);
   }
 
