@@ -16,6 +16,8 @@ const phoneNumberController = document.getElementById('phoneNumberAlarm');
 const addressController = document.getElementById('addressAlarm');
 const repasswordController = document.getElementById('repasswordAlarm');
 
+window.addEventListener('load', tokenCheckfunc);
+
 //모든 값이 입력 되었을 때 백엔드로 입력값 보내기
 joinBtn.addEventListener('click', () => {
   const checkValue = inputCheck();
