@@ -10,9 +10,9 @@ require("dotenv").config();
 const mongodbUrI = process.env.MONGODB;
 
 mongoose
-  .connect(mongodbUrI)
-  .then(() => console.log("connected"))
-  .catch(() => console.log("failed"));
+	.connect(mongodbUrI)
+	.then(() => console.log("connected"))
+	.catch(() => console.log("failed"));
 
 // view 엔진을 ejs를 쓰겠다는 설정
 
@@ -25,28 +25,28 @@ app.use("/public", express.static("public"));
 
 // 페이지 로딩 함수
 app.get("/", function (req, res) {
-  res.render("./mainpage/index.html"); // views 폴더 밑에 있는 파일을 참조함
+	res.render("./mainpage/index.html"); // views 폴더 밑에 있는 파일을 참조함
 });
 
 app.use("/api", router);
 
 // 해당되는 URL이 없을 때를 대비한 미들웨어
 app.use((req, res, next) => {
-  const error = new Error("Resource not found");
-  error.statusCode = 404;
-  next(error);
+	const error = new Error("Resource not found");
+	error.statusCode = 404;
+	next(error);
 });
 
 // 에러 핸들러 등록
 app.use((err, req, res, next) => {
-  console.error(err);
-  res.status(err.status).json({
-    error: err.message,
-    data: null,
-  });
+	console.error(err);
+	res.status(err.status).json({
+		error: err.message,
+		data: null,
+	});
 });
 
 // 서버 띄울때 포트 정보 셋팅 및 처음 실행 시 필요한 기능 수행 가능
 app.listen(3000, function () {
-  console.log("server running");
+	console.log("server running");
 });

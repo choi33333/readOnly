@@ -1,7 +1,7 @@
 //임시 데이터
 let bookdata = [
-	{ soldAmount: 5, _id: "6549140ad11299b256f2d87d" },
-	{ soldAmount: 3, _id: "65491352d11299b256f2d87a" },
+	{ amount: 5, _id: "6549140ad11299b256f2d87d" },
+	{ amount: 3, _id: "65491352d11299b256f2d87a" },
 ];
 let renderData = JSON.parse(localStorage.getItem("cartdata"));
 let cartArr = JSON.parse(localStorage.getItem("bookdata"));
@@ -10,13 +10,16 @@ let bookAdd = JSON.parse(localStorage.getItem("cartdata"));
 let sumPrice = 0;
 
 const setCartItem = async () => {
+	console.log(cartArr);
 	for (const data of cartArr) {
 		try {
 			const response = await fetch(`/api/v1/products/${data._id}`);
 			const set = await response.json();
-			console.log(set);
-			set.data[0].soldAmount = data.soldAmount;
-			bookAdd.push(set.data[0]);
+			// console.log(set);
+			console.log(set.data, "1");
+			console.log(data.amount, "2");
+			set.data.amount = data.amount;
+			bookAdd.push(set.data);
 			console.log(bookAdd);
 		} catch (err) {
 			console.log("파일을 불러오지 못했어요.");
@@ -26,7 +29,7 @@ const setCartItem = async () => {
 };
 
 window.addEventListener("load", async () => {
-	console.log("load", bookAdd, cartArr);
+	// console.log("load", bookAdd, cartArr);
 	await setCartItem(); // setCartItem를 비동기 함수로 호출
 	cartArr = [];
 	console.log(bookAdd, cartArr);
@@ -37,7 +40,7 @@ window.addEventListener("load", async () => {
 				data,
 				index
 			);
-			sumPrice += data.price * data.soldAmount;
+			sumPrice += data.price * data.amount;
 		});
 		document.querySelector(".totalprice").innerHTML = `${sumPrice}원`;
 		sumPrice = 0;
@@ -63,13 +66,13 @@ window.addEventListener("load", async () => {
 		plusbtn.addEventListener("click", function () {
 			console.log("click", renderData);
 			const id = plusbtn.classList[1];
-			renderData[id].soldAmount += 1;
+			renderData[id].amount += 1;
 			document.getElementById(
 				`count${id}`
-			).innerHTML = `${renderData[id].soldAmount}`;
+			).innerHTML = `${renderData[id].amount}`;
 			localStorage.setItem("cartdata", JSON.stringify(renderData));
 			document.getElementById(`sum${id}`).innerHTML = `${
-				renderData[id].soldAmount * renderData[id].price
+				renderData[id].amount * renderData[id].price
 			}원`;
 			totalsum();
 			totalPrice = 0;
@@ -80,18 +83,18 @@ window.addEventListener("load", async () => {
 		minusbtn.addEventListener("click", function () {
 			const id = minusbtn.classList[1];
 			console.log(id);
-			renderData[id].soldAmount -= 1;
-			if (renderData[id].soldAmount < 1) {
-				renderData[id].soldAmount = 1;
+			renderData[id].amount -= 1;
+			if (renderData[id].amount < 1) {
+				renderData[id].amount = 1;
 				alert("수량은 1보다 적을수 없습니다.");
 			}
 			// console.log(cartArr[id].count);
 			document.getElementById(
 				`count${id}`
-			).innerHTML = `${renderData[id].soldAmount}`;
+			).innerHTML = `${renderData[id].amount}`;
 			localStorage.setItem("cartdata", JSON.stringify(renderData));
 			document.getElementById(`sum${id}`).innerHTML = `${
-				renderData[id].soldAmount * renderData[id].price
+				renderData[id].amount * renderData[id].price
 			}원`;
 			totalsum();
 			totalPrice = 0;
@@ -122,7 +125,7 @@ window.addEventListener("load", async () => {
 	//총 결제 예정금액
 	const totalsum = () => {
 		renderData.forEach((data) => {
-			sumPrice += data.price * data.soldAmount;
+			sumPrice += data.price * data.amount;
 		});
 		// console.log(sumPrice);
 		const totalPrice = sumPrice;
@@ -159,11 +162,11 @@ const getCartItemTemplate = (data, index) => {
     </div>
     <div class="card_cntPrice">
         <div id='sum${index}' class="book_totalPrice">${
-		data.price * data.soldAmount
+		data.price * data.amount
 	}원</div>
         <div class="book_cntbtn">
             <a class="minusbtn ${index}">-</a>
-            <div id=count${index} class="countvalue">${data.soldAmount}  </div>
+            <div id=count${index} class="countvalue">${data.amount}  </div>
             <a class="plusbtn ${index}">+</a>
         </div>
     </div>
