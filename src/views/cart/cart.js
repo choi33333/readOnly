@@ -1,12 +1,6 @@
-//임시 데이터
-let bookdata = [
-	{ amount: 5, _id: "6549140ad11299b256f2d87d" },
-	{ amount: 3, _id: "65491352d11299b256f2d87a" },
-];
-let renderData = JSON.parse(localStorage.getItem("cartdata"));
 let cartArr = JSON.parse(localStorage.getItem("bookdata"));
-let bookAdd = JSON.parse(localStorage.getItem("cartdata"));
 let sumPrice = 0;
+let renderData = [];
 let userData = [];
 const setCartItem = async () => {
 	console.log(cartArr);
@@ -14,26 +8,18 @@ const setCartItem = async () => {
 		try {
 			let response = await fetch(`/api/v1/products/${data._id}`);
 			let set = await response.json();
-			// console.log(set);
-			console.log(set.data, "1");
-			console.log(data.amount, "2");
-			set.data.amount = data.amount;
-			bookAdd.push(set.data);
-			console.log(bookAdd);
+
+			set.data.amount = cartArr[0].amount;
+			renderData.push(set.data);
 		} catch (err) {
 			console.log("파일을 불러오지 못했어요.");
 		}
 	}
-	localStorage.setItem("cartdata", JSON.stringify(bookAdd)); // 모든 fetch가 완료된 후에 로컬 스토리지에 저장
 };
 window.addEventListener("load", async () => {
-	// console.log("load", bookAdd, cartArr);
 	await setCartItem(); // setCartItem를 비동기 함수로 호출
-	cartArr = [];
-	// console.log(bookAdd, cartArr);
-	localStorage.setItem("bookdata", JSON.stringify(cartArr));
-	if (bookAdd?.length > 0) {
-		bookAdd.forEach((data, index) => {
+	if (renderData?.length > 0) {
+		renderData.forEach((data, index) => {
 			document.querySelector(".cart_product").innerHTML += getCartItemTemplate(
 				data,
 				index
@@ -66,7 +52,7 @@ window.addEventListener("load", async () => {
 			document.getElementById(
 				`count${id}`
 			).innerHTML = `${renderData[id].amount}`;
-			localStorage.setItem("cartdata", JSON.stringify(renderData));
+			localStorage.setItem("bookdata", JSON.stringify(renderData));
 			document.getElementById(`sum${id}`).innerHTML = `${
 				renderData[id].amount * renderData[id].price
 			}원`;
@@ -84,11 +70,10 @@ window.addEventListener("load", async () => {
 				renderData[id].amount = 1;
 				alert("수량은 1보다 적을수 없습니다.");
 			}
-			// console.log(cartArr[id].count);
 			document.getElementById(
 				`count${id}`
 			).innerHTML = `${renderData[id].amount}`;
-			localStorage.setItem("cartdata", JSON.stringify(renderData));
+			localStorage.setItem("bookdata", JSON.stringify(renderData));
 			document.getElementById(`sum${id}`).innerHTML = `${
 				renderData[id].amount * renderData[id].price
 			}원`;
@@ -101,7 +86,7 @@ window.addEventListener("load", async () => {
 		deletebtn.addEventListener("click", function () {
 			const id = deletebtn.classList[1];
 			renderData.splice(id, 1);
-			localStorage.setItem("cartdata", JSON.stringify(renderData));
+			localStorage.setItem("bookdata", JSON.stringify(renderData));
 			totalsum();
 			location.reload();
 			totalPrice = 0;
@@ -113,17 +98,14 @@ window.addEventListener("load", async () => {
 		renderData.forEach((data) => {
 			sumPrice += data.price * data.amount;
 		});
-		// console.log(sumPrice);
 		const totalPrice = sumPrice;
 		sumPrice = 0;
 		document.querySelector(".totalprice").innerHTML = `${totalPrice}원`;
 	};
 });
 document.querySelector(".removeall").addEventListener("click", function () {
-	cartArr = [];
-	renderData = [];
-	localStorage.setItem("cartdata", JSON.stringify(renderData));
-	localStorage.setItem("bookdata", JSON.stringify(cartArr));
+	let reset = [];
+	localStorage.setItem("bookdata", JSON.stringify(set));
 	location.reload();
 });
 //주문하기 누를시 실행되는 코드
@@ -132,7 +114,7 @@ document
 	.addEventListener("click", async function () {
 		alert("주문이 완료되었습니다.");
 		await fetchUser();
-		const productData = localStorage.getItem("cartdata");
+		const productData = localStorage.getItem("bookdata");
 		console.log(userData);
 		console.log(productData);
 		const data = {
@@ -141,9 +123,8 @@ document
 			address: userData[0].address,
 			addressDetail: userData[0].addressDetail,
 			phoneNumber: userData[0].phoneNumber,
-			products: [{ productId: "6548e48fca8820427ea089ff", quantity: 1 }],
+			products: [{ productId: "6549140ad11299b256f2d87d", quantity: 1 }],
 		};
-		console.log(data);
 		const response = await fetch("/api/v1/orders/", {
 			method: "POST",
 			body: JSON.stringify(data), // 데이터를 JSON 문자열로 변환
