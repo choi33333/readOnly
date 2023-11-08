@@ -1,11 +1,17 @@
 const { Router } = require("express");
 const { CategoryModel } = require("../../models");
 const { objectIdValidator, validateError } = require("../../middlewares/validators/index");
-const categoryController = require("../../controllers/categoryController");
 const router = Router();
 
 // 카테고리 조회
-router.get("/", categoryController.getCategories);
+router.get("/", async (req, res, next) => {
+  const categories = await CategoryModel.find({}).lean();
+
+  res.json({
+    error: null,
+    data: categories,
+  });
+});
 
 router.get("/:id", objectIdValidator, validateError, async (req, res, next) => {
   const id = req.params.id;
@@ -26,5 +32,3 @@ router.get("/:id", objectIdValidator, validateError, async (req, res, next) => {
 });
 
 module.exports = router;
-
-a
