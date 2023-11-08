@@ -22,7 +22,6 @@ app.set("views", __dirname + "/views");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "/views")));
-app.use("/public", express.static("public"));
 
 // 페이지 로딩 함수
 app.get("/", function (req, res) {
