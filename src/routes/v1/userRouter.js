@@ -1,6 +1,8 @@
 const { Router } = require("express");
 const { UserModel } = require("../../models");
-const isAuthenticated = require('../../middlewares/index')
+const isAuthenticated = require('../../middlewares/index');
+const validateError = require('../../middlewares/validators/validateError');
+const userMeValidator = require('../../middlewares/validators/user');
 const router = Router();
 const bcrypt = require("bcrypt");
 
@@ -44,7 +46,7 @@ router.post("/me/passcheck", isAuthenticated, async (req, res, next) => {
 });
 
 // my page 수정
-router.put("/me", isAuthenticated, async (req, res, next) => {
+router.put("/me", isAuthenticated, userMeValidator, validateError,  async (req, res, next) => {
   const { em } = res.locals.user;
   const user = await UserModel.findOne({ email: em }).lean();
   const { postCode, phoneNumber, address, addressDetail } = req.body;

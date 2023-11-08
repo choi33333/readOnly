@@ -40,7 +40,7 @@ router.post("/", addProductValidator, validateError, async (req, res, next) => {
 });
 
 // 상품 수정
-router.put("/:id", objectIdValidator, validateError, async (req, res, next) => {
+router.put("/:id", objectIdValidator, addProductValidator,  validateError, async (req, res, next) => {
   const id = req.params.id;
   const {
     productName,
