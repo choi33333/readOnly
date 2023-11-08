@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         try {
             // API 요청을 보내서 주문 정보를 가져오기
-            const response = await fetch('/api/v1/admin/orders', {
+            const response = await fetch('/api/v1/admin/orders'+orderNumber, {
                 method: "GET",
             });
 
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
     async function deleteOrder(orderNumber) {
         try {
             // 서버에 주문 삭제 요청
-            const response = await fetch('/api/v1/admin/orders/', {
+            const response = await fetch('/api/v1/admin/orders/'+orderNumber, {
                 method: "DELETE",
             });
     
