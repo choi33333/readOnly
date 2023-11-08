@@ -9,19 +9,20 @@
 </head>
 <body>
   <header>
-    <a href="/"><h1 id="logo">Logo</h1></a>
+    <a href="/" class="logo"><h3>readOnly📖</h3></a>
+    <div id="pageRoute"></div>
   </header>
-  <div class="content">
-    <nav>
-      <ul>
-        <a href="/userInformation"><li>사용자 정보</li></a>
-        <a href="/changeUserInformation"><li>사용자 정보 수정</li></a>
-        <li>주문/배송 확인</li>
-        <li>취소/반품/교환 확인</li>
-      </ul>
+
+  <div class="container">
+    <nav class="menu">
+      <h4 id="category">카테고리</h4>
+      <a href="/userInformation">사용자 정보</a>
+      <a href="/mepasswordcheck">사용자 정보 수정</a>
+      <a href="/ordercheck">주문조회</a>
     </nav>
+
     <main>
-      <h1>회원정보 수정</h1>
+      <h2>회원정보 수정</h2>
       <form>
         <div id="name" class="input">
           <p>이름</p>
@@ -68,6 +69,8 @@
   <!-- 주소찾기(카카오 API)  -->
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
+  <script src="../frontUtils/jwtUtil.js"></script>
+  <script src="../loginStatus/loginStatus.js"></script> 
   <script src="changeUserInformation.js"></script>
 </body>
 </html>
