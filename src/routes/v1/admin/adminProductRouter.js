@@ -67,6 +67,7 @@ router.put("/:id", objectIdValidator, addProductValidator, validateError, async 
     {
       name: productName,
       category: categoryId,
+      categoryName: category,
       author: author,
       price: price,
       imageUrl: image,
