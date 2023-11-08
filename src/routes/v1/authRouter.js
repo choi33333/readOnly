@@ -1,7 +1,6 @@
 const { Router } = require("express");
 const { UserModel } = require("../../models"); // user model
-const validateError = require("../../middlewares/validators/validateError");
-const { authSignInValidator, authSignUpValidator } = require("../../middlewares/validators/auth");
+const { authSignInValidator, authSignUpValidator, validateError } = require("../../middlewares/validators/index");
 const jsonwebtoken = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 

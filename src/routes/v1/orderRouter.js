@@ -1,8 +1,6 @@
 const { Router } = require("express");
 const { OrderModel } = require("../../models");
-const validateError = require("../../middlewares/validators/validateError");
-const userOrderValidator = require("../../middlewares/validators/order");
-const objectIdValidator = require("../../middlewares/validators/objectId");
+const { userOrderValidator, objectIdValidator, validateError} = require("../../middlewares/validators/index");
 
 const router = Router();
 
