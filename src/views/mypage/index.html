@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My page</title>
+  <link rel="stylesheet" href="./mypage.css">
+</head>
+<body>
+  <header>
+    <a href="/" class="logo"><h3>readOnly📖</h3></a>
+    <div class="search">
+      <input type="text" placeholder="도서를 찾아보세요!">
+      <button>검색</button>
+    </div>
+    <div id="pageRoute"></div>
+  </header> 
+
+  <div class="container">
+    <nav class="menu">
+      <h4 id="category">카테고리</h4>
+      <a href="/userInformation">사용자 정보</a>
+      <a href="/mepasswordcheck">사용자 정보 수정</a>
+      <a href="/ordercheck">주문조회</a>
+    </nav>
+
+    <main>
+      <h1>My page</h1>
+      <div class="menuContainer">
+        <a href="/userInformation">사용자 정보</a>
+        <a href="/mepasswordcheck">사용자 정보 수정</a>
+        <a href="/ordercheck">주문조회</a>
+      </div>
+    </main>
+
+  </div>
+
+  <script src="../frontUtils/jwtUtil.js"></script>
+  <script src="../loginStatus/loginStatus.js"></script> 
+</body>
+</html>

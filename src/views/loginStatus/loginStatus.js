@@ -20,7 +20,7 @@ const pageRouteList = () => {
     if(!isAdmin(token)){
       console.log('일반회원 로그인 상태');
       pageRoute.innerHTML = `
-        <a href="/cart" class="mypage">마이페이지</a>
+        <a href="/mypage" class="mypage">마이페이지</a>
         <a href="/cart" class="cart">장바구니</a>
         <a href="/" id="logOut">로그아웃</a>
       `
@@ -28,7 +28,7 @@ const pageRouteList = () => {
       console.log('관리자 로그인 상태');
       pageRoute.innerHTML = `
         <a href="/admin" class="admin">관리자페이지</a>
-        <a href="/cart" class="mypage">마이페이지</a>
+        <a href="/mypage" class="mypage">마이페이지</a>
         <a href="/cart" class="cart">장바구니</a>
         <a href="/" id="logOut">로그아웃</a>
       `
