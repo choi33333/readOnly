@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const { ProductModel } = require("../../models");
+const { CategoryModel } = require("../../models");
 const { objectIdValidator, validateError} = require("../../middlewares/validators/index");
 
 const router = Router();

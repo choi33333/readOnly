@@ -10,6 +10,10 @@ const productSchema = new Schema({
         required: true,
         ref: "Category",
     },
+    categoryName: {
+        type: String,
+        required: true,
+    },
     author: {
         type: String,
         required: true,

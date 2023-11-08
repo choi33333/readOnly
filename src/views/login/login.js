@@ -12,7 +12,7 @@ const loginController = document.getElementById('loginAlarm');
 window.addEventListener('load', tokenCheckfunc);
 
 //로그인 버튼을 눌렀을 때 백엔드로 입력값 보내기
-loginBtn.addEventListener('click', (e) => {
+loginBtn.addEventListener('click', async (e) => {
   e.preventDefault();
 
   const checkValue = logininputCheck();
@@ -23,25 +23,17 @@ loginBtn.addEventListener('click', (e) => {
     }
 
     try {
-      fetch('/api/v1/auth/sign-in',{
-        method: 'POST',
-        headers:{
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-      .then(async (response) => {
-        const res = await response.json();
-        console.log('response: ', res);
-        if(response.status == 201){
-          console.log('성공');
-          window.localStorage.setItem('Token', res.data);
-          location.href = '/';
-        }else if(response.status === 401){
-          loginController.innerHTML = '이메일이나 비밀번호가 틀렸습니다';
-          loginController.className = 'alarmon';
-        }
-      })
+      const fetchResult = await fetchCustom('/api/v1/auth/sign-in','POST','',data);
+      const fetchData = await fetchResult.json();
+      
+      if(fetchResult.status == 201){
+        console.log('성공');
+        window.localStorage.setItem('Token', fetchData.data);
+        location.href = '/';
+      }else if(fetchResult.status === 401){
+        loginController.innerHTML = '이메일이나 비밀번호가 틀렸습니다';
+        loginController.className = 'alarmon';
+      }
     } catch (error) {
       console.log('error: ', error);
     }

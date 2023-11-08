@@ -23,6 +23,7 @@ router.post("/", addProductValidator, validateError, async (req, res, next) => {
   const products = await ProductModel.create({
     name: name,
     category: categoryId,
+    categoryName: category,
     author: author,
     price: price,
     imageUrl: imageUrl,
@@ -66,6 +67,7 @@ router.put("/:id", objectIdValidator, addProductValidator, validateError, async 
     {
       name: productName,
       category: categoryId,
+      categoryName: category,
       author: author,
       price: price,
       imageUrl: image,
