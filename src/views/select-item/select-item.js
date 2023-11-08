@@ -24,16 +24,16 @@ const callCategory = async (categoryName) => {
 	console.log(set);
 };
 const addClick = () => {
-	let addCart = JSON.parse(localStorage.getItem("bookdata"));
+	const addCart = JSON.parse(localStorage.getItem("bookdata"));
 	bookDetailData[0]._id = bookDetail[0]._id;
 	bookDetailData[0].amount = 1;
 	if (addCart?.length > 0) {
 		bookDetailData.push(addCart[0]);
 		sumLocalData();
-		// localStorage.setItem("bookdata", JSON.stringify(bookDetailData));
 	} else {
 		localStorage.setItem("bookdata", JSON.stringify(bookDetailData));
 	}
+	alert("장바구니에 들어갔습니다!");
 };
 const buyClick = () => {
 	console.log(bookDetail);
@@ -42,8 +42,6 @@ const buyClick = () => {
 };
 //상품목록에서 누른 localdata합치기
 const sumLocalData = () => {
-	// let cartData = JSON.parse(localStorage.getItem("cartdata"));
-	// bookDetailData.concat(cartData);
 	let groupedBookdata = {};
 	bookDetailData.forEach((item) => {
 		console.log(item);
@@ -68,9 +66,6 @@ window.addEventListener("load", async () => {
 	await setCartItem();
 	let response = await fetch(`/api/v1/categories/${bookDetail[0].category}`);
 	let set = await response.json();
-	// document
-	// .querySelector(".imgInsert")
-	// .setAttribute("src", bookDetail[0].imageUrl);
 	document.querySelector(
 		".categoryInsert"
 	).innerHTML = `카테고리 > ${set.category.name}`;
@@ -80,27 +75,7 @@ window.addEventListener("load", async () => {
 	document.querySelector(
 		".productInfo"
 	).innerHTML = `${bookDetail[0].productInfo}`;
-	// 카테고리 데이터 불러오기 //해라님 코드
-	// const categories = await fetch("/api/v1/categories")
-	// 	.then((result) => result.json())
-	// 	.catch((err) => null);
-
-	// if (categories !== null) {
-	// 	// console.log(categories);
-
-	// 	// 카테고리 sidebar
-	// 	const categoryWrapperElem = document.getElementById("category-wrapper");
-	// 	categoryWrapperElem.innerHTML = "";
-
-	// 	for (let i = 0; i < categories.data.length; i++) {
-	// 		const categoryElem = document.createElement("a");
-	// 		categoryElem.innerHTML = categories.data[i].name;
-	// 		categoryElem.setAttribute("href", "?category=" + categories.data[i]._id);
-	// 		categoryWrapperElem.append(categoryElem);
-	// 	}
-	// }
 });
-// const cartBtn = document.getElementById("add-cart");
 
 // cartBtn.addEventListener("click", function () {
 // 	alert("장바구니에 추가되었습니다.");

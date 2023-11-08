@@ -30,7 +30,7 @@ window.addEventListener("load", async () => {
 	// console.log("load", bookAdd, cartArr);
 	await setCartItem(); // setCartItem를 비동기 함수로 호출
 	cartArr = [];
-	console.log(bookAdd, cartArr);
+	// console.log(bookAdd, cartArr);
 	localStorage.setItem("bookdata", JSON.stringify(cartArr));
 	if (bookAdd?.length > 0) {
 		bookAdd.forEach((data, index) => {
@@ -130,25 +130,32 @@ window.addEventListener("load", async () => {
 		sumPrice = 0;
 		document.querySelector(".totalprice").innerHTML = `${totalPrice}원`;
 	};
-	//
-	localbtn.addEventListener("click", setLocal);
-	//장바구니 담기 소스
-	document.querySelector(".addbook").addEventListener("click", function () {
-		// cartArr.push({ _id: "65491352d11299b256f2d87a", soldAmount: 1 });
-		localStorage.setItem("bookdata", JSON.stringify(bookdata));
-		// totalsum();
-		// location.reload();
-	});
-	//전체삭제 구현 소스
-	document.querySelector(".removeall").addEventListener("click", function () {
-		cartArr = [];
-		renderData = [];
-		localStorage.setItem("cartdata", JSON.stringify(renderData));
-		localStorage.setItem("bookdata", JSON.stringify(cartArr));
-		location.reload();
-	});
 });
+document.querySelector(".removeall").addEventListener("click", function () {
+	cartArr = [];
+	renderData = [];
+	localStorage.setItem("cartdata", JSON.stringify(renderData));
+	localStorage.setItem("bookdata", JSON.stringify(cartArr));
+	location.reload();
+});
+// const plusbtn = document.querySelectorAll(".plusbtn");
 
+// plusbtn.forEach((plusbtn) =>
+// 	plusbtn.addEventListener("click", function () {
+// 		console.log("click", renderData);
+// 		const id = plusbtn.classList[1];
+// 		renderData[id].amount += 1;
+// 		document.getElementById(
+// 			`count${id}`
+// 		).innerHTML = `${renderData[id].amount}`;
+// 		localStorage.setItem("cartdata", JSON.stringify(renderData));
+// 		document.getElementById(`sum${id}`).innerHTML = `${
+// 			renderData[id].amount * renderData[id].price
+// 		}원`;
+// 		totalsum();
+// 		totalPrice = 0;
+// 	})
+// );
 const getCartItemTemplate = (data, index) => {
 	return `<div id=${index} class="cart_card">
     <div class="card_imgDiv">
