@@ -10,14 +10,15 @@ document.getElementById('searchButton').addEventListener('click', async function
 
     // API 및 토큰을 사용하여 주문 정보를 검색
     try {
-        const response = await fetch('/api/v1/orders/', {
+        const response = await fetch('/api/v1/orders/'+ orderNumber, {
             method: 'GET',
             headers: {
-                'Authorization': 'Bearer ExampleAccessToken'
+                "Content-Type": "application/json",
+                "Authorization": 'Bearer ' + localStorage.getItem('Token'),
             }
         });
 
-        if (response.ok) {
+        if (response.status === 200) {
             const orderData = await response.json();
 
             // 이전 결과를 테이블에서 삭제
@@ -33,7 +34,7 @@ document.getElementById('searchButton').addEventListener('click', async function
                         <td>${order.productId}</td>
                         <td>${order.price}</td>
                         <td>${order.quantity}</td>
-                        <td>${order.status}</td>
+                        <td>${order.orderStatus}</td>
                         <td>${order.process}</td>
                         <td><button class="cancel-button" data-order-number="${order.orderNumber}">주문 취소</button></td>
                     `;
@@ -47,7 +48,7 @@ document.getElementById('searchButton').addEventListener('click', async function
                         cancelOrder(orderNumberToCancel); // cancelOrder 함수 호출
                     });
 
-                    break; // 주문을 찾은 후 루프 종료
+                    break; // 주문을 찾은 후 종료
                 }
             }
 
@@ -68,7 +69,7 @@ document.getElementById('searchButton').addEventListener('click', async function
 // 주문 취소 함수
 async function cancelOrder(orderNumber) {
     try {
-        const response = await fetch('/api/v1/orders', {
+        const response = await fetch('/api/v1/orders/'+ orderNumber, {
             method: 'DELETE'
         });
 
