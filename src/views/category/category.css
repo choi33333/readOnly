@@ -68,19 +68,22 @@ h2 {
     color:rgb(16, 16, 160);
 }
 
-.body #bestseller, .body #newbook, .body #view-all {
+#bestseller, #newbook, #view-all {
     width: 100%;
-    /* height: 100%; */
+    /* height: 40%; */
+    
 }
+
+
+
 
 #bestseller-info a, #newbook-info a, #view-all-info a {
     width: 50%;
-    /* height: 30%; */
+    height: 200px;
     float: left;
     margin-bottom: 30px;
-
+   
 }
-
 
 .body h5 {
     margin-top: 5px;
@@ -100,7 +103,17 @@ h2 {
 .body p {
     margin-right: 15px;
     font-size: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* white-space:nowrap; */
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* 라인수 */
+    -webkit-box-orient: vertical;
+    word-wrap:break-word; 
+    line-height: 1.2em;
+    height: 3.6em; 
 }
+
 img {
     width: 20%;
     float: left;
