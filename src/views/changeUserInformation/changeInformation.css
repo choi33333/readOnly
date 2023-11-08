@@ -130,3 +130,13 @@ input {
 a {
   text-decoration: none;
 }
+
+.alarmoff {
+  display: none;
+}
+
+.alarmon {
+  font-size: small;
+  color: red;
+  display: block;
+}
