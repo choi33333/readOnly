@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const { UserModel } = require("../../models");
-const isAuthenticated = require('../../middlewares/index');
+const isAuthenticated = require('../../middlewares/isAuthenticated');
 const { validateError, userMeValidator } = require('../../middlewares/validators/index');
 const router = Router();
 const bcrypt = require("bcrypt");
