@@ -1,7 +1,7 @@
 const { Schema } = require("mongoose");
 const { productSchema } = require("./product");
 
-const order = new Schema(
+const orderSchema = new Schema(
   {
     orderNumber: {
       type: String,
@@ -62,4 +62,4 @@ const order = new Schema(
   }
 );
 
-module.exports = order;
+module.exports = orderSchema;
