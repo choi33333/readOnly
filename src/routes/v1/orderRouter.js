@@ -141,7 +141,7 @@ if (!order) {
 });
 
 // 비회원 특정 주문 조회
-router.get("/search", async (req, res, next) => {
+router.post("/search", async (req, res, next) => {
   const { orderNumber, phoneNumber } = req.body;
   const order = await OrderModel.findOne({ orderNumber: orderNumber }).lean();
 
