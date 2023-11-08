@@ -15,7 +15,7 @@ header a {
     font-size: 20px;
     text-decoration: none;
     margin-right: 30px;
-     
+    
 }
 
 #category-wrapper a:hover {
@@ -35,7 +35,7 @@ header {
     /* width: 100%; */
     justify-content: space-between;
     border-bottom: 1px solid rgb(176, 176, 176);
-   
+    
 }
 
 .search{
@@ -59,12 +59,9 @@ button {
     height: 35px;
 }
 
-.register {
-    margin-right: 10px;
-}
-
-.cart {
-    margin-left: 10px;
+#pageRoute {
+    display: flex;
+    gap: 20px;
 }
 
 .category-wrap {
@@ -84,7 +81,6 @@ button {
 
 
 
-  
 
 
 /* 카테고리 css 끝  */
