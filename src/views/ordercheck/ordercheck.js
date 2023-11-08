@@ -19,9 +19,9 @@ document.getElementById('searchButton').addEventListener('click', async function
         });
 
         if (response.status === 200) {
-            // 데이터를 res.data를 통해 가져옵니다 (response.json() 대신)
+            // 데이터를 res.data를 통해 가져오기
             const res = await response.json(); // 실제 응답 데이터
-            const orderData = res.data; // 이제 데이터에 res.data를 사용합니다
+            const orderData = res.data; // 데이터에 res.data를 사용
 
             // 이전 결과를 테이블에서 삭제
             orderResultsTableBody.innerHTML = '';
