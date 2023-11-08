@@ -39,7 +39,6 @@ router.post("/me/passcheck", isAuthenticated, async (req, res, next) => {
 
   res.json({
     error: null,
-    data: user,
     message: "비밀번호가 일치합니다."
   });
 });

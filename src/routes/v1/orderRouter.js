@@ -31,6 +31,31 @@ router.post("/", userOrderValidator, validateError, async (req, res, next) => {
   });
 });
 
+// 비회원 주문하기
+router.post("/non-member", userOrderValidator, validateError, async (req, res, next) => {
+  const { orderedBy, postCode, address, addressDetail, phoneNumber, products } = req.body;
+
+  // 서버연결없이도 겹치지않는 난수만들기
+  const orderNumber = 3;
+
+  const order = await OrderModel.create({
+    orderNumber: orderNumber,
+    orderedBy: orderedBy,
+    postCode: postCode,
+    address: address,
+    addressDetail: addressDetail,
+    phoneNumber: phoneNumber,
+    orderStatus: "결제 완료",
+    products: products,
+    orderedEmail: "비회원",
+  });
+
+  res.json({
+    error: null,
+    data: order.toObject(),
+  });
+});
+
 // 본인 전체 주문 조회 (해당유저의 주문기록만 가져오려면... 어쩌죠?)
 router.get("/", async (req, res, next) => {
   const { em } = res.locals.user;
