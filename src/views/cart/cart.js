@@ -130,7 +130,6 @@ document.querySelector(".removeall").addEventListener("click", function () {
 document
 	.querySelector(".orderbtn")
 	.addEventListener("click", async function () {
-		console.log(userData);
 		alert("주문이 완료되었습니다.");
 		await fetchUser();
 		const productData = localStorage.getItem("cartdata");
@@ -140,16 +139,29 @@ document
 			orderedBy: userData[0].username,
 			postCode: userData[0].postCode,
 			address: userData[0].address,
-			addressDetail: userData[0].phoneNumber,
+			addressDetail: userData[0].addressDetail,
+			phoneNumber: userData[0].phoneNumber,
 			products: [{ productId: "6548e48fca8820427ea089ff", quantity: 1 }],
 		};
 		console.log(data);
-		const response = fetch("/api/v1/orders/", {
+		const response = await fetch("/api/v1/orders/", {
 			method: "POST",
-			body: data,
+			body: JSON.stringify(data), // 데이터를 JSON 문자열로 변환
+			headers: {
+				"Content-Type": "application/json", // JSON 데이터 전송 헤더
+				authorization: "Bearer " + localStorage.getItem("Token"),
+			},
 		});
-		const result = response.json();
-		console.log("성공:", result);
+
+		if (response.status === 200) {
+			const result = await response.json(); // 결과를 기다리도록 수정
+			console.log("성공:", result);
+			console.log(result.data.orderNumber);
+			window.location.href = `http://localhost:3000/orderumin/?orderNumber=${result.data.orderNumber}`;
+		} else {
+			console.error("주문 실패:", response.status);
+			// 에러 처리 코드 추가
+		}
 	});
 
 const getCartItemTemplate = (data, index) => {
