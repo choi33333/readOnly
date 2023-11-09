@@ -53,32 +53,45 @@ table {
 
 
 /* 내가 설정한 css */
+header{
+	margin: 90px 0;
+  align-self: center;
+}
+
 body {
-  margin: 200px;
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 80px;
+}
+
+.logo {
+	color: rgb(16, 16, 160);
+	font-size: 25px;
+	font-style: italic;
+  font-weight: bold;
 }
 
 h1 {
   font-size: 80px;
-  justify-content: center;
   align-self: center;
 }
 
 .move {
 	display: flex;
-	justify-content: center;
   align-self: center;
 	gap: 150px;
 }
 
 .move > a {
   text-decoration: none;
-  justify-content: center;
   align-self: center;
 }
 
 .move > a > p {
   color: black;
+}
+
+a {
+  text-decoration: none;
+  align-self: center;
 }

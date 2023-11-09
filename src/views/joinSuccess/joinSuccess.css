@@ -54,22 +54,31 @@ table {
 
 /* 내가 설정한 css */
 body {
-  margin: 200px;
   display: flex;
   flex-direction: column;
   gap: 100px;
 }
 
+header{
+	margin: 90px 0;
+  align-self: center;
+}
+
+.logo {
+	color: rgb(16, 16, 160);
+	font-size: 25px;
+	font-style: italic;
+  font-weight: bold;
+}
+
 h1 {
   font-size: 100px;
-  justify-content: center;
   align-self: center;
 }
 
 a {
   text-decoration: none;
-  justify-content: center;
-  align-self: center;
+	align-self: center;
 }
 
 a > p {
