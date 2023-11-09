@@ -1,62 +1,3 @@
-header a {
-	text-decoration: none;
-	color: rgb(16, 16, 160);
-}
-
-.logo {
-	color: rgb(16, 16, 160);
-	font-size: 20px;
-	font-style: italic;
-}
-
-header {
-	display: flex;
-	justify-content: space-between;
-	border-bottom: 1px solid rgb(176, 176, 176);
-	background-color: white;
-
-	/* 헤더 상단고정 */
-	/* width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 100; */
-}
-
-.search {
-	justify-content: center;
-	text-align: center;
-	width: 300px;
-	margin: auto;
-}
-
-input {
-	width: 240px;
-	height: 33px;
-	border: 1px solid;
-	border-color: rgb(16, 16, 160);
-	border-radius: 10px;
-}
-
-button {
-	height: 35px;
-}
-
-#pageRoute {
-	display: flex;
-	gap: 12px;
-	margin-top: 10px;
-}
-
-/* pageRoute의 마지막 자식(?)개념으로 선택할 수 있으면 좋을 듯. 
-마지막이 장바구니가 아닐 수도 있으니까 */
-.cart {
-	margin-right: 30px;
-}
-
-#main-body {
-	padding-top: 75.8px;
-}
-
 #category-wrapper {
 	margin: 0 auto;
 	text-align: center;
@@ -91,43 +32,45 @@ button {
 /* 카테고리 css 끝  */
 
 .this-week-bestseller {
-	/* border: black;
-    border-style: solid; */
-	border-width: 90%;
-	width: 90%;
-	height: 80vh;
-	margin: auto;
+    width: 90%;
+    height: 60vh;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 30px;
 }
 
-.this-week-bestseller > h4 {
+#weekbestseller-header {
+    font-size: 20px;
+    padding-bottom: 30px;
+}
+
+
+#weekbestseller-info a {
 	text-align: center;
+    text-decoration: none;
+    color: black;
+    float: left;
+    margin: auto;
+    padding-left: 20px;
 }
 
-.this-week-bestseller-section {
-	width: 90%;
-	margin: auto;
+#weekbestseller-section {
+    margin: 0 auto;
 }
 
 img {
 	width: 230px;
 	height: 260px;
 	object-fit: contain;
+} 
+
+.this-week-bestseller h4 {
+    margin-top: 10px;
+    margin-bottom: 3px;
 }
 
-.this-week-bestseller-info {
-	float: left;
-	width: 18%;
-	margin-right: 20px;
-	text-align: center;
+.this-week-bestseller h5 {
+    margin-top: 7px;
+    margin-bottom: 7px;
 }
 
-.this-week-bestseller-info h5 {
-	font-size: 16px;
-	margin-bottom: 12px;
-}
-
-.this-week-bestseller-info h6 {
-	font-size: 13px;
-	margin-bottom: 10px;
-	margin-top: 5px;
-}
