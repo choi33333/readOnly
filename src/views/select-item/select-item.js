@@ -17,64 +17,53 @@ const setCartItem = async () => {
 		console.log("파일을 불러오지 못했어요.");
 	}
 };
-const callCategory = async (categoryName) => {
-	let response = await fetch(`/api/v1/categories/${categoryName}`);
-	let set = await response.json();
-	console.log(set);
-};
-const addClick = () => {
-	const addCart = JSON.parse(localStorage.getItem("bookdata"));
-	bookDetailData[0]._id = bookDetail[0]._id;
-	bookDetailData[0].amount = 1;
-	if (addCart?.length > 0) {
-		bookDetailData.push(addCart[0]);
-		sumLocalData();
-	} else {
-		localStorage.setItem("bookdata", JSON.stringify(bookDetailData));
-	}
-	alert("장바구니에 들어갔습니다!");
+// const callCategory = async (categoryName) => {
+// 	// let response = await fetch(`/api/v1/categories/${categoryName}`);
+// 	let set = await response.json();
+// 	console.log(set);
+// };
+const addClick = async () => {
+	console.log(bookDetail[0]);
+	const addCart = await JSON.parse(localStorage.getItem("bookdata"));
+	bookDetail[0].amount = 1;
+	console.log(bookDetail);
+	await addCart.push(bookDetail[0]);
+	console.log(addCart);
+	localStorage.setItem("bookdata", JSON.stringify(addCart));
+	const outputArray = [];
+
+	await addCart.forEach((item) => {
+		const existingItem = outputArray.find(
+			(outputItem) => outputItem._id === item._id
+		);
+		if (existingItem) {
+			existingItem.amount += item.amount;
+		} else {
+			outputArray.push({ ...item });
+		}
+	});
+	console.log(outputArray);
+	const simplifiedOutputArray = outputArray.map((item) => ({
+		_id: item._id,
+		amount: item.amount,
+	}));
+	localStorage.setItem("bookdata", JSON.stringify(simplifiedOutputArray));
+	alert("장바구니에 추가되었습니다.");
 };
 const buyClick = () => {
-	// console.log(bookDetail);
 	const reset = [];
 	localStorage.setItem("bookdata", JSON.stringify(reset));
 };
-//상품목록에서 누른 localdata합치기
-const sumLocalData = () => {
-	let groupedBookdata = {};
-	bookDetailData.forEach((item) => {
-		console.log(item);
-		const itemId = item._id;
-		if (groupedBookdata[itemId]) {
-			groupedBookdata[itemId].amount += item.amount;
-		} else {
-			groupedBookdata[itemId] = { _id: itemId, amount: item.amount };
-		}
-	});
-	bookDetailData = Object.values(groupedBookdata);
-	// console.log(cartArr);
-	localStorage.setItem("bookdata", JSON.stringify(bookDetailData));
-	// let resetArr = [];
-	// localStorage.setItem("cartdata", JSON.stringify(resetArr));
-	// location.reload();
-};
 document.querySelector(".addBtn").addEventListener("click", addClick);
-document.querySelector(".buyBtn").addEventListener("click", callCategory);
+document.querySelector(".buyBtn").addEventListener("click", buyClick);
 
 window.addEventListener("load", async () => {
 	await setCartItem();
-	console.log(bookDetail);
-	console.log(bookDetail[0].category);
-	// let response = await fetch(`/api/v1/categories/${bookDetail[0].category}`);
-	// let set = await response.json();
-	// console.log(set);
 	const categories = await fetch("/api/v1/categories")
 		.then((result) => result.json())
 		.catch((err) => null);
 
 	if (categories !== null) {
-		// console.log(categories);
-
 		const categoryWrapperElem = document.getElementById("category-wrapper");
 		categoryWrapperElem.innerHTML = "";
 
@@ -88,7 +77,6 @@ window.addEventListener("load", async () => {
 			categoryWrapperElem.append(categoryElem);
 		}
 	}
-	// document.querySelector(".imgInsert").src = bookDetail[0].imgUrl;
 	document.querySelector(
 		".categoryInsert"
 	).innerHTML = `카테고리 > ${bookDetail[0].categoryName}`;
@@ -99,7 +87,3 @@ window.addEventListener("load", async () => {
 		".productInfo"
 	).innerHTML = `${bookDetail[0].productInfo}`;
 });
-
-// cartBtn.addEventListener("click", function () {
-// 	alert("장바구니에 추가되었습니다.");
-// });
