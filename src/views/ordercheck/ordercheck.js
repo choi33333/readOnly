@@ -30,25 +30,19 @@ document.getElementById('searchButton').addEventListener('click', async function
             let orderFound = false;
             for (const order of orderData) {
                 if (order.orderNumber === orderNumber) {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${order.orderNumber}</td>
-                        <td>${order.products}</td>
-                        <td>${order.price}</td>
-                        <td>${order.quantity}</td>
-                        <td>${order.orderStatus}</td>
-                        <td><button class="cancel-button" data-order-number="${order.orderNumber}">주문 취소</button></td>
-                    `;
-                    orderResultsTableBody.appendChild(row);
+                    for (const product of order.products) {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${order.orderNumber}</td>
+                            <td>${product.productId}</td>
+                            <td>${product.price}</td>
+                            <td>${product.quantity}</td>
+                            <td>${order.orderStatus}</td>
+                            <td><button class="cancel-button" data-order-number="${order.orderNumber}">주문 취소</button></td>
+                        `;
+                        orderResultsTableBody.appendChild(row);
+                    }
                     orderFound = true;
-
-                    // 주문 취소 버튼에 이벤트 추가
-                    const cancelButton = row.querySelector('.cancel-button');
-                    cancelButton.addEventListener('click', function () {
-                        const orderNumberToCancel = this.getAttribute('data-order-number');
-                        cancelOrder(orderNumberToCancel); // cancelOrder 함수 호출
-                    });
-
                     break; // 주문을 찾은 후 종료
                 }
             }

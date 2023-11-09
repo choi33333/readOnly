@@ -25,10 +25,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 // 주문 데이터 화면에 표시
                 displayOrderData(orderData);
             } else {
-                console.error("Error fetching order data:", response.status);
+                console.error("주문을 찾지 못했습니다.:", response.status);
             }
         } catch (error) {
-            console.error("Error fetching order data:", error);
+            console.error("주문 로드 오류:", error);
+            alert("주문을 불러오는데 오류가 발생했습니다.");
         }
     });
 
@@ -76,10 +77,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     tableRowToRemove.parentNode.removeChild(tableRowToRemove);
                 }
             } else {
-                console.error("Error deleting order:", deleteResponse.status);
+                console.error("주문 삭제 실패:", deleteResponse.status);
             }
         } catch (error) {
-            console.error("Error deleting order:", error);
+            console.error("주문 삭제 오류:", error);
+            alert("주문 삭제에 오류가 발생했습니다.");
         }
     }
 });
