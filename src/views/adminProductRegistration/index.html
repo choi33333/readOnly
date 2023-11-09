@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>admin</title>
     <link rel="stylesheet" href="../admin/admin.css">
+    <link rel="stylesheet" href="./adminProductRegistration.css">
 </head>
 
 <body>
@@ -19,7 +20,7 @@
             <a href="/admin">주문현황</a>
             <a href="/adminUsers">회원관리</a>
             <a href="/admin">상품조회</a>
-            <a href="/adminChangeProduct">상품정보수정/삭제</a>
+            <a href="/adminDeleteProduct">상품정보수정/삭제</a>
             <a href="/adminProductRegistration">상품등록</a>
             <a href="/admin">카테고리등록</a>
             <a href="/admin">카테고리수정</a>
@@ -29,28 +30,44 @@
         <main>
             <h2 class="title">상품 등록</h2>
             <div id="userContainer">
-                <div class="userTableHeader">
-                    <div class='productImage'>df</div>
-                    <input type="file" id='imageValue'>
+                <div class="imageInput">
+                    <img id='productImage' />
+                    <input type="file" name="image" id="imageUploader" onchange="readUrl(this);" onclick="">
+                    <input type="submit" value="이미지 업로드" id="imageSubmitBtn">
+                </div>
+                
             
-                    <div>도서명</div>
-                    <input type="text" id='productNameValue'>
-            
-                    <div>저자명</div>
-                    <input type="text" id='authorValue'>
-            
-                    <div>카테고리</div>
-                    <input type="text" id='categoryValue'>
-            
-                    <div>가격</div>
-                    <input type="text" id='priceValue'>
-
-                    <div>도서 출시일</div>
-                    <input type="text" id='releasedDateValue'>
-            
-                    <div>도서 내용</div>
-                    <input type="text" id='productInfoValue'>
-
+                <div class="rightInput">
+                    <div class="productInput">
+                        <div>도서명</div>
+                        <input type="text" id='productNameValue'>
+                    </div>
+                    
+                    <div class="productInput">
+                        <div>저자명</div>
+                        <input type="text" id='authorValue'>
+                    </div>
+                    
+                    <div class="productInput">
+                        <div>카테고리</div>
+                        <input type="text" id='categoryValue'>
+                    </div>
+                    
+                    <div class="productInput">
+                        <div>가격</div>
+                        <input type="number" id='priceValue'>
+                    </div>
+                    
+                    <div class="productInput">
+                        <div>도서 출시일</div>
+                        <input type="date" id='releasedDateValue'>
+                    </div>
+                    
+                    <div class="productInput">
+                        <div>도서 내용</div>
+                        <textarea wrap='virtual' id='productInfoValue'></textarea>
+                    </div>
+                    
                     <button id="RegistrationBtn">등록하기</button>
                 </div>
             </div>
