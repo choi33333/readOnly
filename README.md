@@ -118,7 +118,7 @@ src
       <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>프론트엔드 팀원 : 최재혁</b></sub></a><br /></td>
      <tr/>
       <td align="center"><a href=""><img src="https://www.gstatic.com/android/keyboard/emojikitchen/20201001/u1f42d/u1f42d_u1f30d.png?fbx" width="100px;" alt=""/><br /><sub><b>백엔드 팀장 : 위동현</b></sub></a><br /></td>
-      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>백엔드 팀원 : 노소연</b></sub></a><br /></td>
+      <td align="center"><a href=""><img src="https://www.google.com/search?q=emoji+kitchen&sca_esv=580857096&sxsrf=AM9HkKnPiGv7D3n5vmbj0yWtXx-_mooNKw%3A1699540208577&ei=8OxMZabtItHt-AaHq5TIBg&oq=emoji&gs_lp=Egxnd3Mtd2l6LXNlcnAiBWVtb2ppKgIIADIIEAAYgAQYsQMyBxAAGIoFGEMyBxAAGIoFGEMyBxAAGIoFGEMyCxAAGIAEGLEDGIMBMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgARIiyFQAFiAFHAEeACQAQCYAfUBoAHgBqoBBTAuNC4xuAEByAEA-AEBqAIKwgIHECMY6gIYJ8ICBxAjGIoFGCfCAhEQLhiABBixAxiDARjHARjRA8ICCxAuGIAEGLEDGIMBwgIHEAAYgAQYCsICCBAuGIAEGLED4gMEGAAgQYgGAQ&sclient=gws-wiz-serp" width="100px;" alt=""/><br /><sub><b>백엔드 팀원 : 노소연</b></sub></a><br /></td>
     </tr>
   </tbody>
 </table>
