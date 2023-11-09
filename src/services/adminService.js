@@ -103,7 +103,7 @@ const adminService = {
 
     const product = await ProductModel.create({
         name: name,
-        category: category,
+        category: categoryId._id,
         categoryName: category,
         author: author,
         price: price,
