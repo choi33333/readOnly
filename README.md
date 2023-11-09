@@ -28,7 +28,7 @@
 
 ### ⌨️ Backend
 
-- Node.js
+- <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=Github&logoColor=white"/>
 - PostMan
 - MongoDB
 - MongoDB Compass
@@ -47,8 +47,6 @@
 
 - AWS EC2 Ubuntu~
 
-
-<img src="https://img.shields.io/badge/Github-181717?style=flat-square&logo=Github&logoColor=white"/>
 ```
 src
 ├── constrollers
