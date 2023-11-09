@@ -26,7 +26,9 @@ window.addEventListener("load", async () => {
 			);
 			sumPrice += data.price * data.amount;
 		});
-		document.querySelector(".totalprice").innerHTML = `${sumPrice}원`;
+		document.querySelector(
+			".totalprice"
+		).innerHTML = `${sumPrice.toLocaleString()}원`;
 		sumPrice = 0;
 	} else {
 		document.querySelector(".cart_product").innerHTML = `<div class='emptyCart'>
@@ -53,9 +55,9 @@ window.addEventListener("load", async () => {
 				`count${id}`
 			).innerHTML = `${renderData[id].amount}`;
 			localStorage.setItem("bookdata", JSON.stringify(renderData));
-			document.getElementById(`sum${id}`).innerHTML = `${
+			document.getElementById(`sum${id}`).innerHTML = `${(
 				renderData[id].amount * renderData[id].price
-			}원`;
+			).toLocaleString()}원`;
 			totalsum();
 			totalPrice = 0;
 		})
@@ -74,9 +76,9 @@ window.addEventListener("load", async () => {
 				`count${id}`
 			).innerHTML = `${renderData[id].amount}`;
 			localStorage.setItem("bookdata", JSON.stringify(renderData));
-			document.getElementById(`sum${id}`).innerHTML = `${
+			document.getElementById(`sum${id}`).innerHTML = `${(
 				renderData[id].amount * renderData[id].price
-			}원`;
+			).toLocaleString()}원`;
 			totalsum();
 			totalPrice = 0;
 		})
@@ -100,7 +102,9 @@ window.addEventListener("load", async () => {
 		});
 		const totalPrice = sumPrice;
 		sumPrice = 0;
-		document.querySelector(".totalprice").innerHTML = `${totalPrice}원`;
+		document.querySelector(
+			".totalprice"
+		).innerHTML = `${totalPrice.toLocaleString()}원`;
 	};
 });
 document.querySelector(".removeall").addEventListener("click", function () {
@@ -154,16 +158,16 @@ document
 const getCartItemTemplate = (data, index) => {
 	return `<div id=${index} class="cart_card">
     <div class="card_imgDiv">
-        <img class='card_img' src=./thisweekbestseller1.jpeg>
+        <img class='card_img' src=${data.imageUrl}>
     </div>
     <div class="card_namePrice">
         <div class="bookname">${data.name}</div>
-        <div class="bookprice">${data.price}원</div>
+        <div class="bookprice">${data.price.toLocaleString()}원</div>
     </div>
     <div class="card_cntPrice">
-        <div id='sum${index}' class="book_totalPrice">${
+        <div id='sum${index}' class="book_totalPrice">${(
 		data.price * data.amount
-	}원</div>
+	).toLocaleString()}원</div>
         <div class="book_cntbtn">
             <a class="minusbtn ${index}">-</a>
             <div id=count${index} class="countvalue">${data.amount}  </div>

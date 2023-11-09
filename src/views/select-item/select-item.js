@@ -5,7 +5,7 @@ console.log(urlParams);
 const id = urlParams.get("id");
 let bookDetail = [];
 let bookDetailData = [{}];
-// let categoryName = "6548d90cf5bf2ae69dafd923";
+let userData = [];
 const setCartItem = async () => {
 	try {
 		const response = await fetch(`/api/v1/products/${id}`);
@@ -17,12 +17,6 @@ const setCartItem = async () => {
 		console.log("파일을 불러오지 못했어요.");
 	}
 };
-// const callCategory = async () => {
-// 	console.log(bookDetail[0]._id);
-// 	let response = await fetch(`/api/v1/categories/${bookDetail[0]._id}`);
-// 	let set = await response.json();
-// 	console.log(set);
-// };
 const addClick = async () => {
 	console.log(bookDetail[0]);
 	const addCart = await JSON.parse(localStorage.getItem("bookdata"));
@@ -49,16 +43,55 @@ const addClick = async () => {
 		amount: item.amount,
 	}));
 	localStorage.setItem("bookdata", JSON.stringify(simplifiedOutputArray));
-	alert("장바구니에 추가되었습니다.");
+	// alert("장바구니에 추가되었습니다.");
+	if (!confirm("장바구니에 추가되었습니다. 쇼핑을 계속하시겠습니까?")) {
+		window.location.href = "/cart";
+	} else {
+		window.location.href = "/";
+	}
 };
 //바로구매버튼
-const buyClick = () => {
-	const reset = [];
-	localStorage.setItem("bookdata", JSON.stringify(reset));
-};
+// const buyClick = () => {
+// 	const reset = [];
+// 	localStorage.setItem("bookdata", JSON.stringify(reset));
+// };
 document.querySelector(".addBtn").addEventListener("click", addClick);
-// document.querySelector(".buyBtn").addEventListener("click", callCategory);
+// document.querySelector(".buyBtn").addEventListener("click", buyClick);
+document.querySelector(".buyBtn").addEventListener("click", async function () {
+	console.log(bookDetail[0]);
+	const productArr = [{ productId: bookDetail[0]._id, quantity: 1 }];
+	await fetchUser();
+	const data = {
+		orderedBy: userData[0].username,
+		postCode: userData[0].postCode,
+		address: userData[0].address,
+		addressDetail: userData[0].addressDetail,
+		phoneNumber: userData[0].phoneNumber,
+		// products: [{ productId: "6549140ad11299b256f2d87d", quantity: 1 }],
+		products: productArr,
+	};
+	const response = await fetch("/api/v1/orders/", {
+		method: "POST",
+		body: JSON.stringify(data), // 데이터를 JSON 문자열로 변환
+		headers: {
+			"Content-Type": "application/json", // JSON 데이터 전송 헤더
+			authorization: "Bearer " + localStorage.getItem("Token"),
+		},
+	});
 
+	if (response.status === 200) {
+		const result = await response.json(); // 결과를 기다리도록 수정
+		console.log("성공:", result);
+		console.log(result.data.orderNumber);
+		const reset = [];
+		localStorage.setItem("bookdata", JSON.stringify(reset));
+		window.location.href = `http://localhost:3000/orderumin/?orderNumber=${result.data.orderNumber}`;
+	} else {
+		console.error("주문 실패:", response.status);
+		// 에러 처리 코드 추가
+		alert("실패.");
+	}
+});
 window.addEventListener("load", async () => {
 	await setCartItem();
 	// callCategory(bookDetail[0].category);
@@ -81,13 +114,33 @@ window.addEventListener("load", async () => {
 			categoryWrapperElem.append(categoryElem);
 		}
 	}
+	document.querySelector(".imgInsert").src = bookDetail[0].imageUrl;
 	document.querySelector(
 		".categoryInsert"
 	).innerHTML = `카테고리 > ${bookDetail[0].categoryName}`;
 	document.querySelector(".booknameInsert").innerHTML = `${bookDetail[0].name}`;
 	document.querySelector(".bookAuthor").innerHTML = `${bookDetail[0].author}`;
-	document.querySelector(".bookPrice").innerHTML = `${bookDetail[0].price}원`;
+	document.querySelector(
+		".bookPrice"
+	).innerHTML = `${bookDetail[0].price.toLocaleString()}원`;
 	document.querySelector(
 		".productInfo"
 	).innerHTML = `${bookDetail[0].productInfo}`;
 });
+const fetchUser = async () => {
+	await fetch("/api/v1/users/me", {
+		method: "GET",
+		headers: {
+			authorization: "Bearer " + localStorage.getItem("Token"),
+		},
+	}).then(async (response) => {
+		const res = await response.json();
+		console.log("response: ", res);
+		if (response.status === 200) {
+			console.log("성공");
+			userData.push(res.data);
+		} else if (response.status === 401) {
+			console.log("로그인 필요");
+		}
+	});
+};

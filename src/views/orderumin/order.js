@@ -29,9 +29,11 @@ window.addEventListener("load", async () => {
 				</div>
 				<div class="productName">${data.name}</div>
 			</div>
-			<div class="productPrice">${data.price}원</div>
+			<div class="productPrice">${data.price.toLocaleString()}원</div>
 			<div class="productAmount">${data.amount}</div>
-			<div class="productTotalPrice">${data.price * data.amount}원</div>
+			<div class="productTotalPrice">${(
+				data.price * data.amount
+			).toLocaleString()}원</div>
 		</div>
 		`;
 		sumPrice += data.price * data.amount;
@@ -44,7 +46,7 @@ window.addEventListener("load", async () => {
 	).innerHTML = `주문자/연락처:  ${userData[0].data.orderedBy} / ${userData[0].data.phoneNumber}`;
 	document.querySelector(
 		".orderData_sumPrice"
-	).innerHTML = `총 결제금액:  ${sumPrice}원`;
+	).innerHTML = `총 결제금액:  ${sumPrice.toLocaleString()}원`;
 	document.querySelector(
 		".userData_name"
 	).innerHTML = `수취인:  ${userData[0].data.orderedBy}`;
