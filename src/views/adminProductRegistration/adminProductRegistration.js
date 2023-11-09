@@ -62,6 +62,7 @@ RegistrationBtn.addEventListener('click', () => {
         if(response.status === 201){ 
           console.log('201성공');
           console.log(res.data);
+          
         }else if(response.status === 403){
           console.log('권한이 없습니다');
         }
@@ -183,7 +184,7 @@ productInfoValue.oninput = () => {
 //이미지 띄우기
 const readUrl = (input) => {
   if(input.files && input.files[0]){
-    let reader = new FileReader();
+    const reader = new FileReader();
     reader.onload = function(e) {
       console.log(e);
       document.getElementById('productImage').src = e.target.result;
@@ -199,7 +200,7 @@ const readUrl = (input) => {
 //이미지 서버에 저장하고 url 받기
 imageSubmitBtn.addEventListener('click', (e) => {
   console.log("asdasd",uploadFile);
-  let sendData = new FormData();
+  const sendData = new FormData();
   sendData.append('image', uploadFile);
 
   try{
