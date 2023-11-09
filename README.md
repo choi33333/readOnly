@@ -33,6 +33,17 @@
 - MongoDB (데이터베이스)
 - bcrypt, cors, dotenv, jsonwebtoken, mongoose, validator (Node.js 모듈)
 
+### 📝 Library
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.0",
+    "multer": "^1.4.5-lts.1",
+    
 ### ☁️ Cloud Server
 
 - AWS EC2 Ubuntu
