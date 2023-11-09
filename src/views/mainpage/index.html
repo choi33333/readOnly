@@ -6,18 +6,17 @@
     <title>MainPage</title>
     <link rel="stylesheet" href="../mainpage/mainpage.css">
     <link rel="stylesheet" href="../components/footer.css">
+    <link rel="stylesheet" href="../components/header.css">
 </head>
 
 <body>
     <header>
-    
         <a href="/" class="logo"><h3>readOnly📖</h3></a>
         <div class="search">
             <input type="text" placeholder="도서를 찾아보세요!">
             <button>검색</button>
         </div>
-        <div id="pageRoute"></div>
-        
+        <div id="pageRoute"></div>    
     </header>
 
     <div id="main-body">
@@ -27,45 +26,15 @@
         </div>
         
         <div class="this-week-bestseller">
-            <h4>이번 주의 베스트셀러</h4>
-                <div class="this-week-bestseller-section">
-                    <div class="this-week-bestseller-info">
-                        <img src="../img/thisweekbestseller1.jpeg">
-                        <h5>창조적 행위: 존재의 방식</h5>
-                        <h6>릭 루빈</h6>
-                        <h6>17,820원</h6>
-                    </div>
-                    <div class="this-week-bestseller-info">
-                        <img src="../img/thisweekbestseller2.jpeg">
-                        <h5>트렌드 코리아 2024</h5>
-                        <h6>김난도</h6>
-                        <h6>17,820원</h6>
-                    </div>
-                    <div class="this-week-bestseller-info">
-                        <img src="../img/thisweekbestseller3.jpeg">
-                        <h5>기적의 자세요정</h5>
-                        <h6>자세요정</h6>
-                        <h6>17,820원</h6>
-                    </div>
-                    <div class="this-week-bestseller-info">
-                        <img src="../img/thisweekbestseller4.jpeg">
-                        <h5>퓨처 셀프</h5>
-                        <h6>벤저민 하디</h6>
-                        <h6>17,820원</h6>
-                    </div>
-                    <div class="this-week-bestseller-info">
-                        <img src="../img/thisweekbestseller5.jpeg">
-                        <h5>시대예보:핵개인의 시대</h5>
-                        <h6>송길영</h6>
-                        <h6>17,820원</h6>
-                    </div>
-                    
+            <h4 id="weekbestseller-header">이번 주의 베스트셀러</h4>
+                <div id="weekbestseller-section">
+                    <div id="weekbestseller-info"></div>
                 </div>
-        </div>
+            </div>  
     </div>
-    
+
     <footer>
-        <h4>Logo</h4>
+        <h4 class="logo">readOnly</h4>
         <h5>회사명 : readOnly    대표자 : 엘리스8팀</h5>
         <h5>대표 이메일 : test@elice.com</h5>
         <h5>주소 : 서울특별시 성동구 성수2가 제3동 광나루로6길 49 성수낙낙</h5>

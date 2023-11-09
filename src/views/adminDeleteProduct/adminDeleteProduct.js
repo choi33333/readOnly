@@ -1,5 +1,6 @@
 //관리자 페이지(상품 목록 조회) js
 const userContainer = document.getElementById('userContainer');
+const modifyBtn = document.getElementById('modifyBtn');
 
 //페이지가 로드되었을 때 관리자인지 확인 후  fetch
 window.addEventListener('load', async () => { 
@@ -50,7 +51,7 @@ const productList = (data) => {
         <td class='categoryValue'>${data[i].categoryName}</td>
         <td class='priceValue'>${data[i].price}</td>
         <td class='releasedDateValue'>${releasedDate[0]}</td>
-        <td><button onclick='productModify(${i})'>modify</button></td>
+        <td><button onclick='productModify("${data[i]._id}")'>modify</button></td>
         <td><button onclick='productDelete(${i})'>delete</button></td>
       </tr>
     `
@@ -58,7 +59,15 @@ const productList = (data) => {
 }
 
 
-const userDelete = (index) => {
+//수정하기 버튼
+const productModify = (index) => {
+  location.href = '/adminProductModification' + '?_id=' + index;
+}
+
+
+
+//삭제하기 버튼
+const productDelete = (index) => {
   console.log(index);
   try {
     const confirmflag = confirm('정말 삭제하시겠습니까?');

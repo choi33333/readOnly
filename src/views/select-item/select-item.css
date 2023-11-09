@@ -10,7 +10,9 @@
 	/* float: left; */
 	margin: auto;
 	margin-top: 80px;
-	background-color: red;
+	/* background-color: red; */
+	border: 1px solid;
+	
 }
 
 img {

@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, "/views")));
 
 // 페이지 로딩 함수
 app.get("/", function (req, res) {
-  res.render("./mainpage/index.html");
+  res.render("./mainPage/index.html");
 });
 
 //api 호출
@@ -50,8 +50,13 @@ const upload = multer({ storage });
 app.use(express.static("public"));
 
 // 이미지 업로드를 처리할 라우트
-app.post("/upload", upload.single("image"), (req, res) => {
-  res.send("이미지 업로드 성공");
+app.post("/api/vi/upload", upload.single("image"), (req, res) => {
+  const fileName = req.file.filename;
+  const imgUrl = "../../public/images/"+ fileName;
+  res.json({
+    error: null,
+    data: imgUrl,
+ });
 });
 
 // 해당되는 URL이 없을 때를 대비한 미들웨어
