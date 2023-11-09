@@ -44,13 +44,14 @@ const storage = multer.diskStorage({
     cb(null, uniqueSuffix + fileExt);
   },
 });
-const upload = multer({ storage });
+
+const upload = multer({ storage, limits: { fileSize: 5 * 1024 * 1024 } });
 
 // 정적 파일 서빙 설정
 app.use(express.static("public"));
 
 // 이미지 업로드를 처리할 라우트
-app.post("/api/vi/upload", upload.single("image"), (req, res) => {
+app.post("/api/v1/upload", upload.single("image"), (req, res) => {
   const fileName = req.file.filename;
   const imgUrl = "../../public/images/"+ fileName;
   res.json({
