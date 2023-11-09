@@ -3,12 +3,13 @@ let sumPrice = 0;
 let renderData = [];
 let userData = [];
 const setCartItem = async () => {
-	console.log(cartArr);
+	// console.log(cartArr);
 	for (const data of cartArr) {
 		try {
 			let response = await fetch(`/api/v1/products/${data._id}`);
 			let set = await response.json();
-			set.data.amount = cartArr[0].amount;
+			console.log(cartArr);
+			set.data.amount = data.amount;
 			renderData.push(set.data);
 		} catch (err) {
 			console.log("파일을 불러오지 못했어요.");
@@ -104,7 +105,7 @@ window.addEventListener("load", async () => {
 });
 document.querySelector(".removeall").addEventListener("click", function () {
 	let reset = [];
-	localStorage.setItem("bookdata", JSON.stringify(set));
+	localStorage.setItem("bookdata", JSON.stringify(reset));
 	location.reload();
 });
 //주문하기 누를시 실행되는 코드
