@@ -42,7 +42,7 @@ router.post("/", addProductValidator, validateError, async (req, res, next) => {
 router.put("/:id", objectIdValidator, addProductValidator, validateError, async (req, res, next) => {
   const id = req.params.id;
   const {
-    productName,
+    name,
     category,
     author,
     price,
@@ -65,7 +65,7 @@ router.put("/:id", objectIdValidator, addProductValidator, validateError, async 
   const updatedProduct = await ProductModel.updateOne(
     { _id: id },
     {
-      name: productName,
+      name: name,
       category: categoryId,
       categoryName: category,
       author: author,
