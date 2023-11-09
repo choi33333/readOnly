@@ -56,15 +56,8 @@ ruby
 Copy code
 $ npm install
 $ npm run preview
-팀원
-Backend
 
-최윤혁 (팀 리더, johan43311@gmail.com)
-이다현 (dada4202@gmail.com)
-Frontend
 
-아쉬웠던 점 및 목표
-(아쉬웠던 점 및 프로젝트 종료 후 목표 등을 작성)
 
 라이센스
-Copyright © 2023 도서 쇼핑몰
+Copyright © 2023 readMe
