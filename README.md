@@ -46,9 +46,10 @@
     
 ### ☁️ Cloud Server
 
-- AWS EC2 Ubuntu
+- AWS EC2 Ubuntu~
 
-
+```
+src
 ├── constrollers
 │   ├── adminController.js
 │   ├── authController.js
@@ -102,7 +103,8 @@
 │       ├── asyncHandler.js
 │       └── hash-password.js
 ├── views
-└── app.js 
+└── app.js
+```
 
 ### 개발 기간
 2023.10.30 ~ 2023.11.10
