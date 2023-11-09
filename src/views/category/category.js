@@ -35,25 +35,21 @@ window.addEventListener("load", async () => {
 		// localhost:3000/category/index.html?category=6548d90cf5bf2ae69dafd923
 		const categorize = location.href.split("category=")[1];
 
-		if (categorize === "6548d90cf5bf2ae69dafd923") {
-			bestsellerElem.innerHTML = categories.data[0].name + " 베스트셀러";
+		const filteredCategory = categories.data.filter(
+			(category) => category._id === categorize
+		);
+
+		console.log(filteredCategory);
+		console.log(filteredCategory[0].name);
+
+		for (let i=0;i<categories.data.length; i++){
+			bestsellerElem.innerHTML = filteredCategory[0].name + " 베스트셀러";
 			bestsellerTextElem.append(bestsellerElem);
 
-			newbookElem.innerHTML = categories.data[0].name + " 신간";
+			newbookElem.innerHTML = filteredCategory[0].name + " 신간";
 			newbookTextElem.append(newbookElem);
 
-			viewallElem.innerHTML = categories.data[0].name + " 전체보기";
-			viewallTextElem.append(viewallElem);
-		}
-
-		if (categorize === "6548db0af4083cc0993650a3") {
-			bestsellerElem.innerHTML = categories.data[1].name + " 베스트셀러";
-			bestsellerTextElem.append(bestsellerElem);
-
-			newbookElem.innerHTML = categories.data[1].name + " 신간";
-			newbookTextElem.append(newbookElem);
-
-			viewallElem.innerHTML = categories.data[1].name + " 전체보기";
+			viewallElem.innerHTML = filteredCategory[0].name + " 전체보기";
 			viewallTextElem.append(viewallElem);
 		}
 	}

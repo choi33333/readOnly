@@ -58,7 +58,7 @@ const adminService = {
   },
 
   async updateOrder(id, orderStatus) {
-    let order = await OrderModel.findOne({ _id: id }).lean();
+    const order = await OrderModel.findById(id).lean();
 
     if (!order) {
       const error = new Error("주문이 존재하지 않습니다.");
@@ -122,7 +122,7 @@ const adminService = {
         category,
         author,
         price,
-        image,
+        imageUrl,
         productInfo,
         releasedDate,
       } = productData;
@@ -135,18 +135,15 @@ const adminService = {
             throw error;
         }
 
-        // category를 프론트에서 id 값으로 받아와야한다.
-        const categoryId = await CategoryModel.findOne({ _id: category });
-
         const updatedProduct = await ProductModel.updateOne(
             { _id: id },
             {
             name: name,
-            category: categoryId,
+            category: category,
             categoryName: category,
             author: author,
             price: price,
-            imageUrl: image,
+            imageUrl: imageUrl,
             productInfo: productInfo,
             releasedDate: releasedDate,
             }
