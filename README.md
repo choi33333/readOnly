@@ -1,4 +1,4 @@
-# 📖 readOnly - 지적 성장을 위한 도서 구매 플랫폼  📂
+# 📖 readOnly - 지적 성장을 위한 도서 구매 플랫폼 
 
 ## 🌏 프로젝트 개요
 
@@ -47,6 +47,7 @@
 
 - AWS EC2 Ubuntu~
 
+### 📂 Directory 
 ```
 src
 ├── constrollers
