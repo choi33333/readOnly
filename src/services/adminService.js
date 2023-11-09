@@ -122,7 +122,7 @@ const adminService = {
         category,
         author,
         price,
-        image,
+        imageUrl,
         productInfo,
         releasedDate,
       } = productData;
@@ -146,7 +146,7 @@ const adminService = {
             categoryName: category,
             author: author,
             price: price,
-            imageUrl: image,
+            imageUrl: imageUrl,
             productInfo: productInfo,
             releasedDate: releasedDate,
             }
