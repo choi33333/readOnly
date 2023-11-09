@@ -99,11 +99,11 @@ const adminService = {
 
   async createProduct(productData){
     const { name, category, author, price, imageUrl, productInfo, releasedDate } = productData;
-    const categoryId = await CategoryModel.findOne({ _id: category });
+    const categoryId = await CategoryModel.findOne({ name: category });
 
     const product = await ProductModel.create({
         name: name,
-        category: categoryId,
+        category: category,
         categoryName: category,
         author: author,
         price: price,
