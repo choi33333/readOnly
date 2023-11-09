@@ -135,9 +135,6 @@ const adminService = {
             throw error;
         }
 
-        // category를 프론트에서 id 값으로 받아와야한다.
-        const categoryId = await CategoryModel.findOne({ _id: category });
-
         const updatedProduct = await ProductModel.updateOne(
             { _id: id },
             {
