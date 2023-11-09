@@ -45,30 +45,19 @@ const storage = multer.diskStorage({
   },
 });
 
-const upload = multer({ storage, limits: { fileSize: 10 * 1024 * 1024 } });
+const upload = multer({ storage, limits: { fileSize: 5 * 1024 * 1024 } });
 
 // 정적 파일 서빙 설정
 app.use(express.static("public"));
 
 // 이미지 업로드를 처리할 라우트
-app.post("/api/v1/upload", (req, res, next) => {
-  upload(req, res, (err) => {
-    if (err instanceof multer.MulterError) {
-      // Multer에서 발생한 에러 처리
-      return res.status(400).json({ error: "파일 크기가 제한을 초과했습니다." });
-    } else if (err) {
-      // 기타 에러 처리
-      return res.status(500).json({ error: "파일 업로드 중에 오류가 발생했습니다." });
-    }
-
-    // 파일 업로드 성공 시
-    const fileName = req.file.filename;
-    const imgUrl = "../../public/images/" + fileName;
-    res.json({
-      error: null,
-      data: imgUrl,
-    });
-  });
+app.post("/api/v1/upload", upload.single("image"), (req, res) => {
+  const fileName = req.file.filename;
+  const imgUrl = "../../public/images/"+ fileName;
+  res.json({
+    error: null,
+    data: imgUrl,
+ });
 });
 
 // 해당되는 URL이 없을 때를 대비한 미들웨어
