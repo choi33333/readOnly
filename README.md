@@ -49,7 +49,7 @@
 - AWS EC2 Ubuntu
 
 
-── constrollers
+├── constrollers
 │   ├── adminController.js
 │   ├── authController.js
 │   ├── categoryController.js
