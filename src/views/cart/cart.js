@@ -8,7 +8,6 @@ const setCartItem = async () => {
 		try {
 			let response = await fetch(`/api/v1/products/${data._id}`);
 			let set = await response.json();
-
 			set.data.amount = cartArr[0].amount;
 			renderData.push(set.data);
 		} catch (err) {
