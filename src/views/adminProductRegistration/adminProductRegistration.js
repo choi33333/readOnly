@@ -15,6 +15,7 @@ const categoryController = document.getElementById('categoryAlarm');
 const priceController = document.getElementById('priceAlarm');
 const releasedDateController = document.getElementById('releasedDateAlarm');
 const productInfoController = document.getElementById('productInfoAlarm');
+const imgController = document.getElementById('imgAlarm');
 
 const RegistrationBtn = document.getElementById('RegistrationBtn');
 const imageUploader = document.getElementById('imageUploader');
@@ -22,6 +23,7 @@ const imageSubmitBtn = document.getElementById('imageSubmitBtn');
 
 let uploadFile;
 let imageUrl;
+let imgToggle = 0;
 
 //페이지가 로드되었을 때 관리자인지 확인
 window.onload = () => {
@@ -36,17 +38,17 @@ window.onload = () => {
 RegistrationBtn.addEventListener('click', () => {
   const checkValue = inputCheck();
   if(checkValue === 0){
-    const data = {
-      name: productNameValue.value,
-      category: categoryValue.value,
-      author: authorValue.value,
-      price: priceValue.value,
-      imageUrl: imageUrl,
-      productInfo: productInfoValue.value,
-      releasedDate: releasedDateValue.value,
-    }
-  
     try {
+      const data = {
+        name: productNameValue.value,
+        category: categoryValue.value,
+        author: authorValue.value,
+        price: priceValue.value,
+        imageUrl: imageUrl,
+        productInfo: productInfoValue.value,
+        releasedDate: releasedDateValue.value,
+      }
+
       fetch('/api/v1/admin/products',{
         method: 'POST',
         headers:{
@@ -57,12 +59,10 @@ RegistrationBtn.addEventListener('click', () => {
       })
       .then(async (response) => {
         const res = await response.json();
-        data = res.data;
         console.log('response: ', res);
-        if(response.status === 201){ 
-          console.log('201성공');
+        if(response.status === 200){ 
           console.log(res.data);
-          
+          location.href = '/admin';
         }else if(response.status === 403){
           console.log('권한이 없습니다');
         }
@@ -82,6 +82,7 @@ const inputCheck = () => {
   priceController.className='alarmoff';
   releasedDateController.className='alarmoff';
   productInfoController.className='alarmoff';
+  imgController.className='alarmoff';
 
   let toggle = 0;
 
@@ -115,6 +116,11 @@ const inputCheck = () => {
     productInfoController.className = 'alarmon';
     toggle = 1;
   } 
+  if(imgToggle == 0){
+    imgController.innerHTML = '이미지 업로드를 해주세요';
+    imgController.className = 'alarmon';
+    toggle = 1;
+  }
   
   if(toggle === 1) { return 1; }
   else return 0;
@@ -220,6 +226,8 @@ imageSubmitBtn.addEventListener('click', (e) => {
         console.log('이미지 url 불러오기 성공');
         imageUrl = res.data;
         console.log('imageUrl: ', imageUrl);
+        imgToggle = 1;
+        imgController.className = 'alarmoff';
       }else if(response.status === 403){
         console.log('권한이 없습니다');
       }
