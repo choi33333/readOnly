@@ -1,103 +1,20 @@
 const { Router } = require("express");
 const { ProductModel, CategoryModel } = require("../../../models");
 const { addProductValidator, objectIdValidator, validateError } = require("../../../middlewares/validators/index");
+const adminController = require("../../../controllers/adminController");
+const adminService = require("../../../services/adminService");
 const router = Router();
 
 // 상품 조회
-router.get("/", async (req, res, next) => {
-  const products = await ProductModel.find({}).lean();
-
-  res.json({
-    error: null,
-    data: products,
-  });
-});
+router.get("/", adminController.getProducts);
 
 // 상품 등록
-router.post("/", addProductValidator, validateError, async (req, res, next) => {
-  const { name, category, author, price, imageUrl, productInfo, releasedDate } =
-    req.body;
-
-  const categoryId = await CategoryModel.findOne({ _id: category });
-
-  const products = await ProductModel.create({
-    name: name,
-    category: categoryId,
-    categoryName: category,
-    author: author,
-    price: price,
-    imageUrl: imageUrl,
-    productInfo: productInfo,
-    releasedDate: releasedDate,
-    soldAmount: 0,
-  });
-
-  res.json({
-    error: null,
-    data: products,
-  });
-});
+router.post("/", addProductValidator, validateError, adminController.createProduct);
 
 // 상품 수정
-router.put("/:id", objectIdValidator, addProductValidator, validateError, async (req, res, next) => {
-  const id = req.params.id;
-  const {
-    name,
-    category,
-    author,
-    price,
-    image,
-    productInfo,
-    releasedDate,
-  } = req.body;
-
-  const product = await ProductModel.findOne({ _id: id }).lean();
-
-  if (!product) {
-    const error = new Error("제품이 존재하지 않습니다.");
-    error.status = 401;
-    return next(error);
-  }
-
-  // category를 프론트에서 id 값으로 받아와야한다.
-  const categoryId = await CategoryModel.findOne({ _id: category });
-
-  const updatedProduct = await ProductModel.updateOne(
-    { _id: id },
-    {
-      name: name,
-      category: categoryId,
-      categoryName: category,
-      author: author,
-      price: price,
-      imageUrl: image,
-      productInfo: productInfo,
-      releasedDate: releasedDate,
-    }
-  );
-
-  res.json({
-    error: null,
-    data: updatedProduct,
-  });
-});
+router.put("/:id", objectIdValidator, addProductValidator, validateError, adminController.updateProduct);
 
 // 상품 삭제
-router.delete("/:id", objectIdValidator, validateError, async (req, res, next) => {
-  const id = req.params.id;
-  const product = await ProductModel.findById({ id }).lean();
-  const deletedProduct = await ProductModel.deleteOne(product);
-
-  if (!product) {
-    const error = new Error("제품이 존재하지 않습니다.");
-    error.status = 401;
-    return next(error);
-  }
-
-  res.json({
-    error: null,
-    data: deletedProduct,
-  });
-});
+router.delete("/:id", objectIdValidator, validateError, adminController.deleteProduct);
 
 module.exports = router;
