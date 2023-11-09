@@ -33,7 +33,7 @@
 - MongoDB (데이터베이스)
 - bcrypt, cors, dotenv, jsonwebtoken, mongoose, validator (Node.js 모듈)
 
-### Cloud Server
+### ☁️ Cloud Server
 
 - AWS EC2 Ubuntu
 
