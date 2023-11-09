@@ -12,13 +12,14 @@ const setCartItem = async () => {
 		const set = await response.json();
 		// console.log(set);
 		bookDetail.push(set.data);
-		// console.log(bookDetail);
+		console.log(bookDetail);
 	} catch (err) {
 		console.log("파일을 불러오지 못했어요.");
 	}
 };
-// const callCategory = async (categoryName) => {
-// 	// let response = await fetch(`/api/v1/categories/${categoryName}`);
+// const callCategory = async () => {
+// 	console.log(bookDetail[0]._id);
+// 	let response = await fetch(`/api/v1/categories/${bookDetail[0]._id}`);
 // 	let set = await response.json();
 // 	console.log(set);
 // };
@@ -50,15 +51,18 @@ const addClick = async () => {
 	localStorage.setItem("bookdata", JSON.stringify(simplifiedOutputArray));
 	alert("장바구니에 추가되었습니다.");
 };
+//바로구매버튼
 const buyClick = () => {
 	const reset = [];
 	localStorage.setItem("bookdata", JSON.stringify(reset));
 };
 document.querySelector(".addBtn").addEventListener("click", addClick);
-document.querySelector(".buyBtn").addEventListener("click", buyClick);
+// document.querySelector(".buyBtn").addEventListener("click", callCategory);
 
 window.addEventListener("load", async () => {
 	await setCartItem();
+	// callCategory(bookDetail[0].category);
+	// callCategory();
 	const categories = await fetch("/api/v1/categories")
 		.then((result) => result.json())
 		.catch((err) => null);

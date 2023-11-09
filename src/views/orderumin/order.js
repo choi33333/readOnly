@@ -3,7 +3,7 @@ const urlParams = url.searchParams;
 const orderNumber = urlParams.get("orderNumber");
 let cartProducts = [];
 let userData = [];
-
+let sumPrice = 0;
 window.addEventListener("load", async () => {
 	const response = await fetch(`/api/v1/orders/me/${orderNumber}`);
 	const orderData = await response.json();
@@ -24,7 +24,7 @@ window.addEventListener("load", async () => {
 			<div class="imgName">
 				<div class="productImg">
 					<img
-						src="../cart/thisweekbestseller1.jpeg"
+						src=${data.imageUrl}
 						class="cartImg" />
 				</div>
 				<div class="productName">${data.name}</div>
@@ -34,14 +34,17 @@ window.addEventListener("load", async () => {
 			<div class="productTotalPrice">${data.price * data.amount}원</div>
 		</div>
 		`;
+		sumPrice += data.price * data.amount;
 	});
 	document.querySelector(
 		".orderData_number"
 	).innerHTML = `주문번호:  ${userData[0].data.orderNumber}`;
 	document.querySelector(
 		".orderData_namePhone"
-	).innerHTML = `주문자/연락처:  ${userData[0].data.orderedBy}/${userData[0].data.phoneNumber}`;
-	document.querySelector(".orderData_sumPrice").innerHTML = `총 결제금액  `;
+	).innerHTML = `주문자/연락처:  ${userData[0].data.orderedBy} / ${userData[0].data.phoneNumber}`;
+	document.querySelector(
+		".orderData_sumPrice"
+	).innerHTML = `총 결제금액:  ${sumPrice}원`;
 	document.querySelector(
 		".userData_name"
 	).innerHTML = `수취인:  ${userData[0].data.orderedBy}`;
