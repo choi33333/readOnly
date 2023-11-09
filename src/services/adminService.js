@@ -66,11 +66,11 @@ const adminService = {
       throw error;
     }
 
-    order = await OrderModel.updateOne({
+    const updatedOrder = await OrderModel.updateOne({
       orderStatus: orderStatus,
     });
 
-    return order;
+    return updatedOrder;
   },
 
   async deleteOrder(id) {
