@@ -58,7 +58,7 @@ const adminService = {
   },
 
   async updateOrder(id, orderStatus) {
-    let order = await OrderModel.findOne({ _id: id }).lean();
+    const order = await OrderModel.findById(id).lean();
 
     if (!order) {
       const error = new Error("주문이 존재하지 않습니다.");
@@ -142,7 +142,7 @@ const adminService = {
             { _id: id },
             {
             name: name,
-            category: categoryId,
+            category: category,
             categoryName: category,
             author: author,
             price: price,
