@@ -32,7 +32,7 @@ window.addEventListener('load', async () => {
 
         productNameValue.value = finded.name;
         authorValue.value = finded.author;
-        categoryValue.value = finded.category;
+        categoryValue.value = finded.categoryName;
         priceValue.value = finded.price;
         releasedDateValue.value = releasedDate[0];
         productInfoValue.value = finded.productInfo;

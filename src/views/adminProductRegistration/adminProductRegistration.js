@@ -1,4 +1,4 @@
-//관리자 페이지(상품 목록 조회) js
+//상품 목록 수정 페이지 js
 const userContainer = document.getElementById('userContainer');
 
 const imageValue = document.getElementById('imageValue');
@@ -18,8 +18,12 @@ const productInfoController = document.getElementById('productInfoAlarm');
 
 const RegistrationBtn = document.getElementById('RegistrationBtn');
 const imageUploader = document.getElementById('imageUploader');
+const imageSubmitBtn = document.getElementById('imageSubmitBtn');
 
-//페이지가 로드되었을 때 관리자인지 확인 후  fetch
+let uploadFile;
+let imageUrl;
+
+//페이지가 로드되었을 때 관리자인지 확인
 window.onload = () => {
   const token = localStorage.getItem('Token');
 
@@ -37,9 +41,9 @@ RegistrationBtn.addEventListener('click', () => {
       category: categoryValue.value,
       author: authorValue.value,
       price: priceValue.value,
-      imageUrl: imageValue.value,
-      releasedDate: releasedDateValue.value,
+      imageUrl: imageUrl,
       productInfo: productInfoValue.value,
+      releasedDate: releasedDateValue.value,
     }
   
     try {
@@ -55,7 +59,7 @@ RegistrationBtn.addEventListener('click', () => {
         const res = await response.json();
         data = res.data;
         console.log('response: ', res);
-        if(response.status === 201){
+        if(response.status === 201){ 
           console.log('201성공');
           console.log(res.data);
         }else if(response.status === 403){
@@ -183,6 +187,7 @@ const readUrl = (input) => {
     reader.onload = function(e) {
       console.log(e);
       document.getElementById('productImage').src = e.target.result;
+      uploadFile = input.files[0];
     }
     reader.readAsDataURL(input.files[0]);
   } else {
@@ -190,14 +195,38 @@ const readUrl = (input) => {
   }
 }
 
-// const registrationImage = (input) => {
-//   let sendData = new FormData();
-//   sendData.append('image', input);
 
-//   fetch('~~~~', {
-//     headers: {
-//       "Content_Type": "multipart/form-data"
-//     },
-//     body: sendData
-//   })
-// }
+//이미지 서버에 저장하고 url 받기
+imageSubmitBtn.addEventListener('click', (e) => {
+  console.log("asdasd",uploadFile);
+  let sendData = new FormData();
+  sendData.append('image', uploadFile);
+
+  try{
+    fetch('/api/v1/upload', {
+      method: 'POST',
+      headers: {
+        "Content_Type": "multipart/form-data",
+        "authorization": 'Bearer ' + localStorage.getItem('Token'),
+      },
+      body: sendData,
+    })
+    .then(async (response) => {
+      const res = await response.json();
+      data = res.data;
+      console.log('response: ', res);
+      if(response.ok){
+        console.log('이미지 url 불러오기 성공');
+        imageUrl = res.data;
+        console.log('imageUrl: ', imageUrl);
+      }else if(response.status === 403){
+        console.log('권한이 없습니다');
+      }
+    })
+  }
+  catch(error){
+    console.log('error: ', error);
+  }
+})
+
+
