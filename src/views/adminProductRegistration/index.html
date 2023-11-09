@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>admin</title>
-    <link rel="stylesheet" href="../admin/adminList.css">
     <link rel="stylesheet" href="../admin/admin.css">
 </head>
 
@@ -29,7 +28,32 @@
 
         <main>
             <h2 class="title">상품 등록</h2>
-            <table id="userContainer"></table>
+            <div id="userContainer">
+                <div class="userTableHeader">
+                    <div class='productImage'>df</div>
+                    <input type="file" id='imageValue'>
+            
+                    <div>도서명</div>
+                    <input type="text" id='productNameValue'>
+            
+                    <div>저자명</div>
+                    <input type="text" id='authorValue'>
+            
+                    <div>카테고리</div>
+                    <input type="text" id='categoryValue'>
+            
+                    <div>가격</div>
+                    <input type="text" id='priceValue'>
+
+                    <div>도서 출시일</div>
+                    <input type="text" id='releasedDateValue'>
+            
+                    <div>도서 내용</div>
+                    <input type="text" id='productInfoValue'>
+
+                    <button id="RegistrationBtn">등록하기</button>
+                </div>
+            </div>
         </main>
     </div>
 

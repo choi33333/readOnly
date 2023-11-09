@@ -56,3 +56,32 @@ const productList = (data) => {
     `
   }
 }
+
+
+const userDelete = (index) => {
+  console.log(index);
+  try {
+    const confirmflag = confirm('정말 삭제하시겠습니까?');
+    if(confirmflag){
+      fetch('/api/v1/admin/products/' + data[index]._id,{
+        method: 'DELETE',
+        headers:{
+          "Content-Type": "application/json",
+          "authorization": 'Bearer ' + localStorage.getItem('Token'),
+        },
+      })
+      .then(async (response) => {
+        const res = await response.json();
+        console.log('response2: ', res);
+        if(response.status === 200){
+          console.log('삭제성공');
+          location.replace(location.href);
+        }
+      })
+    }else{
+      console.log("취소");
+    }
+  } catch (error) {
+    console.log('err2: ', error);
+  }
+}
