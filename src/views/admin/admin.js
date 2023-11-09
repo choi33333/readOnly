@@ -13,8 +13,12 @@ window.addEventListener('load', async () => {
 
       if(fetchResult.status === 200){
         console.log('상품 조회 성공');
-        console.log(fetchData.data);
-        productList(fetchData.data);
+        const productSeq = fetchData.data.sort((a, b) => {
+            if(a.createdAt < b.createdAt) return 1;
+            if(a.createdAt === b.createdAt) return 0;
+            if(a.createdAt > b.createdAt) return -1;
+        });
+        productList(productSeq);
       }else if(fetchResult.status === 403){
         console.log('권한이 없습니다');
       }
@@ -35,10 +39,12 @@ const productList = (data) => {
       <th class='category'>category</th>
       <th class='price'>price</th>
       <th class='releasedDate'>releasedDate</th>
+      <th class='createdAt'>createdAt</th>
     </tr>
   `
   for(i = 0; i < data.length; i ++) {
     const releasedDate = data[i].releasedDate.split("T");
+    const createdAt = data[i].createdAt.split("T");
     userContainer.innerHTML += `
       <tr id='${i}' class='userTableBody'> 
         <td class='indexValue'>${i+1}</td>
@@ -48,6 +54,7 @@ const productList = (data) => {
         <td class='categoryValue'>${data[i].categoryName}</td>
         <td class='priceValue'>${data[i].price}</td>
         <td class='releasedDateValue'>${releasedDate[0]}</td>
+        <td class='createdAtValue'>${createdAt[0]}</td>
       </tr>
     `
   }
