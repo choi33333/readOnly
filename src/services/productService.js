@@ -31,7 +31,7 @@ const productService = {
         if (typeof(soldAmount) !== "number") {
             const error = new Error("구매수량이 올바르지 않습니다.");
             error.status = 400;
-            return next(error);
+            throw error;
         }
 
         const product = await ProductModel.findOne({ _id: id }).lean();

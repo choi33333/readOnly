@@ -1,6 +1,16 @@
 const { UserModel } = require("../models");
 const bcrypt = require("bcrypt");
 
+class CustomError extends Error {
+  constructor(message, status) {
+    super(message);
+    this.status = status;
+
+    // 스택 트레이스를 비워줌
+    this.stack = '';
+  }
+}
+
 const userService = {
   // my page
   async userMe(em) {
