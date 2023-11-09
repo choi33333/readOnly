@@ -142,6 +142,8 @@ document
 			const result = await response.json(); // 결과를 기다리도록 수정
 			console.log("성공:", result);
 			console.log(result.data.orderNumber);
+			const reset = [];
+			localStorage.setItem("bookdata", JSON.stringify(reset));
 			window.location.href = `http://localhost:3000/orderumin/?orderNumber=${result.data.orderNumber}`;
 		} else {
 			console.error("주문 실패:", response.status);

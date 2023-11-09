@@ -5,10 +5,18 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>order</title>
 		<link rel="stylesheet" href="order.css" />
+		<!-- <link rel="stylesheet" href="../components/header.css" /> -->
 	</head>
 	<body>
 		<div class="wrap">
-			<header></header>
+			<header>
+				<a href="/" class="logo"><h3>readOnly📖</h3></a>
+				<div class="search">
+					<input type="text" placeholder="도서를 찾아보세요!" />
+					<button>검색</button>
+				</div>
+				<div id="pageRoute"></div>
+			</header>
 			<main>
 				<div class="mainWrap">
 					<div class="mainHead">
@@ -30,71 +38,19 @@
 							</div>
 						</div>
 						<div class="cartInfo_products">
-							<div class="productCard">
+							<!-- <div class="productCard">
 								<div class="imgName">
 									<div class="productImg">
-										<!-- <img
+										<img
 											src="../cart/thisweekbestseller1.jpeg"
-											class="cartImg" /> -->
+											class="cartImg" />
 									</div>
 									<div class="productName">개미3</div>
 								</div>
 								<div class="productPrice">15000원</div>
 								<div class="productAmount">1</div>
 								<div class="productTotalPrice">15000원</div>
-							</div>
-							<div class="productCard">
-								<div class="imgName">
-									<div class="productImg">
-										<!-- <img
-											src="../cart/thisweekbestseller1.jpeg"
-											class="cartImg" /> -->
-									</div>
-									<div class="productName">개미3</div>
-								</div>
-								<div class="productPrice">15000원</div>
-								<div class="productAmount">1</div>
-								<div class="productTotalPrice">15000원</div>
-							</div>
-							<div class="productCard">
-								<div class="imgName">
-									<div class="productImg">
-										<!-- <img
-											src="../cart/thisweekbestseller1.jpeg"
-											class="cartImg" /> -->
-									</div>
-									<div class="productName">개미3</div>
-								</div>
-								<div class="productPrice">15000원</div>
-								<div class="productAmount">1</div>
-								<div class="productTotalPrice">15000원</div>
-							</div>
-							<div class="productCard">
-								<div class="imgName">
-									<div class="productImg">
-										<!-- <img
-											src="../cart/thisweekbestseller1.jpeg"
-											class="cartImg" /> -->
-									</div>
-									<div class="productName">개미3</div>
-								</div>
-								<div class="productPrice">15000원</div>
-								<div class="productAmount">1</div>
-								<div class="productTotalPrice">15000원</div>
-							</div>
-							<div class="productCard">
-								<div class="imgName">
-									<div class="productImg">
-										<!-- <img
-											src="../cart/thisweekbestseller1.jpeg"
-											class="cartImg" /> -->
-									</div>
-									<div class="productName">개미3</div>
-								</div>
-								<div class="productPrice">15000원</div>
-								<div class="productAmount">1</div>
-								<div class="productTotalPrice">15000원</div>
-							</div>
+							</div> -->
 						</div>
 					</div>
 					<div class="dataDiv">
@@ -102,7 +58,7 @@
 							<div class="orderInfoHeader">주문정보</div>
 							<div class="orderData">
 								<div class="orderData_number">주문번호</div>
-								<div class="orderData_pay">결제방법</div>
+								<div class="orderData_pay">결제방법: 신용카드</div>
 								<div class="orderData_namePhone">주문자/연락처</div>
 								<div class="orderData_sumPrice">총 결제금액 0원</div>
 							</div>
@@ -113,7 +69,6 @@
 								<div class="userData_name">수취인</div>
 								<div class="userData_phone">연락처</div>
 								<div class="userData_address">배송지주소</div>
-								<div class="orderInfo_sumPrice">주문자정보</div>
 							</div>
 						</div>
 					</div>
@@ -122,5 +77,7 @@
 			<footer></footer>
 		</div>
 		<script src="order.js"></script>
+		<script src="../frontUtils/jwtUtil.js"></script>
+		<script src="../frontUtils/loginStatus.js"></script>
 	</body>
 </html>

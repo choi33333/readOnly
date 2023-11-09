@@ -1,35 +1,77 @@
+header a {
+	text-decoration: none;
+	color: rgb(16, 16, 160);
+}
+
+.logo {
+	color: rgb(16, 16, 160);
+	font-size: 20px;
+	font-style: italic;
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid rgb(176, 176, 176);
+	background-color: white;
+
+	/* 헤더 상단고정
+	width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100; */
+}
+
+.search {
+	justify-content: center;
+	text-align: center;
+	width: 300px;
+	margin: auto;
+}
+
+input {
+	width: 240px;
+	height: 33px;
+	border: 1px solid;
+	border-color: rgb(16, 16, 160);
+	border-radius: 10px;
+}
+
+button {
+	height: 35px;
+}
+
+#pageRoute {
+	display: flex;
+	gap: 12px;
+	margin-top: 10px;
+	margin-right: 20px;
+}
+
 body {
 	margin: 0;
 }
 .wrap {
 	height: 100vh;
 }
-header {
-	min-height: 10%;
-	height: 10%;
-	border-bottom: 1px solid grey;
-	background-color: antiquewhite;
-}
+
 main {
 	height: 90%;
 	min-width: none;
 	min-height: 80%;
-	border-bottom: 1px solid grey;
+	margin-bottom: 5%;
 	padding-left: 5%;
 	padding-right: 5%;
-	background-color: aliceblue;
 	display: flex;
 	justify-content: center;
 }
 .mainWrap {
 	width: 95%;
 	min-height: 100%;
-	/* background-color: brown; */
 }
 .mainHead {
 	width: 100%;
 	height: 15%;
-	background-color: bisque;
 }
 .mainHeadText {
 	width: 100%;
@@ -48,15 +90,12 @@ main {
 .cartInfo {
 	width: 100%;
 	height: 65%;
-	/* background-color: cadetblue; */
 }
 .cartInfoHead {
 	width: 100%;
 	height: 20%;
-	/* border-bottom: 1px solid grey; */
 	display: flex;
 	flex-direction: column;
-	/* align-items: center; */
 }
 .cartInfoHead_text {
 	width: 100%;
@@ -68,55 +107,66 @@ main {
 .cartInfoHead_table {
 	width: 100%;
 	height: 60%;
-	background-color: aliceblue;
 	display: flex;
 }
 .cartInfo_products {
 	width: 100%;
 	height: 80%;
-	/* background-color: rosybrown; */
 	overflow: scroll;
 }
 .productCard {
 	width: 100%;
 	height: 30%;
-	background-color: red;
 	display: flex;
 	border-bottom: 1px solid grey;
 }
 .imgName {
 	width: 50%;
 	height: 100%;
-	background-color: blue;
 	border-right: 1px solid grey;
 	display: flex;
 }
 .productImg {
 	width: 20%;
 	height: 100%;
-	background-color: azure;
+	margin-right: 5%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.cartImg {
+	width: 90%;
+	height: 90%;
+	object-fit: contain;
 }
 .productName {
-	width: 80%;
+	width: 75%;
 	height: 100%;
-	background-color: aliceblue;
+	display: flex;
+	align-items: center;
 }
 .productPrice {
 	width: 15%;
 	height: 100%;
-	background-color: wheat;
 	border-right: 1px solid grey;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 .productAmount {
 	width: 15%;
 	height: 100%;
-	background-color: wheat;
 	border-right: 1px solid grey;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 .productTotalPrice {
 	width: 20%;
 	height: 100%;
-	background-color: aqua;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .tableName {
@@ -126,6 +176,7 @@ main {
 	width: 50%;
 	height: 100%;
 	border-right: 1px solid grey;
+	border-bottom: 1px solid grey;
 }
 .tablePrice {
 	display: flex;
@@ -134,6 +185,7 @@ main {
 	width: 15%;
 	height: 100%;
 	border-right: 1px solid grey;
+	border-bottom: 1px solid grey;
 }
 .tableAmount {
 	display: flex;
@@ -142,6 +194,7 @@ main {
 	width: 15%;
 	height: 100%;
 	border-right: 1px solid grey;
+	border-bottom: 1px solid grey;
 }
 .tableSum {
 	display: flex;
@@ -149,7 +202,7 @@ main {
 	justify-content: center;
 	width: 20%;
 	height: 100%;
-	border-right: 1px solid grey;
+	border-bottom: 1px solid grey;
 }
 .dataDiv {
 	width: 100%;
@@ -159,13 +212,10 @@ main {
 .orderInfo {
 	width: 50%;
 	height: 100%;
-	background-color: blanchedalmond;
-	border-top: 1px solid grey;
 }
 .userInfo {
 	width: 50%;
 	height: 100%;
-	background-color: red;
 }
 .orderInfoHeader {
 	width: 100%;
@@ -202,7 +252,6 @@ main {
 .orderData_sumPrice {
 	width: 100%;
 	height: 25%;
-	border-bottom: 1px solid grey;
 	display: flex;
 	align-items: center;
 }
