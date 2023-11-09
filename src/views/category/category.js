@@ -63,7 +63,6 @@ window.addEventListener("load", async () => {
 		.then((result) => result.json())
 		.catch((err) => null);
 
-	console.log(products.data);
 
 	// if (products.error || !Array.isArray(products.data.category)) {
 	//     return;
@@ -112,7 +111,7 @@ window.addEventListener("load", async () => {
 	copyFilteredProducts2.sort((a, b) => b.releasedDate - a.releasedDate);
 
 	if (copyFilteredProducts2 !== null) {
-		for (let i = 0; i < copyFilteredProducts2.length; i++) {
+		for (let i = 0; i < 2; i++) {
 			const title = copyFilteredProducts2[i].name;
 			const author = copyFilteredProducts2[i].author;
 			const price = copyFilteredProducts2[i].price;

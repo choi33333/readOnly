@@ -1,69 +1,7 @@
-/* header css */
-
-a {
-    text-decoration: none;
-    color:rgb(16, 16, 160)
-}
-
-.logo {
-    color: rgb(16, 16, 160);
-    font-size: 20px;
-    font-style: italic;
-
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid rgb(176, 176, 176);
-    background-color: white;
-    /* 헤더 상단고정 */
-    width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 100;
-
-   
-}
-
-.search{
-    justify-content: center;
-    width: 300px;
-    margin: auto;
-    text-align: center;
-    
-}
-
-input {
-    width: 240px;
-    height: 33px;
-    border: 1px solid;
-    border-color: rgb(16, 16, 160);
-    border-radius: 10px;
-
-}
-
-button {
-    height: 35px;
-}
-
-
-#pageRoute {
-    display: flex;
-    gap: 12px;
-    margin-top: 10px;
-}
-
-/* pageRoute의 마지막 자식(?)개념으로 선택할 수 있으면 좋을 듯. 
-마지막이 장바구니가 아닐 수도 있으니까 */
-.cart {  
-    margin-right: 30px;
-}
-
-
 /* category css */
 .body a {
     color: black;
+    text-decoration: none;
     
 }
 
