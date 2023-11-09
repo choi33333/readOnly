@@ -35,7 +35,7 @@ app.use("/api", router);
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     // 이미지 파일을 저장할 디렉토리 경로 설정
-    cb(null, "public/images/");
+    cb(null, "src/views/");
   },
   filename: (req, file, cb) => {
     // 업로드된 이미지 파일의 이름을 현재 시간 기반으로 생성
@@ -53,7 +53,7 @@ app.use(express.static("public"));
 // 이미지 업로드를 처리할 라우트
 app.post("/api/v1/upload", upload.single("image"), (req, res) => {
   const fileName = req.file.filename;
-  const imgUrl = "../../public/images/"+ fileName;
+  const imgUrl = "/img/"+ fileName;
   res.json({
     error: null,
     data: imgUrl,
