@@ -1,239 +1,237 @@
-
-div{
-    display: block;
+div {
+	display: block;
 }
 
-body{
-    margin: 0;
- }
-.wrap{
-    height: 100vh;
+body {
+	margin: 0;
 }
-header{
-    min-height: 15%;
-    height:15%;
-    border-bottom:1px solid grey;
+.wrap {
+	height: 100vh;
 }
-main{
-    height: 85%;
-    min-width: none;
-    min-height: 80%;
-    border-bottom:1px solid grey;
-    padding-left: 100px;
-    padding-right: 100px;
+header {
+	min-height: 15%;
+	height: 15%;
+	border-bottom: 1px solid grey;
 }
-.main_label{
-    height:8%;
-    width: 80%;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    /* background-color: red; */
+main {
+	height: 85%;
+	min-width: none;
+	min-height: 80%;
+	border-bottom: 1px solid grey;
+	padding-left: 100px;
+	padding-right: 100px;
 }
-.removeall{
-    width:15%;
-    height: 80%;
-    font-size: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 20px;
-    &:hover{
-        color: white;
-        color: white;
-        border-color: blue;
-        background-color: black;
-    }
+.main_label {
+	height: 8%;
+	width: 80%;
+	font-size: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	/* background-color: red; */
 }
-footer{
-    height: 310px;
+.removeall {
+	width: 15%;
+	height: 80%;
+	font-size: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 20px;
+	&:hover {
+		color: white;
+		color: white;
+		border-color: blue;
+		background-color: black;
+	}
 }
-.cartdiv{
-    min-width: 80%;
-    height: 90%;
-    display: flex;
+footer {
+	height: 310px;
 }
-.cart_product{
-    width: 75%;
-    height: 100%;
-    overflow: scroll;
-    padding: 0 5%;
-    border-top:1px solid grey ;
+.cartdiv {
+	min-width: 80%;
+	height: 90%;
+	display: flex;
 }
-.emptyCart{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+.cart_product {
+	width: 75%;
+	height: 100%;
+	overflow: scroll;
+	padding: 0 5%;
+	border-top: 1px solid grey;
 }
-.emptySVG{
-    width:80px;
-    height:80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color:white;
-    border-radius: 50px;
-    background-color: black;
+.emptyCart {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
 }
-.cart_card{
-    height:30%;
-    display: flex;
-    align-items: center;
-    margin: 3% 0;
-    border :1px solid grey;
-    border-radius: 10px;
+.emptySVG {
+	width: 80px;
+	height: 80px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	border-radius: 50px;
+	background-color: black;
 }
-.card_imgDiv{
-    width:15%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.cart_card {
+	height: 30%;
+	display: flex;
+	align-items: center;
+	margin: 3% 0;
+	border: 1px solid grey;
+	border-radius: 10px;
 }
-.card_img{
-    width:80%;
-    height:90%
+.card_imgDiv {
+	width: 15%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-.card_namePrice{
-    width:50%;
-    height:100%;
+.card_img {
+	width: 80%;
+	height: 90%;
 }
-.bookname{
-    height: 40%;
-    display: flex;
-    align-items: center;
+.card_namePrice {
+	width: 50%;
+	height: 100%;
 }
-.bookprice{
-    height: 60%;
-    display: flex;
-    align-items: center;
+.bookname {
+	height: 40%;
+	display: flex;
+	align-items: center;
 }
-.card_cntPrice{
-    width:25%;
-    height:80%;
-    border-right: 1px solid grey;
-    border-left: 1px solid grey;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+.bookprice {
+	height: 60%;
+	display: flex;
+	align-items: center;
 }
-.book_totalPrice{
-    height:50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.card_cntPrice {
+	width: 25%;
+	height: 80%;
+	border-right: 1px solid grey;
+	border-left: 1px solid grey;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
 }
-.book_cntbtn{
-    width: 40%;
-    height: 20%;
-    border :1px solid black;
-    border-radius: 20px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
+.book_totalPrice {
+	height: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
-.plusbtn{
-    font-size: 20px;
-    width: 25%;
-    height:100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-    &:hover{
-        color: white;
-        background-color: black;
-    }
+.book_cntbtn {
+	width: 40%;
+	height: 20%;
+	border: 1px solid black;
+	border-radius: 20px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 }
-.countvalue{
-    width:50%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.plusbtn {
+	font-size: 20px;
+	width: 25%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-top-right-radius: 15px;
+	border-bottom-right-radius: 15px;
+	&:hover {
+		color: white;
+		background-color: black;
+	}
 }
-.minusbtn{
-    font-size: 20px;
-    width: 25%;
-    height:100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-    &:hover{
-        color: white;
-        background-color: black;
-    }
+.countvalue {
+	width: 50%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
-.card_del{
-    width:15%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.minusbtn {
+	font-size: 20px;
+	width: 25%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+	&:hover {
+		color: white;
+		background-color: black;
+	}
 }
-.carddelete{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.1em 0.36em;
-    color: black;
-      font-size: 1rem;
-      text-transform: uppercase;
-      text-decoration: none;
-    border: 1px solid black;
-    border-radius: 20%;
-    &:hover{
-        color: white;
-        border-color: blue;
-        background-color: black;
-    }
+.card_del {
+	width: 15%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-.pay_div{
-    width:25%;
-    height:100%;
-    display: flex;
-    justify-content: center;
+.carddelete {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.1em 0.36em;
+	color: black;
+	font-size: 1rem;
+	text-transform: uppercase;
+	text-decoration: none;
+	border: 1px solid black;
+	border-radius: 20%;
+	&:hover {
+		color: white;
+		border-color: blue;
+		background-color: black;
+	}
 }
-.borderdiv{
-    width:70%;
-    height:50%;
-    margin-top: 10%;
-    border: 1px solid grey;
-    border-radius: 5%;
+.pay_div {
+	width: 25%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
 }
-.totalpricediv{
-    height:70%;
-    border-bottom: 1px solid grey;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.borderdiv {
+	width: 70%;
+	height: 50%;
+	margin-top: 10%;
+	border: 1px solid grey;
+	border-radius: 5%;
 }
-.pay_btn{
-    height:30%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.totalpricediv {
+	height: 70%;
+	border-bottom: 1px solid grey;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
-.orderbtn{
-    width:80%;
-    height: 50%;
-    border: 1px solid black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 20px;
-    &:hover{
-        color: white;
-        background-color: black;
-    }
+.pay_btn {
+	height: 30%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.orderbtn {
+	width: 80%;
+	height: 50%;
+	border: 1px solid black;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 20px;
+	&:hover {
+		color: white;
+		background-color: black;
+	}
 }
