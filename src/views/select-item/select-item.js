@@ -63,8 +63,11 @@ document.querySelector(".buyBtn").addEventListener("click", callCategory);
 
 window.addEventListener("load", async () => {
 	await setCartItem();
-	let response = await fetch(`/api/v1/categories/${bookDetail[0].category}`);
-	let set = await response.json();
+	console.log(bookDetail);
+	console.log(bookDetail[0].category);
+	// let response = await fetch(`/api/v1/categories/${bookDetail[0].category}`);
+	// let set = await response.json();
+	// console.log(set);
 	const categories = await fetch("/api/v1/categories")
 		.then((result) => result.json())
 		.catch((err) => null);
@@ -85,9 +88,10 @@ window.addEventListener("load", async () => {
 			categoryWrapperElem.append(categoryElem);
 		}
 	}
+	// document.querySelector(".imgInsert").src = bookDetail[0].imgUrl;
 	document.querySelector(
 		".categoryInsert"
-	).innerHTML = `카테고리 > ${set.category.name}`;
+	).innerHTML = `카테고리 > ${bookDetail[0].categoryName}`;
 	document.querySelector(".booknameInsert").innerHTML = `${bookDetail[0].name}`;
 	document.querySelector(".bookAuthor").innerHTML = `${bookDetail[0].author}`;
 	document.querySelector(".bookPrice").innerHTML = `${bookDetail[0].price}원`;
