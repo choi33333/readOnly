@@ -19,13 +19,12 @@ main {
 	padding-right: 5%;
 	background-color: aliceblue;
 	display: flex;
-	/* align-items: center; */
 	justify-content: center;
 }
 .mainWrap {
 	width: 95%;
 	min-height: 100%;
-	background-color: brown;
+	/* background-color: brown; */
 }
 .mainHead {
 	width: 100%;
@@ -48,8 +47,8 @@ main {
 }
 .cartInfo {
 	width: 100%;
-	height: 40%;
-	background-color: cadetblue;
+	height: 65%;
+	/* background-color: cadetblue; */
 }
 .cartInfoHead {
 	width: 100%;
@@ -61,8 +60,10 @@ main {
 }
 .cartInfoHead_text {
 	width: 100%;
-	height: 30%;
+	height: 40%;
 	border-bottom: 2px solid grey;
+	display: flex;
+	align-items: center;
 }
 .cartInfoHead_table {
 	width: 100%;
@@ -70,6 +71,54 @@ main {
 	background-color: aliceblue;
 	display: flex;
 }
+.cartInfo_products {
+	width: 100%;
+	height: 80%;
+	/* background-color: rosybrown; */
+	overflow: scroll;
+}
+.productCard {
+	width: 100%;
+	height: 30%;
+	background-color: red;
+	display: flex;
+	border-bottom: 1px solid grey;
+}
+.imgName {
+	width: 50%;
+	height: 100%;
+	background-color: blue;
+	border-right: 1px solid grey;
+	display: flex;
+}
+.productImg {
+	width: 20%;
+	height: 100%;
+	background-color: azure;
+}
+.productName {
+	width: 80%;
+	height: 100%;
+	background-color: aliceblue;
+}
+.productPrice {
+	width: 15%;
+	height: 100%;
+	background-color: wheat;
+	border-right: 1px solid grey;
+}
+.productAmount {
+	width: 15%;
+	height: 100%;
+	background-color: wheat;
+	border-right: 1px solid grey;
+}
+.productTotalPrice {
+	width: 20%;
+	height: 100%;
+	background-color: aqua;
+}
+
 .tableName {
 	display: flex;
 	align-items: center;
@@ -102,12 +151,97 @@ main {
 	height: 100%;
 	border-right: 1px solid grey;
 }
-.orderInfo {
+.dataDiv {
 	width: 100%;
 	height: 20%;
+	display: flex;
+}
+.orderInfo {
+	width: 50%;
+	height: 100%;
 	background-color: blanchedalmond;
+	border-top: 1px solid grey;
 }
 .userInfo {
+	width: 50%;
+	height: 100%;
+	background-color: red;
+}
+.orderInfoHeader {
 	width: 100%;
 	height: 20%;
+	border-bottom: 2px solid grey;
+	display: flex;
+	align-items: center;
+}
+.orderData {
+	width: 100%;
+	height: 80%;
+}
+.orderData_number {
+	width: 100%;
+	height: 25%;
+	border-bottom: 1px solid grey;
+	display: flex;
+	align-items: center;
+}
+.orderData_pay {
+	width: 100%;
+	height: 25%;
+	border-bottom: 1px solid grey;
+	display: flex;
+	align-items: center;
+}
+.orderData_namePhone {
+	width: 100%;
+	height: 25%;
+	border-bottom: 1px solid grey;
+	display: flex;
+	align-items: center;
+}
+.orderData_sumPrice {
+	width: 100%;
+	height: 25%;
+	border-bottom: 1px solid grey;
+	display: flex;
+	align-items: center;
+}
+.userInfoHeader {
+	width: 100%;
+	height: 20%;
+	border-bottom: 2px solid grey;
+	display: flex;
+	align-items: center;
+}
+.userData {
+	width: 100%;
+	height: 80%;
+}
+.userData_name {
+	width: 100%;
+	height: 25%;
+	border-bottom: 1px solid grey;
+	display: flex;
+	align-items: center;
+}
+.userData_phone {
+	width: 100%;
+	height: 25%;
+	border-bottom: 1px solid grey;
+	display: flex;
+	align-items: center;
+}
+.userData_address {
+	width: 100%;
+	height: 25%;
+	border-bottom: 1px solid grey;
+	display: flex;
+	align-items: center;
+}
+.orderInfo_sumPrice {
+	width: 100%;
+	height: 25%;
+	border-bottom: 1px solid grey;
+	display: flex;
+	align-items: center;
 }

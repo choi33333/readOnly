@@ -113,17 +113,21 @@ document
 	.querySelector(".orderbtn")
 	.addEventListener("click", async function () {
 		alert("주문이 완료되었습니다.");
+		const productData = JSON.parse(localStorage.getItem("bookdata"));
+		const transformedArray = productData.map((item) => ({
+			productId: item._id,
+			quantity: item.amount,
+		}));
+		console.log(transformedArray);
 		await fetchUser();
-		const productData = localStorage.getItem("bookdata");
-		console.log(userData);
-		console.log(productData);
 		const data = {
 			orderedBy: userData[0].username,
 			postCode: userData[0].postCode,
 			address: userData[0].address,
 			addressDetail: userData[0].addressDetail,
 			phoneNumber: userData[0].phoneNumber,
-			products: [{ productId: "6549140ad11299b256f2d87d", quantity: 1 }],
+			// products: [{ productId: "6549140ad11299b256f2d87d", quantity: 1 }],
+			products: transformedArray,
 		};
 		const response = await fetch("/api/v1/orders/", {
 			method: "POST",
