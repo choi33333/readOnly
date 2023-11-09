@@ -112,7 +112,7 @@ src
 <table>
   <tbody>
     <tr>
-      <td align="center"><a href=""><img src="width="100px;" alt=""/><br /><sub><b>프론트엔드 팀장 : 백의연</b></sub></a><br /></td>
+      <td align="center"><a href=""><img src="https://www.gstatic.com/android/keyboard/emojikitchen/20201001/u1f41d/u1f41d_u1f30d.png?fbx" width="100px;" alt=""/><br /><sub><b>프론트엔드 팀장 : 백의연</b></sub></a><br /></td>
       <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>프론트엔드 팀원 : 장해라</b></sub></a><br /></td>
       <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>프론트엔드 팀원 : 손우민</b></sub></a><br /></td>
       <td align="center"><a href=""><img src="https://www.gstatic.com/android/keyboard/emojikitchen/20201001/u1f9a5/u1f9a5_u1f30d.png?fbx" width="100px;" alt=""/><br /><sub><b>프론트엔드 팀원 : 최재혁</b></sub></a><br /></td>
