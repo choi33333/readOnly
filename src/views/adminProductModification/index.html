@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>admin</title>
+    <title>admin/mainpage</title>
+    <link rel="stylesheet" href="../adminProductRegistration/adminProductRegistration.css">
     <link rel="stylesheet" href="../admin/admin.css">
-    <link rel="stylesheet" href="./adminProductRegistration.css">
+
+    
 </head>
 
 <body>
@@ -28,7 +30,7 @@
         </div>
 
         <main>
-            <h2 class="title">상품 등록</h2>
+            <h2 class="title">상품 수정</h2>
             <div id="userContainer">
                 <div class="imageInput">
                     <img id='productImage' />
@@ -36,53 +38,47 @@
                     <input type="submit" value="이미지 업로드" id="imageSubmitBtn">
                 </div>
                 
-            
                 <div class="rightInput">
                     <div class="productInput">
                         <div>도서명</div>
                         <input type="text" id='productNameValue'>
-                        <div id="productNameAlarm" class="alarmoff"></div>
                     </div>
                     
                     <div class="productInput">
                         <div>저자명</div>
                         <input type="text" id='authorValue'>
-                        <div id="authorAlarm" class="alarmoff"></div>
                     </div>
                     
                     <div class="productInput">
                         <div>카테고리</div>
                         <input type="text" id='categoryValue'>
-                        <div id="categoryAlarm" class="alarmoff"></div>
                     </div>
                     
                     <div class="productInput">
                         <div>가격</div>
                         <input type="number" id='priceValue'>
-                        <div id="priceAlarm" class="alarmoff"></div>
                     </div>
                     
                     <div class="productInput">
                         <div>도서 출시일</div>
                         <input type="date" id='releasedDateValue'>
-                        <div id="releasedDateAlarm" class="alarmoff"></div>
                     </div>
                     
                     <div class="productInput">
                         <div>도서 내용</div>
                         <textarea wrap='virtual' id='productInfoValue'></textarea>
-                        <div id="productInfoAlarm" class="alarmoff"></div>
                     </div>
                     
-                    <button id="RegistrationBtn">등록하기</button>
+                    <button id="RegistrationBtn">수정하기</button>
                 </div>
             </div>
         </main>
     </div>
 
+
     <script src="../frontUtils/jwtUtil.js"></script>
     <script src="../frontUtils/loginStatus.js"></script>
-    <script src="../frontUtils/fetchCustom.js"></script> 
-    <script src="./adminProductRegistration.js"></script>
+    <script src="../frontUtils/fetchCustom.js"></script>
+    <script src="./adminProductModification.js"></script>
 </body>
 </html>
