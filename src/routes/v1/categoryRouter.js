@@ -1,10 +1,12 @@
 const { Router } = require("express");
 const { objectIdValidator, validateError } = require("../../middlewares/validators/index");
 const categoryController = require('../../controllers/categoryController');
+const asyncHandler = require("../../utils/asyncHandler");
+
 const router = Router();
 
 // 카테고리 조회
-router.get("/", categoryController.getCategories);
+router.get("/", asyncHandler(categoryController.getCategories));
 
 router.get("/:id", objectIdValidator, validateError, async (req, res, next) => {
   const id = req.params.id;
