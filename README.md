@@ -117,7 +117,7 @@ src
       <td align="center"><a href=""><img src="https://www.gstatic.com/android/keyboard/emojikitchen/20230803/u1f438/u1f438_u1f30d.png?fbx" width="150px;" alt=""/><br /><sub><b>프론트엔드 팀원 : 손우민</b></sub></a><br /></td>
       <td align="center"><a href=""><img src="https://www.gstatic.com/android/keyboard/emojikitchen/20201001/u1f9a5/u1f9a5_u1f30d.png?fbx" width="150px;" alt=""/><br /><sub><b>프론트엔드 팀원 : 최재혁</b></sub></a><br /></td>
             <td align="center"><a href=""><img src="https://www.gstatic.com/android/keyboard/emojikitchen/20201001/u1f42d/u1f42d_u1f30d.png?fbx" width="150px;" alt=""/><br /><sub><b>백엔드 팀장 : 위동현</b></sub></a><br /></td>
-      <td align="center"><a href=""><img src="https://www.gstatic.com/android/keyboard/emojikitchen/20211115/u1f436/u1f436_u1f30d.png?fbx" width="150px;" alt=""/><br /><sub><b>백엔드 팀원 : 노소연</b></sub></a><br /></td>
+      <td align="center"><a href=""><img src="https://www.gstatic.com/android/keyboard/emojikitchen/20230803/u1f438/u1f438_u1f436.png?fbx" width="150px;" alt=""/><br /><sub><b>백엔드 팀원 : 노소연</b></sub></a><br /></td>
      </tr>
   </tbody>
 </table>
