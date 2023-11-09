@@ -13,8 +13,14 @@
 
 #productImage {
   width: 500px;
-  height: 600px;
+  height: 670px;
   border: 1px solid black;
+  object-fit: contain;
+}
+
+#productImage > img {
+  width: 500px;
+  height: 670px;
   object-fit: contain;
 }
 
@@ -59,6 +65,13 @@ padding-left: 65px;
 }
 
 #RegistrationBtn {
+  width: 120px;
+  height: 45px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+#ModificationBtn {
   width: 120px;
   height: 45px;
   border: 1px solid black;
