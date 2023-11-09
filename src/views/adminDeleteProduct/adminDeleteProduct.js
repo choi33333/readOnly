@@ -52,7 +52,7 @@ const productList = (data) => {
         <td class='priceValue'>${data[i].price}</td>
         <td class='releasedDateValue'>${releasedDate[0]}</td>
         <td><button onclick='productModify("${data[i]._id}")'>modify</button></td>
-        <td><button onclick='productDelete(${i})'>delete</button></td>
+        <td><button onclick='productDelete("${data[i]._id}")'>delete</button></td>
       </tr>
     `
   }
@@ -72,7 +72,7 @@ const productDelete = (index) => {
   try {
     const confirmflag = confirm('정말 삭제하시겠습니까?');
     if(confirmflag){
-      fetch('/api/v1/admin/products/' + data[index]._id,{
+      fetch('/api/v1/admin/products/' + index,{
         method: 'DELETE',
         headers:{
           "Content-Type": "application/json",
