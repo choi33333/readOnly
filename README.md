@@ -33,6 +33,10 @@
 <img src="https://img.shields.io/badge/postman-FF6C37?style=flat-square&logo=postman&logoColor=white"/>
 <img src="https://img.shields.io/badge/mongoose-880000?style=flat-square&logo=mongoose&logoColor=white"/>
 
+### ☁️ Cloud Server
+
+<img src="https://img.shields.io/badge/amazonAWS-232F3E?style=flat-square&logo=amazonAWS&logoColor=white"/>
+
 ### 📝 dependencies
     "bcrypt": "^5.1.1",
     "dotenv": "^16.3.1",
@@ -43,9 +47,6 @@
     "mongoose": "^8.0.0",
     "multer": "^1.4.5-lts.1",
     
-### ☁️ Cloud Server
-
-<img src="https://img.shields.io/badge/amazonAWS-232F3E?style=flat-square&logo=amazonAWS&logoColor=white"/>
 
 ### 📂 Directory 
 ```
