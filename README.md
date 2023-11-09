@@ -28,10 +28,10 @@
 
 ### ⌨️ Backend
 
-- Node.js (런타임 환경)
-- Express (웹 애플리케이션 프레임워크)
-- MongoDB (데이터베이스)
-- bcrypt, cors, dotenv, jsonwebtoken, mongoose, validator (Node.js 모듈)
+- Node.js
+- PostMan
+- MongoDB
+- MongoDB Compass
 
 ### 📝 Library
     "bcrypt": "^5.1.1",
@@ -49,25 +49,78 @@
 - AWS EC2 Ubuntu
 
 
+── constrollers
+│   ├── adminController.js
+│   ├── authController.js
+│   ├── categoryController.js
+│   ├── orderController.js
+│   ├── productController.js
+│   └── userController.js
+├── middlewares
+│   └── validators
+│       ├── auth.js
+│       ├── objectId.js
+│       ├── order.js
+│       ├── product.js
+│       ├── user.js
+│       ├── validateError.js
+│       └── index.js
+│   ├── isAdmin.js
+│   └── isAuthenticated.js
+├── models
+│   └── schemas
+│       ├── category.js
+│       ├── order.js
+│       ├── product.js
+│       ├── user.js
+│       └── index.js
+│   └── index.js
+├── routes
+│   └── v1
+│       └── admin
+│           ├── adminCategoryRouter.js
+│           ├── adminOrderRouter.js
+│           ├── adminProductRouter.js
+│           ├── amdinUserRouter.js
+│           └── index.js
+│       ├── authRouter.js
+│       ├── categoryRouter.js
+│       ├── orderRouter.js
+│       ├── productRouter.js
+│       ├── uploadRouter.js
+│       ├── userRouter.js
+│       └── index.js
+│   └── index.js
+├── services
+│       ├── adminService.js
+│       ├── authService.js
+│       ├── categoryService.js
+│       ├── orderService.js
+│       ├── productService.js
+│       └── userService.js
+├── utils
+│       ├── asyncHandler.js
+│       └── hash-password.js
+├── views
+└── app.js 
 
 ### 개발 기간
 2023.10.30 ~ 2023.11.10
 
-### 실행 방법
-Backend
-
-ruby
-Copy code
-$ npm install
-$ node index.js
-
-Frontend
-
-ruby
-Copy code
-$ npm install
-$ npm run preview
-
+<table>
+  <tbody>
+    <tr>
+      <td align="center"><a href=""><img src="width="100px;" alt=""/><br /><sub><b>FE 팀장 : </b></sub></a><br /></td>
+      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀원 : </b></sub></a><br /></td>
+      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀원 : </b></sub></a><br /></td>
+      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>FE 팀원 : </b></sub></a><br /></td>
+     <tr/>
+      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>BE 부팀장 : </b></sub></a><br /></td>
+      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>BE 팀원 : </b></sub></a><br /></td>
+      <td align="center"><a href=""><img src="" width="100px;" alt=""/><br /><sub><b>BE 팀원 : </b></sub></a><br /></td>
+    </tr>
+  </tbody>
+</table>
 
 
 라이센스
