@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin/카테고리조회</title>
+    <link rel="stylesheet" href="../admin/adminList.css">
+    <link rel="stylesheet" href="../admin/admin.css">
+</head>
+
+<body>
+    <header>
+        <a href="/" class="logo"><h3>readOnly📖</h3></a>
+        <div id="pageRoute"></div>
+    </header>
+    
+    <div class="content">
+        <div class="menu">
+            <h4 id="category">관리자</h4>
+            <a href="/admin">상품조회</a>
+            <a href="/adminProductRegistration">상품등록</a>
+            <a href="/adminDeleteProduct">상품수정/삭제</a>
+            <a href="/adminCategory">카테고리조회</a>
+            <a href="">카테고리등록</a>
+            <a href="">카테고리수정/삭제</a>
+            <a href="/adminUsers">회원관리</a>
+            <a href="">주문현황</a>
+            
+            
+        </div>
+       
+        <main>
+            <h2 class="title">카테고리 조회</h2>
+            <table id="categoryContainer"></table>
+        </main>
+    </div>
+
+    <script src="../frontUtils/jwtUtil.js"></script>
+    <script src="../frontUtils/loginStatus.js"></script>
+    <script src="../frontUtils/fetchCustom.js"></script> 
+    <script src="./adminCategory.js"></script>
+</body>
+</html>
