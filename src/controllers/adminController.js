@@ -80,7 +80,9 @@ const adminController = {
     req.body;
     const product = await adminService.createProduct(productData);
 
-    res.status(200).json({
+    console.log(product)
+
+    res.json({
         error: null,
         data: product,
     });
