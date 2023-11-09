@@ -134,12 +134,13 @@ const adminService = {
             error.status = 401;
             throw error;
         }
+        const categoryId = await CategoryModel.findOne({ name: category });
 
         const updatedProduct = await ProductModel.updateOne(
             { _id: id },
             {
             name: name,
-            category: category,
+            category: categoryId._id,
             categoryName: category,
             author: author,
             price: price,
