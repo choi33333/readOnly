@@ -6,45 +6,50 @@
 
 ## 프로젝트 목표
 
-1.강의에서 학습한 내용을 실제 도서 쇼핑몰에 적용하여 구현한다.
-1.팀원 간의 원활한 소통과 협업을 통해 프로젝트를 완성한다.
-1.사용자에게 편리하고 유용한 도서 쇼핑 서비스를 제공한다.
+- 강의에서 학습한 내용을 실제 도서 쇼핑몰에 적용하여 구현한다.
+- 팀원 간의 원활한 소통과 협업을 통해 프로젝트를 완성한다.
+- 사용자에게 편리하고 유용한 도서 쇼핑 서비스를 제공한다.
 
 ## 서비스 기능
 
-1. 사용자 회원가입 및 로그인
-1. 도서 목록 및 상세페이지 제공
-1. 장바구니 기능
-1. 주문 및 결제 시스템
+- 사용자 회원가입 및 로그인
+- 도서 목록 및 상세페이지 제공
+- 장바구니 기능
+- 주문 및 결제 시스템
 
 ## 기술 스택
 
 ### Frontend
 
-1. HTML
-1. CSS
-1. JavaScript
-1. Vite (빌드 도구)
+- HTML
+- CSS
+- JavaScript
+- Vite (빌드 도구)
 
 ### Backend
 
--Node.js (런타임 환경)
--Express (웹 애플리케이션 프레임워크)
--MongoDB (데이터베이스)
--bcrypt, cors, dotenv, jsonwebtoken, mongoose, validator (Node.js 모듈)
-클라우드 서버
+- Node.js (런타임 환경)
+- Express (웹 애플리케이션 프레임워크)
+- MongoDB (데이터베이스)
+- bcrypt, cors, dotenv, jsonwebtoken, mongoose, validator (Node.js 모듈)
 
-AWS EC2 Ubuntu
-개발 기간
+### Cloud Server
+
+- AWS EC2 Ubuntu
+
+
+
+### 개발 기간
 2023.10.30 ~ 2023.11.10
 
-실행 방법
+### 실행 방법
 Backend
 
 ruby
 Copy code
 $ npm install
 $ node index.js
+
 Frontend
 
 ruby
