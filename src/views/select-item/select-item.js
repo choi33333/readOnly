@@ -51,7 +51,6 @@ const addClick = async () => {
 		if (!confirm("장바구니에 추가되었습니다. 쇼핑을 계속하시겠습니까?")) {
 			window.location.href = "/cart";
 		} else {
-			window.location.href = "/";
 		}
 	}
 };
@@ -89,7 +88,7 @@ document.querySelector(".buyBtn").addEventListener("click", async function () {
 			console.log(result.data.orderNumber);
 			const reset = [];
 			localStorage.setItem("bookdata", JSON.stringify(reset));
-			window.location.href = `http://localhost:3000/orderumin/?orderNumber=${result.data.orderNumber}`;
+			window.location.href = `/orderumin/?orderNumber=${result.data.orderNumber}`;
 		} else {
 			console.error("주문 실패:", response.status);
 			// 에러 처리 코드 추가
