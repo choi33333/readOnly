@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>admin/categoryAdd</title>
     <link rel="stylesheet" href="./adminCategoryAdd.css">
+    <link rel="stylesheet" href="../components/footer.css">
     <link rel="stylesheet" href="../admin/admin.css">
 </head>
 
@@ -26,24 +27,30 @@
             <a href="/adminUsers">회원관리</a>
             <a href="/adminorder">주문현황</a>
         </div>
-       
+        
         <main>
+            
             <h2 class="title">카테고리 등록</h2>
-            <div id="userContainer">
-                
-                <div class="rightInput">
-                    <div class="productInput">
-                        <div>카테고리명</div>
-                        <input type="text" id='categoryNameValue'>
-                        <div id="categoryNameAlarm" class="alarmoff"></div>
-                    </div>
-                  
-                    <button id="RegistrationBtn">등록하기</button>
-                </div>
-            </div>
 
+            <div class="container">
+                <div class="productInput">
+                    <div>카테고리명</div>
+                    <input type="text" id='categoryNameValue'>
+                    <div id="categoryNameAlarm" class="alarmoff"></div>
+                </div>
+                
+                <button id="RegistrationBtn">등록하기</button>
+            </div>
+            
         </main>
     </div>
+    <footer>
+        <h4 class="logo">readOnly</h4>
+        <h5>회사명 : readOnly    대표자 : 엘리스8팀</h5>
+        <h5>대표 이메일 : test@elice.com</h5>
+        <h5>주소 : 서울특별시 성동구 성수2가 제3동 광나루로6길 49 성수낙낙</h5>
+        <h5>Copyright ⓒ 2023 000</h5>
+    </footer>
 
     <script src="../frontUtils/jwtUtil.js"></script>
     <script src="../frontUtils/loginStatus.js"></script>
