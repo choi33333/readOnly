@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, "/views")));
 
 // 페이지 로딩 함수
 app.get("/", function (req, res) {
-  res.render("./mainPage/index.html");
+  res.render("./mainpage/index.html");
 });
 
 //api 호출
