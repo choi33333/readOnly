@@ -38,6 +38,9 @@ const orderSchema = new Schema(
       required: true,
     },
 
+    // populate('products.product')
+    // 1. find => one order 
+    // 2. one order => product Ids => find({ _id: { $in: productIds } })
     products: {
       type: [
         {

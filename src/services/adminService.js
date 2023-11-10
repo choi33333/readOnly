@@ -154,7 +154,7 @@ const adminService = {
   }, 
 
   async deleteProduct(id){
-    const product = await ProductModel.findById({ _id : id }).lean();
+    const product = await ProductModel.findById(id).lean();
     const deletedProduct = await ProductModel.findOneAndDelete(product);
 
     if (!product) {
@@ -180,8 +180,7 @@ const adminService = {
   },
 
   async deleteUser(id){
-    const deletedUser = await UserModel.findOneAndDelete({ _id : id })
-    .lean();
+    const deletedUser = await UserModel.findOneAndDelete({ _id : id }).lean();
 
     if (!deletedUser || deletedUser.length === 0) {
         const error = new Error("사용자가 존재하지 않습니다.");
