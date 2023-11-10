@@ -153,7 +153,7 @@ document
 			console.log(result.data.orderNumber);
 			const reset = [];
 			localStorage.setItem("bookdata", JSON.stringify(reset));
-			window.location.href = `http://localhost:3000/orderumin/?orderNumber=${result.data.orderNumber}`;
+			window.location.href = `/orderumin/?orderNumber=${result.data.orderNumber}`;
 		} else {
 			console.error("주문 실패:", response.status);
 			// 에러 처리 코드 추가
