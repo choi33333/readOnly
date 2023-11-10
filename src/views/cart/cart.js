@@ -17,6 +17,11 @@ const setCartItem = async () => {
 	}
 };
 window.addEventListener("load", async () => {
+	const Token = localStorage.getItem("Token");
+	if (!Token) {
+		alert("로그인이 필요합니다!");
+		window.location.href = "/login";
+	}
 	await setCartItem(); // setCartItem를 비동기 함수로 호출
 	if (renderData?.length > 0) {
 		renderData.forEach((data, index) => {
@@ -152,6 +157,7 @@ document
 		} else {
 			console.error("주문 실패:", response.status);
 			// 에러 처리 코드 추가
+			alert("로그인이 필요해요!");
 		}
 	});
 
@@ -191,7 +197,7 @@ const fetchUser = async () => {
 		if (response.status === 200) {
 			console.log("성공");
 			userData.push(res.data);
-		} else if (response.status === 401) {
+		} else {
 			console.log("로그인 필요");
 		}
 	});

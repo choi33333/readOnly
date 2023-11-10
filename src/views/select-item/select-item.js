@@ -10,7 +10,6 @@ const setCartItem = async () => {
 	try {
 		const response = await fetch(`/api/v1/products/${id}`);
 		const set = await response.json();
-		// console.log(set);
 		bookDetail.push(set.data);
 		console.log(bookDetail);
 	} catch (err) {
@@ -50,13 +49,8 @@ const addClick = async () => {
 		window.location.href = "/";
 	}
 };
-//바로구매버튼
-// const buyClick = () => {
-// 	const reset = [];
-// 	localStorage.setItem("bookdata", JSON.stringify(reset));
-// };
 document.querySelector(".addBtn").addEventListener("click", addClick);
-// document.querySelector(".buyBtn").addEventListener("click", buyClick);
+//바로구매코드!
 document.querySelector(".buyBtn").addEventListener("click", async function () {
 	console.log(bookDetail[0]);
 	const productArr = [{ productId: bookDetail[0]._id, quantity: 1 }];
@@ -67,7 +61,6 @@ document.querySelector(".buyBtn").addEventListener("click", async function () {
 		address: userData[0].address,
 		addressDetail: userData[0].addressDetail,
 		phoneNumber: userData[0].phoneNumber,
-		// products: [{ productId: "6549140ad11299b256f2d87d", quantity: 1 }],
 		products: productArr,
 	};
 	const response = await fetch("/api/v1/orders/", {
@@ -93,39 +86,44 @@ document.querySelector(".buyBtn").addEventListener("click", async function () {
 	}
 });
 window.addEventListener("load", async () => {
-	await setCartItem();
-	// callCategory(bookDetail[0].category);
-	// callCategory();
-	const categories = await fetch("/api/v1/categories")
-		.then((result) => result.json())
-		.catch((err) => null);
+	const Token = localStorage.getItem("Token");
+	if (!Token) {
+		alert("로그인이 필요합니다!");
+		window.location.href = "/login";
+	} else {
+		await setCartItem();
+		const categories = await fetch("/api/v1/categories")
+			.then((result) => result.json())
+			.catch((err) => null);
+		if (categories !== null) {
+			const categoryWrapperElem = document.getElementById("category-wrapper");
+			categoryWrapperElem.innerHTML = "";
 
-	if (categories !== null) {
-		const categoryWrapperElem = document.getElementById("category-wrapper");
-		categoryWrapperElem.innerHTML = "";
-
-		for (let i = 0; i < categories.data.length; i++) {
-			const categoryElem = document.createElement("a");
-			categoryElem.innerHTML = categories.data[i].name;
-			categoryElem.setAttribute(
-				"href",
-				"../category/index.html?category=" + categories.data[i]._id
-			);
-			categoryWrapperElem.append(categoryElem);
+			for (let i = 0; i < categories.data.length; i++) {
+				const categoryElem = document.createElement("a");
+				categoryElem.innerHTML = categories.data[i].name;
+				categoryElem.setAttribute(
+					"href",
+					"../category/index.html?category=" + categories.data[i]._id
+				);
+				categoryWrapperElem.append(categoryElem);
+			}
 		}
+		document.querySelector(".imgInsert").src = bookDetail[0].imageUrl;
+		document.querySelector(
+			".categoryInsert"
+		).innerHTML = `카테고리 > ${bookDetail[0].categoryName}`;
+		document.querySelector(
+			".booknameInsert"
+		).innerHTML = `${bookDetail[0].name}`;
+		document.querySelector(".bookAuthor").innerHTML = `${bookDetail[0].author}`;
+		document.querySelector(
+			".bookPrice"
+		).innerHTML = `${bookDetail[0].price.toLocaleString()}원`;
+		document.querySelector(
+			".productInfo"
+		).innerHTML = `${bookDetail[0].productInfo}`;
 	}
-	document.querySelector(".imgInsert").src = bookDetail[0].imageUrl;
-	document.querySelector(
-		".categoryInsert"
-	).innerHTML = `카테고리 > ${bookDetail[0].categoryName}`;
-	document.querySelector(".booknameInsert").innerHTML = `${bookDetail[0].name}`;
-	document.querySelector(".bookAuthor").innerHTML = `${bookDetail[0].author}`;
-	document.querySelector(
-		".bookPrice"
-	).innerHTML = `${bookDetail[0].price.toLocaleString()}원`;
-	document.querySelector(
-		".productInfo"
-	).innerHTML = `${bookDetail[0].productInfo}`;
 });
 const fetchUser = async () => {
 	await fetch("/api/v1/users/me", {
@@ -139,8 +137,8 @@ const fetchUser = async () => {
 		if (response.status === 200) {
 			console.log("성공");
 			userData.push(res.data);
-		} else if (response.status === 401) {
-			console.log("로그인 필요");
+		} else {
+			console.log("로그인이 필요");
 		}
 	});
 };
