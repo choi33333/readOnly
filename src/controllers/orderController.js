@@ -79,7 +79,6 @@ const orderController = {
         res.json({
             error: null,
             data: deletedOrder,
-            message: "주문목록에서 제거되었습니다.",
           });
         // 주문이 취소되었습니다. ?
     },

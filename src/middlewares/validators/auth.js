@@ -1,8 +1,7 @@
 const { body } = require('express-validator');
 
 // 회원가입 validation
-const authSignUpValidator = (req, res, next) => {
-    return [
+const authSignUpValidator = [
         body('email')
             .notEmpty()
             .withMessage('이메일을 입력해주세요')
@@ -33,8 +32,7 @@ const authSignUpValidator = (req, res, next) => {
         body('addressDetail')
             .notEmpty()
             .withMessage('상세주소를 입력해주세요'),
-        ], next();
-};
+        ];
 
 // 로그인 validation
 const authSignInValidator = (req, res, next) => {

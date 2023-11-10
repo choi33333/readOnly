@@ -18,7 +18,6 @@ const userController = {
 
         res.json({
             error: null,
-            message: "비밀번호가 일치합니다."
         });
     },
 
@@ -39,7 +38,6 @@ const userController = {
         res.json({
             error: null,
             data: deletedUser,
-            message: "안녕히가세요. 다음에 또 만나요!",
         });
     }
 };

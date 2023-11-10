@@ -18,7 +18,6 @@ const adminController = {
     res.json({
       error: null,
       data: category,
-      message: category.name + " 카테고리를 성공적으로 생성 했습니다.",
     });
   },
 
@@ -30,7 +29,6 @@ const adminController = {
     res.json({
       error: null,
       data: deletedCategory,
-      message: deletedCategory.name + " 카테고리를 성공적으로 제거 했습니다.",
     });
   },
 
@@ -62,7 +60,6 @@ const adminController = {
     res.json({
         error: null,
         data: deletedOrder,
-        message: "주문목록에서 제거되었습니다.",
     });
   },
 
@@ -127,7 +124,6 @@ const adminController = {
     res.json({
         error: null,
         data: deletedUser,
-        message: "사용자가 삭제되었습니다.",
     });
   }
 };
