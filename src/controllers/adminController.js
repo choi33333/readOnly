@@ -15,7 +15,7 @@ const adminController = {
     const { name } = req.body;
     const category = await adminService.createCategory(name);
 
-    res.json({
+    res.status(201).json({
       error: null,
       data: category,
     });
@@ -26,7 +26,7 @@ const adminController = {
     console.log(req.params)
     const deletedCategory = await adminService.deleteCategory(id);
 
-    res.json({
+    res.status(204).json({
       error: null,
       data: deletedCategory,
     });
@@ -47,7 +47,7 @@ const adminController = {
     const { orderStatus } = req.body;
     const updatedOrder = await adminService.updateOrder(id, orderStatus);
 
-    res.json({
+    res.status(201).json({
         error: null,
         data: updatedOrder,
     });
@@ -57,7 +57,7 @@ const adminController = {
     const { id } = req.params;
     const deletedOrder = await adminService.deleteOrder(id);
 
-    res.json({
+    res.status(204).json({
         error: null,
         data: deletedOrder,
     });
@@ -78,9 +78,7 @@ const adminController = {
     req.body;
     const product = await adminService.createProduct(productData);
 
-    console.log(product)
-
-    res.json({
+    res.status(201).json({
         error: null,
         data: product,
     });
@@ -91,7 +89,7 @@ const adminController = {
     const productData = req.body;
     const updatedProduct = await adminService.updateProduct(id, productData);
 
-    res.json({
+    res.status(201).json({
         error: null,
         data: updatedProduct,
       });
@@ -101,7 +99,7 @@ const adminController = {
     const { id } = req.params;
     const deletedProduct = await adminService.deleteProduct(id);
 
-    res.json({
+    res.status(204).json({
         error: null,
         data: deletedProduct,
     });
@@ -121,7 +119,7 @@ const adminController = {
       const { id } = req.params;
     const deletedUser = await adminService.deleteUser(id);
 
-    res.json({
+    res.status(204).json({
         error: null,
         data: deletedUser,
     });

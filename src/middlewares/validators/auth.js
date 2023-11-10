@@ -28,15 +28,11 @@ const authSignUpValidator = [
             .withMessage('우편번호를 입력해주세요'),
         body('address')
             .notEmpty()
-            .withMessage('주소를 입력해주세요'),
-        body('addressDetail')
-            .notEmpty()
-            .withMessage('상세주소를 입력해주세요'),
+            .withMessage('주소를 입력해주세요')
         ];
 
 // 로그인 validation
-const authSignInValidator = (req, res, next) => {
-    return [
+const authSignInValidator = [
         body('email')
             .notEmpty()
             .withMessage('이메일을 입력해주세요'),
@@ -44,7 +40,6 @@ const authSignInValidator = (req, res, next) => {
             .notEmpty()
             .isLength({ min : 8 })
             .withMessage('비밀번호를 입력해주세요')
-    ], next();
-};
+    ];
 
 module.exports = { authSignUpValidator, authSignInValidator };
