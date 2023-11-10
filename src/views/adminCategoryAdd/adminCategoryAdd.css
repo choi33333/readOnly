@@ -1,6 +1,18 @@
-.productInput {
-    text-align: left;
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    align-items: flex-end;
     margin-top: 50px;
+}
+
+.productInput {
+    display: flex;
+    gap: 30px;
+    font-weight: 600;
+    justify-content: center;
+    align-items: center;
 }
 
 #categoryNameValue {
@@ -12,7 +24,10 @@
 }
 
 button {
-    width: 70px;
-    height: 30px;
-    margin-top: 10px;
+    width: 120px;
+    height: 45px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-right: 30px;
 }
+
