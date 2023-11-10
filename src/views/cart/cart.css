@@ -329,6 +329,7 @@ footer {
 	display: flex;
     flex-direction: column;
 }
+
 .user_container{
 	padding-top: 0;
 	height: 20rem;
@@ -337,7 +338,7 @@ footer {
 	text-align: center;
 	align-items: center;
 	justify-content: center;
-	padding-bottom: 2rem;
+	padding-bottom: .5rem;
 }
 
 .borderdiv {
@@ -398,6 +399,13 @@ footer {
 		border-color: rgb(12, 12, 105);
 		background-color: rgb(12, 12, 105);
 	}
+}
+
+.user_info{
+	font-weight: bold;
+	font-size: 1.7rem;
+	padding: 0;
+	margin: 0;
 }
 
 .user_tag_container p{
