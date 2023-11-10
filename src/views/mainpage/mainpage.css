@@ -32,45 +32,43 @@
 /* 카테고리 css 끝  */
 
 .this-week-bestseller {
-    width: 90%;
-    height: 60vh;
-    margin: 0 auto;
-    text-align: center;
-    padding-top: 30px;
+	width: 90%;
+	height: 60vh;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 30px;
 }
 
 #weekbestseller-header {
-    font-size: 20px;
-    padding-bottom: 30px;
+	font-size: 20px;
+	padding-bottom: 30px;
 }
-
 
 #weekbestseller-info a {
 	text-align: center;
-    text-decoration: none;
-    color: black;
-    float: left;
-    margin: auto;
-    padding-left: 20px;
+	text-decoration: none;
+	color: black;
+	float: left;
+	margin: auto;
+	padding-left: 20px;
 }
 
 #weekbestseller-section {
-    margin: 0 auto;
+	margin: 0 auto;
 }
 
 img {
 	width: 230px;
 	height: 260px;
 	object-fit: contain;
-} 
+}
 
 .this-week-bestseller h4 {
-    margin-top: 10px;
-    margin-bottom: 3px;
+	margin-top: 10px;
+	margin-bottom: 3px;
 }
 
 .this-week-bestseller h5 {
-    margin-top: 7px;
-    margin-bottom: 7px;
+	margin-top: 7px;
+	margin-bottom: 7px;
 }
-

@@ -26,7 +26,9 @@ window.addEventListener("load", async () => {
 			);
 			sumPrice += data.price * data.amount;
 		});
-		document.querySelector(".totalprice").innerHTML = `${sumPrice}원`;
+		document.querySelector(
+			".totalprice"
+		).innerHTML = `${sumPrice.toLocaleString()}원`;
 		sumPrice = 0;
 	} else {
 		document.querySelector(".cart_product").innerHTML = `<div class='emptyCart'>
@@ -53,9 +55,9 @@ window.addEventListener("load", async () => {
 				`count${id}`
 			).innerHTML = `${renderData[id].amount}`;
 			localStorage.setItem("bookdata", JSON.stringify(renderData));
-			document.getElementById(`sum${id}`).innerHTML = `${
+			document.getElementById(`sum${id}`).innerHTML = `${(
 				renderData[id].amount * renderData[id].price
-			}원`;
+			).toLocaleString()}원`;
 			totalsum();
 			totalPrice = 0;
 		})
@@ -74,9 +76,9 @@ window.addEventListener("load", async () => {
 				`count${id}`
 			).innerHTML = `${renderData[id].amount}`;
 			localStorage.setItem("bookdata", JSON.stringify(renderData));
-			document.getElementById(`sum${id}`).innerHTML = `${
+			document.getElementById(`sum${id}`).innerHTML = `${(
 				renderData[id].amount * renderData[id].price
-			}원`;
+			).toLocaleString()}원`;
 			totalsum();
 			totalPrice = 0;
 		})
@@ -100,7 +102,9 @@ window.addEventListener("load", async () => {
 		});
 		const totalPrice = sumPrice;
 		sumPrice = 0;
-		document.querySelector(".totalprice").innerHTML = `${totalPrice}원`;
+		document.querySelector(
+			".totalprice"
+		).innerHTML = `${totalPrice.toLocaleString()}원`;
 	};
 });
 document.querySelector(".removeall").addEventListener("click", function () {
@@ -113,17 +117,21 @@ document
 	.querySelector(".orderbtn")
 	.addEventListener("click", async function () {
 		alert("주문이 완료되었습니다.");
+		const productData = JSON.parse(localStorage.getItem("bookdata"));
+		const transformedArray = productData.map((item) => ({
+			productId: item._id,
+			quantity: item.amount,
+		}));
+		console.log(transformedArray);
 		await fetchUser();
-		const productData = localStorage.getItem("bookdata");
-		console.log(userData);
-		console.log(productData);
 		const data = {
 			orderedBy: userData[0].username,
 			postCode: userData[0].postCode,
 			address: userData[0].address,
 			addressDetail: userData[0].addressDetail,
 			phoneNumber: userData[0].phoneNumber,
-			products: [{ productId: "6549140ad11299b256f2d87d", quantity: 1 }],
+			// products: [{ productId: "6549140ad11299b256f2d87d", quantity: 1 }],
+			products: transformedArray,
 		};
 		const response = await fetch("/api/v1/orders/", {
 			method: "POST",
@@ -138,6 +146,8 @@ document
 			const result = await response.json(); // 결과를 기다리도록 수정
 			console.log("성공:", result);
 			console.log(result.data.orderNumber);
+			const reset = [];
+			localStorage.setItem("bookdata", JSON.stringify(reset));
 			window.location.href = `http://localhost:3000/orderumin/?orderNumber=${result.data.orderNumber}`;
 		} else {
 			console.error("주문 실패:", response.status);
@@ -148,16 +158,16 @@ document
 const getCartItemTemplate = (data, index) => {
 	return `<div id=${index} class="cart_card">
     <div class="card_imgDiv">
-        <img class='card_img' src=./thisweekbestseller1.jpeg>
+        <img class='card_img' src=${data.imageUrl}>
     </div>
     <div class="card_namePrice">
         <div class="bookname">${data.name}</div>
-        <div class="bookprice">${data.price}원</div>
+        <div class="bookprice">${data.price.toLocaleString()}원</div>
     </div>
     <div class="card_cntPrice">
-        <div id='sum${index}' class="book_totalPrice">${
+        <div id='sum${index}' class="book_totalPrice">${(
 		data.price * data.amount
-	}원</div>
+	).toLocaleString()}원</div>
         <div class="book_cntbtn">
             <a class="minusbtn ${index}">-</a>
             <div id=count${index} class="countvalue">${data.amount}  </div>
