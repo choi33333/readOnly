@@ -81,6 +81,7 @@ window.addEventListener("load", async () => {
 
 	if (copyFilteredProducts1 !== null) {
 		for (let i = 0; i < 2; i++) {
+			const image = copyFilteredProducts1[i].imageUrl;
 			const title = copyFilteredProducts1[i].name;
 			const author = copyFilteredProducts1[i].author;
 			const price = copyFilteredProducts1[i].price;
@@ -88,7 +89,7 @@ window.addEventListener("load", async () => {
 
 			const template = `
                     <a href=../select-item/?id=${copyFilteredProducts1[i]._id}>
-                    <img src="../img/bestseller-novel1.jpeg">
+                    <img src=${image}>
                     <h5>${title}</h5>
                     <h6>${author}</h6>
                     <h6>${price}</h6>
@@ -108,13 +109,14 @@ window.addEventListener("load", async () => {
 
 	if (copyFilteredProducts2 !== null) {
 		for (let i = 0; i < 2; i++) {
+			const image = copyFilteredProducts2[i].imageUrl;
 			const title = copyFilteredProducts2[i].name;
 			const author = copyFilteredProducts2[i].author;
 			const price = copyFilteredProducts2[i].price;
 			const productInfo = copyFilteredProducts2[i].productInfo;
 			const template = `
                 <a href=../select-item/?id=${copyFilteredProducts2[i]._id}>
-                    <img src="../img/bestseller-novel1.jpeg">
+                    <img src=${image}>
                     <h5>${title}</h5>
                     <h6>${author}</h6>
                     <h6>${price}</h6>
@@ -130,6 +132,7 @@ window.addEventListener("load", async () => {
 
 	if (filteredProducts !== null) {
 		for (let i = 0; i < filteredProducts.length; i++) {
+			const image = filteredProducts[i].imageUrl;
 			const title = filteredProducts[i].name;
 			const author = filteredProducts[i].author;
 			const price = filteredProducts[i].price;
@@ -137,7 +140,7 @@ window.addEventListener("load", async () => {
 
 			const template = `
                     <a href=../select-item/?id=${filteredProducts[i]._id}>
-                    <img src="../img/bestseller-novel1.jpeg">
+                    <img src=${image}>
                     <h5>${title}</h5>
                     <h6>${author}</h6>
                     <h6>${price}</h6>
