@@ -21,7 +21,7 @@ btn.addEventListener('click', () => {
     })
     .then(async (response) => {
       const res = await response.json();
-      console.log('response: ', res);
+      //console.log('response: ', res);
       if(response.status === 200){
         window.localStorage.setItem('checkOk', 'ok');
         location.href = '/changeUserInformation'

@@ -27,7 +27,7 @@ loginBtn.addEventListener('click', async (e) => {
       const fetchData = await fetchResult.json();
       
       if(fetchResult.status == 201){
-        console.log('성공');
+        //console.log('성공');
         window.localStorage.setItem('Token', fetchData.data);
         location.href = '/';
       }else if(fetchResult.status === 401){

@@ -42,7 +42,7 @@ joinBtn.addEventListener('click', () => {
         body: JSON.stringify(data)
       })
       .then(async (response) => {
-        console.log('response: ', await response.json());
+        //console.log('response: ', await response.json());
         if(response.status === 409){
           location.href = '/joinOverlap';
         }else if(response.status === 201){
