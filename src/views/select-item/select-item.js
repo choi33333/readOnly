@@ -10,7 +10,6 @@ const setCartItem = async () => {
 	try {
 		const response = await fetch(`/api/v1/products/${id}`);
 		const set = await response.json();
-		// console.log(set);
 		bookDetail.push(set.data);
 		console.log(bookDetail);
 	} catch (err) {
@@ -50,13 +49,8 @@ const addClick = async () => {
 		window.location.href = "/";
 	}
 };
-//바로구매버튼
-// const buyClick = () => {
-// 	const reset = [];
-// 	localStorage.setItem("bookdata", JSON.stringify(reset));
-// };
 document.querySelector(".addBtn").addEventListener("click", addClick);
-// document.querySelector(".buyBtn").addEventListener("click", buyClick);
+//바로구매코드!
 document.querySelector(".buyBtn").addEventListener("click", async function () {
 	console.log(bookDetail[0]);
 	const productArr = [{ productId: bookDetail[0]._id, quantity: 1 }];
@@ -67,7 +61,6 @@ document.querySelector(".buyBtn").addEventListener("click", async function () {
 		address: userData[0].address,
 		addressDetail: userData[0].addressDetail,
 		phoneNumber: userData[0].phoneNumber,
-		// products: [{ productId: "6549140ad11299b256f2d87d", quantity: 1 }],
 		products: productArr,
 	};
 	const response = await fetch("/api/v1/orders/", {
@@ -94,8 +87,6 @@ document.querySelector(".buyBtn").addEventListener("click", async function () {
 });
 window.addEventListener("load", async () => {
 	await setCartItem();
-	// callCategory(bookDetail[0].category);
-	// callCategory();
 	const categories = await fetch("/api/v1/categories")
 		.then((result) => result.json())
 		.catch((err) => null);
