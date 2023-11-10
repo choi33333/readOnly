@@ -26,12 +26,20 @@ main {
 }
 
 img {
-	width: 25%;
+	width: 250px;
+	height: 350px;
 	float: left;
-	margin-right: 10px;
+	margin-right: 15px;
 }
 
 .selected-item-info button {
 	width: 120px;
 	height: 40px;
+}
+
+.productInfo {
+	/* width: 500px; */
+	height: 200px;
+	/* resize: none; */
+	border: 1px solid;
 }
