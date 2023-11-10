@@ -226,6 +226,7 @@ imageSubmitBtn.addEventListener('click', (e) => {
         console.log('이미지 url 불러오기 성공');
         imageUrl = res.data;
         console.log('imageUrl: ', imageUrl);
+        alert('이미지가 업로드 되었습니다');
         imgToggle = 1;
         imgController.className = 'alarmoff';
       }else if(response.status === 403){

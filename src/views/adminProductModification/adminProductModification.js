@@ -134,6 +134,7 @@ imageSubmitBtn.addEventListener('click', (e) => {
         console.log('이미지 url 불러오기 성공');
         imageUrl = res.data;
         console.log('imageUrl: ', imageUrl);
+        alert('이미지가 변경 되었습니다');
       }else if(response.status === 403){
         console.log('권한이 없습니다');
       }
