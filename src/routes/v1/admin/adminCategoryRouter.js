@@ -11,6 +11,6 @@ router.get("/", asyncHandler(adminController.getCategories));
 router.post("/", asyncHandler(adminController.createCategory));
 
 // 카테고리 삭제
-router.delete("/:name", asyncHandler(adminController.deleteCategory));
+router.delete("/:id", asyncHandler(adminController.deleteCategory));
 
 module.exports = router;

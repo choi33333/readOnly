@@ -1,5 +1,5 @@
 //관리자 페이지(카테고리 조회) js
-const categoryContainer = document.getElementById('categoryContainer');
+const userContainer = document.getElementById('userContainer');
 
 //페이지가 로드되었을 때 관리자인지 확인 후  fetch
 window.addEventListener('load', async () => { 
@@ -25,8 +25,8 @@ window.addEventListener('load', async () => {
 })
 
 const categoryList = (data) => {
-    categoryContainer.innerHTML = "";
-    categoryContainer.innerHTML += `
+    userContainer.innerHTML = "";
+    userContainer.innerHTML += `
     <tr class="categoryTableHeader">
       <th class='index'>index</th>
       <th class='categoryId'>categoryId</th>
@@ -35,7 +35,7 @@ const categoryList = (data) => {
   `
   for(i = 0; i < data.length; i ++) {
     // const releasedDate = data[i].releasedDate.split("T");
-    categoryContainer.innerHTML += `
+    userContainer.innerHTML += `
       <tr id='${i}' class='categoryTableBody'> 
         <td class='indexValue'>${i+1}</td>
         <td class='categoryIdValue'>${data[i]._id}</td>

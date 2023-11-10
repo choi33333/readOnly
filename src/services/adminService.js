@@ -31,9 +31,9 @@ const adminService = {
     return category;
   },
 
-  async deleteCategory(name) {
+  async deleteCategory(id) {
     const deletedCategory = await CategoryModel.findOneAndDelete({
-      name: name,
+      _id: id,
     });
 
     if (!deletedCategory) {
