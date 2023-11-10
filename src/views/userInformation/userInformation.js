@@ -59,6 +59,7 @@ withdrawal.addEventListener('click', () => {
         //console.log('response2: ', res);
         if(response.status === 200){
           //console.log('성공');
+          localStorage.removeItem('Token');
           return location.href = '/'
         }
       })
