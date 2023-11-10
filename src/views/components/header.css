@@ -50,7 +50,7 @@ button {
 
 /* pageRoute의 마지막 자식(?)개념으로 선택할 수 있으면 좋을 듯. 
 마지막이 장바구니가 아닐 수도 있으니까 */
-.cart {
+#pageRoute:last-child {
 	margin-right: 30px;
 }
 
