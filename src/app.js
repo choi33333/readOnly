@@ -24,18 +24,18 @@ app.use(express.static(path.join(__dirname, "/views")));
 
 // 페이지 로딩 함수
 app.get("/", function (req, res) {
-  res.render("./mainPage/index.html");
+  res.render("./mainpage/index.html");
 });
 
 //api 호출
 app.use("/api", router);
 
 // 해당되는 URL이 없을 때를 대비한 미들웨어
-// app.use((req, res, next) => {
-//   const error = new Error("Resource not found");
-//   error.statusCode = 404;
-//   next(error);
-// });
+app.use((req, res, next) => {
+  const error = new Error("Resource not found");
+  error.statusCode = 404;
+  next(error);
+});
 
 // 에러 핸들러 등록
 app.use((err, req, res, next) => {
