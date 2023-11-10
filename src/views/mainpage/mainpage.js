@@ -29,13 +29,14 @@ window.addEventListener("load", async () => {
 
     if (copyAllProducts !== null) {
 		for (let i = 0; i < 5; i++) {
+            const image = copyAllProducts[i].imageUrl;
 			const title = copyAllProducts[i].name;
 			const author = copyAllProducts[i].author;
 			const price = copyAllProducts[i].price;
 
 			const template = `
                     <a href=../select-item/?id=${copyAllProducts[i]._id}>
-                    <img src="../img/bestseller-novel1.jpeg">
+                    <img src=${image}>
                     <h4>${title}</h4>
                     <h5>${author}</h5>
                     <h5>${price}</h5>
