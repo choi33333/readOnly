@@ -168,20 +168,25 @@ const getCartItemTemplate = (data, index) => {
     </div>
     <div class="card_namePrice">
         <div class="bookname">${data.name}</div>
+		<div class="bookauthor">${data.author}</div>
         <div class="bookprice">${data.price.toLocaleString()}원</div>
     </div>
-    <div class="card_cntPrice">
-        <div id='sum${index}' class="book_totalPrice">${(
-		data.price * data.amount
-	).toLocaleString()}원</div>
+	<div>
+	</div>
+	<div class="cardCountBox">
         <div class="book_cntbtn">
             <a class="minusbtn ${index}">-</a>
             <div id=count${index} class="countvalue">${data.amount}  </div>
             <a class="plusbtn ${index}">+</a>
         </div>
     </div>
+    <div class="card_cntPrice">
+        <div id='sum${index}' class="book_totalPrice">${(
+		data.price * data.amount
+	).toLocaleString()}원</div>
+    </div>
     <div class="card_del">
-        <a class='carddelete ${index}'>X</a>
+        <a class='carddelete ${index}'>삭제</a>
     </div>
     </div>`;
 };

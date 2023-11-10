@@ -34,7 +34,7 @@ const orderSchema = new Schema(
     orderStatus: {
       type: String,
       // 아래 값 중 하나일때만 허용
-      enum: ["결제 완료", "배송 준비중", "배송 시작", "배송 완료", "취소"],
+      enum: ["결제 완료", "배송 준비중", "배송중", "배송 완료", "취소", "취소 대기"],
       required: true,
     },
 
