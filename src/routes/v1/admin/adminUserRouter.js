@@ -7,7 +7,7 @@ const asyncHandler = require("../../../utils/asyncHandler");
 const router = Router();
 
 // user 조회
-router.get("/", adminController.getUser);
+router.get("/", asyncHandler(adminController.getUser));
 
 // user 삭제
 router.delete("/:id", objectIdValidator, validateError, asyncHandler(adminController.deleteUser));
