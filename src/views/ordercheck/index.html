@@ -4,58 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./ordercheck.css">
+    <link rel="stylesheet" href="../admin/adminList.css">
     <title>주문조회페이지</title>
 </head>
 <body>
     <header>
-        <a href="../mainpage/index.html" class="logo"><h3>readOnly📖</h3></a>
-        <div class="search">
-            <input type="text" placeholder="도서를 찾아보세요!">
-            <button>검색</button>
-        </div>
+        <a href="/" class="logo"><h3>readOnly📖</h3></a>
         <div id="pageRoute"></div>
     </header>
-      <div class="menu">
-        <h4 id="category">카테고리</h4>
-        <a href="#">사용자 정보 수정</a>
-        <a href="#">주문조회</a>
+
+    <div class="container">
+        <nav class="menu">
+            <h4 id="category">카테고리</h4>
+            <a href="/userInformation">사용자 정보</a>
+            <a href="/mepasswordcheck">사용자 정보 수정</a>
+            <a href="/ordercheck">주문조회</a>
+        </nav>
+        <main>
+            <h2>주문 조회</h2>
+            <table id="orderContainer"></table>
     </div>
-    <div id="backbody">
-        <div id="frame">
-        <form>
-                    <div id="frame2">
-                        <span style="font-size: 16pt; font-weight: bold;">주문조회</span>
-                        <span> </span>
-            </div> 
-            <br/> 
-            <br/>
-            <div class="order-list"><br><br>
-                <label for="orderNumber">주문번호:</label>
-                <input type="text" id="orderNumber" placeholder="주문번호를 입력하세요">
-                <button id="searchButton">조회</button>
-        
-                <table>
-                    <thead>
-                        <tr><br><br><br><br>
-                            <th>주문번호</th>
-                            <th>상품명</th>
-                            <th>상품금액</th>
-                            <th>수량</th>
-                            <th>주문처리상태</th>
-                            <th>취소</th>
-                        </tr>
-                    </thead>
-                    
-                    <tbody id="orderResults">
-                        
-                    </tbody>
-                </table>
-            </div>
-        </form>
-    </div>
-</div>
+    
+    
 <script src="./ordercheck.js"></script>
-<<script src="../frontUtils/jwtUtil.js"></script>
+<script src="../frontUtils/jwtUtil.js"></script>
 <script src="../frontUtils/loginStatus.js"></script> 
 </body>
 </html>
