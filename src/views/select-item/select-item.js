@@ -98,11 +98,6 @@ document.querySelector(".buyBtn").addEventListener("click", async function () {
 	}
 });
 window.addEventListener("load", async () => {
-	// const Token = localStorage.getItem("Token");
-	// if (!Token) {
-	// 	alert("로그인이 필요합니다!");
-	// 	window.location.href = "/login";
-	// } else {
 	await setCartItem();
 	const categories = await fetch("/api/v1/categories")
 		.then((result) => result.json())
@@ -133,7 +128,6 @@ window.addEventListener("load", async () => {
 	document.querySelector(
 		".productInfo"
 	).innerHTML = `${bookDetail[0].productInfo}`;
-	// }
 });
 const fetchUser = async () => {
 	await fetch("/api/v1/users/me", {
