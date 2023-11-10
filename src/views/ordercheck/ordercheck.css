@@ -5,6 +5,11 @@ header {
     border-bottom: 1px solid rgb(176, 176, 176);
     
   }
+
+  header a {
+    text-decoration: none;
+    color: rgb(16, 16, 160);
+  }
   
   #pageRoute {
     display: flex;
