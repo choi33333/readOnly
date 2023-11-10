@@ -24,6 +24,7 @@ const adminController = {
 
   async deleteCategory(req, res) {
     const { id } = req.params;
+    console.log(req.params)
     const deletedCategory = await adminService.deleteCategory(id);
 
     res.json({
