@@ -32,49 +32,90 @@ window.addEventListener('load', async () => {
 });
 
 // 주문 목록을 화면에 표시하는 함수
-const orderList = (data) => {
+const orderList = async (data) => {
     orderContainer.innerHTML = ""; // 주문 목록을 초기화
+    
     // 테이블 헤더 추가
     orderContainer.innerHTML += `
-      <tr class="orderTableHeader">
-        <th class='index'>Index</th>
-        <th class='id'>ID</th>
-        <th class='orderNumber'>주문번호</th>
-        <th class='products'>상품명</th>
-        <th class='orderedBy'>주문자</th>
-        <th class='orderedEmail'>주문자 이메일</th>
-        <th class='phoneNumber'>전화번호</th>
-        <th class='orderStatus'>주문처리상태</th>
-        <th class='delete'>삭제</th>
-      </tr>
-    `;
-    // 주문 정보를 테이블에 행으로 추가
-    // <option value='shipping' ${order.orderStatus === 'shipping' ? 'selected' : ''}>배송중</option> 배송중 참일때 'selected' 문자열을 반환
-    data.forEach((order, index) => {
-        orderContainer.innerHTML += `
-        <tr id='order-${order.orderId}' class='orderTableBody'>
-          <td class='indexValue'>${index + 1}</td>
-          <td class='idValue'>${order._id}</td>
-          <td class='orderNumberValue'>${order.orderNumber}</td>
-          <td class='productsValue'>${order.products}</td>
-          <td class='orderedByValue'>${order.orderedBy}</td>
-          <td class='orderedEmailValue'>${order.orderedEmail}</td>
-          <td class='phoneNumberValue'>${order.phoneNumber}</td>
-          <td class='orderStatusValue'>
-            <select onchange='OrderStatus(${order.orderId}, this.value)'>
-              <option value='shipping' ${order.orderStatus === 'shipping' ? 'selected' : ''}>배송중</option>
-              <option value='completed' ${order.orderStatus === 'completed' ? 'selected' : ''}>결제완료</option>
-              <option value='deliverycompleted' ${order.orderStatus === 'deliverycompleted' ? 'selected' : ''}>배송완료</option>
-            </select>
-          </td>
-          <td class='deleteButton'><button onclick='deleteOrder(${order._id})'>삭제</button></td>
-        </tr>
-      `; 
-    });
+    <tr class="orderTableHeader">
+      <th class='index'>Index</th>
+      <th class='id'>ID</th>
+      <th class='orderNumber'>주문번호</th>
+      <th class='products'>상품명</th>
+      <th class='orderedBy'>주문자</th>
+      <th class='orderedEmail'>주문자 이메일</th>
+      <th class='phoneNumber'>전화번호</th>
+      <th class='orderStatus'>주문처리상태</th>
+      <th class='delete'>삭제</th>
+    </tr>
+  `;
+    try {
+      // 주문 목록 api 호출 
+      const fetchResult = await fetch('/api/v1/products', {
+        method: 'GET',
+        headers: {
+            "Authorization": 'Bearer ' + localStorage.getItem('Token'),
+        },
+      });
+      const fetchData = await fetchResult.json();
+      let index = 0; 
+      // 요청이 성공하면 주문 목록을 출력
+      if (fetchResult.status === 200) {
+        console.log('54645646성공');
+        console.log(data);
+      } else if (fetchResult.status === 403) {
+        console.log('권한이 없습니다.');
+      }
+      console.log("datadatadatadata",data)
+      console.log("FETCHdata", fetchData.data);
+      for(let i = 0; i < data.length; i++){
+        for(let j = 0; j < data[i].products.length; j++) {
+          const productList = data[i].products[j].productId;
+          const finded = fetchData.data.find((element) => element._id === productList);
+          data[i].products[j].dataInfo = finded;
+          index ++;
+          printOrder(data[i], index, j);
+        }
+      }
+      console.log("asdasd",data);
+
+    } catch (error) {
+      console.log('err: ', error);  
+    }
+    
   }
+
+const printOrder = (data, index, productsIdx) => {
+
+  // 주문 정보를 테이블에 행으로 추가
+  // <option value='shipping' ${order.orderStatus === 'shipping' ? 'selected' : ''}>배송중</option> 배송중 참일때 'selected' 문자열을 반환
+
+  console.log("printData", data, "index: ", productsIdx);
+  orderContainer.innerHTML += `
+    <tr class='orderTableBody'>
+      <td class='indexValue'>${index}</td>
+      <td class='idValue'>${data._id}</td>
+      <td class='orderNumberValue'>${data.orderNumber}</td>
+      <td class='productsValue'>${data.products[productsIdx].dataInfo !==undefined ? data.products[productsIdx].dataInfo.name : "데이터 없음"}</td>
+      <td class='orderedByValue'>${data.orderedBy}</td>
+      <td class='orderedEmailValue'>${data.orderedEmail}</td>
+      <td class='phoneNumberValue'>${data.phoneNumber}</td>
+      <td class='orderStatusValue'>
+        <select onchange='OrderStatus("${data._id}", this.value)'>
+          <option value='shipping' ${data.orderStatus === 'shipping' ? 'selected' : ''} >배송중</option>
+          <option value='completed' ${data.orderStatus === 'completed' ? 'selected' : ''}>결제완료</option>
+          <option value='deliverycompleted' ${data.orderStatus === 'deliverycompleted' ? 'selected' : ''}>배송완료</option>
+        </select>
+      </td>
+      <td class='deleteButton'><button onclick='deleteOrder("${data._id}")'>삭제</button></td>
+    </tr>
+  `; 
+}
+
 
 // 주문 상태 변경하는 함수
 const OrderStatus = async (orderId, newStatus) => {
+  console.log(orderId, newStatus);
     try {
       // 서버에 주문 상태 변경 요청
       const response = await fetch(`/api/v1/admin/orders/${orderId}`, {

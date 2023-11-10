@@ -6,6 +6,12 @@ header {
     
 }
 
+header a {
+    text-decoration: none;
+    color: rgb(16, 16, 160);
+}
+
+
 #pageRoute {
     display: flex;
     gap: 20px;
