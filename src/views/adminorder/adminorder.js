@@ -96,7 +96,7 @@ const printOrder = (data, index, productsIdx) => {
       <td class='indexValue'>${index}</td>
       <td class='idValue'>${data._id}</td>
       <td class='orderNumberValue'>${data.orderNumber}</td>
-      <td class='productsValue'>${data.products[productsIdx].dataInfo !==undefined ? data.products[productsIdx].dataInfo.name : "데이터 없음"}</td>
+      <td class='productsValue'>${data.products[productsIdx].dataInfo !==undefined ? data.products[productsIdx].dataInfo.name : "상품을 찾을 수 없습니다."}</td>
       <td class='orderedByValue'>${data.orderedBy}</td>
       <td class='orderedEmailValue'>${data.orderedEmail}</td>
       <td class='phoneNumberValue'>${data.phoneNumber}</td>

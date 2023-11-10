@@ -73,7 +73,7 @@ const orderList = async (data) => {
           <tr id='order-${order.orderId}' class='orderTableBody'>
             <td class='indexValue'>${index + 1}</td>
             <td class='orderNumberValue'>${order.orderNumber}</td>
-            <td class='productsValue'>${order.products[0].dataInfo !== undefined ? order.products[0].dataInfo.name : "데이터 없음"}</td>
+            <td class='productsValue'>${order.products[0].dataInfo !== undefined ? order.products[0].dataInfo.name : "상품을 찾을 수 없습니다."}</td>
             <td class='address'>${order.address}</td>
             <td class='orderedEmailValue'>${order.orderedEmail}</td>
             <td class='phoneNumberValue'>${order.phoneNumber}</td>
