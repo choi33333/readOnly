@@ -89,7 +89,6 @@ const printOrder = (data, index, productsIdx) => {
 
   // 주문 정보를 테이블에 행으로 추가
   // <option value='shipping' ${order.orderStatus === 'shipping' ? 'selected' : ''}>배송중</option> 배송중 참일때 'selected' 문자열을 반환
-
   //console.log("printData", data, "index: ", productsIdx);
   orderContainer.innerHTML += `
     <tr class='orderTableBody'>
@@ -102,9 +101,13 @@ const printOrder = (data, index, productsIdx) => {
       <td class='phoneNumberValue'>${data.phoneNumber}</td>
       <td class='orderStatusValue'>
         <select onchange='OrderStatus("${data._id}", this.value)'>
-          <option value='shipping' ${data.orderStatus === 'shipping' ? 'selected' : ''} >배송중</option>
-          <option value='completed' ${data.orderStatus === 'completed' ? 'selected' : ''}>결제완료</option>
-          <option value='deliverycompleted' ${data.orderStatus === 'deliverycompleted' ? 'selected' : ''}>배송완료</option>
+          <option value='${data.orderStatus}'} >${data.orderStatus}</option>
+          <option value='결제 완료'>결제 완료</option>
+          <option value='배송 준비중'>배송 준비중</option>
+          <option value='배송중'>배송중</option>
+          <option value='배송 완료'>배송 완료</option>
+          <option value='취소'>취소</option>
+          <option value='취소 대기'>취소 대기</option>
         </select>
       </td>
       <td class='deleteButton'><button onclick='deleteOrder("${data._id}")'>삭제</button></td>
@@ -115,7 +118,7 @@ const printOrder = (data, index, productsIdx) => {
 
 // 주문 상태 변경하는 함수
 const OrderStatus = async (orderId, newStatus) => {
-  //console.log(orderId, newStatus);
+  console.log(orderId, newStatus);
     try {
       // 서버에 주문 상태 변경 요청
       const response = await fetch(`/api/v1/admin/orders/${orderId}`, {
@@ -124,11 +127,13 @@ const OrderStatus = async (orderId, newStatus) => {
             "Authorization": 'Bearer ' + localStorage.getItem('Token'),
             "Content-Type": 'application/json',
         },
-        body: JSON.stringify({ orderStatus: newStatus }), // 새 주문 상태를 서버에 전송
+        body: JSON.stringify({orderStatus: newStatus}), // 새 주문 상태를 서버에 전송
       });
   
       if (response.ok) {
+        const res = await response.json();
         alert('주문 상태가 변경되었습니다.'); // 성공
+        console.log('response2: ', res);
       } else {
         alert('주문 상태 변경이 실패하였습니다.'); // 실패
       }
