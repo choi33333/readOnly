@@ -13,12 +13,12 @@ window.addEventListener('load', async () => {
 
     // 요청이 성공하면 주문 목록을 출력
     if (fetchResult.status === 200) {
-      console.log('주문 조회 성공');
-      console.log(fetchData.data);
+      //console.log('주문 조회 성공');
+      //console.log(fetchData.data);
       
       orderList(fetchData.data); // 주문 목록을 화면에 표시하는 함수 호출
     } else if (fetchResult.status === 403) {
-      console.log('권한이 없습니다.');
+      //console.log('권한이 없습니다.');
     }
   } catch (error) {
     console.log('err: ', error);  
@@ -40,16 +40,16 @@ const orderList = async (data) => {
   
       // 요청이 성공하면 주문 목록을 출력
       if (fetchResult.status === 200) {
-        console.log('54645646성공');
-        console.log(data);
+        //console.log('54645646성공');
+        //console.log(data);
       } else if (fetchResult.status === 403) {
-        console.log('권한이 없습니다.');
+        //console.log('권한이 없습니다.');
       }
       
       // console.log("FETCHdata", fetchData);
       for(let i = 0; i < data.length; i++){
         const productList = data[i].products[0].productId;
-        console.log('pppppp: ',productList);
+        //console.log('pppppp: ',productList);
         const finded = fetchData.data.find((element) => element._id === productList);
         data[i].products[0].dataInfo = finded;
       }
@@ -86,7 +86,7 @@ const orderList = async (data) => {
       
 
 
-      console.log("asdasd",data);
+      //console.log("asdasd",data);
 
     } catch (error) {
       console.log('err: ', error);  
@@ -112,7 +112,7 @@ const orderList = async (data) => {
       // 응답 상태 코드 확인
       if (response.ok) {
         // 주문 취소 성공
-        console.log('주문 취소 성공');
+        //console.log('주문 취소 성공');
         alert('주문이 취소되었습니다');
         location.replace(location.href);
       } else {

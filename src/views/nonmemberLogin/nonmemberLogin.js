@@ -27,7 +27,7 @@ loginBtn.addEventListener('click', async (e) => {
       const fetchData = await fetchResult.json();
       
       if(fetchResult.status == 200){
-        console.log('성공', fetchData);
+        //console.log('성공', fetchData);
         location.href = '/'; //비회원 주문조회 기능구현되면 경로 바꾸기
       }else if(fetchResult.status === 401){
         loginController.innerHTML = '주문번호나 전화번호가 틀렸습니다';

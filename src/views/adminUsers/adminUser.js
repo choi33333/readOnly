@@ -18,13 +18,13 @@ window.onload = () => {
       .then(async (response) => {
         const res = await response.json();
         data = res.data;
-        console.log('response: ', res);
+        //console.log('response: ', res);
         if(response.status === 200){
-          console.log('조회성공');
-          console.log(res.data);
+          //console.log('조회성공');
+          //console.log(res.data);
           userList(res.data);
         }else if(response.status === 403){
-          console.log('권한이 없습니다');
+          //console.log('권한이 없습니다');
         }
       })
     } catch (error) {
@@ -65,7 +65,7 @@ const userList = () => {
 
 //삭제하기
 const userDelete = (index) => {
-  console.log(index);
+  //console.log(index);
   try {
     const confirmflag = confirm('정말 삭제하시겠습니까?');
     if(confirmflag){
@@ -78,14 +78,14 @@ const userDelete = (index) => {
       })
       .then(async (response) => {
         const res = await response.json();
-        console.log('response2: ', res);
+        //console.log('response2: ', res);
         if(response.status === 200){
-          console.log('삭제성공');
+          //console.log('삭제성공');
           location.replace(location.href);
         }
       })
     }else{
-      console.log("취소");
+      //console.log("취소");
     }
   } catch (error) {
     console.log('err2: ', error);

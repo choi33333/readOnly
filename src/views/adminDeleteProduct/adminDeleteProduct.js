@@ -13,7 +13,7 @@ window.addEventListener('load', async () => {
       const fetchData = await fetchResult.json();
 
       if(fetchResult.status === 200){
-        console.log('상품 조회 성공');
+        //console.log('상품 조회 성공');
         const productSeq = fetchData.data.sort((a, b) => {
           if(a.createdAt < b.createdAt) return 1;
           if(a.createdAt === b.createdAt) return 0;
@@ -21,7 +21,7 @@ window.addEventListener('load', async () => {
         });
         productList(productSeq);
       }else if(fetchResult.status === 403){
-        console.log('권한이 없습니다');
+        //console.log('권한이 없습니다');
       }
     } catch (error) {
       console.log('err: ', error);
@@ -75,7 +75,7 @@ const productModify = (index) => {
 
 //삭제하기 버튼
 const productDelete = (index) => {
-  console.log(index);
+  //console.log(index);
   try {
     const confirmflag = confirm('정말 삭제하시겠습니까?');
     if(confirmflag){
@@ -88,14 +88,14 @@ const productDelete = (index) => {
       })
       .then(async (response) => {
         const res = await response.json();
-        console.log('response2: ', res);
+        //console.log('response2: ', res);
         if(response.status === 200){
-          console.log('삭제성공');
+          //console.log('삭제성공');
           location.replace(location.href);
         }
       })
     }else{
-      console.log("취소");
+      //console.log("취소");
     }
   } catch (error) {
     console.log('err2: ', error);

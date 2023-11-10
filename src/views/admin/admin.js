@@ -12,7 +12,7 @@ window.addEventListener('load', async () => {
       const fetchData = await fetchResult.json();
 
       if(fetchResult.status === 200){
-        console.log('상품 조회 성공');
+        //console.log('상품 조회 성공');
         const productSeq = fetchData.data.sort((a, b) => {
             if(a.createdAt < b.createdAt) return 1;
             if(a.createdAt === b.createdAt) return 0;
@@ -20,7 +20,7 @@ window.addEventListener('load', async () => {
         });
         productList(productSeq);
       }else if(fetchResult.status === 403){
-        console.log('권한이 없습니다');
+        //console.log('권한이 없습니다');
       }
     } catch (error) {
       console.log('err: ', error);

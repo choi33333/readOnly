@@ -29,9 +29,9 @@ window.onload = () => {
       })
       .then(async (response) => {
         const res = await response.json();
-        console.log('response: ', res);
+        //console.log('response: ', res);
         if(response.status === 200){
-          console.log('불러오기 성공');
+          //console.log('불러오기 성공');
           nameValue.value = res.data.username;
           emailValue.value = res.data.email;
           phoneValue.value = res.data.phoneNumber;
@@ -39,7 +39,7 @@ window.onload = () => {
           addressValue.value = res.data.address;
           addressDetailValue.value = res.data.addressDetail;
         }else if(response.status === 401){
-          console.log('로그인 필요');
+          //console.log('로그인 필요');
         }
       })
     } catch (error) {
@@ -80,10 +80,10 @@ completBtn.addEventListener('click', () => {
       })
       .then(async (response) => {
         const res = await response.json();
-        console.log('response: ', res);
+        //console.log('response: ', res);
         //백엔드에서 status 붙이지 않으면 default값으로 status 200 옴(ok)
         if(response.status === 200){
-          console.log('성공');
+          //console.log('성공');
           if(!data.password){
             location.href = '/userInformation'
           }else{
@@ -92,7 +92,7 @@ completBtn.addEventListener('click', () => {
           }
 
         }else if(response.status === 401){
-          console.log('로그인 필요');
+          //console.log('로그인 필요');
         }
       })
     } catch (error) {

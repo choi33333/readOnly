@@ -59,12 +59,12 @@ RegistrationBtn.addEventListener('click', () => {
       })
       .then(async (response) => {
         const res = await response.json();
-        console.log('response: ', res);
+        //console.log('response: ', res);
         if(response.status === 200){ 
-          console.log(res.data);
+          //console.log(res.data);
           location.href = '/admin';
         }else if(response.status === 403){
-          console.log('권한이 없습니다');
+          //console.log('권한이 없습니다');
         }
       })
     } catch (error) {
@@ -192,7 +192,7 @@ const readUrl = (input) => {
   if(input.files && input.files[0]){
     const reader = new FileReader();
     reader.onload = function(e) {
-      console.log(e);
+      //console.log(e);
       document.getElementById('productImage').src = e.target.result;
       uploadFile = input.files[0];
     }
@@ -205,7 +205,7 @@ const readUrl = (input) => {
 
 //이미지 서버에 저장하고 url 받기
 imageSubmitBtn.addEventListener('click', (e) => {
-  console.log("asdasd",uploadFile);
+  //console.log("asdasd",uploadFile);
   const sendData = new FormData();
   sendData.append('image', uploadFile);
 
@@ -221,16 +221,16 @@ imageSubmitBtn.addEventListener('click', (e) => {
     .then(async (response) => {
       const res = await response.json();
       data = res.data;
-      console.log('response: ', res);
+      //console.log('response: ', res);
       if(response.ok){
-        console.log('이미지 url 불러오기 성공');
+        //console.log('이미지 url 불러오기 성공');
         imageUrl = res.data;
-        console.log('imageUrl: ', imageUrl);
+        //console.log('imageUrl: ', imageUrl);
         alert('이미지가 업로드 되었습니다');
         imgToggle = 1;
         imgController.className = 'alarmoff';
       }else if(response.status === 403){
-        console.log('권한이 없습니다');
+        //console.log('권한이 없습니다');
       }
     })
   }

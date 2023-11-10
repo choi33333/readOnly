@@ -19,9 +19,9 @@ window.onload = () => {
       })
       .then(async (response) => {
         const res = await response.json();
-        console.log('response: ', res);
+        //console.log('response: ', res);
         if(response.status === 200){
-          console.log('성공');
+          //console.log('성공');
           nameValue.innerText = res.data.username;
           emailValue.innerHTML = res.data.email;
           phoneValue.innerHTML = res.data.phoneNumber;
@@ -29,7 +29,7 @@ window.onload = () => {
           addressValue.innerHTML = res.data.address;
           addressDetailValue.innerHTML = res.data.addressDetail;
         }else if(response.status === 401){
-          console.log('로그인 필요');
+          //console.log('로그인 필요');
         }
       })
     } catch (error) {
@@ -56,14 +56,14 @@ withdrawal.addEventListener('click', () => {
       })
       .then(async (response) => {
         const res = await response.json();
-        console.log('response2: ', res);
+        //console.log('response2: ', res);
         if(response.status === 200){
-          console.log('성공');
+          //console.log('성공');
           return location.href = '/'
         }
       })
     }else{
-      console.log("취소");
+      //console.log("취소");
     }
   } catch (error) {
     console.log('err2: ', error);

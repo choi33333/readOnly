@@ -19,11 +19,11 @@ window.addEventListener('load', async () => {
 
       // 요청이 성공하면 주문 목록을 출력
       if (fetchResult.status === 200) {
-        console.log('주문 조회 성공');
-        console.log(fetchData.data);
+        //console.log('주문 조회 성공');
+        //console.log(fetchData.data);
         orderList(fetchData.data); // 주문 목록을 화면에 표시하는 함수 호출
       } else if (fetchResult.status === 403) {
-        console.log('권한이 없습니다.');
+        //console.log('권한이 없습니다.');
       }
     } catch (error) {
       console.log('err: ', error); // 예외처리 
@@ -61,13 +61,13 @@ const orderList = async (data) => {
       let index = 0; 
       // 요청이 성공하면 주문 목록을 출력
       if (fetchResult.status === 200) {
-        console.log('54645646성공');
-        console.log(data);
+        //console.log('54645646성공');
+        //console.log(data);
       } else if (fetchResult.status === 403) {
-        console.log('권한이 없습니다.');
+        //console.log('권한이 없습니다.');
       }
-      console.log("datadatadatadata",data)
-      console.log("FETCHdata", fetchData.data);
+      //console.log("datadatadatadata",data)
+      //console.log("FETCHdata", fetchData.data);
       for(let i = 0; i < data.length; i++){
         for(let j = 0; j < data[i].products.length; j++) {
           const productList = data[i].products[j].productId;
@@ -77,7 +77,7 @@ const orderList = async (data) => {
           printOrder(data[i], index, j);
         }
       }
-      console.log("asdasd",data);
+      //console.log("asdasd",data);
 
     } catch (error) {
       console.log('err: ', error);  
@@ -90,7 +90,7 @@ const printOrder = (data, index, productsIdx) => {
   // 주문 정보를 테이블에 행으로 추가
   // <option value='shipping' ${order.orderStatus === 'shipping' ? 'selected' : ''}>배송중</option> 배송중 참일때 'selected' 문자열을 반환
 
-  console.log("printData", data, "index: ", productsIdx);
+  //console.log("printData", data, "index: ", productsIdx);
   orderContainer.innerHTML += `
     <tr class='orderTableBody'>
       <td class='indexValue'>${index}</td>
@@ -115,7 +115,7 @@ const printOrder = (data, index, productsIdx) => {
 
 // 주문 상태 변경하는 함수
 const OrderStatus = async (orderId, newStatus) => {
-  console.log(orderId, newStatus);
+  //console.log(orderId, newStatus);
     try {
       // 서버에 주문 상태 변경 요청
       const response = await fetch(`/api/v1/admin/orders/${orderId}`, {
@@ -140,7 +140,7 @@ const OrderStatus = async (orderId, newStatus) => {
   
 // 주문 삭제 함수
 const deleteOrder = (orderId) => {
-    console.log(orderId);
+    //console.log(orderId);
     try {
       const confirmflag = confirm('정말 삭제하시겠습니까?');
       if(confirmflag){
@@ -153,14 +153,14 @@ const deleteOrder = (orderId) => {
         })
         .then(async (response) => {
           const res = await response.json();
-          console.log('response2: ', res);
+          //console.log('response2: ', res);
           if(response.status === 200){
-            console.log('삭제성공');
+            //console.log('삭제성공');
             location.replace(location.href);
           }
         })
       }else{
-        console.log("취소");
+        //console.log("취소");
       }
     } catch (error) {
       console.log('err2: ', error);
