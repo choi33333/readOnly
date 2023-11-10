@@ -13,9 +13,11 @@
 ## 📕 서비스 기능
 
 - 사용자 회원가입 및 로그인
-- 도서 목록 및 상세페이지 제공
+- 도서 목록 및 상세 페이지 제공
+- 베스트셀러, 신간안내 페이지 제공
 - 장바구니 기능
 - 주문 및 결제 시스템
+- 관리자 
 
 ## 🖥️ 기술 스택
 <img src="https://img.shields.io/badge/visualstudiocode-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white"/>
