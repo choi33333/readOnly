@@ -1,0 +1,157 @@
+header {
+  display: flex;
+  /* width: 100%; */
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(176, 176, 176);
+  background-color: white;
+  
+  /* 헤더 상단고정 */
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+#pageRoute {
+  display: flex;
+  gap: 20px;
+}
+
+.logo {
+  color: rgb(16, 16, 160);
+  font-size: 20px;
+  font-style: italic;
+}
+
+.container {
+  padding-top: 75.8px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.menu {
+  width: 10%;
+  height: 60vh;
+  background-color: rgb(234, 234, 234); opacity: 0.7;
+  border-radius: 10px;
+  min-width: 170px;
+  max-width: 170px;
+  text-align: center;
+}
+
+.menu a {
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-size:  15px;
+  color: black;
+  display: list-item;
+  padding: 15px;
+  border-bottom: 0.5px solid black;
+
+}
+
+
+#category{
+  font-size: 20px;
+  letter-spacing: 4px;
+  padding: 10px;
+  border-bottom: 2px solid black;
+  margin: 0px;
+}
+
+.menu a {
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-size:  15px;
+  color: black;
+  display: list-item;
+  padding: 15px;
+
+  border-bottom: 0.5px solid black;
+}
+
+main {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+  gap: 30px;
+}
+
+.information {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  padding: 40px 20px;
+  border-top: 1px solid black;
+}
+
+.userInformation {
+  display: flex;
+  gap: 10px;
+
+  justify-content: center;
+  align-items: center;
+}
+
+
+.addressDetail {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: gray;
+}
+
+.userInformation > p {
+  margin: 0;
+}
+
+.addressDetail > p {
+  margin: 0;
+}
+
+.userInformation > p {
+  width: 120px;
+}
+
+.resData {
+  width: 300px;
+}
+
+.btns {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.changeBtn {
+  width: 150px;
+  height: 53px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.information > div > p {
+  color: gray;
+}
+
+.information > div > :first-child {
+  color: black;
+}
+
+a {
+  text-decoration: none;
+}
+
+#withdrawal {
+  font-size: 12px;
+}
+

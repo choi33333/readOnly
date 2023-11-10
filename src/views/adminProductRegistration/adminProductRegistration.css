@@ -1,0 +1,100 @@
+#userContainer{
+  display: flex;
+  gap: 100px;
+}
+
+.imageInput {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-top: 30px;
+  align-items: center;
+}
+
+#productImage {
+  width: 300px;
+  height: 400px;
+  border: 1px solid black;
+  object-fit: contain;
+}
+
+#productImage > img {
+  width: 300px;
+  height: 400px;
+  object-fit: contain;
+}
+
+#imageUploader{
+padding-left: 65px;
+}
+
+#imageSubmitBtn{
+  width: 120px;
+  height: 45px;
+  border: 1px solid #000000;
+  border-radius: 10px;
+}
+
+.rightInput {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* justify-content: center;
+  align-items: center; */
+}
+
+.productInput {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.productInput > input {
+  width: 250px;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+#productInfoValue {
+  width: 400px;
+  height: 200px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+#RegistrationBtn {
+  width: 120px;
+  height: 45px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+#ModificationBtn {
+  width: 120px;
+  height: 45px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+.alarmoff {
+  display: none;
+}
+
+.alarmon {
+  font-size: small;
+  color: red;
+  display: block;
+}
+
+#imageUploader {
+  border: none;
+}

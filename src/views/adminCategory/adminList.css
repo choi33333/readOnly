@@ -1,0 +1,42 @@
+table {
+  border: 1px #a39485 solid;
+  font-size: 13px;
+  box-shadow: 0 2px 5px rgba(0,0,0,.25);
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 5px;
+  overflow: hidden;
+  min-width: 800px;
+  max-width: 800px;
+}
+
+.userTableHeader, .orderTableHeader {
+  font-weight: bold;
+  color: #fff;
+  background: rgb(212, 212, 212);
+}
+
+.categoryTableHeader {
+  font-weight: bold;
+  color: #fff;
+  background: rgb(212, 212, 212);
+}
+
+td, th {
+  padding: 15px 25px;
+  vertical-align: middle;
+  text-align: left;
+}
+
+td {
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  background: #fff;
+}
+
+button {
+  width: 60px;
+  height: 25px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+

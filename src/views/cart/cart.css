@@ -1,0 +1,376 @@
+header a {
+	text-decoration: none;
+	color: rgb(16, 16, 160);
+}
+
+.logo {
+	color: rgb(16, 16, 160);
+	font-size: 20px;
+	font-style: italic;
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid rgb(176, 176, 176);
+	background-color: white;
+
+	/* 헤더 상단고정
+	width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100; */
+}
+
+.search {
+	justify-content: center;
+	text-align: center;
+	width: 300px;
+	margin: auto;
+}
+
+input {
+	width: 240px;
+	height: 33px;
+	border: 1px solid;
+	border-color: rgb(16, 16, 160);
+	border-radius: 10px;
+}
+
+button {
+	height: 35px;
+}
+
+#pageRoute {
+	display: flex;
+	gap: 12px;
+	margin-top: 10px;
+	margin-right: 20px;
+}
+/* 위에 코드는 헤더 css */
+
+div {
+	display: block;
+}
+
+body {
+	margin: 0;
+}
+.wrap {
+	height: 100vh;
+}
+/* header {
+	min-height: 15%;
+	height: 15%;
+	border-bottom: 1px solid grey;
+} */
+main {
+	height: 85%;
+	min-width: none;
+	min-height: 80%;
+	padding-left: 100px;
+	padding-right: 100px;
+}
+.main_label {
+	height: 8%;
+	width: 80%;
+	font-size: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.removeall {
+	margin-right: 10%;
+	font-size: 15px;
+	font-weight: bold;
+	width: 10%;
+	height: 80%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 4px;
+	cursor: pointer;
+	border: 1px solid black;
+	&:hover {
+		background-color: rgb(236, 236, 236);
+	}
+}
+
+footer {
+	height: 310px;
+}
+
+.cartdiv {
+	min-width: 80%;
+	height: 90%;
+	display: flex;
+}
+
+.cart_product {
+	width: 75%;
+	height: 100%;
+	overflow: scroll;
+	padding: 0 5%;
+	border-top: 1px solid grey;
+}
+
+.emptyCart {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.emptySVG {
+	width: 80px;
+	height: 80px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	border-radius: 50px;
+	background-color: black;
+}
+
+.cart_card {
+	height: 30%;
+	display: flex;
+	align-items: center;
+	margin: 3% 0;
+	border: 1px solid grey;
+	border-radius: 10px;
+}
+
+.card_imgDiv {
+	width: 15%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.card_img {
+	width: 80%;
+	height: 90%;
+}
+
+.card_namePrice {
+	width: 50%;
+	height: 100%;
+}
+
+.book_category {
+	margin-top:10px;
+	font-size: 15px;
+	height: 10%;
+	display: flex;
+	align-items: center;
+	padding-left: 5px;
+	color: gray;
+}
+.bookname {
+	font-size: 30px;
+	font-weight: bold;
+	height: 25%;
+	display: flex;
+	align-items: center;
+	padding-left: 10px;
+}
+
+.book_info_container {
+	display: flex;
+}
+.bookauthor {
+	font-size: 15px;
+	height: 15%;
+	display: flex;
+	align-items: center;
+	padding-left: 20px;
+}
+.book_releasedDate {
+	font-size: 15px;
+	height: 15%;
+	display: flex;
+	align-items: center;
+	padding-left: 10px;
+}
+.bookprice {
+	font-size: 15px;
+	height: 50%;
+	display: flex;
+	align-items: center;
+	padding-left: 80%;
+}
+
+.divider{
+	font-size: 15px;
+	height: 15%;
+	padding-left: 10px;
+    display: flex;
+    color: gray;
+}
+
+.cardCountBox {
+	width: 15%;
+	height: 80%;
+	border-left: 1px solid grey;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+.card_cntPrice {
+	width: 15%;
+	height: 80%;
+	border-right: 1px solid grey;
+	border-left: 1px solid grey;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+.book_totalPrice {
+	height: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.book_cntbtn {
+	width: 70px;
+	height: 20%;
+	border: 1px solid black;
+	border-radius: 4px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.plusbtn {
+	font-size: 22px;
+	width: 25%;
+	height: 100%;
+	display: flex;
+	font-weight: bold;
+	justify-content: center;
+	border-top-right-radius: 2px;
+	border-bottom-right-radius: 2px;
+	cursor: pointer;
+	&:hover {
+		color: white;
+		background-color: rgb(0, 88, 163);
+		border-color: rgb(0, 88, 163);
+	}
+}
+.countvalue {
+	width: 50%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.minusbtn {
+	font-size: 22px;
+	width: 25%;
+	height: 100%;
+	display: flex;
+	font-weight: bold;
+	justify-content: center;
+	border-top-left-radius: 2px;
+	border-bottom-left-radius: 2px;
+	cursor: pointer;
+	&:hover {
+		color: white;
+		border-color: rgb(0, 88, 163);
+		background-color: rgb(0, 88, 163);
+	}
+}
+.card_del {
+	width: 10%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.carddelete {
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 5px 10px; 
+	color: white;
+	font-size: 1rem;
+	text-transform: uppercase;
+	text-decoration: none;
+	border: 1px solid;
+	border-radius: 4px;
+	cursor: pointer;
+	color: white;
+		border-color: rgb(0, 88, 163);
+		background-color: rgb(0, 88, 163);
+	&:hover {
+		border-color: rgb(0, 67, 126);
+		background-color: rgb(0, 67, 126);
+	}
+}
+.pay_div {
+	width: 25%;
+	height: 70%;
+	display: flex;
+	justify-content: center;
+}
+.borderdiv {
+	width: 70%;
+	height: 50%;
+	margin-top: 10%;
+	border: 1px solid grey;
+	border-radius: 5%;
+}
+.totalpricediv {
+	height: 50%;
+	border-bottom: 1px solid grey;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.totalprice_container{
+	height: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.totalprice{
+	padding-left: 2rem;
+}
+.deliveryprice{
+	padding-left: 2rem;
+}
+.price_container{
+	display: flex;
+}
+.pay_btn {
+	height: 30%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.orderbtn {
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
+	width: 80%;
+	height: 70%;
+	border: 1px solid rgb(0, 88, 163);
+	display: flex;
+	background-color: rgb(0, 88, 163);
+	align-items: center;
+	justify-content: center;
+	border-radius: 4px;
+	cursor: pointer;
+	&:hover {
+		border-color: rgb(0, 67, 126);
+		background-color: rgb(0, 67, 126);
+	}
+}

@@ -1,0 +1,40 @@
+<!-- 로그인 페이지 html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>로그인</title>
+  <link rel="stylesheet" href="nonmemberLogin.css">
+</head>
+<body>
+  <header>
+    <a href="/" class="logo"><h3>readOnly📖</h3></a>
+  </header>
+  <main>
+    <form>
+      <div class="whetherMember">
+        <a href="/login"><p class="member">회원 로그인</p></a>
+        <a href="/nonmemberLogin"><p class="nonMember">비회원 주문 조회</p></a>
+      </div>
+      <div class="loginInput">
+        <div id="loginAlarm" class="alarmoff"></div>
+        <input type="text" placeholder="주문번호" id="orderNumber">
+        <div id="orderNumberAlarm" class="alarmoff"></div>
+        <input type="password" placeholder="주문 전화번호" id="phoneNumber">
+        <div id="phoneNumberAlarm" class="alarmoff"></div>
+      </div>
+      <button id="loginBtn">로그인</button>
+      <div class="find">
+        <!-- <p><a href="">주문번호 찾기</a> / <a href="">주문 비밀번호 찾기</a></p> -->
+        <p></p>
+        <p><a href="/join">회원가입</a></p>
+      </div>
+    </form>
+  </main>
+
+  <script src="../frontUtils/tokenCheck.js"></script>
+  <script src="../frontUtils/fetchCustom.js"></script>
+  <script src="nonmemberLogin.js"></script>
+</body>
+</html>

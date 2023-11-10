@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin</title>
+    <link rel="stylesheet" href="../components/header.css">
+    <link rel="stylesheet" href="../admin/admin.css">
+    <link rel="stylesheet" href="../components/footer.css">
+    <link rel="stylesheet" href="./adminProductRegistration.css">
+</head>
+
+<body>
+    <header>
+        <a href="/" class="logo"><h3>readOnly📖</h3></a>
+        <div id="pageRoute"></div>
+    </header>
+    
+    <div class="content">
+        <div class="menu">
+            <h4 id="category">관리자</h4>
+            <a href="/admin">상품조회</a>
+            <a href="/adminProductRegistration">상품등록</a>
+            <a href="/adminDeleteProduct">상품수정/삭제</a>
+            <a href="/adminCategory">카테고리조회</a>
+            <a href="/adminCategoryAdd">카테고리등록</a>
+            <a href="/adminCategoryDelete">카테고리삭제</a>
+            <a href="/adminUsers">회원관리</a>
+            <a href="/adminorder">주문현황</a>
+        </div>
+
+        <main>
+            <h2 class="title">상품 등록</h2>
+            <div id="userContainer">
+                <div class="imageInput">
+                    <img id='productImage' />
+                    <input type="file" name="image" id="imageUploader" onchange="readUrl(this);" onclick="">
+                    <input type="submit" value="이미지 업로드" id="imageSubmitBtn">
+                    <div id="imgAlarm" class="alarmoff"></div>
+                </div>
+                
+            
+                <div class="rightInput">
+                    <div class="productInput">
+                        <div>도서명</div>
+                        <input type="text" id='productNameValue'>
+                        <div id="productNameAlarm" class="alarmoff"></div>
+                    </div>
+                    
+                    <div class="productInput">
+                        <div>저자명</div>
+                        <input type="text" id='authorValue'>
+                        <div id="authorAlarm" class="alarmoff"></div>
+                    </div>
+                    
+                    <div class="productInput">
+                        <div>카테고리</div>
+                        <input type="text" id='categoryValue'>
+                        <div id="categoryAlarm" class="alarmoff"></div>
+                    </div>
+                    
+                    <div class="productInput">
+                        <div>가격</div>
+                        <input type="number" id='priceValue'>
+                        <div id="priceAlarm" class="alarmoff"></div>
+                    </div>
+                    
+                    <div class="productInput">
+                        <div>도서 출시일</div>
+                        <input type="date" id='releasedDateValue'>
+                        <div id="releasedDateAlarm" class="alarmoff"></div>
+                    </div>
+                    
+                    <div class="productInput">
+                        <div>도서 내용</div>
+                        <textarea wrap='virtual' id='productInfoValue'></textarea>
+                        <div id="productInfoAlarm" class="alarmoff"></div>
+                    </div>
+                    
+                    <button id="RegistrationBtn">등록하기</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <footer>
+        <h4 class="logo">readOnly</h4>
+        <h5>회사명 : readOnly    대표자 : 엘리스8팀</h5>
+        <h5>대표 이메일 : test@elice.com</h5>
+        <h5>주소 : 서울특별시 성동구 성수2가 제3동 광나루로6길 49 성수낙낙</h5>
+        <h5>Copyright ⓒ 2023 000</h5>
+    </footer>
+
+    <script src="../frontUtils/jwtUtil.js"></script>
+    <script src="../frontUtils/loginStatus.js"></script>
+    <script src="../frontUtils/fetchCustom.js"></script> 
+    <script src="./adminProductRegistration.js"></script>
+</body>
+</html>

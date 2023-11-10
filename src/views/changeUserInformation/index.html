@@ -1,0 +1,93 @@
+<!-- 사용자 정보 페이지 html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>내 정보</title>
+  <link rel="stylesheet" href="../components/header.css">
+	<link rel="stylesheet" href="../components/footer.css">
+  <link rel="stylesheet" href="changeInformation.css">
+</head>
+<body>
+  <header>
+    <a href="/" class="logo"><h3>readOnly📖</h3></a>
+    <div id="pageRoute"></div>
+  </header>
+
+  <div class="container">
+    <nav class="menu">
+      <h4 id="category">카테고리</h4>
+      <a href="/userInformation">사용자 정보</a>
+      <a href="/changeUserInformation">사용자 정보 수정</a>
+      <a href="/ordercheck">주문조회</a>
+    </nav>
+
+    <main>
+      <h2>회원정보 수정</h2>
+      <form>
+        <div id="name" class="input">
+          <p>이름</p>
+          <input type="text" id="nameValue" disabled>
+        </div>
+        <div id="email" class="input">
+          <p>이메일</p>
+          <input type="email" id="emailValue" disabled>
+        </div>
+        <div id="password" class="input">
+          <p>비밀번호</p>
+          <div class="changePassword">
+            <div class="passwordInput">
+              <input type="password" placeholder="새 비밀번호를 입력해주세요" id="passwordValue">
+              <div id="passwordAlarm" class="alarmoff"></div>
+            </div>
+            <div class="passwordInput">
+              <input type="password" placeholder="새 비밀번호를 다시 입력해주세요" id="repasswordValue">
+              <div id="repasswordAlarm" class="alarmoff"></div>
+            </div>  
+          </div>
+        </div>
+        <div id="phoneNumber" class="input">
+          <p>전화번호</p>
+          <div>
+            <input type="text" id="phoneValue" maxlength="13">
+            <div id="phoneNumberAlarm" class="alarmoff"></div>
+          </div>
+          
+        </div>
+        <div id="address" class="input">
+          <p>주소</p>
+          <div class="addressDetail">
+            <div>
+              <input type="text" id="postalCode">
+              <button id="addressBtn">주소찾기</button>
+            </div>
+            <input type="text" id="addressValue">
+            <input type="text" id="addressDetailValue">
+          </div>
+        </div>
+      </form>
+      <div class="complet">
+        <button id="cancelBtn" class="btn">취소</button>
+        <button id="completBtn" class="btn">완료</button>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    <h4 class="logo">readOnly</h4>
+    <h5>회사명 : readOnly    대표자 : 엘리스8팀</h5>
+    <h5>대표 이메일 : test@elice.com</h5>
+    <h5>주소 : 서울특별시 성동구 성수2가 제3동 광나루로6길 49 성수낙낙</h5>
+    <h5>Copyright ⓒ 2023 000</h5>
+</footer>
+
+
+  <!-- 주소찾기(카카오 API)  -->
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+  <script src="../frontUtils/jwtUtil.js"></script>
+  <script src="../frontUtils/loginStatus.js"></script> 
+  <script src="changeUserInformation.js"></script>
+</body>
+</html>

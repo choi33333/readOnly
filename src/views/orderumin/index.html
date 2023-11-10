@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>order</title>
+		<link rel="stylesheet" href="order.css" />
+		<!-- <link rel="stylesheet" href="../components/header.css" /> -->
+	</head>
+	<body>
+		<div class="wrap">
+			<header>
+				<a href="/" class="logo"><h3>readOnly📖</h3></a>
+				<div class="search">
+					<input type="text" placeholder="도서를 찾아보세요!" />
+					<button>검색</button>
+				</div>
+				<div id="pageRoute"></div>
+			</header>
+			<main>
+				<div class="mainWrap">
+					<div class="mainHead">
+						<div class="mainHeadText">
+							<h4>주문완료</h4>
+						</div>
+						<div class="mainHeadTextInfo">
+							<h2>고객님의 주문이 정상적으로 완료되었습니다.</h2>
+						</div>
+					</div>
+					<div class="cartInfo">
+						<div class="cartInfoHead">
+							<div class="cartInfoHead_text"><h4>상품정보</h4></div>
+							<div class="cartInfoHead_table">
+								<div class="tableName">상품명</div>
+								<div class="tablePrice">상품금액</div>
+								<div class="tableAmount">수량</div>
+								<div class="tableSum">주문금액</div>
+							</div>
+						</div>
+						<div class="cartInfo_products"></div>
+					</div>
+					<div class="dataDiv">
+						<div class="orderInfo">
+							<div class="orderInfoHeader"><h4>주문정보</h4></div>
+							<div class="orderData">
+								<div class="orderData_number">주문번호</div>
+								<div class="orderData_pay">결제방법: 신용카드</div>
+								<div class="orderData_namePhone">주문자/연락처</div>
+								<div class="orderData_sumPrice">총 결제금액 0원</div>
+							</div>
+						</div>
+						<div class="userInfo">
+							<div class="userInfoHeader"><h4>배송정보</h4></div>
+							<div class="userData">
+								<div class="userData_name">수취인</div>
+								<div class="userData_phone">연락처</div>
+								<div class="userData_address">배송지주소</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+			<footer></footer>
+		</div>
+		<script src="order.js"></script>
+		<script src="../frontUtils/jwtUtil.js"></script>
+		<script src="../frontUtils/loginStatus.js"></script>
+	</body>
+</html>

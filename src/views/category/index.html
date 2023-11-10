@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>category</title>
+    
+    <link rel="stylesheet" href="./category.css">
+    <link rel="stylesheet" href="../components/header.css">
+    <link rel="stylesheet" href="../components/sidebar.css">
+    
+</head>
+
+<body>
+    <header>
+    
+        <a href="/" class="logo"><h3>readOnly📖</h3></a>
+        <div class="search">
+            <input type="text" placeholder="도서를 찾아보세요!">
+            <button>검색</button>
+        </div>
+        <div id="pageRoute"></div>
+        
+    </header>
+
+    <div class="container">
+        <div class="sidebar">
+            <div class="menu">
+                <h4 id="category">카테고리</h4>
+                <!-- db에서 카테고리 가져오기 -->
+                <div id="category-wrapper"></div>
+            </div>
+        </div>
+
+        <main>
+            <div class="body">
+                <!-- 카테고리별 베스트셀러 -->
+                <div id="bestseller">
+                    <div id="bestseller-header"></div>
+                    <div id="bestseller-info"></div>
+                </div>
+    
+                <!-- 카테고리별 신간 -->
+                <div id="newbook">
+                    <div id="newbook-header"></div>
+                    <div id="newbook-info"></div>
+                </div>
+                
+                <!-- 카테고리별 전체보기 -->
+                <div id="view-all">
+                    <div id="view-all-header"></div>
+                    <div id="view-all-info"></div>
+                </div>
+                    
+            </div>
+        </main>
+    </div>
+        
+
+    <script src="./category.js" defer></script> 
+    <script src="../frontUtils/jwtUtil.js"></script>
+    <script src="../frontUtils/loginStatus.js"></script>
+</body>
+</html>

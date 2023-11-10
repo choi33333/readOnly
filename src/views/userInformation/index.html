@@ -1,0 +1,71 @@
+<!-- 사용자 정보 페이지 html -->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>내 정보</title>
+		<link rel="stylesheet" href="userInformation.css" />
+		<link rel="stylesheet" href="../components/header.css">
+		<link rel="stylesheet" href="../components/footer.css">
+	</head>
+	<body>
+		<header>
+			<a href="/" class="logo"><h3>readOnly📖</h3></a>
+			<div id="pageRoute"></div>
+		</header>
+
+		<div class="container">
+			<nav class="menu">
+				<h4 id="category">카테고리</h4>
+				<a href="/userInformation">사용자 정보</a>
+				<a href="/changeUserInformation">사용자 정보 수정</a>
+				<a href="/ordercheck">주문조회</a>
+			</nav>
+
+			<main>
+				<h2>사용자 정보 조회</h2>
+				<div class="information">
+					<div id="name" class="userInformation">
+						<p>이름</p>
+						<p id="nameValue" class="resData"></p>
+					</div>
+					<div id="email" class="userInformation">
+						<p>이메일</p>
+						<p id="emailValue" class="resData"></p>
+					</div>
+					<div id="phoneNumber" class="userInformation">
+						<p>전화번호</p>
+						<p id="phoneValue" class="resData"></p>
+					</div>
+					<div id="address" class="userInformation">
+						<p>주소</p>
+						<div class="addressDetail">
+							<p id="postalCode" class="resData"></p>
+							<p id="addressValue" class="resData"></p>
+							<p id="addressDetailValue" class="resData"></p>
+						</div>
+					</div>
+				</div>
+				<div class="btns">
+					<a href="/mepasswordcheck"
+						><button class="changeBtn">수정하기</button></a
+					>
+					<p id="withdrawal">회원탈퇴</p>
+				</div>
+			</main>
+		</div>
+
+		<footer>
+			<h4 class="logo">readOnly</h4>
+			<h5>회사명 : readOnly    대표자 : 엘리스8팀</h5>
+			<h5>대표 이메일 : test@elice.com</h5>
+			<h5>주소 : 서울특별시 성동구 성수2가 제3동 광나루로6길 49 성수낙낙</h5>
+			<h5>Copyright ⓒ 2023 000</h5>
+	</footer>
+
+		<script src="../frontUtils/jwtUtil.js"></script>
+		<script src="../frontUtils/loginStatus.js"></script>
+		<script src="userInformation.js"></script>
+	</body>
+</html>

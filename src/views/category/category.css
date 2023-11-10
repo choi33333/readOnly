@@ -1,0 +1,105 @@
+/* category css */
+.container {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+main {
+    width: 100%;
+    margin-top: 60px;
+}
+
+.body a {
+    color: black;
+    text-decoration: none;
+    
+}
+
+.body {
+    width: 100%;
+    height: 100vh;
+    text-align: left;
+    margin-left: 30px;
+    /* margin-right: auto; */
+    /* background-color: aqua; */
+    overflow: auto;
+}
+
+h2 {
+    color:rgb(16, 16, 160);
+}
+
+#bestseller, #newbook {
+    width: 100%;
+    height: 35%;
+    /* background-color: bisque; */
+
+}
+
+#view-all {
+    width: 100%;
+    height: 100%;
+    /* background-color: bisque; */
+}
+
+#view-all-info {
+    height: 100vh;
+    overflow: auto;
+    /* background-color: bisque; */
+}
+
+
+#bestseller-info a, #newbook-info a {
+    width: 50%;
+    height: 35%;
+    float: left;
+    /* margin-bottom: 30px; */
+
+}
+
+#view-all-info a {
+    width: 50%;
+    height: 30%;
+    float: left;
+}
+
+.body h5 {
+    margin-top: 5px;
+    margin-bottom: 8px;
+    vertical-align: text-top;
+    font-size: 18px;
+    
+}
+
+.body h6 {
+    margin-top: 6px;
+    margin-bottom: 6px;
+    vertical-align: text-top;
+    font-size: 15px;
+}
+
+.body p {
+    margin-right: 15px;
+    font-size: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* white-space:nowrap; */
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* 라인수 */
+    -webkit-box-orient: vertical;
+    word-wrap:break-word; 
+    line-height: 1.2em;
+    height: 3.6em; 
+}
+
+img {
+    /* width: 20%; */
+    /* height: 20%; */
+    width: 150px;
+    height: 200px;
+    float: left;
+    margin-right: 10px;
+    object-fit: contain
+    
+}

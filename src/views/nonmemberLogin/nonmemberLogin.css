@@ -1,0 +1,159 @@
+/* 로그인 페이지 css */
+
+/* 기본적인 css 초기화 */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+
+/* 내가 설정한 css */
+body {
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.logo {
+	color: rgb(16, 16, 160);
+	font-size: 25px;
+	font-style: italic;
+  font-weight: bold;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.whetherMember {
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+}
+
+.whetherMember > a > p {
+  width: 150px;
+  height: 40px;
+  background-color: #F5F5F5;
+  border: 1px solid black;
+  border-radius: 0;
+  text-align: center;
+  line-height: 40px;
+  color: black;
+}
+
+.whetherMember > :last-child > p {
+  background-color: white;
+  border: 1px solid black;
+  border-left: 0;
+  border-bottom: 0;
+}
+
+.loginInput {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.loginInput > input {
+  width: 300px;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.check {
+  display: flex;
+  gap: 50px;
+}
+
+.check > div {
+  display: flex;
+}
+
+.check > div > p {
+  font-size: small;
+}
+
+#loginBtn {
+  width: 300px;
+  height: 55px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.find {
+  display: flex;
+  gap: 230px
+}
+
+.find > p > a {
+  color: black;
+  font-size: small;
+  text-decoration: none;
+}
+
+.alarmoff {
+  display: none;
+}
+
+.alarmon {
+  font-size: small;
+  color: red;
+  display: block;
+}

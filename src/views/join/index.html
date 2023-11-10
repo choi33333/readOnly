@@ -1,0 +1,77 @@
+<!-- 회원가입 페이지 html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입</title>
+  <link rel="stylesheet" href="join.css">
+</head>
+<body>
+  <header>
+    <a href="/" class="logo"><h3>readOnly📖</h3></a>
+  </header>
+  <main>
+    <form>
+      <div class="input">
+        <p>이메일</p>
+        <div>
+          <input type="email" id="email" placeholder="readOnly@gmail.com">
+          <div id="emailAlarm" class="alarmoff"></div>
+        </div>
+      </div>
+      <div>
+        <div class="input">
+          <p>비밀번호</p>
+          <div>
+            <input type="password" id="password" placeholder="영문/숫자/특수문자 조합 (8~20 글자)">
+            <div id="passwordAlarm" class="alarmoff"></div>
+          </div>
+        </div>
+      </div>
+      <div class="input">
+        <p>비밀번호 확인</p>
+        <div>
+          <input type="password" id="repassword">
+          <div id="repasswordAlarm" class="alarmoff"></div>
+        </div>
+      </div>
+      <div class="input">
+        <p>이름</p>
+        <div>
+          <input type="text" id="username">
+          <div id="usernameAlarm" class="alarmoff"></div>
+        </div>
+      </div>
+      <div class="input">
+        <p>전화번호</p>
+        <div>
+          <input type="text" id="phoneNumber"  maxlength="13" placeholder="010-1234-1234 (숫자만 입력)">
+          <div id="phoneNumberAlarm" class="alarmoff"></div>
+        </div>
+      </div>
+      <div class="input">
+        <p>주소</p>
+        <div class="addressDetail">
+          <div>
+            <input type="text" id="postalCode">
+            <button id="addressBtn">주소찾기</button>
+          </div>
+          <input type="text" id="address">
+          <div>
+            <input type="text" placeholder="상세주소" id="addressDetail">
+            <div id="addressAlarm" class="alarmoff"></div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <button id="joinBtn">회원가입</button>
+  </main>
+
+  <!-- 주소찾기(카카오 API)  -->
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+  <script src="../frontUtils/tokenCheck.js"></script>
+  <script src="join.js"></script>
+</body>
+</html>

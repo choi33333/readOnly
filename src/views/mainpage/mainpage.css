@@ -1,0 +1,89 @@
+#category-wrapper {
+	margin: 0 auto;
+	text-align: center;
+}
+
+#category-wrapper a {
+	color: black;
+	font-size: 20px;
+	text-decoration: none;
+	margin-right: 30px;
+}
+
+#category-wrapper a:hover {
+	color: rgb(16, 16, 160);
+	font-weight: bold;
+}
+
+.category-wrap {
+	background-color: rgb(234, 234, 234);
+	width: 85%;
+	height: 150px;
+	margin: 0 auto;
+	border-radius: 20px;
+}
+
+.category-wrap > h4 {
+	text-align: center;
+	margin-bottom: 40px;
+	padding-top: 12px;
+}
+
+/* 카테고리 css 끝  */
+
+.this-week-bestseller {
+	width: 90%;
+	height: 60vh;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 30px;
+	/* border: 1px solid; */
+}
+
+#weekbestseller-header {
+	font-size: 25px;
+	padding-top: 30px;
+	/* padding-bottom: 10px; */
+}
+
+#weekbestseller-info a {
+	text-align: center;
+	text-decoration: none;
+	color: black;
+	float: left;
+	margin: auto;
+
+}
+
+
+#weekbestseller-section {
+	margin: 0 auto;
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	/* background-color: blue;	 */
+
+}
+
+#weekbestseller-info{
+	display: flex;
+	gap: 40px;
+}
+
+img {
+	width: 230px;
+	height: 260px;
+	object-fit: contain;
+}
+
+.this-week-bestseller h4 {
+	margin-top: 10px;
+	margin-bottom: 3px;
+}
+
+.this-week-bestseller h5 {
+	margin-top: 7px;
+	margin-bottom: 7px;
+}
