@@ -90,9 +90,12 @@ main {
 	justify-content: center;
 	border-radius: 4px;
 	cursor: pointer;
-	border: 1px solid black;
+	color: white;
+	border: 1px solid rgb(16, 16, 160);
+	background-color: rgb(16, 16, 160);
 	&:hover {
-		background-color: rgb(236, 236, 236);
+		border-color: rgb(12, 12, 105);
+		background-color: rgb(12, 12, 105);
 	}
 }
 
@@ -258,8 +261,8 @@ footer {
 	cursor: pointer;
 	&:hover {
 		color: white;
-		background-color: rgb(0, 88, 163);
-		border-color: rgb(0, 88, 163);
+		border-color: rgb(16, 16, 160);
+		background-color: rgb(16, 16, 160);
 	}
 }
 .countvalue {
@@ -281,8 +284,8 @@ footer {
 	cursor: pointer;
 	&:hover {
 		color: white;
-		border-color: rgb(0, 88, 163);
-		background-color: rgb(0, 88, 163);
+		border-color: rgb(16, 16, 160);
+		background-color: rgb(16, 16, 160);
 	}
 }
 .card_del {
@@ -306,11 +309,11 @@ footer {
 	border-radius: 4px;
 	cursor: pointer;
 	color: white;
-		border-color: rgb(0, 88, 163);
-		background-color: rgb(0, 88, 163);
+	border: 1px solid rgb(16, 16, 160);
+	background-color: rgb(16, 16, 160);
 	&:hover {
-		border-color: rgb(0, 67, 126);
-		background-color: rgb(0, 67, 126);
+		border-color: rgb(12, 12, 105);
+		background-color: rgb(12, 12, 105);
 	}
 }
 .pay_div {
@@ -362,15 +365,15 @@ footer {
 	font-size: 20px;
 	width: 80%;
 	height: 70%;
-	border: 1px solid rgb(0, 88, 163);
 	display: flex;
-	background-color: rgb(0, 88, 163);
+	border: 1px solid rgb(16, 16, 160);
+	background-color: rgb(16, 16, 160);
 	align-items: center;
 	justify-content: center;
 	border-radius: 4px;
 	cursor: pointer;
 	&:hover {
-		border-color: rgb(0, 67, 126);
-		background-color: rgb(0, 67, 126);
+		border-color: rgb(12, 12, 105);
+		background-color: rgb(12, 12, 105);
 	}
 }

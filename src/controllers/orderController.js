@@ -8,7 +8,7 @@ const orderController = {
         const em = res.locals.user.em;
         const order = await orderService.createOrder(orderData, em);
 
-        res.json({
+        res.status(201).json({
             error: null,
             data: order.toObject(),
         });
@@ -53,7 +53,7 @@ const orderController = {
         const orderData = req.body;
         const updatedOrder = await orderService.updateOrder(id, orderData);
 
-        res.json({
+        res.status(201).json({
             error: null,
             data: updatedOrder,
         });
@@ -65,7 +65,7 @@ const orderController = {
         const { orderStatus } = req.body;
         const updatedOrderStatus = await orderService.updateOrderStatus(id, orderStatus);
 
-        res.json({
+        res.status(201).json({
             error: null,
             data: updatedOrderStatus,
         });
@@ -76,10 +76,9 @@ const orderController = {
         const { id } = req.params;
         const deletedOrder = await orderService.deleteOrder(id);
 
-        res.json({
+        res.status(204).json({
             error: null,
             data: deletedOrder,
-            message: "주문목록에서 제거되었습니다.",
           });
         // 주문이 취소되었습니다. ?
     },
@@ -89,7 +88,7 @@ const orderController = {
         const orderData = req.body;
         const order = await orderService.nonMemberOrder(orderData);
 
-        res.json({
+        res.status(201).json({
             error: null,
             data: order.toObject(),
         });

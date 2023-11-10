@@ -25,7 +25,7 @@ const productController = {
     async increaseSoldAmount(req, res){
         const updatedProduct = await productService.increaseSoldAmount(req.params.id, req.body);
 
-        res.json({
+        res.status(201).json({
             error: null,
             data: updatedProduct,
         });

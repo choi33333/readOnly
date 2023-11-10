@@ -133,7 +133,8 @@ const OrderStatus = async (orderId, newStatus) => {
       if (response.ok) {
         const res = await response.json();
         alert('주문 상태가 변경되었습니다.'); // 성공
-        console.log('response2: ', res);
+        // console.log('response2: ', res);
+        location.replace(location.href);
       } else {
         alert('주문 상태 변경이 실패하였습니다.'); // 실패
       }

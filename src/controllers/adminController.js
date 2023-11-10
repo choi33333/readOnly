@@ -15,10 +15,9 @@ const adminController = {
     const { name } = req.body;
     const category = await adminService.createCategory(name);
 
-    res.json({
+    res.status(201).json({
       error: null,
       data: category,
-      message: category.name + " 카테고리를 성공적으로 생성 했습니다.",
     });
   },
 
@@ -27,10 +26,9 @@ const adminController = {
     console.log(req.params)
     const deletedCategory = await adminService.deleteCategory(id);
 
-    res.json({
+    res.status(204).json({
       error: null,
       data: deletedCategory,
-      message: deletedCategory.name + " 카테고리를 성공적으로 제거 했습니다.",
     });
   },
 
@@ -49,7 +47,7 @@ const adminController = {
     const { orderStatus } = req.body;
     const updatedOrder = await adminService.updateOrder(id, orderStatus);
 
-    res.json({
+    res.status(201).json({
         error: null,
         data: updatedOrder,
     });
@@ -59,10 +57,9 @@ const adminController = {
     const { id } = req.params;
     const deletedOrder = await adminService.deleteOrder(id);
 
-    res.json({
+    res.status(204).json({
         error: null,
         data: deletedOrder,
-        message: "주문목록에서 제거되었습니다.",
     });
   },
 
@@ -81,9 +78,7 @@ const adminController = {
     req.body;
     const product = await adminService.createProduct(productData);
 
-    console.log(product)
-
-    res.json({
+    res.status(201).json({
         error: null,
         data: product,
     });
@@ -94,7 +89,7 @@ const adminController = {
     const productData = req.body;
     const updatedProduct = await adminService.updateProduct(id, productData);
 
-    res.json({
+    res.status(201).json({
         error: null,
         data: updatedProduct,
       });
@@ -104,7 +99,7 @@ const adminController = {
     const { id } = req.params;
     const deletedProduct = await adminService.deleteProduct(id);
 
-    res.json({
+    res.status(204).json({
         error: null,
         data: deletedProduct,
     });
@@ -124,10 +119,9 @@ const adminController = {
       const { id } = req.params;
     const deletedUser = await adminService.deleteUser(id);
 
-    res.json({
+    res.status(204).json({
         error: null,
         data: deletedUser,
-        message: "사용자가 삭제되었습니다.",
     });
   }
 };
