@@ -23,8 +23,8 @@ const adminController = {
   },
 
   async deleteCategory(req, res) {
-    const { name } = req.params;
-    const deletedCategory = await adminService.deleteCategory(name);
+    const { id } = req.params;
+    const deletedCategory = await adminService.deleteCategory(id);
 
     res.json({
       error: null,
