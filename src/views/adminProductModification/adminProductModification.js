@@ -38,7 +38,7 @@ window.addEventListener('load', async () => {
         findCompleteData = finded;
         const releasedDate = finded.releasedDate.split("T");
 
-        productImage.innerHTML = `<img src='${finded.imageUrl}' id='imgUrl'/>`
+        productImage.src = finded.imageUrl;
         productNameValue.value = finded.name;
         authorValue.value = finded.author;
         categoryValue.value = finded.categoryName;
@@ -101,13 +101,13 @@ const readUrl = (input) => {
   if(input.files && input.files[0]){
     let reader = new FileReader();
     reader.onload = function(e) {
-      console.log(e);
-      document.getElementById('productImage').src = e.target.result;
+      console.log('eeeee', e);
+      productImage.src = e.target.result;
       uploadFile = input.files[0];
     }
     reader.readAsDataURL(input.files[0]);
   } else {
-    document.getElementById('productImage').src = "";
+    productImage.src = "";
   }
 }
 
