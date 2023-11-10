@@ -167,8 +167,17 @@ const getCartItemTemplate = (data, index) => {
         <img class='card_img' src=${data.imageUrl}>
     </div>
     <div class="card_namePrice">
+		<div class="book_category">카테고리 > ${data.categoryName}</div>
         <div class="bookname">${data.name}</div>
-		<div class="bookauthor">${data.author}</div>
+		<div class="book_info_container">
+			<div class="bookauthor">${data.author} </div>
+			<div class="divider">글 ㅣ</div>
+			<div class="book_releasedDate">
+				${data.releasedDate.slice(0,-20)}년
+				${data.releasedDate.slice(5,-17)}월
+				${data.releasedDate.slice(8,-14)}일
+			</div>
+		</div>
         <div class="bookprice">${data.price.toLocaleString()}원</div>
     </div>
 	<div>
