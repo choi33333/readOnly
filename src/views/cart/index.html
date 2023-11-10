@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>장바구니</title>
-    <link rel="stylesheet" href="cart.css"></link>
+    <link rel="stylesheet" href="cart.css">
+    </link>
 </head>
+
 <body>
     <div class="wrap">
         <header>
-            <a href="/" class="logo"><h3>readOnly📖</h3></a>
+            <a href="/" class="logo">
+                <h3>readOnly📖</h3>
+            </a>
             <div class="search">
                 <input type="text" placeholder="도서를 찾아보세요!" />
                 <button>검색</button>
@@ -25,31 +30,54 @@
                 <div class="cart_product">
                 </div>
                 <div class="pay_div">
-                    <div class="borderdiv">
-                        <div class="totalpricediv">
-                            <div class="price_container">
-                                <h3>총 상품가격</h3>
-                                <h3 class="totalprice">0원</h3>
-                            </div>
-                            <div class="price_container">
-                                <h3>배송비</h3>
-                                <h3 class="deliveryprice">0원</h3>
-                            </div>
+                    <h3>주문자 정보</h3>
+                    <div class="user_container">
+                        <div class="user_tag_container">
+                            <p>Email</p>
+                            <p>이 름</p>
+                            <p>전화번호</p>
+                            <p>우편번호</p>
+                            <p>주소</p>
+                            <p>상세주소</p>
                         </div>
-                        <div class="totalprice_container">
-                            <div class="price_container">
-                                <h3>최종 결재금액</h3>
-                                <h3 class="totalprice">0원</h3>
-                            </div>
+                        <div class="user_input_container">
+                            <input class="user_email user_input" disabled></input><br>
+                            <input class="user_name user_input"></input><br>
+                            <input class="user_phoneNumber user_input"></input><br>
+                            <input class="user_postCode user_input"></input><br>
+                            <input class="user_address user_input"></input><br>
+                            <input class="user_addrsesDetail user_input"></input>
                         </div>
-                        <div class="pay_btn">
-                            <a class="orderbtn">주문하기</a>
+                    </div>
+                    <div class="submit_order_container">
+                        <div class="borderdiv">
+                            <div class="totalpricediv">
+                                <div class="price_container">
+                                    <h3>총 상품가격</h3>
+                                    <h3 class="totalprice">0원</h3>
+                                </div>
+                                <div class="price_container">
+                                    <h3>배송비</h3>
+                                    <h3 class="deliveryprice">0원</h3>
+                                </div>
+                            </div>
+                            <div class="totalprice_container">
+                                <div class="price_container">
+                                    <h3>최종 결재금액</h3>
+                                    <h3 class="totalprice_all">0원</h3>
+                                </div>
+                            </div>
+                            <div class="pay_btn">
+                                <a class="orderbtn">주문하기</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </main>
-        <!-- <footer>
+    </div>
+    </div>
+    </main>
+    <!-- <footer>
             dddddd
         </footer> -->
     </div>
@@ -57,4 +85,5 @@
     <script src="../frontUtils/loginStatus.js"></script>
     <script src="cart.js"></script>
 </body>
+
 </html>
