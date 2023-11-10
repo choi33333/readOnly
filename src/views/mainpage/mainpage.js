@@ -39,7 +39,7 @@ window.addEventListener("load", async () => {
                     <img src=${image}>
                     <h4>${title}</h4>
                     <h5>${author}</h5>
-                    <h5>${price}</h5>
+                    <h5>${price}원</h5>
                 </a>
             `;
 			weekBestsellerInfoElem.innerHTML += template;
