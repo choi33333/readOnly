@@ -115,21 +115,17 @@ window.addEventListener("load", async () => {
     ).innerHTML = `${totalPrice.toLocaleString()}원`;
 	document.querySelector(
 		".totalprice_all"
-	  ).innerHTML = `${sumPrice.toLocaleString()}원`;
+	  ).innerHTML = `${totalPrice.toLocaleString()}원`;
   };
 
   //userInfo DP
   await fetchUser();
   document.querySelector(".user_email").value = `${userData[0].email}`;
   document.querySelector(".user_name").value = `${userData[0].username}`;
-  document.querySelector(
-    ".user_phoneNumber"
-  ).value = `${userData[0].phoneNumber}`;
+  document.querySelector(".user_phoneNumber").value = `${userData[0].phoneNumber}`;
   document.querySelector(".user_postCode").value = `${userData[0].postCode}`;
   document.querySelector(".user_address").value = `${userData[0].address}`;
-  document.querySelector(
-    ".user_addressDetail"
-  ).value = `${userData[0].addressDetail}`;
+  document.querySelector(".user_addressDetail").value = `${userData[0].addressDetail}`;
 });
 document.querySelector(".removeall").addEventListener("click", function () {
   let reset = [];
@@ -147,13 +143,12 @@ document
       quantity: item.amount,
     }));
     console.log(transformedArray);
-    await fetchUser();
     const data = {
-      orderedBy: userData[0].username,
-      postCode: userData[0].postCode,
-      address: userData[0].address,
-      addressDetail: userData[0].addressDetail,
-      phoneNumber: userData[0].phoneNumber,
+      orderedBy: document.querySelector(".user_name").value,
+      postCode: document.querySelector(".user_postCode").value,
+      address: document.querySelector(".user_address").value,
+      addressDetail: document.querySelector(".user_addressDetail").value,
+      phoneNumber: document.querySelector(".user_phoneNumber").value,
       // products: [{ productId: "6549140ad11299b256f2d87d", quantity: 1 }],
       products: transformedArray,
     };
