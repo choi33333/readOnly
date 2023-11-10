@@ -115,7 +115,7 @@ window.addEventListener("load", async () => {
     ).innerHTML = `${totalPrice.toLocaleString()}원`;
 	document.querySelector(
 		".totalprice_all"
-	  ).innerHTML = `${totalPrice.toLocaleString()}원`;
+	  ).innerHTML = `${sumPrice.toLocaleString()}원`;
   };
 
   //userInfo DP

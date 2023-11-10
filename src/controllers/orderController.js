@@ -8,7 +8,7 @@ const orderController = {
         const em = res.locals.user.em;
         const order = await orderService.createOrder(orderData, em);
 
-        res.status(201).json({
+        res.json({
             error: null,
             data: order.toObject(),
         });
