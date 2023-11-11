@@ -13,13 +13,13 @@ table {
 .userTableHeader, .orderTableHeader {
   font-weight: bold;
   color: #fff;
-  background: rgb(212, 212, 212);
+  background: rgb(16, 16, 160);
 }
 
 .categoryTableHeader {
   font-weight: bold;
   color: #fff;
-  background: rgb(212, 212, 212);
+  background: rgb(16, 16, 160);
 }
 
 td, th {
