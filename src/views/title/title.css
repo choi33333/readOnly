@@ -3,6 +3,9 @@ body{
     overflow:hidden;
     font-family: 'Gowun Batang', serif;
 }
+a{
+  text-decoration: none;
+}
 .main_container{
     position: relative;
     width: 100vw;
