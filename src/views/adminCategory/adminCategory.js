@@ -1,4 +1,4 @@
-//관리자 페이지(카테고리 조회) js
+//관리자 페이지(상품 목록 조회) js
 const userContainer = document.getElementById('userContainer');
 
 //페이지가 로드되었을 때 관리자인지 확인 후  fetch
@@ -8,12 +8,11 @@ window.addEventListener('load', async () => {
     location.href = '/notAdmin';
   }else{
     try {
-      const fetchResult = await fetchCustom('/api/v1/admin/categories','GET',token);
+      const fetchResult = await fetchCustom('/api/v1/admin/categories/','GET',token);
       const fetchData = await fetchResult.json();
 
       if(fetchResult.status === 200){
         console.log('카테고리 조회 성공');
-        console.log(fetchData.data);
         categoryList(fetchData.data);
       }else if(fetchResult.status === 403){
         console.log('권한이 없습니다');
@@ -25,22 +24,54 @@ window.addEventListener('load', async () => {
 })
 
 const categoryList = (data) => {
-    userContainer.innerHTML = "";
-    userContainer.innerHTML += `
-    <tr class="categoryTableHeader">
+  userContainer.innerHTML = "";
+  userContainer.innerHTML += `
+    <tr class="userTableHeader">
       <th class='index'>index</th>
       <th class='categoryId'>categoryId</th>
       <th class='categoryName'>categoryName</th>
+      <th class='delete'></th>
     </tr>
   `
   for(i = 0; i < data.length; i ++) {
-    // const releasedDate = data[i].releasedDate.split("T");
     userContainer.innerHTML += `
-      <tr id='${i}' class='categoryTableBody'> 
+      <tr id='${i}' class='userTableBody'> 
         <td class='indexValue'>${i+1}</td>
         <td class='categoryIdValue'>${data[i]._id}</td>
         <td class='categoryNameValue'>${data[i].name}</td>
+        <td><button onclick='productDelete("${data[i]._id}")'>delete</button></td>
       </tr>
     `
+  }
+}
+
+
+//삭제하기 버튼
+const productDelete = (index) => {
+  console.log(index);
+  
+  try {
+    const confirmflag = confirm('정말 삭제하시겠습니까?');
+    if(confirmflag){
+      fetch('/api/v1/admin/categories/' + index, {
+        method: 'DELETE',
+        headers:{
+          "Content-Type": "application/json",
+          "authorization": 'Bearer ' + localStorage.getItem('Token'),
+        },
+      })
+      .then(async (response) => {
+        const res = await response.json();
+        console.log('response2: ', res);
+        if(response.status === 200){
+          console.log('삭제성공');
+          location.replace(location.href);
+        }
+      })
+    }else{
+      console.log("취소");
+    }
+  } catch (error) {
+    console.log('err2: ', error);
   }
 }
