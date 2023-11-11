@@ -59,7 +59,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 50px;
+  gap: 30px;
 }
 
 header{
@@ -92,8 +92,8 @@ form {
   justify-content: flex-start;
   align-items: flex-start;
 
-  padding-bottom: 40px;
-  border-bottom: 1px solid black;
+  padding: 30px;
+  border-top: 1px solid rgb(176, 176, 176);
 }
 
 .input {
@@ -102,6 +102,18 @@ form {
 
   justify-content: center;
   align-items: center;
+}
+
+.input > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.addressDetail > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .addressDetail {
@@ -171,4 +183,10 @@ input[type="number"]::-webkit-inner-spin-button {
 
 a {
   text-decoration: none;
+}
+
+button {
+  background-color: rgb(16, 16, 160);
+  color: white;
+  text-align: center;
 }

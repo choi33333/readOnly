@@ -56,8 +56,15 @@ table {
 body {
   display: flex;
   flex-direction: column;
-  gap: 80px;
+  gap: 30px;
 }
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 95px;
+}
+
 
 header{
 	margin: 90px 0;
@@ -74,7 +81,7 @@ header img {
 }
 
 h1 {
-  font-size: 100px;
+  font-size: 80px;
   justify-content: center;
   align-self: center;
 }
