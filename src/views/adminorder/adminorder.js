@@ -121,6 +121,7 @@ const OrderStatus = async (orderId, newStatus) => {
   console.log(orderId, newStatus);
     try {
       // 서버에 주문 상태 변경 요청
+      console.log("요청"+orderId)
       const response = await fetch(`/api/v1/admin/orders/${orderId}`, {
         method: 'PUT',
         headers: {
@@ -158,9 +159,9 @@ const deleteOrder = (orderId) => {
           },
         })
         .then(async (response) => {
-          const res = await response.json();
+          // const res = await response.json();
           //console.log('response2: ', res);
-          if(response.status === 200){
+          if(response.status === 204){
             //console.log('삭제성공');
             location.replace(location.href);
           }

@@ -82,9 +82,9 @@ main {
 .removeall {
 	margin-right: 10%;
 	font-size: 15px;
-	font-weight: bold;
+	font-weight: 500;
 	width: 10%;
-	height: 80%;
+	height: 3rem;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -165,21 +165,21 @@ footer {
 }
 
 .book_category {
-	margin-top:10px;
+	padding-top: 1.5rem;
 	font-size: 15px;
 	height: 10%;
 	display: flex;
 	align-items: center;
-	padding-left: 5px;
+	padding-left: 0.5rem;
 	color: gray;
 }
 .bookname {
 	font-size: 30px;
-	font-weight: bold;
+	font-weight:500;
 	height: 25%;
 	display: flex;
 	align-items: center;
-	padding-left: 10px;
+	padding: 0.5rem 0 1rem 1rem;
 }
 
 .book_info_container {
@@ -190,7 +190,7 @@ footer {
 	height: 15%;
 	display: flex;
 	align-items: center;
-	padding-left: 20px;
+	padding-left: 2rem;
 }
 .book_releasedDate {
 	font-size: 15px;
@@ -201,7 +201,7 @@ footer {
 }
 .bookprice {
 	font-size: 15px;
-	height: 50%;
+	height: 20%;
 	display: flex;
 	align-items: center;
 	padding-left: 80%;
@@ -212,7 +212,7 @@ footer {
 	height: 15%;
 	padding-left: 10px;
     display: flex;
-    color: gray;
+    color: grey;
 }
 
 .cardCountBox {
@@ -254,7 +254,7 @@ footer {
 	width: 25%;
 	height: 100%;
 	display: flex;
-	font-weight: bold;
+	font-weight: 500;
 	justify-content: center;
 	border-top-right-radius: 2px;
 	border-bottom-right-radius: 2px;
@@ -277,7 +277,7 @@ footer {
 	width: 25%;
 	height: 100%;
 	display: flex;
-	font-weight: bold;
+	font-weight: 500;
 	justify-content: center;
 	border-top-left-radius: 2px;
 	border-bottom-left-radius: 2px;
@@ -296,7 +296,7 @@ footer {
 	align-items: center;
 }
 .carddelete {
-	font-weight: bold;
+	font-weight: 500;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -318,31 +318,51 @@ footer {
 }
 .pay_div {
 	width: 25%;
-	height: 70%;
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+	text-align: center;
 }
+.submit_order_container{
+	height: 20rem;
+	width: 100%;
+	align-items: center;
+	display: flex;
+    flex-direction: column;
+}
+
+.user_container{
+	padding-top: 0;
+	height: 20rem;
+	width: 100%;
+	display: flex;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	padding-bottom: .5rem;
+}
+
 .borderdiv {
 	width: 70%;
-	height: 50%;
-	margin-top: 10%;
+	height: 13rem;
 	border: 1px solid grey;
 	border-radius: 5%;
 }
 .totalpricediv {
-	height: 50%;
+	height: 8rem;
 	border-bottom: 1px solid grey;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	
 }
 .totalprice_container{
-	height: 50%;
+	height: 5rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	margin-bottom: 1.5rem;
 }
 .totalprice{
 	padding-left: 2rem;
@@ -353,8 +373,11 @@ footer {
 .price_container{
 	display: flex;
 }
+.totalprice_all{
+	padding-left: 2rem;
+}
 .pay_btn {
-	height: 30%;
+	height: 3.5rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -362,9 +385,9 @@ footer {
 .orderbtn {
 	color: white;
 	font-weight: bold;
-	font-size: 20px;
-	width: 80%;
-	height: 70%;
+	font-size: 18px;
+	width: 100%;
+	height: 3.5rem;
 	display: flex;
 	border: 1px solid rgb(16, 16, 160);
 	background-color: rgb(16, 16, 160);
@@ -376,4 +399,23 @@ footer {
 		border-color: rgb(12, 12, 105);
 		background-color: rgb(12, 12, 105);
 	}
+}
+
+.user_info{
+	font-weight: bold;
+	font-size: 1.7rem;
+	padding: 0;
+	margin: 0;
+}
+
+.user_tag_container p{
+	padding: 0.2rem;
+}
+
+.user_input{
+	font-size: 1rem;
+	width: 12rem;
+	margin: 0.2rem;
+	text-align: center;
+	border-radius: 4px;
 }
