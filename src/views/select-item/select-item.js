@@ -119,17 +119,17 @@ window.addEventListener("load", async () => {
 	document.querySelector(
 		".categoryInsert"
 	).innerHTML = `카테고리 > ${bookDetail[0].categoryName}`;
-	document.querySelector(".booknameInsert").innerHTML = `책 제목 : ${bookDetail[0].name}`;
-	document.querySelector(".bookAuthor").innerHTML = `저자 : ${bookDetail[0].author}`;
+	document.querySelector(".booknameInsert").innerHTML = `${bookDetail[0].name}`;
+	document.querySelector(".bookAuthor").innerHTML = `${bookDetail[0].author}`;
 	document.querySelector(
 		".bookPrice"
-	).innerHTML = `가격 : ${bookDetail[0].price.toLocaleString()}원`;
+	).innerHTML = `${bookDetail[0].price.toLocaleString()}원`;
 	document.querySelector(
 		".productInfo"
 	).innerHTML = `${bookDetail[0].productInfo}`;
 	document.querySelector(
 		".releasedDate"
-	).innerHTML = `발행일 : 
+	).innerHTML = `
 	${bookDetail[0].releasedDate.slice(0, -20)}년
 	${bookDetail[0].releasedDate.slice(5, -17)}월
 	${bookDetail[0].releasedDate.slice(8, -14)}일`;

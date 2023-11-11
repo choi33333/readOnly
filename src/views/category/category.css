@@ -61,8 +61,13 @@ h2 {
 
 .body h5, .body h6 {
     font-size: 16px;
-    margin: 2px !important;
+    margin: 3px !important;
 }
+
+.body h6 {
+    font-weight: 400;
+}
+
 
 .body p {
     margin-right: 15px;

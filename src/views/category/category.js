@@ -93,7 +93,7 @@ window.addEventListener("load", async () => {
 					</div>
                     <h5>${title}</h5>
                     <h6>${author}</h6>
-                    <h6>${price}</h6>
+                    <h6>${price.toLocaleString()}원</h6>
                 </a>
             `;
 			bestsellerInfoElem.innerHTML += template;
@@ -120,7 +120,7 @@ window.addEventListener("load", async () => {
 					</div>
                     <h5>${title}</h5>
                     <h6>${author}</h6>
-                    <h6>${price}</h6>
+                    <h6>${price.toLocaleString()}원</h6>
                 </a>
             `;
 			newbookInfoElem.innerHTML += template;
@@ -144,7 +144,7 @@ window.addEventListener("load", async () => {
 					</div>
                     <h5>${title}</h5>
                     <h6>${author}</h6>
-                    <h6>${price}</h6>
+                    <h6>${price.toLocaleString()}원</h6>
                 </a>
             `;
             viewAllInfoElem.innerHTML += template;
