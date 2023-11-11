@@ -374,7 +374,7 @@ p{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-bottom: 1rem;
+	margin-bottom: 2rem;
 }
 .mainPage_btn{
 	height: 3.5rem;
@@ -384,4 +384,44 @@ p{
 	align-items: center;
 }
 
+.totalprice_container{
+	margin: 0 5%;
+	width: 40%;
+	margin-top: 1rem;
+	border: 1px solid black;
+	border-radius: 4px;
+}
+.price_container_wrap{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 1.5rem;
+}
+.totalallprice_container {
+	height: 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 1rem;
+}
 
+.totalprice {
+	padding-left: 2rem;
+}
+.deliveryprice {
+	padding-left: 2rem;
+}
+.price_container {
+	display: flex;
+}
+.price_container2 {
+	display: flex;
+	border-bottom: 1px solid black;
+	width: 100%;
+	justify-content: center;
+}
+.totalprice_all {
+	padding-left: 2rem;
+}
