@@ -110,7 +110,7 @@ footer {
 }
 
 .cart_product {
-	width: 75%;
+	width: 70%;
 	height: 100%;
 	overflow: scroll;
 	padding: 0 5%;
@@ -174,7 +174,7 @@ footer {
 	color: gray;
 }
 .bookname {
-	font-size: 30px;
+	font-size: 27px;
 	font-weight:500;
 	height: 25%;
 	display: flex;
@@ -317,7 +317,7 @@ footer {
 	}
 }
 .pay_div {
-	width: 25%;
+	width: 30%;
 	display: flex;
 	flex-direction: column;
 	text-align: center;
@@ -345,7 +345,7 @@ footer {
 	width: 70%;
 	height: 13rem;
 	border: 1px solid grey;
-	border-radius: 5%;
+	border-radius: 10px;
 }
 .totalpricediv {
 	height: 8rem;
