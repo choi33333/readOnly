@@ -3,6 +3,10 @@
 	margin-top: 80px;
 }
 
+a{
+	text-decoration: none;
+}
+
 main {
 	height: 90%;
 	min-width: none;
@@ -66,7 +70,8 @@ main {
 .cartInfo_products {
 	width: 100%;
 	height: 20rem;
-	overflow: scroll;
+	overflow-x: scroll;
+	overflow-x: hidden;
 }
 .productCard {
 	width: 100%;

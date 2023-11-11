@@ -67,6 +67,8 @@ footer {
 	overflow: scroll;
 	padding: 0 5%;
 	border-top: 1px solid grey;
+	overflow-x: scroll;
+	overflow-x: hidden;
 }
 
 .emptyCart {
