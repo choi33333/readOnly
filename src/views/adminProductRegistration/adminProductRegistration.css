@@ -118,3 +118,8 @@ button {
   color: #fff;
   background: rgb(16, 16, 160);
 }
+
+
+label {
+  min-width: 100px;
+}
