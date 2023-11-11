@@ -12,6 +12,7 @@ button{
 }
 
 .container {
+	/* padding-top: 75.8px; */
 	display: flex;
 	justify-content: space-between;
 }
@@ -29,19 +30,29 @@ main {
 }
 
 .selected-item-info {
-	width: 70%;
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
 	/* float: left; */
 	margin: auto;
 	margin-top: 80px;
 	/* background-color: red; */
 	/* border: 1px solid; */
 }
-
-img {
+.bookImg{
 	width: 250px;
 	height: 350px;
+}
+
+.bookInfo{
+	width: 400px;
+}
+img {
+	width: 100%;
+	/* width: 250px;
+	height: 350px;
 	float: left;
-	margin-right: 15px;
+	margin-right: 15px; */
 }
 
 .selected-item-info button {
