@@ -41,17 +41,19 @@ const orderList = async (data) => {
       // 요청이 성공하면 주문 목록을 출력
       if (fetchResult.status === 200) {
         //console.log('54645646성공');
-        //console.log(data);
+        // console.log(data);
       } else if (fetchResult.status === 403) {
         //console.log('권한이 없습니다.');
       }
       
       // console.log("FETCHdata", fetchData);
       for(let i = 0; i < data.length; i++){
-        const productList = data[i].products[0].productId;
-        //console.log('pppppp: ',productList);
+        for(let j = 0; j < data[i].products.length;j++){
+          const productList = data[i].products[0].productId;
+          //console.log('pppppp: ',productList);
         const finded = fetchData.data.find((element) => element._id === productList);
         data[i].products[0].dataInfo = finded;
+        }
       }
 
       // 테이블 헤더 추가
