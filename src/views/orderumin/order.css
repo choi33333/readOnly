@@ -1,58 +1,6 @@
-a {
-	text-decoration: none;
-	color: rgb(16, 16, 160);
-}
 
-.logo {
-	color: rgb(16, 16, 160);
-	font-size: 20px;
-	font-style: italic;
-}
-
-header {
-	display: flex;
-	justify-content: space-between;
-	border-bottom: 1px solid rgb(176, 176, 176);
-	background-color: white;
-
-	/* 헤더 상단고정
-	width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 100; */
-}
-
-.search {
-	justify-content: center;
-	text-align: center;
-	width: 300px;
-	margin: auto;
-}
-
-input {
-	width: 240px;
-	height: 33px;
-	border: 1px solid;
-	border-color: rgb(16, 16, 160);
-	border-radius: 10px;
-}
-
-button {
-	height: 35px;
-}
-
-#pageRoute {
-	display: flex;
-	gap: 12px;
-	margin-top: 10px;
-	margin-right: 20px;
-}
-
-body {
-	margin: 0;
-}
 .wrap {
-	height: 100vh;
+	margin-top: 80px;
 }
 
 main {
@@ -82,8 +30,9 @@ main {
 	align-items: center;
 }
 .mainHeadTextInfo {
+	margin-top: 1rem;
 	width: 100%;
-	height: 80%;
+	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
