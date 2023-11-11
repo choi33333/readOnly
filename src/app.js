@@ -27,10 +27,6 @@ app.get("/", function (req, res) {
   // res.redirect("/title/index.html");
 });
 
-app.get("/title/index.html", function (req, res) {
-  res.redirect("/title/index.html");
-});
-
 //api 호출
 app.use("/api", router);
 
