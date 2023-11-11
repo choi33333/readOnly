@@ -167,21 +167,35 @@ const getCartItemTemplate = (data, index) => {
         <img class='card_img' src=${data.imageUrl}>
     </div>
     <div class="card_namePrice">
+		<div class="book_category">카테고리 > ${data.categoryName}</div>
         <div class="bookname">${data.name}</div>
+		<div class="book_info_container">
+			<div class="bookauthor">${data.author} </div>
+			<div class="divider">글 ㅣ</div>
+			<div class="book_releasedDate">
+				${data.releasedDate.slice(0,-20)}년
+				${data.releasedDate.slice(5,-17)}월
+				${data.releasedDate.slice(8,-14)}일
+			</div>
+		</div>
         <div class="bookprice">${data.price.toLocaleString()}원</div>
     </div>
-    <div class="card_cntPrice">
-        <div id='sum${index}' class="book_totalPrice">${(
-		data.price * data.amount
-	).toLocaleString()}원</div>
+	<div>
+	</div>
+	<div class="cardCountBox">
         <div class="book_cntbtn">
             <a class="minusbtn ${index}">-</a>
             <div id=count${index} class="countvalue">${data.amount}  </div>
             <a class="plusbtn ${index}">+</a>
         </div>
     </div>
+    <div class="card_cntPrice">
+        <div id='sum${index}' class="book_totalPrice">${(
+		data.price * data.amount
+	).toLocaleString()}원</div>
+    </div>
     <div class="card_del">
-        <a class='carddelete ${index}'>X</a>
+        <a class='carddelete ${index}'>삭제</a>
     </div>
     </div>`;
 };
