@@ -12,10 +12,13 @@
 <body>
     <header>
         <a href="../mainpage/" class="logo"><h3><img src="../img/logo.svg" alt="로고"></h3></a>
-        <div class="search">
-            <input type="text" placeholder="도서를 찾아보세요!">
-            <button>검색</button>
+        <div class="search-container">
+            <input type="text" id="myInput" placeholder="도서를 찾아보세요!">
+            <button class="search-button">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
         </div>
+
         <div id="pageRoute"></div>    
     </header>
 
@@ -45,6 +48,7 @@
     <script src="../frontUtils/jwtUtil.js"></script>
     <script src="../frontUtils/loginStatus.js"></script> 
     <script src="../mainpage/mainpage.js"></script> 
+    <script src="https://kit.fontawesome.com/aa4c433e5b.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
