@@ -1,32 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>order</title>
-		<link rel="stylesheet" href="order.css" />
-		<!-- <link rel="stylesheet" href="../components/header.css" /> -->
-	</head>
-	<body>
-		<div class="wrap">
-			<header>
-				<a href="/" class="logo"
-					><h3><img src="../img/logo.svg" alt="로고" /></h3
-				></a>
-				<div class="search">
-					<input type="text" placeholder="도서를 찾아보세요!" />
-					<button>검색</button>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>order</title>
+	<link rel="stylesheet" href="order.css" />
+	<!-- <link rel="stylesheet" href="../components/header.css" /> -->
+</head>
+
+<body>
+	<div class="wrap">
+		<header>
+			<a href="/" class="logo">
+				<h3>readOnly📖</h3>
+			</a>
+			<div class="search">
+				<input type="text" placeholder="도서를 찾아보세요!" />
+				<button>검색</button>
+			</div>
+			<div id="pageRoute"></div>
+		</header>
+		<main>
+			<div class="mainWrap">
+				<div class="mainHead">
+					<div class="mainHeadText">
+						<h4>주문완료</h4>
+					</div>
+					<div class="mainHeadTextInfo">
+						<h2>고객님의 주문이 완료되었습니다.</h2>
+					</div>
 				</div>
-				<div id="pageRoute"></div>
-			</header>
-			<main>
-				<div class="mainWrap">
-					<div class="mainHead">
-						<div class="mainHeadText">
-							<h4>주문완료</h4>
+				<div class="info_container">
+					<div class="dataDiv">
+						<div class="orderInfo">
+							<div class="orderData_container">
+								<div class="orderData_number">주문번호</div>
+								<div class="orderData_sumPrice">총 주문금액 0원</div>
+							</div>
 						</div>
-						<div class="mainHeadTextInfo">
-							<h2>고객님의 주문이 정상적으로 완료되었습니다.</h2>
+						<div class="userInfo">
+							<div class="userInfoHeader">
+								<p>배송지</p>
+							</div>
+							<div class="userData">
+								<div class="userData_list">
+									<div class="userData_name user">수취인</div>
+									<div class="userData_phone user">연락처</div>
+									<div class="userData_address user">주소</div>
+									<div class="userData_addressDetail user">상세주소</div>
+									<div class="userData_postCode user">우편번호</div>
+								</div>
+							</div>
+						</div>
+						<div class="accountInfo">
+							<div class="accountHeader">
+								<p>가상계좌정보</p>
+							</div>
+							<div class="account_data_container">
+								<div class="account_list">
+									<div class="account">입금은행</div>
+									<div class="account">예금주</div>
+									<div class="account">계좌번호</div>
+									<div class="account">입금마감시간</div>
+								</div>
+								<div class="account_data">
+									<div class="account">CommonWealth Bank</div>
+									<div class="account">Ayden Wi</div>
+									<div class="account">062-256-1118-2584</div>
+									<div class="account">금일 자정</div>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="cartInfo">
