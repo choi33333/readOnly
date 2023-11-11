@@ -43,7 +43,9 @@ h2 {
 .bookWrap{
     width: 100%;
     display: flex;
+
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 .imgWrap{
     width: 200px;
@@ -52,7 +54,7 @@ h2 {
 }
 
 .bookWrap a{
-    width: 100%;
+    width: 300px;
     display: block;
 
 }
