@@ -38,14 +38,21 @@ main {
 	margin-top: 80px;
 	/* background-color: red; */
 	/* border: 1px solid; */
+	background-color: rgb(247 250 253);
+    align-items: center;
+    border-radius: 4px;
+    box-shadow: 5px 5px 5px rgb(228 234 240);
 }
 .bookImg{
 	width: 250px;
 	height: 350px;
+	overflow: hidden;
+    box-shadow: 5px 5px 5px rgb(200 200 200);
 }
 
 .bookInfo{
 	width: 400px;
+	padding-bottom: 40px;
 }
 img {
 	width: 100%;
@@ -60,9 +67,4 @@ img {
 	height: 40px;
 }
 
-.productInfo {
-	/* width: 500px; */
-	height: 200px;
-	/* resize: none; */
-	/* border: 1px solid; */
-}
+
