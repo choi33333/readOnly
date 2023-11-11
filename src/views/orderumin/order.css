@@ -94,7 +94,7 @@ main {
 .cartInfo {
 	width: 50%;
 	height: 100%;
-	padding: 0 3rem;
+	padding: 0 1rem;
 }
 .cartInfoHead {
 	width: 100%;
@@ -163,7 +163,6 @@ main {
 }
 .productPrice {
 	font-size: 12px;
-	width: 15%;
 	height: 100%;
 	justify-content: right;
 	color:grey;
@@ -211,10 +210,10 @@ main {
 	border-bottom: 1px solid grey;
 }
 .dataDiv {
-	width: 70%;
+	width: 50%;
 	display: flex;
 	flex-direction: column;
-	padding: 0 3rem;
+	padding: 0 1rem;
 	align-items: center;
 }
 .orderInfo {
@@ -312,10 +311,57 @@ p{
 	font-weight: bold;
 }
 
+.cart_bot_container{
+	display: flex;
+}
 .totalPirce_container{
-	margin-top: 1rem;
-	border: 1px solid grey;
-	background-color: grey;
-	width: 100%;
+	margin-top: 2rem;
+	border: 1px solid rgb(219, 219, 219);
+	background-color: rgb(219, 219, 219);
+	width: 50%;
 	height: 10rem;
 }
+.toNext_container{
+	margin-top: 2rem;
+	width: 50%;
+	height: 10rem;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+}
+.myPage_btn{	
+	align-items: center;
+	font-weight: bold;
+	font-size: 18px;
+	color: black;
+	margin-bottom: 1rem;
+	width: 80%;
+	height: 3.5rem;	
+	border-radius: 4px;
+	cursor: pointer;
+	border: 1px solid rgb(236, 236, 236);
+	background-color: rgb(236, 236, 236);
+	&:hover {
+		border-color: rgb(218, 218, 218);
+		background-color: rgb(218, 218, 218);
+	}
+}
+.mainPage_btn{
+	align-items: center;
+	font-weight: bold;
+	font-size: 18px;
+	color: white;
+	width: 80%;
+	height: 3.5rem;
+	border-radius: 4px;
+	cursor: pointer;
+	border: 1px solid rgb(16, 16, 160);
+	background-color: rgb(16, 16, 160);
+	&:hover {
+		border-color: rgb(12, 12, 105);
+		background-color: rgb(12, 12, 105);
+	}
+}
+
