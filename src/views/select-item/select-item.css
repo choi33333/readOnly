@@ -14,11 +14,12 @@ button{
 .container {
 	/* padding-top: 75.8px; */
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
+	/* justify-content: space-between; */
 }
 
 main {
-	width: 100%;
+	width: 90%;
 	padding-top: 60px;
 }
 
@@ -26,28 +27,40 @@ main {
 	width: 90%;
 	text-align: left;
 	margin-left: 30px;
-	/* margin-right: auto; */
+	margin-right: 50px;
 }
 
 .selected-item-info {
 	width: 100%;
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: flex-start;
+	flex-direction: column;
 	/* float: left; */
 	margin: auto;
-	margin-top: 80px;
+	margin-top: 20px;
+	margin-right: 100px;
+	padding: 50px;
 	/* background-color: red; */
 	/* border: 1px solid; */
 	background-color: rgb(247 250 253);
-    align-items: center;
     border-radius: 4px;
     box-shadow: 5px 5px 5px rgb(228 234 240);
+}
+
+.box{
+	display: flex;
+	+ .box {
+		margin-top: 50px;
+	}
 }
 .bookImg{
 	width: 250px;
 	height: 350px;
 	overflow: hidden;
     box-shadow: 5px 5px 5px rgb(200 200 200);
+	+ .bookInfo{
+		margin-left: 100px;
+	}
 }
 
 .bookInfo{
@@ -67,4 +80,15 @@ img {
 	height: 40px;
 }
 
+.categoryInsert{
+	font-size: 10px;
+}
+
+.infoTitle span{
+	font-size: 20px;
+}
+
+.infoBody{
+	width: 60%;
+}
 

@@ -27,7 +27,7 @@ const pageRouteList = () => {
     }else if(isAdmin(token)){
       console.log('관리자 로그인 상태');
       pageRoute.innerHTML = `
-        <a href="/admin" class="admin">관리자페이지</a>
+        <a href="/adminProduct" class="admin">관리자페이지</a>
         <a href="/userInformation" class="mypage">마이페이지</a>
         <a href="/cart" class="cart">장바구니</a>
         <a href="/" id="logOut">로그아웃</a>
@@ -42,4 +42,5 @@ const pageRouteList = () => {
 //로그아웃 하는 함수
 function logOutStatus() {
   localStorage.removeItem('Token');
+  localStorage.removeItem('checkOk');
 }
