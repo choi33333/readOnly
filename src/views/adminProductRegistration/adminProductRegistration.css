@@ -104,3 +104,13 @@ select {
   border: 1px solid black;
   border-radius: 10px;
 }
+
+button {
+  color: #fff;
+  background: rgb(16, 16, 160);
+}
+
+#imageSubmitBtn{
+  color: #fff;
+  background: rgb(16, 16, 160);
+}
