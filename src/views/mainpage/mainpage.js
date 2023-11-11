@@ -32,15 +32,15 @@ window.addEventListener("load", async () => {
             const image = copyAllProducts[i].imageUrl;
 			const title = copyAllProducts[i].name;
 			const author = copyAllProducts[i].author;
-			const price = copyAllProducts[i].price;
 
 			const template = `
+                <div class="select_container">
                     <a href=../select-item/?id=${copyAllProducts[i]._id}>
-                    <img src=${image}>
-                    <h4>${title}</h4>
-                    <h5>${author}</h5>
-                    <h5>${price}원</h5>
-                </a>
+                        <img src=${image}>
+                        <h4>${title}</h4>
+                        <h5>${author}</h5>
+                    </a>
+                <div>
             `;
 			weekBestsellerInfoElem.innerHTML += template;
 		}

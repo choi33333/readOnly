@@ -1,11 +1,19 @@
+main{
+	display: flex;
+	flex-direction: column;
+}
+
+#main-body{
+	height: 53rem;
+}
+
 #category-wrapper {
-	margin: 0 auto;
 	text-align: center;
 }
 
 #category-wrapper a {
 	color: black;
-	font-size: 20px;
+	font-size: 1.3rem;
 	text-decoration: none;
 	margin-right: 30px;
 }
@@ -16,33 +24,52 @@
 }
 
 .category-wrap {
-	background-color: rgb(234, 234, 234);
 	width: 85%;
-	height: 150px;
+	height: 5rem;
 	margin: 0 auto;
-	border-radius: 20px;
+	border-bottom: 2px solid rgb(16, 16, 160);
 }
 
-.category-wrap > h4 {
-	text-align: center;
-	margin-bottom: 40px;
-	padding-top: 12px;
+.category-wrap p {
+	font-size: 1rem;
+}
+
+.category_container{
+	padding-top: 1.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.category_text{
+	font-size: 1.3rem;
+}
+
+.category_divider{
+	background-color: rgb(156, 156, 156);
+    content: "";
+    height: 1.5rem;
+    width: 2px;
+	margin: 0 1rem;
+    display: inline-block;
 }
 
 /* 카테고리 css 끝  */
 
 .this-week-bestseller {
-	width: 90%;
-	height: 60vh;
+	width: 100%;
+	height: 45rem;
 	margin: 0 auto;
 	text-align: center;
-	padding-top: 30px;
-	/* border: 1px solid; */
+	align-items: center;
+	justify-content: center;
+	padding-top: 1rem;
+
 }
 
 #weekbestseller-header {
 	font-size: 25px;
-	padding-top: 30px;
+	height: 3rem;
 	/* padding-bottom: 10px; */
 }
 
@@ -52,33 +79,43 @@
 	color: black;
 	float: left;
 	margin: auto;
-
 }
 
-
 #weekbestseller-section {
-	margin: 0 auto;
-    width: 100%;
-    height: 80%;
+    width: auto;
+    height: 40rem;
     display: flex;
-    justify-content: center;
     align-items: center;
-	padding: 50px 0;
-	/* background-color: blue;	 */
-
+	justify-content: center;
 }
 
 #weekbestseller-info{
+	height: 40rem;
 	width: 100%;
 	display: flex;
-	gap: 40px;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+
 }
 
-img {
-	width: 100%;
-	/* width: 230px;
-	height: 260px;
-	object-fit: contain; */
+.select_container{
+	height: 30rem;
+	width: 20rem;
+	margin: 1rem;
+	&:hover {
+		transform:scale(1.3);
+		transition: transform .5s;  
+	}
+}
+
+.select_container img {
+	height: 28rem;
+	width: 19rem;
+	object-fit: cover;
+	box-shadow: 2px 3px 5px 0px black;
 }
 
 .this-week-bestseller h4 {
