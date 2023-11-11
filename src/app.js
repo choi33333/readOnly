@@ -23,8 +23,8 @@ app.use(express.static(path.join(__dirname, "/views")));
 
 // 페이지 로딩 함수
 app.get("/", function (req, res) {
-  res.redirect("/mainpage/index.html");
-  // res.redirect("/title/index.html");
+  // res.redirect("/mainpage/index.html");
+  res.redirect("/title/index.html");
 });
 
 //api 호출
