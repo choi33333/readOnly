@@ -62,12 +62,20 @@ body {
   gap: 50px;
 }
 
-.logo {
-	color: rgb(16, 16, 160);
-	font-size: 25px;
-	font-style: italic;
-  font-weight: bold;
+header{
+	margin-top: 90px;
+  align-self: center;
 }
+
+header h3 {
+	width: 150px;
+	height: 100%;
+}
+
+header img {
+	width: 100%;
+}
+
 
 form {
   display: flex;
