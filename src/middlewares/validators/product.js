@@ -1,8 +1,7 @@
 const { body } = require('express-validator');
 
 // 상품 추가 validation
-const addProductValidator = (req, res, next) => {
-    return [
+const addProductValidator = [
         body('name')
             .notEmpty()
             .withMessage('상품명을 입력해주세요'),
@@ -22,7 +21,6 @@ const addProductValidator = (req, res, next) => {
         body('releasedDate')
             .notEmpty()
             .withMessage('발행일을 입력해주세요')
-    ], next();
-};
+    ];
 
 module.exports = addProductValidator;

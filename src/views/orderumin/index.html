@@ -1,69 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>order</title>
-		<link rel="stylesheet" href="order.css" />
-		<!-- <link rel="stylesheet" href="../components/header.css" /> -->
-	</head>
-	<body>
-		<div class="wrap">
-			<header>
-				<a href="/" class="logo"><h3>readOnly📖</h3></a>
-				<div class="search">
-					<input type="text" placeholder="도서를 찾아보세요!" />
-					<button>검색</button>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>주문완료</title>
+	<link rel="stylesheet" href="order.css" />
+	<link rel="stylesheet" href="../components/header.css" />
+</head>
+
+<body>
+	<div class="wrap">
+		<script src="https://kit.fontawesome.com/aa4c433e5b.js" crossorigin="anonymous"></script>
+		<header>
+			<a href="../mainpage/" class="logo"><h3><img src="../img/logo.svg" alt="로고"></h3></a>
+			<div class="search-container">
+				<input type="text" id="myInput" placeholder="도서를 찾아보세요!">
+				<button class="search-button">
+					<i class="fa-solid fa-magnifying-glass"></i>
+				</button>
+			</div>
+	
+			<div id="pageRoute"></div>    
+		</header>
+		<main>
+			<div class="mainWrap">
+				<div class="mainHead">
+					<div class="mainHeadText">
+						<h4>주문완료</h4>
+					</div>
+					<div class="mainHeadTextInfo">
+						<h2>고객님의 주문이 완료되었습니다.</h2>
+					</div>
 				</div>
-				<div id="pageRoute"></div>
-			</header>
-			<main>
-				<div class="mainWrap">
-					<div class="mainHead">
-						<div class="mainHeadText">
-							<h4>주문완료</h4>
+				<div class="info_container">
+					<div class="dataDiv">
+						<div class="orderInfo">
+							<div class="orderData_container">
+								<div class="orderData_number">주문번호</div>
+								<div class="orderData_sumPrice">총 주문금액 0원</div>
+							</div>
 						</div>
-						<div class="mainHeadTextInfo">
-							<h2>고객님의 주문이 정상적으로 완료되었습니다.</h2>
+						<div class="userInfo">
+							<div class="userInfoHeader">
+								<p>배송지</p>
+							</div>
+							<div class="userData">
+								<div class="userData_list">
+									<div class="userData_name user">수취인</div>
+									<div class="userData_phone user">연락처</div>
+									<div class="userData_address user">주소</div>
+									<div class="userData_addressDetail user">상세주소</div>
+									<div class="userData_postCode user">우편번호</div>
+								</div>
+							</div>
+						</div>
+						<div class="accountInfo">
+							<div class="accountHeader">
+								<p>가상계좌정보</p>
+							</div>
+							<div class="account_data_container">
+								<div class="account_list">
+									<div class="account">입금은행</div>
+									<div class="account">예금주</div>
+									<div class="account">계좌번호</div>
+									<div class="account">입금마감시간</div>
+								</div>
+								<div class="account_data">
+									<div class="account">CommonWealth Bank</div>
+									<div class="account">Ayden Wi</div>
+									<div class="account">062-256-1118-2584</div>
+									<div class="account">금일 자정</div>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="cartInfo">
 						<div class="cartInfoHead">
-							<div class="cartInfoHead_text"><h4>상품정보</h4></div>
+							<div class="cartInfoHead_text">
+								<p>상품정보</p>
+							</div>
+						</div>
+						<div class="cartInfo_products">
 							<div class="cartInfoHead_table">
 								<div class="tableName">상품명</div>
-								<div class="tablePrice">상품금액</div>
 								<div class="tableAmount">수량</div>
 								<div class="tableSum">주문금액</div>
 							</div>
 						</div>
-						<div class="cartInfo_products"></div>
-					</div>
-					<div class="dataDiv">
-						<div class="orderInfo">
-							<div class="orderInfoHeader"><h4>주문정보</h4></div>
-							<div class="orderData">
-								<div class="orderData_number">주문번호</div>
-								<div class="orderData_pay">결제방법: 신용카드</div>
-								<div class="orderData_namePhone">주문자/연락처</div>
-								<div class="orderData_sumPrice">총 결제금액 0원</div>
+						<div class="cart_bot_container">
+							<div class="totalprice_container">
+								<div class="price_container_wrap">
+									<div class="price_container">
+										<h3>총 상품가격</h3>
+										<h3 class="totalprice">0원</h3>
+									</div>
+									<div class="price_container2">
+										<h3>배송비</h3>
+										<h3 class="deliveryprice">0원</h3>
+									</div>
+								</div>
+								<div class="totalallprice_container">
+									<div class="price_container">
+										<h3>총 주문금액</h3>
+										<h3 class="totalprice_all">0원</h3>
+									</div>
+								</div>
 							</div>
-						</div>
-						<div class="userInfo">
-							<div class="userInfoHeader"><h4>배송정보</h4></div>
-							<div class="userData">
-								<div class="userData_name">수취인</div>
-								<div class="userData_phone">연락처</div>
-								<div class="userData_address">배송지주소</div>
+							<div class="toNext_container">
+								<div class="myPage_btn">
+									<a href="/userInformation">마이페이지</a>
+								</div>
+								<div class="mainPage_btn">
+									<a href="/mainpage/">메인페이지</a>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</main>
-			<footer></footer>
-		</div>
-		<script src="order.js"></script>
-		<script src="../frontUtils/jwtUtil.js"></script>
-		<script src="../frontUtils/loginStatus.js"></script>
-	</body>
+			</div>
+		</main>
+		<footer></footer>
+	</div>
+	<script src="order.js"></script>
+	<script src="../frontUtils/jwtUtil.js"></script>
+	<script src="../frontUtils/loginStatus.js"></script>
+</body>
+
 </html>

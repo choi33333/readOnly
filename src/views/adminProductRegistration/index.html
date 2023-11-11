@@ -12,19 +12,17 @@
 
 <body>
     <header>
-        <a href="/" class="logo"><h3>readOnly📖</h3></a>
+        <a href="../mainpage/" class="logo"><h3><img src="../img/logo.svg" alt="로고"></h3></a>
         <div id="pageRoute"></div>
     </header>
     
     <div class="content">
         <div class="menu">
             <h4 id="category">관리자</h4>
-            <a href="/admin">상품조회</a>
+            <a href="/adminProduct">상품조회</a>
             <a href="/adminProductRegistration">상품등록</a>
-            <a href="/adminDeleteProduct">상품수정/삭제</a>
             <a href="/adminCategory">카테고리조회</a>
             <a href="/adminCategoryAdd">카테고리등록</a>
-            <a href="/adminCategoryDelete">카테고리삭제</a>
             <a href="/adminUsers">회원관리</a>
             <a href="/adminorder">주문현황</a>
         </div>
@@ -42,37 +40,37 @@
             
                 <div class="rightInput">
                     <div class="productInput">
-                        <div>도서명</div>
+                        <label for="productImageValue">도서명</label>
                         <input type="text" id='productNameValue'>
                         <div id="productNameAlarm" class="alarmoff"></div>
                     </div>
                     
                     <div class="productInput">
-                        <div>저자명</div>
+                        <label for="authorValue">저자명</label>
                         <input type="text" id='authorValue'>
                         <div id="authorAlarm" class="alarmoff"></div>
                     </div>
                     
                     <div class="productInput">
-                        <div>카테고리</div>
-                        <input type="text" id='categoryValue'>
+                        <label for="categoryValue">카테고리</label>
+                        <select id='categoryValue'></select>
                         <div id="categoryAlarm" class="alarmoff"></div>
                     </div>
                     
                     <div class="productInput">
-                        <div>가격</div>
+                        <label for="priceValue">가격</label>
                         <input type="number" id='priceValue'>
                         <div id="priceAlarm" class="alarmoff"></div>
                     </div>
                     
                     <div class="productInput">
-                        <div>도서 출시일</div>
+                        <label for="releasedDateValue">도서출시일</label>
                         <input type="date" id='releasedDateValue'>
                         <div id="releasedDateAlarm" class="alarmoff"></div>
                     </div>
                     
                     <div class="productInput">
-                        <div>도서 내용</div>
+                        <label for="productInfoValue">책 소개</label>
                         <textarea wrap='virtual' id='productInfoValue'></textarea>
                         <div id="productInfoAlarm" class="alarmoff"></div>
                     </div>
@@ -95,5 +93,6 @@
     <script src="../frontUtils/loginStatus.js"></script>
     <script src="../frontUtils/fetchCustom.js"></script> 
     <script src="./adminProductRegistration.js"></script>
+    <script src="./categorySelect.js"></script>
 </body>
 </html>

@@ -1,8 +1,7 @@
 const { body } = require('express-validator');
 
-// 회원가입 validation
-const userMeValidator = (req, res, next) => {
-    return [
+// 마이페이지 수정
+const userMeValidator = [
         body('phoneNumber')
             .notEmpty()
             .withMessage('전화번호를 입력해주세요'),
@@ -12,11 +11,7 @@ const userMeValidator = (req, res, next) => {
             .withMessage('우편번호를 입력해주세요'),
         body('address')
             .notEmpty()
-            .withMessage('주소를 입력해주세요'),
-        body('addressDetail')
-            .notEmpty()
-            .withMessage('상세주소를 입력해주세요'),
-        ], next();
-};
+            .withMessage('주소를 입력해주세요')
+        ];
 
 module.exports = userMeValidator;

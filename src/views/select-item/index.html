@@ -10,13 +10,17 @@
 	</head>
 
 	<body>
+		<script src="https://kit.fontawesome.com/aa4c433e5b.js" crossorigin="anonymous"></script>
 		<header>
-			<a href="/" class="logo"><h3>readOnly📖</h3></a>
-			<div class="search">
-				<input type="text" placeholder="도서를 찾아보세요!" />
-				<button>검색</button>
+			<a href="../mainpage/" class="logo"><h3><img src="../img/logo.svg" alt="로고"></h3></a>
+			<div class="search-container">
+				<input type="text" id="myInput" placeholder="도서를 찾아보세요!">
+				<button class="search-button">
+					<i class="fa-solid fa-magnifying-glass"></i>
+				</button>
 			</div>
-			<div id="pageRoute"></div>
+	
+			<div id="pageRoute"></div>    
 		</header>
 
 		<div class="container">
@@ -30,21 +34,38 @@
 			<main>
 				<div class="body">
 					<div class="selected-item-info">
-						<img class="imgInsert" src="../img/bestseller-novel1.jpeg" />
-						<h4 class="categoryInsert">카테고리></h4>
-						<!-- 추후에 "소설"부분은 해당 카데고리별로 자동으로 가져올 수 있도록 코드 수정 필요-->
-						<h3 class="booknameInsert"></h3>
-						<h5 class="bookAuthor"></h5>
-						<h5 class="bookPrice"></h5>
-						<p class="productInfo"></p>
-						<button class="addBtn">장바구니 추가</button>
-						<button class="buyBtn">바로구매</button>
+						<div class="box">
+							<div class="bookImg">
+								<img class="imgInsert" src="" />
+							</div>
+							<div class="bookInfo">
+								<h4 class="categoryInsert">카테고리></h4>
+								<!-- 추후에 "소설"부분은 해당 카데고리별로 자동으로 가져올 수 있도록 코드 수정 필요-->
+								<h3 class="booknameInsert"></h3>
+								<h5 class="bookAuthor"></h5>
+								<h5 class="bookPrice"></h5>
+								<h5 class="releasedDate"></h5>
+								<div class="btn-group">
+									<button class="addBtn">장바구니 추가</button>
+									<button class="buyBtn">바로구매</button>
+								</div>
+							</div>
+						</div>
+						<div class="box">
+							<div class="productInfoWrap">
+								<div class="infoTitle">
+									<span>책 정보</span>
+								</div>
+								<div class="infoBody">
+									<p class="productInfo"></p>
+								</div>
+							</div>
+						</div>
 					</div>
+
 				</div>
 			</main>
 		</div>
-			
-
 
 		<script src="select-item.js"></script>
 		<script src="../frontUtils/jwtUtil.js"></script>

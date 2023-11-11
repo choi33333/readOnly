@@ -84,9 +84,9 @@ ModificationBtn.addEventListener('click', () => {
       const res = await response.json();
       //console.log('response: ', res);
       //백엔드에서 status 붙이지 않으면 default값으로 status 200 옴(ok)
-      if(response.status === 200){
+      if(response.status === 201){
         //console.log('성공');
-        location.href = '/adminDeleteProduct';
+        location.href = '/adminProduct';
       }else if(response.status === 401){
         //console.log('로그인 필요');
       }

@@ -7,7 +7,6 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
-  padding-top: 30px;
   align-items: center;
 }
 
@@ -46,8 +45,12 @@ padding-left: 65px;
 .productInput {
   text-align: left;
   display: flex;
-  flex-direction: column;
   gap: 10px;
+  align-items: center;
+}
+
+.productInput label{
+  width: 75px;
 }
 
 .productInput > input {
@@ -97,4 +100,26 @@ input[type="number"]::-webkit-inner-spin-button {
 
 #imageUploader {
   border: none;
+}
+
+select {
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+button {
+  color: #fff;
+  background: rgb(16, 16, 160);
+}
+
+#imageSubmitBtn{
+  margin-top: 6px;
+  color: #fff;
+  background: rgb(16, 16, 160);
+}
+
+
+label {
+  min-width: 100px;
 }

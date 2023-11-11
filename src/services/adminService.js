@@ -1,7 +1,6 @@
 const { CategoryModel, OrderModel, ProductModel, UserModel } = require("../models");
 
 const adminService = {
-    
   // CATEGORY
   async getCategories() {
     const categories = await CategoryModel.find({}).lean();
@@ -58,6 +57,7 @@ const adminService = {
   },
 
   async updateOrder(id, orderStatus) {
+    console.log(id, orderStatus);
     const order = await OrderModel.findById(id).lean();
 
     if (!order) {
@@ -66,15 +66,17 @@ const adminService = {
       throw error;
     }
 
-    const updatedOrder = await OrderModel.updateOne({
-      orderStatus: orderStatus,
-    });
+    const updatedOrder = await OrderModel.updateOne(
+      { _id: id },
+      { orderStatus: orderStatus }
+    );
+    console.log(order.orderStatus);
 
     return updatedOrder;
   },
 
   async deleteOrder(id) {
-    const order = await OrderModel.findOneAndDelete({ _id : id });
+    const order = await OrderModel.findOneAndDelete({ _id: id });
     console.log(order);
 
     if (!order) {
@@ -85,23 +87,68 @@ const adminService = {
   },
 
   // PRODUCT
-  async getProducts(){
+  async getProducts() {
     const products = await ProductModel.find({}).lean();
 
     if (products == 0) {
-        const error = new Error("상품이 존재하지 않습니다.");
-        error.status = 401;
-        throw error;
-    };
+      const error = new Error("상품이 존재하지 않습니다.");
+      error.status = 401;
+      throw error;
+    }
 
     return products;
-  }, 
+  },
 
-  async createProduct(productData){
-    const { name, category, author, price, imageUrl, productInfo, releasedDate } = productData;
+  async createProduct(productData) {
+    const {
+      name,
+      category,
+      author,
+      price,
+      imageUrl,
+      productInfo,
+      releasedDate,
+    } = productData;
     const categoryId = await CategoryModel.findOne({ name: category });
 
     const product = await ProductModel.create({
+      name: name,
+      category: categoryId._id,
+      categoryName: category,
+      author: author,
+      price: price,
+      imageUrl: imageUrl,
+      productInfo: productInfo,
+      releasedDate: releasedDate,
+      soldAmount: 0,
+    });
+
+    return product;
+  },
+
+  async updateProduct(id, productData) {
+    const {
+      name,
+      category,
+      author,
+      price,
+      imageUrl,
+      productInfo,
+      releasedDate,
+    } = productData;
+
+    const product = await ProductModel.findOne({ _id: id }).lean();
+
+    if (!product) {
+      const error = new Error("제품이 존재하지 않습니다.");
+      error.status = 401;
+      throw error;
+    }
+    const categoryId = await CategoryModel.findOne({ name: category });
+
+    const updatedProduct = await ProductModel.updateOne(
+      { _id: id },
+      {
         name: name,
         category: categoryId._id,
         categoryName: category,
@@ -110,84 +157,46 @@ const adminService = {
         imageUrl: imageUrl,
         productInfo: productInfo,
         releasedDate: releasedDate,
-        soldAmount: 0,
-    });
+      }
+    );
 
-    return product;
+    return updatedProduct;
   },
 
-  async updateProduct(id, productData){
-    const {
-        name,
-        category,
-        author,
-        price,
-        imageUrl,
-        productInfo,
-        releasedDate,
-      } = productData;
-
-      const product = await ProductModel.findOne({ _id: id }).lean();
-
-        if (!product) {
-            const error = new Error("제품이 존재하지 않습니다.");
-            error.status = 401;
-            throw error;
-        }
-        const categoryId = await CategoryModel.findOne({ name: category });
-
-        const updatedProduct = await ProductModel.updateOne(
-            { _id: id },
-            {
-            name: name,
-            category: categoryId._id,
-            categoryName: category,
-            author: author,
-            price: price,
-            imageUrl: imageUrl,
-            productInfo: productInfo,
-            releasedDate: releasedDate,
-            }
-        );
-
-        return updatedProduct;
-  }, 
-
-  async deleteProduct(id){
-    const product = await ProductModel.findById({ _id : id }).lean();
+  async deleteProduct(id) {
+    const product = await ProductModel.findById({ _id: id }).lean();
     const deletedProduct = await ProductModel.findOneAndDelete(product);
 
     if (!product) {
-        const error = new Error("제품이 존재하지 않습니다.");
-        error.status = 401;
-        return next(error);
-    };
-    
+      const error = new Error("제품이 존재하지 않습니다.");
+      error.status = 401;
+      return next(error);
+    }
+
     return deletedProduct;
   },
 
   // USER
-  async getUser(){
+  async getUser() {
     const users = await UserModel.find({}).lean();
 
     if (!users) {
-        const error = new Error("사용자가 없습니다.");
-        error.status = 404;
-        throw error;
-    };
+      const error = new Error("사용자가 없습니다.");
+      error.status = 404;
+      throw error;
+    }
 
     return users;
   },
 
-  async deleteUser(id){
-    const deletedUser = await UserModel.findOneAndDelete({ _id : id })
-    .lean();
+  async deleteUser(id) {
+    const deletedUser = await UserModel.findOneAndDelete({ _id: id }).lean();
 
     if (!deletedUser || deletedUser.length === 0) {
-        const error = new Error("사용자가 존재하지 않습니다.");
-        error.status = 404;
-        throw error;
-    };
+      const error = new Error("사용자가 존재하지 않습니다.");
+      error.status = 404;
+      throw error;
+    }
 
     return deletedUser;
   },

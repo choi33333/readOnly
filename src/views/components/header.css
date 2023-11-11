@@ -4,12 +4,15 @@ header a {
 }
 
 .logo {
-	color: rgb(16, 16, 160);
+	
+	/* color: rgb(16, 16, 160);
 	font-size: 20px;
-	font-style: italic;
+	font-style: italic; */
 }
 
 header {
+	width: 100%;
+	height: 75.8px;
 	display: flex;
 	justify-content: space-between;
 	border-bottom: 1px solid rgb(176, 176, 176);
@@ -22,24 +25,46 @@ header {
 	z-index: 100;
 }
 
-.search {
-	justify-content: center;
-	text-align: center;
-	width: 300px;
-	margin: auto;
+header h3 {
+	width: 200px;
+	height: 100%;
 }
 
-input {
-	width: 240px;
-	height: 33px;
-	border: 1px solid;
-	border-color: rgb(16, 16, 160);
-	border-radius: 10px;
+header img {
+	width: 70%;
 }
 
-button {
-	height: 35px;
+.search-container {
+	position: absolute;
+	top: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	align-items: center;
+	border: 2px solid rgb(16, 16, 160);
+	border-radius: 15px;
+	width: 30rem;
+	height: auto;
+	padding: 0 10px;
 }
+
+#myInput {
+	flex: 1;
+	border: none;
+	padding: 8px;
+	font-size: 15px;
+	background: transparent;
+	outline: none;
+}
+
+.search-button {
+	background: none;
+	border: none;
+	color: #1010a0;
+	cursor: pointer;
+}
+
+
 
 #pageRoute {
 	display: flex;

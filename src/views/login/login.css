@@ -62,12 +62,20 @@ body {
   gap: 50px;
 }
 
-.logo {
-	color: rgb(16, 16, 160);
-	font-size: 25px;
-	font-style: italic;
-  font-weight: bold;
+header{
+	margin-top: 90px;
+  align-self: center;
 }
+
+header h3 {
+	width: 150px;
+	height: 100%;
+}
+
+header img {
+	width: 100%;
+}
+
 
 form {
   display: flex;
@@ -89,7 +97,7 @@ a {
 .whetherMember > a > p {
   width: 150px;
   height: 40px;
-  background-color: #F5F5F5;
+  background-color: rgba(161, 161, 182, 0.103);
   border: 1px solid black;
   border-radius: 0;
   text-align: center;
@@ -110,7 +118,13 @@ a {
   gap: 15px;
 }
 
-.loginInput > input {
+.loginInput > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.loginInput > div > input {
   width: 300px;
   height: 40px;
   border: 1px solid black;
@@ -156,4 +170,10 @@ a {
   font-size: small;
   color: red;
   display: block;
+}
+
+button {
+  background-color: rgb(16, 16, 160);
+  color: white;
+  text-align: center;
 }
