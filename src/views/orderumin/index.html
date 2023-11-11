@@ -6,20 +6,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>주문완료</title>
 	<link rel="stylesheet" href="order.css" />
-	<!-- <link rel="stylesheet" href="../components/header.css" /> -->
+	<link rel="stylesheet" href="../components/header.css" />
 </head>
 
 <body>
 	<div class="wrap">
 		<header>
-			<a href="/" class="logo">
-				<h3>readOnly📖</h3>
-			</a>
+			<a href="/" class="logo"><h3><img src="../img/logo.svg" alt="로고"></h3></a>
 			<div class="search">
-				<input type="text" placeholder="도서를 찾아보세요!" />
+				<input type="text" placeholder="도서를 찾아보세요!">
 				<button>검색</button>
 			</div>
-			<div id="pageRoute"></div>
+			<div id="pageRoute"></div>    
 		</header>
 		<main>
 			<div class="mainWrap">
@@ -87,8 +85,23 @@
 							</div>
 						</div>
 						<div class="cart_bot_container">
-							<div class="totalPirce_container">
-								<div class="totalPrice_sumPrice"></div>
+							<div class="totalprice_container">
+								<div class="price_container_wrap">
+									<div class="price_container">
+										<h3>총 상품가격</h3>
+										<h3 class="totalprice">0원</h3>
+									</div>
+									<div class="price_container2">
+										<h3>배송비</h3>
+										<h3 class="deliveryprice">0원</h3>
+									</div>
+								</div>
+								<div class="totalallprice_container">
+									<div class="price_container">
+										<h3>총 주문금액</h3>
+										<h3 class="totalprice_all">0원</h3>
+									</div>
+								</div>
 							</div>
 							<div class="toNext_container">
 								<div class="myPage_btn">

@@ -30,7 +30,7 @@ loginBtn.addEventListener('click', async (e) => {
         //console.log('성공');
         window.localStorage.setItem('Token', fetchData.data);
         location.href = '/';
-      }else if(fetchResult.status === 401){
+      }else if(fetchResult.status === 400){
         loginController.innerHTML = '이메일이나 비밀번호가 틀렸습니다';
         loginController.className = 'alarmon';
       }

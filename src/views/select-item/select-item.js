@@ -126,9 +126,7 @@ window.addEventListener("load", async () => {
 	).innerHTML = `가격 : ${bookDetail[0].price.toLocaleString()}원`;
 	document.querySelector(
 		".productInfo"
-	).innerHTML = `책 정보 : 
-	${bookDetail[0].productInfo}
-	`;
+	).innerHTML = `${bookDetail[0].productInfo}`;
 	document.querySelector(
 		".releasedDate"
 	).innerHTML = `발행일 : 

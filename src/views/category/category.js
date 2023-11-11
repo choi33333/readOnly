@@ -80,20 +80,20 @@ window.addEventListener("load", async () => {
 	copyFilteredProducts1.sort((a, b) => b.soldAmount - a.soldAmount);
 
 	if (copyFilteredProducts1 !== null) {
-		for (let i = 0; i < 2; i++) {
+		for (let i = 0; i < 4; i++) {
 			const image = copyFilteredProducts1[i].imageUrl;
 			const title = copyFilteredProducts1[i].name;
 			const author = copyFilteredProducts1[i].author;
 			const price = copyFilteredProducts1[i].price;
-			const productInfo = copyFilteredProducts1[i].productInfo;
 
 			const template = `
                     <a href=../select-item/?id=${copyFilteredProducts1[i]._id}>
-                    <img src=${image}>
+					<div class="imgWrap">
+						<img src=${image}>
+					</div>
                     <h5>${title}</h5>
                     <h6>${author}</h6>
                     <h6>${price}</h6>
-                    <p>${productInfo}</p>
                 </a>
             `;
 			bestsellerInfoElem.innerHTML += template;
@@ -108,19 +108,19 @@ window.addEventListener("load", async () => {
 	copyFilteredProducts2.sort((a, b) => b.releasedDate - a.releasedDate);
 
 	if (copyFilteredProducts2 !== null) {
-		for (let i = 0; i < 2; i++) {
+		for (let i = 0; i < 4; i++) {
 			const image = copyFilteredProducts2[i].imageUrl;
 			const title = copyFilteredProducts2[i].name;
 			const author = copyFilteredProducts2[i].author;
 			const price = copyFilteredProducts2[i].price;
-			const productInfo = copyFilteredProducts2[i].productInfo;
 			const template = `
                 <a href=../select-item/?id=${copyFilteredProducts2[i]._id}>
-                    <img src=${image}>
+					<div class="imgWrap">
+						<img src=${image}>
+					</div>
                     <h5>${title}</h5>
                     <h6>${author}</h6>
                     <h6>${price}</h6>
-                    <p>${productInfo}</p>
                 </a>
             `;
 			newbookInfoElem.innerHTML += template;
@@ -136,15 +136,15 @@ window.addEventListener("load", async () => {
 			const title = filteredProducts[i].name;
 			const author = filteredProducts[i].author;
 			const price = filteredProducts[i].price;
-			const productInfo = filteredProducts[i].productInfo;
 
 			const template = `
                     <a href=../select-item/?id=${filteredProducts[i]._id}>
-                    <img src=${image}>
+                    <div class="imgWrap">
+						<img src=${image}>
+					</div>
                     <h5>${title}</h5>
                     <h6>${author}</h6>
                     <h6>${price}</h6>
-                    <p>${productInfo}</p>
                 </a>
             `;
             viewAllInfoElem.innerHTML += template;
