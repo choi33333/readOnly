@@ -58,3 +58,7 @@ main {
 .listOverflow {
     overflow: auto;
 }
+
+.deleteButton > button{
+  background-color: rgb(234, 234, 234);
+}
