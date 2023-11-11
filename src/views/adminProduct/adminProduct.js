@@ -87,9 +87,8 @@ const productDelete = (index) => {
         },
       })
       .then(async (response) => {
-        const res = await response.json();
         //console.log('response2: ', res);
-        if(response.status === 200){
+        if(response.status === 204){
           //console.log('삭제성공');
           location.replace(location.href);
         }
