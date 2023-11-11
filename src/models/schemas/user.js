@@ -28,7 +28,6 @@ const userSchema = new Schema(
     },
     addressDetail: {
       type: String,
-      required: true,
     },
     role: {
       type: String,

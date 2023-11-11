@@ -9,7 +9,7 @@
 </head>
 <body>
   <header>
-    <a href="/" class="logo"><h3>readOnly📖</h3></a>
+    <a href="../mainpage/" class="logo"><h3><img src="../img/logo.svg" alt="로고"></h3></a>
   </header>
   <main>
     <form>
@@ -18,25 +18,18 @@
         <a href="/nonmemberLogin"><p class="nonMember">비회원 주문 조회</p></a>
       </div>
       <div class="loginInput">
-        <div id="loginAlarm" class="alarmoff"></div>
-        <input type="text" placeholder="  이메일" id="email">
-        <div id="emailAlarm" class="alarmoff"></div>
-        <input type="password" placeholder="  비밀번호" id="password">
-        <div id="passwordAlarm" class="alarmoff"></div>
-        <!-- <div class="check"> -->
-          <!-- <div>
-            <input type="checkbox">
-            <p>이메일 저장</p>
-          </div> -->
-          <!-- <div>
-            <input type="checkbox">
-            <p>로그인 상태 유지</p>
-          </div> -->
-        <!-- </div> -->
+        <p id="loginAlarm" class="alarmoff"></p>
+        <div>
+          <input type="text" placeholder="이메일" id="email">
+          <div id="emailAlarm" class="alarmoff"></div>
+        </div>
+        <div>
+          <input type="password" placeholder="비밀번호" id="password">
+          <div id="passwordAlarm" class="alarmoff"></div>
+        </div>
       </div>
       <button id="loginBtn">로그인</button>
       <div class="find">
-        <!-- <p><a href="">아이디찾기</a> / <a href="">비밀번호 찾기</a></p> -->
         <p></p>
         <p><a href="/join">회원가입</a></p>
       </div>

@@ -60,9 +60,10 @@ RegistrationBtn.addEventListener('click', () => {
       .then(async (response) => {
         const res = await response.json();
         //console.log('response: ', res);
-        if(response.status === 200){ 
+        if(response.status === 201){ 
           //console.log(res.data);
-          location.href = '/admin';
+          alert('이미지가 업로드 되었습니다');
+          location.href = '/adminProduct';
         }else if(response.status === 403){
           //console.log('권한이 없습니다');
         }

@@ -8,7 +8,6 @@ const authController = {
         res.status(201).json({
             error: null,
             data: user,
-            message: "회원가입에 성공했습니다",
         });
     },
 
@@ -19,7 +18,6 @@ const authController = {
         res.status(201).json({
             error: null,
             data: token,
-            message: "로그인에 성공했습니다",
         });
     },
 };

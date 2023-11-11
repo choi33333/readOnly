@@ -16,15 +16,15 @@ mongoose
 
 // view 엔진을 ejs를 쓰겠다는 설정
 
-app.engine("html", require("ejs").renderFile);
-app.set("views", __dirname + "/views");
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "/views")));
 
 // 페이지 로딩 함수
 app.get("/", function (req, res) {
-  res.render("./mainpage/index.html");
+  // res.redirect("/mainpage/index.html");
+  res.redirect("/title/index.html");
 });
 
 //api 호출
@@ -38,13 +38,17 @@ app.use((req, res, next) => {
 });
 
 // 에러 핸들러 등록
-app.use((err, req, res, next) => {
-  console.error(err);
-  res.status(err.status).json({
-    error: err.message,
+app.use((error, req, res, next) => {
+  console.log(error)
+  if (error.status !== undefined && Math.floor(error.status / 100) === 5) {
+     console.error(error);
+  }
+  res.status(error.status ?? 500).json({
+    error: error.message,
     data: null,
   });
 });
+
 
 // 서버 띄울때 포트 정보 셋팅 및 처음 실행 시 필요한 기능 수행 가능
 app.listen(3000, function () {

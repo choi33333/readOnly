@@ -16,9 +16,8 @@ const userController = {
         const { password } = req.body;
         await userService.userMePassCheck(res.locals.user.em, password);
 
-        res.json({
+        res.status(201).json({
             error: null,
-            message: "비밀번호가 일치합니다."
         });
     },
 
@@ -26,7 +25,7 @@ const userController = {
     async updateUserMe(req, res){
         const updatedUser = await userService.updateUserMe(res.locals.user.em, req.body);
 
-        res.json({
+        res.status(201).json({
             error: null,
             data: updatedUser,
         });
@@ -36,10 +35,9 @@ const userController = {
     async deleteUserMe(req, res){
         const deletedUser = await userService.deleteUserMe(res.locals.user.em);
 
-        res.json({
+        res.status(204).json({
             error: null,
             data: deletedUser,
-            message: "안녕히가세요. 다음에 또 만나요!",
         });
     }
 };

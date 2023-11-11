@@ -88,7 +88,7 @@ completBtn.addEventListener('click', () => {
             location.href = '/userInformation'
           }else{
             localStorage.removeItem('Token');
-            location.href = '/'
+            location.href = '/mainpage/'
           }
 
         }else if(response.status === 401){

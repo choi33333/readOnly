@@ -127,6 +127,12 @@ window.addEventListener("load", async () => {
 	document.querySelector(
 		".productInfo"
 	).innerHTML = `${bookDetail[0].productInfo}`;
+	document.querySelector(
+		".releasedDate"
+	).innerHTML = `
+	${bookDetail[0].releasedDate.slice(0, -20)}년
+	${bookDetail[0].releasedDate.slice(5, -17)}월
+	${bookDetail[0].releasedDate.slice(8, -14)}일`;
 });
 const fetchUser = async () => {
 	await fetch("/api/v1/users/me", {

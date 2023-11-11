@@ -1,52 +1,3 @@
-header a {
-	text-decoration: none;
-	color: rgb(16, 16, 160);
-}
-
-.logo {
-	color: rgb(16, 16, 160);
-	font-size: 20px;
-	font-style: italic;
-}
-
-header {
-	display: flex;
-	justify-content: space-between;
-	border-bottom: 1px solid rgb(176, 176, 176);
-	background-color: white;
-
-	/* 헤더 상단고정
-	width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 100; */
-}
-
-.search {
-	justify-content: center;
-	text-align: center;
-	width: 300px;
-	margin: auto;
-}
-
-input {
-	width: 240px;
-	height: 33px;
-	border: 1px solid;
-	border-color: rgb(16, 16, 160);
-	border-radius: 10px;
-}
-
-button {
-	height: 35px;
-}
-
-#pageRoute {
-	display: flex;
-	gap: 12px;
-	margin-top: 10px;
-	margin-right: 20px;
-}
 /* 위에 코드는 헤더 css */
 
 div {
@@ -65,6 +16,7 @@ body {
 	border-bottom: 1px solid grey;
 } */
 main {
+	padding-top: 5%;
 	height: 85%;
 	min-width: none;
 	min-height: 80%;
@@ -72,7 +24,7 @@ main {
 	padding-right: 100px;
 }
 .main_label {
-	height: 8%;
+	height: 10%;
 	width: 80%;
 	font-size: 20px;
 	display: flex;
@@ -82,17 +34,20 @@ main {
 .removeall {
 	margin-right: 10%;
 	font-size: 15px;
-	font-weight: bold;
-	width: 10%;
-	height: 80%;
+	font-weight: 400;
+	width: 12%;
+	height: 2.3rem;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	border-radius: 4px;
 	cursor: pointer;
-	border: 1px solid black;
+	color: white;
+	border: 1px solid rgb(16, 16, 160);
+	background-color: rgb(16, 16, 160);
 	&:hover {
-		background-color: rgb(236, 236, 236);
+		border-color: rgb(12, 12, 105);
+		background-color: rgb(12, 12, 105);
 	}
 }
 
@@ -107,7 +62,7 @@ footer {
 }
 
 .cart_product {
-	width: 75%;
+	width: 70%;
 	height: 100%;
 	overflow: scroll;
 	padding: 0 5%;
@@ -162,21 +117,21 @@ footer {
 }
 
 .book_category {
-	margin-top:10px;
+	padding-top: 1.5rem;
 	font-size: 15px;
 	height: 10%;
 	display: flex;
 	align-items: center;
-	padding-left: 5px;
+	padding-left: 0.5rem;
 	color: gray;
 }
 .bookname {
-	font-size: 30px;
-	font-weight: bold;
+	font-size: 27px;
+	font-weight: 500;
 	height: 25%;
 	display: flex;
 	align-items: center;
-	padding-left: 10px;
+	padding: 0.5rem 0 1rem 1rem;
 }
 
 .book_info_container {
@@ -187,7 +142,7 @@ footer {
 	height: 15%;
 	display: flex;
 	align-items: center;
-	padding-left: 20px;
+	padding-left: 2rem;
 }
 .book_releasedDate {
 	font-size: 15px;
@@ -198,18 +153,18 @@ footer {
 }
 .bookprice {
 	font-size: 15px;
-	height: 50%;
+	height: 20%;
 	display: flex;
 	align-items: center;
 	padding-left: 80%;
 }
 
-.divider{
+.divider {
 	font-size: 15px;
 	height: 15%;
 	padding-left: 10px;
-    display: flex;
-    color: gray;
+	display: flex;
+	color: grey;
 }
 
 .cardCountBox {
@@ -251,15 +206,15 @@ footer {
 	width: 25%;
 	height: 100%;
 	display: flex;
-	font-weight: bold;
+	font-weight: 500;
 	justify-content: center;
 	border-top-right-radius: 2px;
 	border-bottom-right-radius: 2px;
 	cursor: pointer;
 	&:hover {
 		color: white;
-		background-color: rgb(0, 88, 163);
-		border-color: rgb(0, 88, 163);
+		border-color: rgb(16, 16, 160);
+		background-color: rgb(16, 16, 160);
 	}
 }
 .countvalue {
@@ -274,15 +229,15 @@ footer {
 	width: 25%;
 	height: 100%;
 	display: flex;
-	font-weight: bold;
+	font-weight: 500;
 	justify-content: center;
 	border-top-left-radius: 2px;
 	border-bottom-left-radius: 2px;
 	cursor: pointer;
 	&:hover {
 		color: white;
-		border-color: rgb(0, 88, 163);
-		background-color: rgb(0, 88, 163);
+		border-color: rgb(16, 16, 160);
+		background-color: rgb(16, 16, 160);
 	}
 }
 .card_del {
@@ -293,11 +248,11 @@ footer {
 	align-items: center;
 }
 .carddelete {
-	font-weight: bold;
+	font-weight: 500;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: 5px 10px; 
+	padding: 5px 10px;
 	color: white;
 	font-size: 1rem;
 	text-transform: uppercase;
@@ -306,52 +261,74 @@ footer {
 	border-radius: 4px;
 	cursor: pointer;
 	color: white;
-		border-color: rgb(0, 88, 163);
-		background-color: rgb(0, 88, 163);
+	border: 1px solid rgb(16, 16, 160);
+	background-color: rgb(16, 16, 160);
 	&:hover {
-		border-color: rgb(0, 67, 126);
-		background-color: rgb(0, 67, 126);
+		border-color: rgb(12, 12, 105);
+		background-color: rgb(12, 12, 105);
 	}
 }
 .pay_div {
-	width: 25%;
-	height: 70%;
+	width: 30%;
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+	text-align: center;
 }
+.submit_order_container {
+	height: 20rem;
+	width: 100%;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+}
+
+.user_container {
+	padding-top: 0;
+	height: 20rem;
+	width: 100%;
+	display: flex;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	padding-bottom: 0.5rem;
+}
+
 .borderdiv {
 	width: 70%;
-	height: 50%;
-	margin-top: 10%;
+	height: 13rem;
 	border: 1px solid grey;
-	border-radius: 5%;
+	border-radius: 10px;
 }
 .totalpricediv {
-	height: 50%;
+	height: 8rem;
 	border-bottom: 1px solid grey;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
-.totalprice_container{
-	height: 50%;
+.totalprice_container {
+	height: 5rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	margin-bottom: 1.5rem;
 }
-.totalprice{
+.totalprice {
 	padding-left: 2rem;
 }
-.deliveryprice{
+.deliveryprice {
 	padding-left: 2rem;
 }
-.price_container{
+.price_container {
 	display: flex;
 }
+.totalprice_all {
+	padding-left: 2rem;
+}
 .pay_btn {
-	height: 30%;
+	height: 3.5rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -359,18 +336,37 @@ footer {
 .orderbtn {
 	color: white;
 	font-weight: bold;
-	font-size: 20px;
-	width: 80%;
-	height: 70%;
-	border: 1px solid rgb(0, 88, 163);
+	font-size: 18px;
+	width: 100%;
+	height: 3.5rem;
 	display: flex;
-	background-color: rgb(0, 88, 163);
+	border: 1px solid rgb(16, 16, 160);
+	background-color: rgb(16, 16, 160);
 	align-items: center;
 	justify-content: center;
 	border-radius: 4px;
 	cursor: pointer;
 	&:hover {
-		border-color: rgb(0, 67, 126);
-		background-color: rgb(0, 67, 126);
+		border-color: rgb(12, 12, 105);
+		background-color: rgb(12, 12, 105);
 	}
+}
+
+.user_info {
+	font-weight: bold;
+	font-size: 1.7rem;
+	padding: 0;
+	margin: 0;
+}
+
+.user_tag_container p {
+	padding: 0.2rem;
+}
+
+.user_input {
+	font-size: 1rem;
+	width: 12rem;
+	margin: 0.2rem;
+	text-align: center;
+	border-radius: 4px;
 }
