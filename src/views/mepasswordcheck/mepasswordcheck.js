@@ -22,7 +22,7 @@ btn.addEventListener('click', () => {
     .then(async (response) => {
       const res = await response.json();
       //console.log('response: ', res);
-      if(response.status === 200){
+      if(response.status === 201){
         window.localStorage.setItem('checkOk', 'ok');
         location.href = '/changeUserInformation'
       }else if(response.status === 401){

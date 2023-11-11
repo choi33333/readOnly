@@ -42,4 +42,5 @@ const pageRouteList = () => {
 //로그아웃 하는 함수
 function logOutStatus() {
   localStorage.removeItem('Token');
+  localStorage.removeItem('checkOk');
 }
