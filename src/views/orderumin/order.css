@@ -1,4 +1,4 @@
-header a {
+a {
 	text-decoration: none;
 	color: rgb(16, 16, 160);
 }
@@ -316,8 +316,8 @@ p{
 }
 .totalPirce_container{
 	margin-top: 2rem;
-	border: 1px solid rgb(219, 219, 219);
-	background-color: rgb(219, 219, 219);
+	border: 1px solid black;
+	border-radius: 4px;
 	width: 50%;
 	height: 10rem;
 }
@@ -331,12 +331,13 @@ p{
 	justify-content: center;
 	align-items: center;
 }
-.myPage_btn{	
+.myPage_btn a{	
+	display: flex;
+    justify-content: center;
 	align-items: center;
 	font-weight: bold;
 	font-size: 18px;
 	color: black;
-	margin-bottom: 1rem;
 	width: 80%;
 	height: 3.5rem;	
 	border-radius: 4px;
@@ -348,7 +349,9 @@ p{
 		background-color: rgb(218, 218, 218);
 	}
 }
-.mainPage_btn{
+.mainPage_btn a{
+	display: flex;
+    justify-content: center;
 	align-items: center;
 	font-weight: bold;
 	font-size: 18px;
@@ -363,6 +366,22 @@ p{
 		border-color: rgb(12, 12, 105);
 		background-color: rgb(12, 12, 105);
 	}
+}
+
+.myPage_btn{
+	height: 3.5rem;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 1rem;
+}
+.mainPage_btn{
+	height: 3.5rem;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 

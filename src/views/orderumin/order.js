@@ -63,6 +63,11 @@ window.addEventListener("load", async () => {
 		".userData_postCode"
 	).innerHTML = `(${userData[0].data.postCode})`;
 	// document.querySelector('.orderData_number').innerHTML=`주문자정보  ${userData[0].data.orderNumber}`
+
+	document.querySelector(
+		".totalPrice_sumPrice"
+	).innerHTML = `총 주문금액 :  ${sumPrice.toLocaleString()}원`;;
+
 	console.log(cartProducts);
 	console.log(userData[0].data);
 });
