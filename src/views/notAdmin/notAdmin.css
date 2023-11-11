@@ -54,10 +54,23 @@ table {
 
 /* 내가 설정한 css */
 body {
-  margin: 200px;
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 80px;
+}
+
+header{
+	margin: 90px 0;
+  align-self: center;
+}
+
+header h3 {
+	width: 150px;
+	height: 100%;
+}
+
+header img {
+	width: 100%;
 }
 
 h1 {

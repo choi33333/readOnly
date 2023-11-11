@@ -56,7 +56,7 @@ table {
 body {
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 80px;
 }
 
 header{
@@ -64,12 +64,15 @@ header{
   align-self: center;
 }
 
-.logo {
-	color: rgb(16, 16, 160);
-	font-size: 25px;
-	font-style: italic;
-  font-weight: bold;
+header h3 {
+	width: 150px;
+	height: 100%;
 }
+
+header img {
+	width: 100%;
+}
+
 
 h1 {
   font-size: 100px;

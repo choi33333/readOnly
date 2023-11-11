@@ -58,6 +58,16 @@ header{
   align-self: center;
 }
 
+header h3 {
+	width: 150px;
+	height: 100%;
+}
+
+header img {
+	width: 100%;
+}
+
+
 body {
   display: flex;
   flex-direction: column;
