@@ -89,11 +89,12 @@ window.addEventListener("load", async () => {
 
 			const template = `
                     <a href=../select-item/?id=${copyFilteredProducts1[i]._id}>
-                    <img src=${image}>
+					<div class="imgWrap">
+						<img src=${image}>
+					</div>
                     <h5>${title}</h5>
                     <h6>${author}</h6>
                     <h6>${price}</h6>
-                    <p>${productInfo}</p>
                 </a>
             `;
 			bestsellerInfoElem.innerHTML += template;
@@ -116,11 +117,12 @@ window.addEventListener("load", async () => {
 			const productInfo = copyFilteredProducts2[i].productInfo;
 			const template = `
                 <a href=../select-item/?id=${copyFilteredProducts2[i]._id}>
-                    <img src=${image}>
+					<div class="imgWrap">
+						<img src=${image}>
+					</div>
                     <h5>${title}</h5>
                     <h6>${author}</h6>
                     <h6>${price}</h6>
-                    <p>${productInfo}</p>
                 </a>
             `;
 			newbookInfoElem.innerHTML += template;
@@ -140,11 +142,12 @@ window.addEventListener("load", async () => {
 
 			const template = `
                     <a href=../select-item/?id=${filteredProducts[i]._id}>
-                    <img src=${image}>
+                    <div class="imgWrap">
+						<img src=${image}>
+					</div>
                     <h5>${title}</h5>
                     <h6>${author}</h6>
                     <h6>${price}</h6>
-                    <p>${productInfo}</p>
                 </a>
             `;
             viewAllInfoElem.innerHTML += template;
