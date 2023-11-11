@@ -14,16 +14,15 @@
 
 <body>
     <header>
-        <a href="/" class="logo"><h3>readOnly📖</h3></a>
+        <a href="/" class="logo"><h3><img src="../img/logo.svg" alt="로고"></h3></a>
         <div id="pageRoute"></div>
     </header>
     
     <div class="content">
         <div class="menu">
             <h4 id="category">관리자</h4>
-            <a href="/admin">상품조회</a>
+            <a href="/adminProduct">상품조회</a>
             <a href="/adminProductRegistration">상품등록</a>
-            <a href="/adminDeleteProduct">상품수정/삭제</a>
             <a href="/adminCategory">카테고리조회</a>
             <a href="/adminCategoryAdd">카테고리등록</a>
             <a href="/adminUsers">회원관리</a>
@@ -31,7 +30,7 @@
         </div>
 
         <main>
-            <h2 class="title">상품 수정 / 삭제</h2>
+            <h2 class="title">상품 조회</h2>
             <div class="listOverflow">
                 <table id="userContainer"></table>
             </div>
@@ -49,6 +48,6 @@
     <script src="../frontUtils/jwtUtil.js"></script>
     <script src="../frontUtils/loginStatus.js"></script>
     <script src="../frontUtils/fetchCustom.js"></script>
-    <script src="./adminDeleteProduct.js"></script>
+    <script src="./adminProduct.js"></script>
 </body>
 </html>
