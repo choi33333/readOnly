@@ -364,9 +364,17 @@ footer {
 }
 
 .user_input {
+	height: 2rem;
 	font-size: 1rem;
 	width: 12rem;
 	margin: 0.2rem;
 	text-align: center;
 	border-radius: 4px;
+	border: 1px solid rgb(16, 16, 160);
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	&:hover {
+		border-color: rgb(12, 12, 105);
+	}
 }
