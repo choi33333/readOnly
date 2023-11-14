@@ -10,7 +10,7 @@ const productSchema = new Schema({
         required: true,
         ref: "Category",
     },
-    categoryName: {
+    categoryName: { // 나중에 category를 populate 합시다.
         type: String,
         required: true,
     },

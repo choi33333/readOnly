@@ -3,11 +3,11 @@ const { productSchema } = require("./product");
 
 const orderSchema = new Schema(
   {
-    orderNumber: {
+    orderNumber: { // number
       type: String,
       required: true,
     },
-    orderedEmail: {
+    orderedEmail: { // email
       type: String,
       required: true,
     },
@@ -31,7 +31,7 @@ const orderSchema = new Schema(
       type: String,
       required: true,
     },
-    orderStatus: {
+    orderStatus: { // status
       type: String,
       // 아래 값 중 하나일때만 허용
       enum: ["결제 완료", "배송 준비중", "배송중", "배송 완료", "취소", "취소 대기"],
@@ -43,7 +43,7 @@ const orderSchema = new Schema(
         {
           productId: {
             type: Schema.Types.ObjectId,
-            ref: "ProductModel",
+            ref: "ProductModel", // 이름 주의
             required: true,
           },
           quantity: {

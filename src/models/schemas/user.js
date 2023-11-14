@@ -30,7 +30,7 @@ const userSchema = new Schema(
       type: String,
     },
     role: {
-      type: String,
+      type: String, // enum 써가지고 제한을 하자
       required: true,
     },
   },

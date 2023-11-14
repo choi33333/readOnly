@@ -3,7 +3,12 @@ const { CategoryModel, OrderModel, ProductModel, UserModel } = require("../model
 const adminService = {
   // CATEGORY
   async getCategories() {
-    const categories = await CategoryModel.find({}).lean();
+    const categories = await CategoryModel.find({}).lean().catch((error) => { // 다른 DB query/update 코드에도 추가해줄 것
+      const newError = new Error("DB Error");
+      newError.status = 500;
+      newError.options.cause = error;
+      throw newError;
+    });
 
     return categories;
   },
@@ -15,15 +20,15 @@ const adminService = {
       throw error;
     }
 
-    let category = await CategoryModel.findOne({ name: name }).lean();
+    const foundCategory = await CategoryModel.findOne({ name: name }).lean();
 
-    if (category) {
+    if (foundCategory !== null) {
       const error = new Error("이미 존재하는 카테고리입니다.");
       error.status = 409;
       throw error;
     }
 
-    category = await CategoryModel.create({
+    const category = await CategoryModel.create({
       name: name,
     });
 
@@ -33,9 +38,9 @@ const adminService = {
   async deleteCategory(id) {
     const deletedCategory = await CategoryModel.findOneAndDelete({
       _id: id,
-    });
+    }).lean();
 
-    if (!deletedCategory) {
+    if (deletedCategory === null) {
       const error = new Error("존재하지 않는 카테고리입니다.");
       error.status = 404;
       throw error;
@@ -47,55 +52,40 @@ const adminService = {
   // ORDER
   async getOrders() {
     const orders = await OrderModel.find({}).lean();
-
-    if (orders == 0) {
-      const error = new Error("주문이 존재하지 않습니다.");
-      error.status = 401;
-      throw error;
-    }
     return orders;
   },
 
   async updateOrder(id, orderStatus) {
-    console.log(id, orderStatus);
     const order = await OrderModel.findById(id).lean();
 
-    if (!order) {
+    if (order === null) {
       const error = new Error("주문이 존재하지 않습니다.");
-      error.status = 401;
+      error.status = 404;
       throw error;
     }
 
-    const updatedOrder = await OrderModel.updateOne(
-      { _id: id },
-      { orderStatus: orderStatus }
+    const updatedOrder = await OrderModel.updateById(
+      id,
+      { orderStatus }
     );
-    console.log(order.orderStatus);
 
     return updatedOrder;
   },
 
   async deleteOrder(id) {
-    const order = await OrderModel.findOneAndDelete({ _id: id });
-    console.log(order);
+    const order = await OrderModel.findByIdAndDelete(id);
 
-    if (!order) {
+    if (order === null) {
       const error = new Error("주문이 존재하지 않습니다.");
       error.status = 404;
       throw error;
     }
+    return;
   },
 
   // PRODUCT
   async getProducts() {
     const products = await ProductModel.find({}).lean();
-
-    if (products == 0) {
-      const error = new Error("상품이 존재하지 않습니다.");
-      error.status = 401;
-      throw error;
-    }
-
     return products;
   },
 
@@ -109,12 +99,12 @@ const adminService = {
       productInfo,
       releasedDate,
     } = productData;
-    const categoryId = await CategoryModel.findOne({ name: category });
+    const foundCategory = await CategoryModel.findOne({ name: category }).lean();
 
     const product = await ProductModel.create({
       name: name,
-      category: categoryId._id,
-      categoryName: category,
+      category: foundCategory._id,
+      categoryName: foundCategory.name,
       author: author,
       price: price,
       imageUrl: imageUrl,
@@ -123,7 +113,7 @@ const adminService = {
       soldAmount: 0,
     });
 
-    return product;
+    return product.toObject(); // POJO화 => Plain Old JavaScript Object
   },
 
   async updateProduct(id, productData) {
@@ -164,12 +154,12 @@ const adminService = {
   },
 
   async deleteProduct(id) {
-    const product = await ProductModel.findById({ _id: id }).lean();
-    const deletedProduct = await ProductModel.findOneAndDelete(product);
+    // const product = await ProductModel.findById({ _id: id }).lean();
+    const deletedProduct = await ProductModel.findByIdAndDelete(id).lean();
 
-    if (!product) {
+    if (deletedProduct === null) {
       const error = new Error("제품이 존재하지 않습니다.");
-      error.status = 401;
+      error.status = 404;
       return next(error);
     }
 
@@ -180,19 +170,13 @@ const adminService = {
   async getUser() {
     const users = await UserModel.find({}).lean();
 
-    if (!users) {
-      const error = new Error("사용자가 없습니다.");
-      error.status = 404;
-      throw error;
-    }
-
     return users;
   },
 
   async deleteUser(id) {
-    const deletedUser = await UserModel.findOneAndDelete({ _id: id }).lean();
+    const deletedUser = await UserModel.findByIdAndDelete(id).lean();
 
-    if (!deletedUser || deletedUser.length === 0) {
+    if (deletedUser === null) {
       const error = new Error("사용자가 존재하지 않습니다.");
       error.status = 404;
       throw error;

@@ -1,12 +1,12 @@
-require("dotenv").config();
-const { UserModel } = require("../models");
+require("dotenv").config(); // config를 사용하면 필요 없음
 const jsonwebtoken = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const secret = process.env.SECRET;
+const { UserModel } = require("../models");
+const secret = process.env.SECRET; // config를 사용하자
 
 const authService = {
   // 회원가입
-  async authSignUp({
+  async signUp({
     email,
     password,
     username,
@@ -15,8 +15,8 @@ const authService = {
     address,
     addressDetail,
   }) {
-    let users = await UserModel.findOne({ email }).lean();
-    if (users) {
+    const user = await UserModel.findOne({ email }).lean();
+    if (user !== null) {
       const error = new Error("이미 가입된 email 입니다.");
       error.status = 409;
       throw error;
@@ -24,7 +24,7 @@ const authService = {
 
     const hashedPassword = await bcrypt.hash(password, 12);
 
-    users = await UserModel.create({
+    const newUser = await UserModel.create({
       email: email,
       password: hashedPassword,
       username: username,
@@ -35,11 +35,11 @@ const authService = {
       role: "customer",
     });
 
-    return;
+    return newUser.toObject();
   },
 
   // 로그인
-  async authSignIn({ email, password }) {
+  async signIn({ email, password }) {
     const users = await UserModel.findOne({ email }).lean();
 
     if (!users) {

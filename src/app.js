@@ -1,18 +1,17 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const ejs = require("ejs");
+const ejs = require("ejs"); // 불필요한 require는 빼세요
 const path = require("path");
 const app = express();
 
-const router = require("./routes/index");
+const router = require("./routes"); // index는 빼셔도 됩니다.
 
-require("dotenv").config();
 const mongodbUrI = process.env.MONGODB;
 
 mongoose
   .connect(mongodbUrI)
-  .then(() => console.log("connected"))
-  .catch(() => console.log("failed"));
+  .then(() => console.log("connected")) 
+  .catch(() => console.log("failed")); // process를 멈추자
 
 // view 엔진을 ejs를 쓰겠다는 설정
 

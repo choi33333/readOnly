@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { validationResult } = require("express-validator");
+const { validationResult } = require("express-validator"); // 안쓰면 제외하자
 
 
 const user = require('./schemas/user');
