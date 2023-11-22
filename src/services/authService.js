@@ -62,7 +62,7 @@ const authService = {
         ro: users.role,
       },
       secret,
-      { expiresIn: "10h" }
+      { expiresIn: "1h" }
     );
 
     return token;
