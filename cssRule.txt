@@ -4,6 +4,6 @@
 
 2. 가로 : % / rem
 3. 세로 : % / rem
-4. 폰트사이즈 : % / rem / px
+4. 폰트사이즈 : vmin / rem / px
 
 5. css 클래스명스네이크 케이스 (ex. user_input_container)

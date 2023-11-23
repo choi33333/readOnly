@@ -1,41 +1,25 @@
-// // audio player
-// const audio = new Audio("Ryuichi Sakamoto - Koko.mp3");
-// const playButton = document.getElementById("play_button");
+/*audio*/
+const audio = new Audio("1974 way home - Mondo Grosso.mp3");
+const playButton = document.getElementsByClassName("play_button");
 
-// playButton.addEventListener("click", function () {
-//   audio.play();
-// });
-
-// // scroll event
-
-// let div = document.querySelectorAll('.scroll_container')
-
-// let observer = new IntersectionObserver((e)=>{
-//   e.forEach((박스) =>{
-//     if(박스.isIntersecting){
-//     박스.target.style.opacity = 1;
-//     }else{
-//       박스.target.style.opacity = 0;
-//     }
-//   })
-// })
-
-// observer.observe(div[0])
-// observer.observe(div[1])
-// observer.observe(div[2])
-// observer.observe(div[3])
+/*css*/
+const chapter1 = document.querySelector(".chapter1");
+const chapter2 = document.querySelector(".chapter2");
+const chapter3 = document.querySelector(".chapter3");
+const chapter4 = document.querySelector(".chapter4");
+const mainPageBtn = document.querySelector(".mainPage_btn");
+const main = document.querySelector(".main_container");
+const logo = document.querySelector(".logo");
 
 
-// window.onload = function () {
-// };
-
+/*scroll*/
 const html = document.documentElement;
 const canvas = document.getElementById("hero-lightpass");
 const context = canvas.getContext("2d");
 
-const frameCount = 148;
+const frameCount = 140;
 const currentFrame = index => (
-  `https://www.apple.com/105/media/us/airpods-pro/2019/1299e2f5_9206_4470_b28e_08307a42f19b/anim/sequence/large/01-hero-lightpass/${index.toString().padStart(4, '0')}.jpg`
+  `bookScroll/11zon_${index}.jpeg`
 )
 
 const preloadImages = () => {
@@ -58,7 +42,8 @@ const updateImage = index => {
   context.drawImage(img, 0, 0);
 }
 
-window.addEventListener('scroll', () => {  
+window.addEventListener('scroll', () => { 
+  audio.play();
   const scrollTop = html.scrollTop;
   const maxScrollTop = html.scrollHeight - window.innerHeight;
   const scrollFraction = scrollTop / maxScrollTop;
@@ -66,8 +51,27 @@ window.addEventListener('scroll', () => {
     frameCount - 1,
     Math.ceil(scrollFraction * frameCount)
   );
-  
   requestAnimationFrame(() => updateImage(frameIndex + 1))
+  if(window.scrollY === maxScrollTop){
+    canvas.style.opacity = 0;
+    chapter1.style.opacity = 1;
+    chapter2.style.opacity = 1;
+    chapter3.style.opacity = 1;
+    chapter4.style.opacity = 1;
+    mainPageBtn.style.opacity = 1;
+    main.style.opacity = 1;
+    logo.style.opacity = 1;
+  }else {
+    canvas.style.opacity = 1;
+    chapter1.style.opacity = 0;
+    chapter2.style.opacity = 0;
+    chapter3.style.opacity = 0;
+    chapter4.style.opacity = 0;
+    mainPageBtn.style.opacity = 0;
+    main.style.opacity = 0;
+    logo.style.opacity = 0;
+  }
 });
 
 preloadImages()
+

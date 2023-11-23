@@ -1,12 +1,24 @@
-/*test*/
+/* 스크롤바 */
+body::-webkit-scrollbar {
+  width: 8px;  /* 스크롤바의 너비 */
+}
+
+body::-webkit-scrollbar-thumb {
+  height: 25%; /* 스크롤바의 길이 */
+  background: grey; /* 스크롤바의 색상 */
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: rgba(19, 19, 19, 0.1);  /*스크롤바 뒷 배경 색상*/
+}
 
 html {
   height: 100vh;
 }
 
 body {
-  height: 500vh;
-  background: #000;
+  background-color: #000;
 }
 
 canvas {
@@ -16,79 +28,34 @@ canvas {
   transform: translate(-50%, -50%);
   max-width: 100vw;
   max-height: 100vh;
+  z-index: 10;
+  transition: 1s ease-in-out;
 }
 
 /*main css*/ 
-/* html {
-  font-size: 15px;
+main{
+  height: 600vh;
 }
 
-body {
-  font-size: 20px;
-  margin: 0;
-  overflow-x: hidden;
-  font-family: 'Gowun Batang', serif;
+.main_container{
+  background-color: black;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 11;
+  opacity: 0;
 }
-
-main {
-  display: flex;
-  flex-direction: column;
-} */
 
 a {
   text-decoration: none;
 }
-/*main css*/ 
-
-.main_container {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-}
-
-.sec_container {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-}
-
-.trd_container {
-  background-color: black;
-  position: relative;
-  width: 100%;
-  height: 100vh;
-}
-
-.fot_container {
-  background-color: grey;
-  position: relative;
-  width: 100%;
-  height: 100vh;
-}
-
-.scroll_container{
-  opacity: 0;
-  transition: all 2s;
-}
 
 /*origin*/
-
-.background_container {
-  top: 0%;
-  left: 0%;
-  background-image: url(titleImage.jpg);
-  position: absolute;
-  background-size: 100vw;
-  width: 100vw;
-  height: 100vh;
-  animation: fadeOut 2s forwards linear alternate;
-  z-index: 1;
-}
 
 .right_container {
   position: absolute;
   top: 0%;
-  left: 50%;
+  right: 0vmin;
   width: 0px;
   height: 0px;
   border-top: 100vh solid rgba(49, 49, 49, 0.85);
@@ -100,6 +67,8 @@ a {
 }
 
 .mainPage_btn {
+  opacity: 0;
+  transition: 0.5s 6s ease-in;
   color: white;
   font-size: 1.7rem;
   font-weight: bold;
@@ -109,31 +78,28 @@ a {
   align-items: center;
   position: absolute;
   top: 70%;
-  left: 68%;
+  left: 50%;
+  transform: translate(-50%, 0%);
   width: 22rem;
   height: 4rem;
   cursor: pointer;
   border-radius: 4px;
-  border: 1px solid rgb(16, 16, 160);
-  background-color: rgb(16, 16, 160);
-  animation: fadeIn 2s 5.5s forwards linear alternate;
-  opacity: 0;
-  z-index: 3;
-
+  border: 2px solid #fff;
+  background-color: #000;
   &:hover {
-    border-color: rgb(15, 15, 128);
-    background-color: rgb(15, 15, 128);
+    border-color: grey;
+    color: grey;
   }
 }
 
 .text_contaniner {
   color: rgb(156, 156, 156);
   text-align: right;
-  font-size: 1.5rem;
+  font-size: 3vmin;
   font-weight: bolder;
   position: absolute;
-  top: 25%;
-  left: 60%;
+  top: 15%;
+  left: 50%;
   width: auto;
   height: auto;
   animation: fadeIn 2s 4s forwards linear alternate;
@@ -148,16 +114,14 @@ a {
   font-size: 1.5rem;
   width: 3px;
   display: inline-block;
-  animation: blink 1s ease-in-out infinite;
 }
 
 .logo {
   position: absolute;
   top: 2%;
   left: 2%;
+  transition: 1s 5s ease-in;
   opacity: 0;
-  animation: fadeIn 2s 6s forwards linear alternate;
-  z-index: 3;
 }
 
 .logo h3 {
@@ -171,73 +135,39 @@ a {
 
 .agenda {
   color: white;
-  font-size: 10rem;
+  font-size: 16vmin;
   font-weight: bolder;
+  opacity: 0;
 }
 
 .chapter1 {
   position: absolute;
   top: 20%;
-  left: 5%;
-  animation: fadeIn 1s 1s forwards linear alternate;
-  opacity: 0;
+  left: 18%;
   z-index: 3;
+  transition: 1s 1s ease-in;
 }
 
 .chapter2 {
   position: absolute;
   top: 20%;
-  left: 37%;
-  animation: fadeIn 0.5s 1.5s forwards linear alternate;
-  opacity: 0;
+  left: 53%;
   z-index: 3;
+  transition: 1s 2s ease-in;
 }
 
 .chapter3 {
   position: absolute;
-  top: 45%;
-  left: 10%;
-  animation: fadeIn 0.5s 2s forwards linear alternate;
-  opacity: 0;
+  top: 42%;
+  left: 28%;
   z-index: 3;
+  transition: 1s 3s ease-in;
 }
 
 .chapter4 {
   position: absolute;
-  top: 45%;
-  left: 30%;
-  animation: fadeIn 0.5s 2.5s forwards linear alternate;
-  opacity: 0;
+  top: 42%;
+  left: 50%;
   z-index: 3;
-}
-
-/*키프레임*/
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0.6;
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes blink {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
+  transition: 1s 4s ease-in;
 }
