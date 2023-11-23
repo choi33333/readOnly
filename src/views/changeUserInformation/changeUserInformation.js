@@ -50,8 +50,9 @@ cancelBtn.addEventListener('click', () => {
 //완료버튼 클릭했을 때
 completBtn.addEventListener('click', async () => {
   const token = localStorage.getItem('Token');
-  const checkValue = passwordinputCheck();
-  if(checkValue === 0){
+  const checkValue = inputCheck();
+  const checkpass = passwordinputCheck();
+  if(checkValue === 0 && checkpass === 0){
     try {
       const data = {
         password: password.value,
@@ -80,27 +81,10 @@ completBtn.addEventListener('click', async () => {
   }
 })
 
+
+//비밀번호 입력을 안해도 되도록
 const passwordinputCheck = () => {
-  passwordController.className='alarmoff';
-  repasswordController.className='alarmoff';
-
-  let toggle = 0;
-
-  if(!passwordCheck(password.value)){
-    passwordController.innerHTML = '비밀번호 형식이 올바르지 않습니다';
-    passwordController.className = 'alarmon';
-    toggle = 1;
-  }
-
-  if(!repassword.value){
-    repasswordController.innerHTML = '비밀번호 확인을 해주세요';
-    repasswordController.className = 'alarmon';
-    toggle = 1;
-  }else if(password.value !== repassword.value) {
-    repasswordController.innerHTML = '비밀번호가 일치하지 않습니다';
-    repasswordController.className = 'alarmon';
-    toggle = 1;
-  }
+  let toggle;
 
   if(!password.value && !repassword.value){
     toggle = 0;
