@@ -26,44 +26,47 @@
     <main>
       <h2>회원정보 수정</h2>
       <form>
-        <div id="name" class="input">
+        <div id="nameContainer" class="input">
           <p>이름</p>
-          <input type="text" id="nameValue" disabled>
+          <input type="text" id="username" disabled>
+          <div id="usernameAlarm" class="alarmoff"></div>
         </div>
-        <div id="email" class="input">
+        <div id="emailContainer" class="input">
           <p>이메일</p>
-          <input type="email" id="emailValue" disabled>
+          <input type="email" id="email" disabled>
+          <div id="emailAlarm" class="alarmoff"></div>
         </div>
-        <div id="password" class="input">
+        <div id="passwordContainer" class="input">
           <p>비밀번호</p>
           <div class="changePassword">
             <div class="passwordInput">
-              <input type="password" placeholder="새 비밀번호를 입력해주세요" id="passwordValue">
+              <input type="password" placeholder="새 비밀번호를 입력해주세요" id="password">
               <div id="passwordAlarm" class="alarmoff"></div>
             </div>
             <div class="passwordInput">
-              <input type="password" placeholder="새 비밀번호를 다시 입력해주세요" id="repasswordValue">
+              <input type="password" placeholder="새 비밀번호를 다시 입력해주세요" id="repassword">
               <div id="repasswordAlarm" class="alarmoff"></div>
             </div>  
           </div>
         </div>
-        <div id="phoneNumber" class="input">
+        <div id="phoneNumberContainer" class="input">
           <p>전화번호</p>
           <div>
-            <input type="text" id="phoneValue" maxlength="13">
+            <input type="text" id="phoneNumber" maxlength="13">
             <div id="phoneNumberAlarm" class="alarmoff"></div>
           </div>
           
         </div>
-        <div id="address" class="input">
+        <div id="addressContainer" class="input">
           <p>주소</p>
-          <div class="addressDetail">
+          <div class="addressBox">
             <div>
               <input type="text" id="postalCode">
               <button id="addressBtn">주소찾기</button>
             </div>
-            <input type="text" id="addressValue">
-            <input type="text" id="addressDetailValue">
+            <input type="text" id="address">
+            <input type="text" id="addressDetail">
+            <div id="addressAlarm" class="alarmoff"></div>
           </div>
         </div>
       </form>
@@ -85,9 +88,11 @@
 
   <!-- 주소찾기(카카오 API)  -->
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-
   <script src="../frontUtils/jwtUtil.js"></script>
   <script src="../frontUtils/loginStatus.js"></script> 
+  <script src="../frontUtils/fetchCustom.js"></script>
+  <script src="../frontUtils/address.js"></script>
+  <script src="../frontUtils/joinFormat.js"></script>
   <script src="changeUserInformation.js"></script>
 </body>
 </html>
