@@ -11,17 +11,17 @@ async function fetchCustom(url,method,token = '',data = null) {
     "Content-Type": "application/json",
   }
   if(token){
-    headers.authorization = 'Bearer ' + token;
+    headers["authorization"] = 'Bearer ' + token;
   }
   const option = {
     method: method,
     headers:headers
   };
-  if(method == ('GET'||'get')){
+  if(method == 'GET'){
     if(data){
       url += '?' + ( new URLSearchParams( params ) ).toString();
     }
-  }else if(method == ('POST'||'post'||'PUT'||'put'||'DElETE'||'delete')){
+  }else if(method == 'POST' || method == 'PUT' || method == 'DELETE'){
     option.body = JSON.stringify(data);
   }
   return fetch(url,option);

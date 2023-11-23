@@ -11,7 +11,7 @@ const loginController = document.getElementById('loginAlarm');
 
 window.addEventListener('load', tokenCheckfunc);
 
-//로그인 버튼을 눌렀을 때 백엔드로 입력값 보내기
+
 loginBtn.addEventListener('click', async (e) => {
   e.preventDefault();
 
@@ -47,12 +47,12 @@ const logininputCheck = () => {
 
   let toggle = 0;
 
-  if(email.value == '') {
+  if(!email.value) {
     emailController.innerHTML = '이메일을 입력해주세요';
     emailController.className = 'alarmon';
     toggle = 1;
   }
-  if(password.value == '') {
+  if(!password.value) {
     passwordController.innerHTML = '비밀번호를 입력해주세요';
     passwordController.className = 'alarmon';
     toggle = 1;
@@ -67,7 +67,7 @@ const logininputCheck = () => {
 email.oninput = (e) => {
   emailController.className='alarmoff';
   
-  if(email.value == '') {
+  if(!email.value) {
     emailController.innerHTML = '이메일을 입력해주세요';
     emailController.className = 'alarmon';
   }
@@ -78,7 +78,7 @@ email.oninput = (e) => {
 password.oninput = () => {
   passwordController.className='alarmoff';
 
-  if(password.value == '') {
+  if(!password.value) {
     passwordController.innerHTML = '비밀번호를 입력해주세요';
     passwordController.className = 'alarmon';
   }
