@@ -85,7 +85,7 @@ form {
   gap: 8px;
 }
 
-.addressDetail {
+.addressBox {
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -98,7 +98,7 @@ input {
   border-radius: 10px;
 }
 
-.addressDetail > input {
+.addressBox > input {
   width: 300px;
 }
 
