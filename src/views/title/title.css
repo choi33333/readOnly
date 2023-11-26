@@ -87,10 +87,6 @@ a {
   border-radius: 4px;
   border: 2px solid #fff;
   background-color: #000;
-  &:hover {
-    border-color: grey;
-    color: grey;
-  }
 }
 
 .text_contaniner {
