@@ -1,58 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MainPage</title>
     <link rel="stylesheet" href="../mainpage/mainpage.css">
-    <link rel="stylesheet" href="../components/footer.css">
-    <link rel="stylesheet" href="../components/header.css">
 </head>
 
 <body>
-    <script src="https://kit.fontawesome.com/aa4c433e5b.js" crossorigin="anonymous"></script>
-    <header>
-        <a href="../mainpage/" class="logo"><h3><img src="../img/logo.svg" alt="로고"></h3></a>
-        <div class="search-container">
-            <input type="text" id="myInput" placeholder="도서를 찾아보세요!">
-            <button class="search-button">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-        </div>
+    <main>
+        <header>
+            <div class="logo_container side_container">readOnly</div>
+            <div class="search_container">
+                <input class="search_input" placeholder="Seach by author, title, name" onfocus="this.placeholder=''"
+                    onblur="this.placeholder='Seach by author, title, name'"></input>
+                <img class="search_icon" src="./img/search_icon.svg" />
+            </div>
+            <div class="user_container side_container">
+                <img class="user_icon" src="./img/ico-mypage.svg" />
+                <img class="user_icon" src="./img/ico-cart.svg" />
+                <img class="user_icon" src="./img/ico-instagram.svg" />
+            </div>
+        </header>
 
-        <div id="pageRoute"></div>    
-    </header>
-
-    <div id="main-body">
-        <div class="category-wrap">
-            <div class="category_container">
-                <div class="category_text">카테고리</div>
-                <span class="category_divider"></span>
-                <div id="category-wrapper"></div>
+        <div class="nav_container">
+            <div class="nav_list_container">
+                <div class="nav_home nav_btn">Home<div></div>
+                </div>
+                <div class="nav_best nav_btn">Bestseller<div></div>
+                </div>
+                <div class="nav_category nav_btn">Category<div></div>
+                </div>
+                <div class="nav_store nav_btn">Find a store<div></div>
+                </div>
+                <div class="nav_blog nav_btn">Blog<div></div>
+                </div>
+            </div>
+            <div class="main_img_container">
+                <img class="main_img" src="./img/main_color_img.jpg" />
+                <div class="text_container">
+                    <h1 class="main_h2">Build your library</h1>
+                    <p class="main_p">Journey for new chapter</p>
+                    <div class="viewall_btn">View all</div>
+                </div>
             </div>
         </div>
+        <div class="direct_container">
+            <div id="main-body">
+                <div class="this-week-bestseller">
+                    <div class='now_container'>
+                        <p>Popular Now</p>
+                        <div>View All</div>
+                    </div>
+                    <div id="weekbestseller-info"></div>
+                </div>
 
-        <div class="this-week-bestseller">
-            <h4 id="weekbestseller-header">이주의 베스트셀러</h4>
-            <div id="weekbestseller-section">
-                <div id="weekbestseller-info"></div>
+                <div class="category-wrap">
+                    <div class="category_container">
+                        <div id="category-wrapper"></div>
+                    </div>
+                </div>
+
             </div>
         </div>
-    </div>
-
-    <footer>
-        <h4 class="logo">readOnly</h4>
-        <h5>회사명 : readOnly 대표자 : 엘리스8팀</h5>
-        <h5>대표 이메일 : test@elice.com</h5>
-        <h5>주소 : 서울특별시 성동구 성수2가 제3동 광나루로6길 49 성수낙낙</h5>
-        <h5>Copyright ⓒ 2023 000</h5>
-    </footer>
-</main>
+    </main>
 
 
-<script src="../frontUtils/jwtUtil.js"></script>
-<script src="../frontUtils/loginStatus.js"></script>
-<script src="../mainpage/mainpage.js"></script>
+    <script src="../frontUtils/jwtUtil.js"></script>
+    <script src="../frontUtils/loginStatus.js"></script>
+    <script src="../mainpage/mainpage.js"></script>
 </body>
 
 </html>

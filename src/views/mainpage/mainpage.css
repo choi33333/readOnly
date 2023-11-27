@@ -1,13 +1,173 @@
+html{
+	font-size: 15px;
+}
+body{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 1.5rem 0;
+	background: linear-gradient(135deg, #143b4c, #143b4c, #7bac75);
+	background-color: #143b4c;
+}
+@media screen and (max-width: 1344px){
+	html{
+		font-size: 12px;
+	}
+	main{
+		height: auto;
+		width: 1344px;
+	}
+}
+
 main{
 	display: flex;
 	flex-direction: column;
+	height: 95%;
+	width: 90%;
+	border-radius: 2rem;
+	background-color: #fff;
 }
 
-#main-body{
-	height: 53rem;
+/*header*/
+header{
+	justify-content: space-between;
+	display: flex;
+	height: 5rem;
+	padding: 2.5rem 2.5rem 0 2.5rem;
 }
+.side_container{
+	display: flex;
+	width: 10rem;
+	height: 5rem;
+}
+.search_container{
+	align-items: center;
+	text-align: center;
+	justify-content: center;
+	display: flex;
+	width: 35rem;
+	height: 2.5rem;
+	border-radius: 4px;
+	background-color: rgb(235, 235, 235);
+}
+.search_input{
+	font-size: 1.2rem;
+	width:30rem;
+	height: 2rem;
+	padding-left: 2rem;
+	border: none;
+	background-color: transparent;
+	&:focus{
+		outline:none;
+	}
+}
+.search_icon{
+	height: 2rem;
+	width: 2rem;
+	padding-right: 1rem;
+}
+.user_icon{
+	height: 2rem;
+	width: 2rem;
+	padding-right: 1.5rem;
+	&:hover{
+		cursor: pointer;
+	}
+}
+
+
+/*nav_container*/
+
+.nav_container{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.nav_list_container{
+	display: flex;
+	padding-bottom: 2rem;
+}
+.nav_btn{
+	font-weight: bold;
+	font-size: 1rem;
+	color: grey;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 2.5rem;
+	padding: 0 1.5rem;
+	&:hover{
+		cursor: pointer;
+		color: #01d3c6;
+	}
+	&:hover div{
+		display: block;
+	}
+}
+.nav_btn div{
+	display: none;
+	width: 0.4rem;
+	height: 0.4rem;
+	margin-top: 0.5rem;
+	border-radius: 100%;
+	background-color: #01d3c6;
+}
+.nav_home{
+	color: #01d3c6;
+}
+.nav_home div{
+	display: block;
+}
+
+
+.main_img_container{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 80%;
+	height: 16rem;
+	padding: 1rem 3rem;
+	border-radius: 1rem;
+	background: linear-gradient(135deg, #143b4c, #143b4c, #7bac75);
+	background-color: #143b4c;
+}
+.main_img{
+	height: 15rem;
+}
+.text_container{
+	display: table;
+	text-align: right;
+	align-items: center;
+	justify-content: right;
+}
+.main_h2{
+	font-size: 3rem;
+	color: #01d3c6;
+	padding: 0;
+	margin: 0;
+}
+.main_p{
+	font-size: 1.2rem;
+	color: #fff;
+	padding: 1.5rem 0;
+	margin: 0;
+}
+.viewall_btn{
+	float: right;
+	font-size: 1.2rem;
+	color: #fff;
+	padding: 0.5rem 1.5rem;
+	border-radius: 4px;
+	background-color: #df5806;
+	&:hover{
+		background-color: rgb(206, 84, 9);
+		cursor: pointer;
+	}
+}
+
+/*category*/
 .category-container{
-	position: relative;
+	display: none;
 }
 
 #category-wrapper {
@@ -16,81 +176,6 @@ main{
 	display: flex;
 	width: 40rem;
 	height: auto;
-	position: relative;
-	top: 12%;
-	left: 10%;
-}
-#category-wrapper :first-child{
-	padding-bottom: 1.3rem;
-	position: absolute;
-	top: 0%;
-	left: 0%;
-	width: 6rem;
-	height: 2rem;
-	margin-right: 30px;
-	display: flex;
-	text-align: center;
-	align-items: center;
-	justify-content: center;
-	border: none;
-	&:hover{
-		border-bottom: 3px solid rgb(16, 16, 160);
-		font-weight: bold;
-	}
-}
-#category-wrapper :nth-child(2){
-	padding-bottom: 1.3rem;
-	position: absolute;
-	top: 0%;
-	left: 20%;
-	width: 6rem;
-	height: 2rem;
-	margin-right: 30px;
-	display: flex;
-	text-align: center;
-	align-items: center;
-	justify-content: center;
-	border: none;
-	&:hover{
-		border-bottom: 3px solid rgb(16, 16, 160);
-		font-weight: bold;
-	}
-}
-#category-wrapper :nth-child(3){
-	padding-bottom: 1.3rem;
-	position: absolute;
-	top: 0%;
-	left: 40%;
-	width: 6rem;
-	height: 2rem;
-	margin-right: 30px;
-	display: flex;
-	text-align: center;
-	align-items: center;
-	justify-content: center;
-	border: none;
-	&:hover{
-		border-bottom: 3px solid rgb(16, 16, 160);
-		font-weight: bold;
-	}
-}
-#category-wrapper :nth-child(4){
-	padding-bottom: 1.3rem;
-	position: absolute;
-	top: 0%;
-	left: 60%;
-	width: 6rem;
-	height: 2rem;
-	margin-right: 30px;
-	display: flex;
-	text-align: center;
-	align-items: center;
-	justify-content: center;
-	border: none;
-	&:hover{
-		border-bottom: 4px solid rgb(16, 16, 160);
-		font-weight: bold;
-	}
 }
 
 #category-wrapper a {
@@ -100,59 +185,37 @@ main{
 }
 
 
-.category-wrap {
-	width: 85%;
-	height: 5rem;
-	margin: 0 auto;
-	border-bottom: 2px solid rgb(189, 189, 189)
-}
-
-.category-wrap p {
-	font-size: 1rem;
-}
-
-.category_container{
-	padding-top: 1.5rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.category_text{
-	position: absolute;
-	top: 12%;
-	left:30%;
-	font-size: 1.3rem;
-}
-
-.category_divider{
-	position: absolute;
-	top: 12.2%;
-	left: 38%;
-	background-color: rgb(156, 156, 156);
-    content: "";
-    height: 1.5rem;
-    width: 2px;
-    display: inline-block;
-}
 
 /* 카테고리 css 끝  */
 
 .this-week-bestseller {
-	width: 100%;
-	height: 45rem;
+	width: 85%;
+	height: 25rem;
 	margin: 0 auto;
 	text-align: center;
 	align-items: center;
 	justify-content: center;
 	padding-top: 1rem;
-
 }
-
-#weekbestseller-header {
-	font-size: 25px;
-	height: 3rem;
-	/* padding-bottom: 10px; */
+.now_container{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.now_container p{
+	font-size: 1.5rem;
+	font-weight: bold;
+	padding: 1rem 0 0 0 ;
+	margin: 0;
+}
+.now_container div{
+	font-size: 1rem;
+	font-weight: bold;
+	color: grey;
+	padding: 1rem 0 0 0 ;
+	&:hover{
+		cursor: pointer;
+	}
 }
 
 #weekbestseller-info a {
@@ -163,30 +226,24 @@ main{
 	margin: auto;
 }
 
-#weekbestseller-section {
-    width: auto;
-    height: 40rem;
-    display: flex;
-    align-items: center;
-	justify-content: center;
-}
-
 #weekbestseller-info{
-	height: 40rem;
+	height: 20rem;
 	width: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	padding-top: 1rem;
 	padding-bottom: 1rem;
 
 }
 
 .select_container{
-	height: 30rem;
-	width: 20rem;
-	margin: 1rem;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	height: 15rem;
+	width: 8rem;
+	margin: 2rem;
 	&:hover {
 		transform:scale(1.3);
 		transition: transform .5s;  
@@ -194,18 +251,19 @@ main{
 }
 
 .select_container img {
-	height: 28rem;
-	width: 19rem;
+	height: 12rem;
+	width: 8rem;
 	object-fit: cover;
 	box-shadow: 2px 3px 5px 0px black;
 }
 
-.this-week-bestseller h4 {
+.this-week-bestseller h3 {
 	margin-top: 10px;
 	margin-bottom: 3px;
 }
 
 .this-week-bestseller h5 {
+	color: grey;
 	margin-top: 7px;
 	margin-bottom: 7px;
 }

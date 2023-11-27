@@ -38,7 +38,7 @@ window.addEventListener("load", async () => {
   copyAllProducts.sort((a, b) => b.soldAmount - a.soldAmount);
 
   if (copyAllProducts !== null) {
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 6; i++) {
       const image = copyAllProducts[i].imageUrl;
       const title = copyAllProducts[i].name;
       const author = copyAllProducts[i].author;
@@ -47,7 +47,7 @@ window.addEventListener("load", async () => {
                 <div class="select_container">
                     <a href=../select-item/?id=${copyAllProducts[i]._id}>
                         <img src=${image}>
-                        <h4>${title}</h4>
+                        <h3>${title}</h3>
                         <h5>${author}</h5>
                     </a>
                 <div>
