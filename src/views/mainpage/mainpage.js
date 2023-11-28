@@ -4,26 +4,15 @@ window.addEventListener("load", async () => {
     .catch((err) => null);
 
   if (categories !== null) {
-    const categoryWrapperElem = document.getElementById("category-wrapper");
-    categoryWrapperElem.innerHTML = "";
+    const categoryWrapperElem = document.querySelector(".category_list");
 
     for (let i = 0; i < categories.data.length; i++) {
-      // 새로운 div 요소 생성
-      const divWrapperElem = document.createElement("div");
-
-      // <a> 태그 생성
-      const categoryElem = document.createElement("a");
-      categoryElem.innerHTML = categories.data[i].name;
-      categoryElem.setAttribute(
-        "href",
-        "../category/index.html?category=" + categories.data[i]._id
-      );
-
-      // <a> 태그를 div 안에 추가
-      divWrapperElem.appendChild(categoryElem);
-
-      // 생성된 div를 기존의 부모 요소에 추가
-      categoryWrapperElem.append(divWrapperElem);
+      const categoryDrawerList = `<div>
+        <a href=../category/index.html?category=${categories.data[i]._id}>
+          ${categories.data[i].name}
+        </a>
+      <div>`;
+      categoryWrapperElem.innerHTML += categoryDrawerList;
     }
   }
 
@@ -55,4 +44,21 @@ window.addEventListener("load", async () => {
       weekBestsellerInfoElem.innerHTML += template;
     }
   }
+  categoryDrawer();
 });
+
+function categoryDrawer() {
+  const categoryBtn = document.querySelector(".category_btn");
+  const categoryDrawer = document.querySelector(".category_drawer");
+  categoryDrawer.style.visibility = "hidden";
+
+  categoryBtn.addEventListener("click", () => {
+    if (categoryDrawer.style.visibility == "hidden") {
+      categoryDrawer.style.visibility = "visible";
+      categoryDrawer.style.opacity = 1;
+    } else {
+      categoryDrawer.style.visibility = "hidden";
+      categoryDrawer.style.opacity = 0;
+    }
+  });
+}

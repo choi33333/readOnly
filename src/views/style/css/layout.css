@@ -64,14 +64,14 @@ header{
 	text-align: center;
 	justify-content: center;
 	display: flex;
-	width: 35rem;
-	height: 2.5rem;
+	width: 40rem;
+	height: 2.8rem;
 	border-radius: 4px;
-	background-color: rgb(235, 235, 235);
+	background-color: rgb(245, 245, 245);
 }
 .search_input{
 	font-size: 1.2rem;
-	width:30rem;
+	width:34rem;
 	height: 2rem;
 	padding-left: 2rem;
 	border: none;
@@ -88,12 +88,13 @@ header{
 
 /* Nav */
 .nav_container{
-    position: relative;;
+    position: relative;
 }
 .nav{
 	display: flex;
     justify-content: center;
 	align-items: center;
+	margin: 1rem 0;
 }
 .nav_list{
 	display: flex;
@@ -110,9 +111,7 @@ header{
     }
     &:hover::after{
         background-color: var(--sub-color);
-    }
-    &:hover div{
-        display: block;
+		display: block;
     }
 }
 
@@ -124,17 +123,77 @@ header{
 
 .nav_item::after{
     content: "";
-    width: 0.4rem;
-    height: 0.4rem;
-    margin-top: 1rem;
+    width: 0.35rem;
+    height: 0.35rem;
+    margin-top: 0.5rem;
     border-radius: 100%;
     background-color: grey;
+	display: none;
 }
 
 .nav_list .active::after{
     background-color: var(--sub-color);
+	display: block;
 }
 
 .nav_list .active a{
     color: var(--sub-color);
+}
+
+/* 카테고리 드로워 예외처리 */
+.category_btn{
+    color: grey;
+    font-weight: bold;
+    font-size: 1rem;
+	background-color: #fff;
+	border: none;
+	&:hover{
+        cursor: pointer;
+        color: var(--sub-color);
+    }
+}
+.nav_list :nth-child(3){
+	&:hover::after{
+		display: none;
+	}
+	&:hover .category_drawer a{
+		color: grey;
+	}
+}
+.nav_list :nth-child(3) .category_drawer a:hover{
+	color: var(--sub-color);
+}
+
+.category_drawer{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+	visibility: hidden;
+	opacity: 0;
+}
+
+.category_list {
+	position: absolute;
+	text-align: center;
+	width: 8rem;
+	margin-top: 2rem;
+	padding-top: 1.5rem;
+	background-color: white;
+	border-radius: 0.5rem;
+	border: solid 1px grey;
+}
+
+.category_list div {
+	padding: 0.8rem 1rem;
+	&:hover a {
+		color: #01d3c6;
+	}
+}
+
+.category_list a {
+	font-weight: bold;
+	font-size: 1rem;
+	color: grey;
+	text-decoration: none;
 }

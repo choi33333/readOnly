@@ -19,9 +19,8 @@
                     </h1>
                 </div>
                 <div class="search_container">
-                    <input class="search_input" 
-                    placeholder="Search by author, title, name" onfocus="this.placeholder=''"
-                    onblur="this.placeholder='Search by author, title, name'" />
+                    <input class="search_input" placeholder="Search by author, title, name"
+                        onfocus="this.placeholder=''" onblur="this.placeholder='Search by author, title, name'" />
                     <img class="search_icon" src="./img/search_icon.svg" />
                 </div>
                 <div class="gnb_container">
@@ -31,7 +30,7 @@
                     <div class="user_icon">
                         <img src="./img/ico-cart.svg" />
                     </div>
-                    <div class="user_icon">                    
+                    <div class="user_icon">
                         <img src="./img/ico-instagram.svg" />
                     </div>
                 </div>
@@ -47,7 +46,10 @@
                             <a href="#">Bestseller</a>
                         </li>
                         <li class="nav_item">
-                            <a href="#">Category</a>
+                            <button class="category_btn">Category</button>
+                            <div class="category_drawer">
+                                <div class="category_list"></div>
+                            </div>
                         </li>
                         <li class="nav_item">
                             <a href="#">Offline</a>
@@ -79,22 +81,16 @@
                             </div>
                             <div id="weekbestseller-info"></div>
                         </div>
-    
-                        <div class="category-wrap">
-                            <div class="category_container">
-                                <div id="category-wrapper"></div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </section>
-            
+
             <div class="footer">
                 <div class="footer_info_wrap">
-                    //내용 
+                    //내용
                 </div>
             </div>
-            
+
         </div>
     </div>
 
