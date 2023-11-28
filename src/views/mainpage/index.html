@@ -4,68 +4,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MainPage</title>
-    <link rel="stylesheet" href="../mainpage/mainpage.css">
+    <title>ReadOnly</title>
+    <!-- <link rel="stylesheet" href="../mainpage/mainpage.css"> -->
+    <link rel="stylesheet" href="../style/default.css">
 </head>
 
 <body>
-    <main>
-        <header>
-            <div class="logo_container side_container">readOnly</div>
-            <div class="search_container">
-                <input class="search_input" placeholder="Seach by author, title, name" onfocus="this.placeholder=''"
-                    onblur="this.placeholder='Seach by author, title, name'"></input>
-                <img class="search_icon" src="./img/search_icon.svg" />
-            </div>
-            <div class="user_container side_container">
-                <img class="user_icon" src="./img/ico-mypage.svg" />
-                <img class="user_icon" src="./img/ico-cart.svg" />
-                <img class="user_icon" src="./img/ico-instagram.svg" />
-            </div>
-        </header>
-
-        <div class="nav_container">
-            <div class="nav_list_container">
-                <div class="nav_home nav_btn">Home<div></div>
+    <div class="wrapper">
+        <div class="main">
+            <header>
+                <div class="logo_container">
+                    <h1>
+                        <a href="./index.html"><img src="../img/logo2.svg" alt="로고"></a>
+                    </h1>
                 </div>
-                <div class="nav_best nav_btn">Bestseller<div></div>
+                <div class="search_container">
+                    <input class="search_input" 
+                    placeholder="Search by author, title, name" onfocus="this.placeholder=''"
+                    onblur="this.placeholder='Seach by author, title, name'" />
+                    <img class="search_icon" src="./img/search_icon.svg" />
                 </div>
-                <div class="nav_category nav_btn">Category<div></div>
-                </div>
-                <div class="nav_store nav_btn">Find a store<div></div>
-                </div>
-                <div class="nav_blog nav_btn">Blog<div></div>
-                </div>
-            </div>
-            <div class="main_img_container">
-                <img class="main_img" src="./img/main_color_img.jpg" />
-                <div class="text_container">
-                    <h1 class="main_h2">Build your library</h1>
-                    <p class="main_p">Journey for new chapter</p>
-                    <div class="viewall_btn">View all</div>
-                </div>
-            </div>
-        </div>
-        <div class="direct_container">
-            <div id="main-body">
-                <div class="this-week-bestseller">
-                    <div class='now_container'>
-                        <p>Popular Now</p>
-                        <div>View All</div>
+                <div class="gnb_container">
+                    <div class="user_icon">
+                        <img src="./img/ico-mypage.svg" />
                     </div>
-                    <div id="weekbestseller-info"></div>
-                </div>
-
-                <div class="category-wrap">
-                    <div class="category_container">
-                        <div id="category-wrapper"></div>
+                    <div class="user_icon">
+                        <img src="./img/ico-cart.svg" />
+                    </div>
+                    <div class="user_icon">                    
+                        <img src="./img/ico-instagram.svg" />
                     </div>
                 </div>
+            </header>
+
+            <div class="nav_container">
+                <nav class="nav">
+                    <ul class="nav_list">
+                        <li class="nav_item active">
+                            <a href="#">Home</a>
+                        </li>
+                        <li class="nav_item">
+                            <a href="#">Bestseller</a>
+                        </li>
+                        <li class="nav_item">
+                            <a href="#">Category</a>
+                        </li>
+                        <li class="nav_item">
+                            <a href="#">Offline</a>
+                        </li>
+                        <li class="nav_item">
+                            <a href="#">Blog</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <section>
+                <div class="banner_container">
+                    <div class="banner_wrap">
+                        <img class="banner_img" src="./img/main_color_img.jpg" />
+                    </div>
+                    <div class="text_container">
+                        <h2 class="banner_h2">Build your library</h2>
+                        <p class="banner_p">Journey for new chapter</p>
+                        <div class="viewall_btn">View all</div>
+                    </div>
+                </div>
+                <div class="direct_container">
+                    <div id="main-body">
+                        <div class="this-week-bestseller">
+                            <div class='now_container'>
+                                <p>Popular Now</p>
+                                <div>View All</div>
+                            </div>
+                            <div id="weekbestseller-info"></div>
+                        </div>
+    
+                        <div class="category-wrap">
+                            <div class="category_container">
+                                <div id="category-wrapper"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="footer">
 
             </div>
+            
         </div>
-    </main>
-
+    </div>
 
     <script src="../frontUtils/jwtUtil.js"></script>
     <script src="../frontUtils/loginStatus.js"></script>
