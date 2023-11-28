@@ -1,3 +1,11 @@
+/* Root */
+:root {	
+	--main-color: #143b4c;
+	--sub-color: #01d3c6;
+	--gra-color: #7bac75;
+}
+
+/* Html */
 html{
     font-size: 15px;
 }
@@ -11,8 +19,8 @@ body{
 	flex-direction: column;
 	align-items: center;
 	padding: 1.5rem 0;
-	background: linear-gradient(135deg, #143b4c, #143b4c, #7bac75);
-	background-color: #143b4c;
+	background: linear-gradient(135deg, var(--main-color), var(--main-color), var(--gra-color));
+	background-color: var(--main-color);
 }
 .content-wrap{
 	display: flex;
@@ -98,11 +106,10 @@ header{
     padding: 0 1.5rem;
     &:hover a{
         cursor: pointer;
-        color: #01d3c6;
+        color: var(--sub-color);
     }
     &:hover::after{
-        cursor: pointer;
-        background-color: #01d3c6;
+        background-color: var(--sub-color);
     }
     &:hover div{
         display: block;
@@ -125,9 +132,9 @@ header{
 }
 
 .nav_list .active::after{
-    background-color: #01d3c6;
+    background-color: var(--sub-color);
 }
 
 .nav_list .active a{
-    color: #01d3c6;
+    color: var(--sub-color);
 }

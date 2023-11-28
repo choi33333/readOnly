@@ -1,4 +1,4 @@
-html{
+/* html{
 	font-size: 15px;
 }
 body{
@@ -26,10 +26,10 @@ main{
 	width: 90%;
 	border-radius: 2rem;
 	background-color: #fff;
-}
+} */
 
 /*header*/
-header{
+/* header{
 	justify-content: space-between;
 	display: flex;
 	height: 5rem;
@@ -73,10 +73,10 @@ header{
 	&:hover{
 		cursor: pointer;
 	}
-}
+} */
 
 
-/*nav_container*/
+/* nav_container
 
 .nav_container{
 	display: flex;
@@ -117,7 +117,7 @@ header{
 }
 .nav_home div{
 	display: block;
-}
+} */
 
 
 .main_img_container{
