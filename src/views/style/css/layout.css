@@ -1,6 +1,9 @@
 html{
     font-size: 15px;
 }
+body{
+    max-width: 1080px;
+}
 
 /* Wrapper */
 .wrapper{
@@ -11,7 +14,7 @@ html{
 	background: linear-gradient(135deg, #143b4c, #143b4c, #7bac75);
 	background-color: #143b4c;
 }
-.main{
+.content-wrap{
 	display: flex;
 	flex-direction: column;
 	height: 95%;
@@ -31,6 +34,13 @@ header{
     display: flex;
     align-items: center;
     width: 10rem;
+}
+.logo_container h1 {
+    width: 100%;
+}
+.logo_container h1 a{
+    display: block;
+    width: 100%;
 }
 .gnb_container{
 	display: flex;
@@ -82,39 +92,42 @@ header{
     padding: 2rem 0;
 }
 .nav_item{
-	display: flex;
-	align-items: center;
-	padding: 0 1.5rem;
-	&:hover{
-		cursor: pointer;
-		color: #01d3c6;
-	}
-	&:hover div{
-		display: block;
-	}
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1.5rem;
+    &:hover a{
+        cursor: pointer;
+        color: #01d3c6;
+    }
+    &:hover::after{
+        cursor: pointer;
+        background-color: #01d3c6;
+    }
+    &:hover div{
+        display: block;
+    }
 }
 
 .nav_item a{
     color: grey;
     font-weight: bold;
-	font-size: 1rem;
-    position: relative;
+    font-size: 1rem;
 }
 
-.nav_item a::before{
+.nav_item::after{
     content: "";
-    position: absolute;
-	display: block;
-	width: 0.4rem;
-	height: 0.4rem;
-	margin-top: 0.5rem;
-	border-radius: 100%;
-	background-color: #01d3c6;
+    width: 0.4rem;
+    height: 0.4rem;
+    margin-top: 1rem;
+    border-radius: 100%;
+    background-color: grey;
 }
 
-.nav_item.active a::before{
-    display: block;
+.nav_list .active::after{
+    background-color: #01d3c6;
+}
+
+.nav_list .active a{
     color: #01d3c6;
 }
-
-
