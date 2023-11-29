@@ -2,6 +2,8 @@ html{
 	font-size: 15px;
 }
 
+
+/* banner */ 
 .banner_container{
 	margin: auto;
 	display: flex;
@@ -37,10 +39,10 @@ html{
 }
 .viewall_btn{
 	float: right;
-	font-size: 1.2rem;
+	font-size: 1rem;
 	color: #fff;
-	padding: 0.5rem 1.5rem;
-	border-radius: 4px;
+	padding: 0.7rem 1.8rem;
+	border-radius: 0.5rem;
 	background-color: #df5806;
 	&:hover{
 		background-color: rgb(206, 84, 9);
@@ -50,12 +52,12 @@ html{
 
 
 
-/* 베스트셀러  */
+/* main products  */
 
-.this-week-bestseller {
+.products_container {
 	width: 85%;
 	height: 25rem;
-	margin: 0 auto;
+	margin: 1rem auto;
 	text-align: center;
 	align-items: center;
 	justify-content: center;
@@ -82,9 +84,7 @@ html{
 	}
 }
 
-
-/* popular Now*/
-#weekbestseller-info{
+.products_list{
 	height: 20rem;
 	width: 100%;
 	display: flex;
@@ -94,7 +94,7 @@ html{
 	padding-bottom: 1rem;
 }
 
-#weekbestseller-info a {
+.products_list a {
 	text-align: center;
 	text-decoration: none;
 	color: black;
@@ -102,9 +102,9 @@ html{
 	margin: auto;
 }
 
-.select_container{
-	height: 15rem;
-	width: 8rem;
+.product_container{
+	height: 16rem;
+	width: 9rem;
 	margin: 2rem;
 	&:hover {
 		transform:scale(1.2);
@@ -112,21 +112,25 @@ html{
 	}
 }
 
-.select_container img {
+.product_container img {
 	height: 13rem;
 	width: 9.5rem;
 	border-radius: 0.5rem;
 	object-fit: cover;
 }
 
-.this-week-bestseller h3 {
+.product_container div{
+	text-align: left;
+}
+
+.product_container div h3 {
 	font-size: 0.9rem;
 	font-weight: bold;
 	margin-top: 10px;
 	margin-bottom: 3px;
 }
 
-.this-week-bestseller h5 {
+.product_container div h5 {
 	font-size: 0.8rem;
 	color: grey;
 	margin-top: 7px;

@@ -20,7 +20,7 @@ window.addEventListener("load", async () => {
     .then((result) => result.json())
     .catch((err) => null);
 
-  const weekBestsellerInfoElem = document.getElementById("weekbestseller-info");
+  const weekBestsellerInfoElem = document.querySelector(".products_list");
 
   const copyAllProducts = [...products.data];
 
@@ -33,11 +33,13 @@ window.addEventListener("load", async () => {
       const author = copyAllProducts[i].author;
 
       const template = `
-                <div class="select_container">
+                <div class="product_container">
                     <a href=../select-item/?id=${copyAllProducts[i]._id}>
                         <img src=${image}>
+                        <div>
                         <h3>${title}</h3>
                         <h5>${author}</h5>
+                        </div>
                     </a>
                 <div>
             `;
