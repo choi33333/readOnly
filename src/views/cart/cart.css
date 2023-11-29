@@ -1,39 +1,39 @@
-/* 위에 코드는 헤더 css */
-
-div {
-	display: block;
+html{
+	font-size: 15px;
 }
 
-
-.wrap {
-	height: 100vh;
-}
-/* header {
-	min-height: 15%;
-	height: 15%;
-	border-bottom: 1px solid grey;
-} */
-main {
-	padding-top: 5%;
-	height: 85%;
-	min-width: none;
-	min-height: 80%;
-	padding-left: 100px;
-	padding-right: 100px;
-}
-.main_label {
-	height: 10%;
+/* cart wrap*/
+.cart_container{
+	display: flex;
+	margin: 5rem auto;
 	width: 80%;
+}
+
+.cart_wrap {
+	min-width: 80%;
+	display: flex;
+}
+
+/* cart list*/
+.list_container{
+	padding: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	min-width: 70%;
+	border: solid 1px grey;
+	border-radius: 1rem;
+}
+.label_container {
 	font-size: 20px;
 	display: flex;
 	align-items: center;
+	height: 3rem;
+	margin: 0 0 1rem 0;
 	justify-content: space-between;
 }
-.removeall {
-	margin-right: 10%;
+.clear_btn {
 	font-size: 15px;
-	font-weight: 400;
-	width: 12%;
+	width: 10rem;
 	height: 2.3rem;
 	display: flex;
 	align-items: center;
@@ -41,32 +41,15 @@ main {
 	border-radius: 4px;
 	cursor: pointer;
 	color: white;
-	border: 1px solid rgb(16, 16, 160);
-	background-color: rgb(16, 16, 160);
+	border: none;
+	background-color: var(--main-color);
 	&:hover {
-		border-color: rgb(12, 12, 105);
-		background-color: rgb(12, 12, 105);
+		background-color: var(--sub-color);
 	}
 }
 
-footer {
-	height: 310px;
-}
-
-.cartdiv {
-	min-width: 80%;
-	height: 90%;
-	display: flex;
-}
-
-.cart_product {
-	width: 70%;
-	height: 100%;
-	overflow: scroll;
-	padding: 0 5%;
+.products_list {
 	border-top: 1px solid grey;
-	overflow-x: scroll;
-	overflow-x: hidden;
 }
 
 .emptyCart {
@@ -89,62 +72,53 @@ footer {
 	background-color: black;
 }
 
-.cart_card {
-	height: 30%;
+.product_container {
+	width: 100%;
+	height: 12rem;
 	display: flex;
 	align-items: center;
-	margin: 3% 0;
-	border: 1px solid grey;
-	border-radius: 10px;
+	border-bottom: 1px solid grey;
 }
 
-.card_imgDiv {
-	width: 15%;
-	height: 100%;
-	display: flex;
-	justify-content: center;
+.img_container {
+	width: 7rem;
+	height: 10.5rem;
 	align-items: center;
+	display: flex;
 }
 
-.card_img {
-	width: 80%;
-	height: 90%;
+.img_container img{
+	border-radius: 1rem;
 }
 
-.card_namePrice {
-	width: 50%;
-	height: 100%;
+.product_namePrice {
+	width: 20rem;
 }
 
-.book_category {
-	padding-top: 1.5rem;
-	font-size: 15px;
-	height: 10%;
+.category_label {
+	font-size: 0.8rem;
 	display: flex;
 	align-items: center;
-	padding-left: 0.5rem;
+	padding-left: 0.8rem;
 	color: gray;
 }
-.bookname {
-	font-size: 27px;
+.title_label {
+	font-size: 1.2rem;
 	font-weight: 500;
-	height: 25%;
 	display: flex;
 	align-items: center;
-	padding: 0.5rem 0 1rem 1rem;
+	padding-left: 1rem;
 }
-
-.book_info_container {
+.detail_container {
 	display: flex;
 }
-.bookauthor {
+.author_label {
 	font-size: 15px;
-	height: 15%;
 	display: flex;
 	align-items: center;
 	padding-left: 2rem;
 }
-.book_releasedDate {
+.releasedDate_label {
 	font-size: 15px;
 	height: 15%;
 	display: flex;

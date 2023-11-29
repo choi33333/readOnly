@@ -25,7 +25,7 @@ window.addEventListener("load", async () => {
   await setCartItem(); // setCartItem를 비동기 함수로 호출
   if (renderData?.length > 0) {
     renderData.forEach((data, index) => {
-      document.querySelector(".cart_product").innerHTML += getCartItemTemplate(
+      document.querySelector(".products_list").innerHTML += getCartItemTemplate(
         data,
         index
       );
@@ -39,7 +39,7 @@ window.addEventListener("load", async () => {
 	  ).innerHTML = `${sumPrice.toLocaleString()}원`;
     sumPrice = 0;
   } else {
-    document.querySelector(".cart_product").innerHTML = `<div class='emptyCart'>
+    document.querySelector(".products_list").innerHTML = `<div class='emptyCart'>
 	  <div class=emptySVG>
 		<h1>!</h1>
 	  </div>
@@ -47,7 +47,7 @@ window.addEventListener("load", async () => {
 	  </div>`;
   }
 
-  const bookcard = document.querySelector(".cart_card");
+  const bookcard = document.querySelector(".product_container");
   //querySelector로 선택
   const plusbtn = document.querySelectorAll(".plusbtn");
   const minusbtn = document.querySelectorAll(".minusbtn");
@@ -127,7 +127,7 @@ window.addEventListener("load", async () => {
   document.querySelector(".user_address").value = `${userData[0].address}`;
   document.querySelector(".user_addressDetail").value = `${userData[0].addressDetail}`;
 });
-document.querySelector(".removeall").addEventListener("click", function () {
+document.querySelector(".clear_btn").addEventListener("click", function () {
   let reset = [];
   localStorage.setItem("bookdata", JSON.stringify(reset));
   location.reload();
@@ -176,26 +176,26 @@ document
   });
 
 const getCartItemTemplate = (data, index) => {
-  return `<div id=${index} class="cart_card">
-    <div class="card_imgDiv">
-        <img class='card_img' src=${data.imageUrl}>
-    </div>
-    <div class="card_namePrice">
-		<div class="book_category">카테고리 > ${data.categoryName}</div>
-        <div class="bookname">${data.name}</div>
-		<div class="book_info_container">
-			<div class="bookauthor">${data.author} </div>
-			<div class="divider">글 ㅣ</div>
-			<div class="book_releasedDate">
-				${data.releasedDate.slice(0, -20)}년
-				${data.releasedDate.slice(5, -17)}월
-				${data.releasedDate.slice(8, -14)}일
-			</div>
-		</div>
-        <div class="bookprice">${data.price.toLocaleString()}원</div>
-    </div>
-	<div>
-	</div>
+  return `<div id=${index} class="product_container">
+                <div class="img_container">
+                    <img src=${data.imageUrl}>
+                </div>
+                <div class="info_container">
+		                <div class="category_label">카테고리 > ${data.categoryName}</div>
+                        <div class="title_label">${data.name}</div>
+		                <div class="detail_container">
+			                <p class="author_label">${data.author} </p>
+			                <p class="divider">글 ㅣ</p>
+			                <p class="releasedDate_label">
+				                ${data.releasedDate.slice(0, -20)}년
+				                ${data.releasedDate.slice(5, -17)}월
+				                ${data.releasedDate.slice(8, -14)}일
+			                </p>
+		                </div>
+                        <div class="bookprice">${data.price.toLocaleString()}원</div>
+                    </div>
+	            <div>
+	    </div>
 	<div class="cardCountBox">
         <div class="book_cntbtn">
             <a class="minusbtn ${index}">-</a>
