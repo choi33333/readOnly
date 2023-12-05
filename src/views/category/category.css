@@ -2,95 +2,83 @@
 .container {
     display: flex;
     justify-content: space-between;
-
+    margin-top: 50px;
 }
 
 main {
     width: 100%;
-    margin-top: 60px;
+    padding: 10px 94px;
 }
 
-.body a {
-    color: black;
-    text-decoration: none;
-    
+#bestseller-header h2, #newbook-header h2, #view-all-header h2{
+    color: var(--main-color);
+    font-size: 20px;
+    font-weight: bold;
 }
 
-.body {
-    width: 100%;
-    height: 100vh;
-    text-align: left;
-    margin-left: 30px;
-    /* margin-right: auto; */
-    /* background-color: aqua; */
-    overflow: auto;
+.section_wrap{
+    + .section_wrap{
+        margin-top: 68px;
+    }
 }
 
-h2 {
-    color:rgb(16, 16, 160);
-}
-
-
-#bestseller, #newbook {
-    width: 100%;
-    height: 400px;
-    padding-bottom: 30px;
-    border-bottom: 2px solid rgb(234, 234, 234);
-    /* background-color: bisque; */
-
-}
-
-.bookWrap{
+.book_wrap{
     width: 100%;
     display: flex;
-
     justify-content: space-evenly;
     flex-wrap: wrap;
-}
-.imgWrap{
-    width: 200px;
-    height: 293px;
-    overflow: hidden;
+    margin-top: 24px;
+    .imgWrap{
+        width: 100%;
+        height: 184px;
+        overflow: hidden;
+        + p{
+            margin-top: 12px;
+        }
+    }
 }
 
-.bookWrap a{
-    width: 300px;
+.book_wrap a{
+    width: 124px;
     display: block;
-
 }
 
-.body h5, .body h6 {
-    font-size: 16px;
-    margin: 3px !important;
-}
-
-.body h6 {
-    font-weight: 400;
+.book_wrap p{
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--main-color);
 }
 
 
-.body p {
-    margin-right: 15px;
-    font-size: 15px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    /* white-space:nowrap; */
-    display: -webkit-box;
-    -webkit-line-clamp: 3; /* 라인수 */
-    -webkit-box-orient: vertical;
-    word-wrap:break-word; 
-    line-height: 1.2em;
-    height: 3.6em; 
-}
 
-img {
+/* 전체도서 */
+.all_book_wrap{
     width: 100%;
-    /* width: 20%; */
-    /* height: 20%; */
-    /* width: 150px;
-    height: 200px;
-    float: left;
-    margin-right: 10px;
-    object-fit: contain */
-    
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 24px;
+    gap: 25px;
+    .imgWrap{
+        width: 100%;
+        height: 168px;
+        overflow: hidden;
+        + p{
+            margin-top: 12px;
+        }
+    }
+
+}
+
+.all_book_wrap a{
+    width: 118px;
+    display: block;
+}
+
+.all_book_wrap p{
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--main-color);
+}
+.fw-bold{
+    font-weight: bold!important;
 }
