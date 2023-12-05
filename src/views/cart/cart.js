@@ -52,7 +52,7 @@ window.addEventListener("load", async () => {
   //querySelector로 선택
   const plusbtn = document.querySelectorAll(".plus_btn");
   const minusbtn = document.querySelectorAll(".minus_btn");
-  const deletebtn = document.querySelectorAll(".carddelete");
+  const deletebtn = document.querySelectorAll(".delete_product");
 
   //카운트 증가 소스
   plusbtn.forEach((plusbtn) =>
@@ -195,11 +195,22 @@ const getCartItemTemplate = (data, index) => {
 
                     <div class="action_container"> 
                         <div class="book_cntbtn">
-                            <button class="minus_btn ${index}">-</button>
+                            <button class="minus_btn ${index}">
+                                <img src="./img/minus_btn.svg">
+                            </button>
                             <p id=count${index} class="countvalue">${data.amount}</p>
-                            <button class="plus_btn ${index}">+</button>
+                            <button class="plus_btn ${index}">
+                                <img src="./img/plus_btn.svg">
+                            </button>
                         </div>
-                        <button class="carddelete ${index}">삭제</button>
+                        <div class="book_delbtn">
+                            <button class="delete_product ${index}">
+                                <div class="delsvg_wrap">
+                                    <img src="./img/delete_btn.svg">
+                                </div>
+                                <p>Delete</p>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>`;

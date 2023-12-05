@@ -86,14 +86,19 @@ html{
 }
 
 .img_container {
-	width: 7rem;
+	width: 9rem;
 	height: 10.5rem;
 	align-items: center;
 	display: flex;
+	margin-right: 0.5rem;
 }
 
 .img_container img{
+	width:100%;
+    height:100%;
+    object-fit:cover;
 	border-radius: 1rem;
+	border: 2px solid rgb(210, 210, 210);
 }
 
 .info_container{
@@ -114,7 +119,7 @@ html{
 
 .title_container{
 	width: auto;
-	padding: 0.5rem 1rem 0.5rem 1rem;
+	padding: 0.5rem 0 0.5rem 1rem;
 	display: flex;
 	text-align: center;
 	justify-content: space-between;
@@ -133,9 +138,9 @@ html{
 	display: flex;
 }
 .detail_container p{
-	font-size: 15px;
+	font-size: 0.9rem;
 	align-items: center;
-	padding-left: 1rem;
+	padding: 0 0 0.5rem 1rem;
 	color: grey;
 }
 
@@ -143,96 +148,72 @@ html{
 	width: auto;
 	display: flex;
 	justify-content: space-between;
-	padding: 0.5rem 1rem 0.5rem 1rem;
-}
-
-.book_totalPrice {
-	height: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	padding: 1rem 1rem 0 1rem;
 }
 
 .book_cntbtn {
-	width: 5rem;
-	height: 1.8rem;
-	border: 1px solid black;
-	border-radius: 4px;
+	width: 6rem;
+	height: 2rem;
+	border: 1px solid rgb(200, 200, 200);
+	border-radius: 10px;
 	display: flex;
-	justify-content: space-around;
-	align-items: center;
-}
-.plus_btn {
-	font-size: 22px;
-	width: 25%;
-	height: 100%;
-	display: flex;
-	font-weight: 500;
-
-	background-color: white;
-	border: none;
-	border-top-right-radius: 2px;
-	border-bottom-right-radius: 2px;
-	cursor: pointer;
-	&:hover {
-		color: white;
-		border-color: rgb(16, 16, 160);
-		background-color: rgb(16, 16, 160);
-	}
+	box-shadow: 1px 1px 3px 0px rgb(220, 220, 220);
 }
 .countvalue {
-	width: 50%;
+	width: 2rem;
 	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
-.minus_btn {
-	font-size: 22px;
-	width: 25%;
-	height: 100%;
-	display: flex;
-	font-weight: 500;
+
+.book_cntbtn button{
+	display : flex;
+	align-items: center;
 	justify-content: center;
-	background-color: white;
+	height: 100%;
+	width: 2.5rem;
+	background-color: transparent;
 	border: none;
-	border-top-left-radius: 2px;
-	border-bottom-left-radius: 2px;
 	cursor: pointer;
-	&:hover {
-		color: white;
-		border-color: rgb(16, 16, 160);
-		background-color: rgb(16, 16, 160);
+	&:hover img {
+		filter: invert(0%) sepia(98%) saturate(7%) hue-rotate(208deg) brightness(104%) contrast(101%);
 	}
 }
-.card_del {
-	width: 10%;
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+
+.book_cntbtn img{
+	filter: invert(45%) sepia(43%) saturate(12%) hue-rotate(350deg) brightness(101%) contrast(87%);
 }
-.carddelete {
-	font-weight: 500;
+
+.book_delbtn{
 	display: flex;
+	width: 4rem;
+}
+.book_delbtn button {
+	font-size: 0.9rem;
+	color: grey;
+	display : flex;
 	align-items: center;
 	justify-content: center;
-	padding: 5px 10px;
-	color: white;
-	font-size: 1rem;
-	text-transform: uppercase;
-	text-decoration: none;
-	border: 1px solid;
-	border-radius: 4px;
+	background-color: transparent;
+	border: none;
 	cursor: pointer;
-	color: white;
-	border: 1px solid rgb(16, 16, 160);
-	background-color: rgb(16, 16, 160);
 	&:hover {
-		border-color: rgb(12, 12, 105);
-		background-color: rgb(12, 12, 105);
+		color: #000;
+	}
+	&:hover img {
+		filter: invert(0%) sepia(98%) saturate(7%) hue-rotate(208deg) brightness(104%) contrast(101%);
 	}
 }
+.book_delbtn button div{
+	width: 0.9rem;
+	padding-right: 0.5rem;
+}
+.book_delbtn button div img{
+	filter: invert(45%) sepia(43%) saturate(12%) hue-rotate(350deg) brightness(101%) contrast(87%);
+}
+
+
 .pay_div {
 	width: 30%;
 	display: flex;
