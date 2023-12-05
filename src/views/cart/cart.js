@@ -39,18 +39,19 @@ window.addEventListener("load", async () => {
 	  ).innerHTML = `${sumPrice.toLocaleString()}원`;
     sumPrice = 0;
   } else {
-    document.querySelector(".products_list").innerHTML = `<div class='emptyCart'>
-	  <div class=emptySVG>
-		<h1>!</h1>
-	  </div>
-	  <h3>장바구니가 비었습니다!</h3>
-	  </div>`;
+    document.querySelector(".products_list").innerHTML = 
+    `<div class='cart_empty'>
+	    <div class=cart_empty_svg>
+		    <h1>!</h1>
+	    </div>
+	    <h3>장바구니가 비었습니다!</h3>
+	</div>`;
   }
 
   const bookcard = document.querySelector(".product_container");
   //querySelector로 선택
-  const plusbtn = document.querySelectorAll(".plusbtn");
-  const minusbtn = document.querySelectorAll(".minusbtn");
+  const plusbtn = document.querySelectorAll(".plus_btn");
+  const minusbtn = document.querySelectorAll(".minus_btn");
   const deletebtn = document.querySelectorAll(".carddelete");
 
   //카운트 증가 소스
@@ -176,42 +177,32 @@ document
   });
 
 const getCartItemTemplate = (data, index) => {
-  return `<div id=${index} class="product_container">
+  return    `<div id=${index} class="product_container">
                 <div class="img_container">
                     <img src=${data.imageUrl}>
                 </div>
                 <div class="info_container">
-		                <div class="category_label">카테고리 > ${data.categoryName}</div>
-                        <div class="title_label">${data.name}</div>
-		                <div class="detail_container">
-			                <p class="author_label">${data.author} </p>
-			                <p class="divider">글 ㅣ</p>
-			                <p class="releasedDate_label">
-				                ${data.releasedDate.slice(0, -20)}년
-				                ${data.releasedDate.slice(5, -17)}월
-				                ${data.releasedDate.slice(8, -14)}일
-			                </p>
-		                </div>
-                        <div class="bookprice">${data.price.toLocaleString()}원</div>
+		            <p class="category_label">카테고리 > ${data.categoryName}</p>
+                    
+                    <div class="title_container">
+                        <p class="book_title">${data.name}
+                        <p id='sum${index}' class="book_sum">${(data.price * data.amount).toLocaleString()}원</p>
                     </div>
-	            <div>
-	    </div>
-	<div class="cardCountBox">
-        <div class="book_cntbtn">
-            <a class="minusbtn ${index}">-</a>
-            <div id=count${index} class="countvalue">${data.amount}  </div>
-            <a class="plusbtn ${index}">+</a>
-        </div>
-    </div>
-    <div class="card_cntPrice">
-        <div id='sum${index}' class="book_totalPrice">${(
-    data.price * data.amount
-  ).toLocaleString()}원</div>
-    </div>
-    <div class="card_del">
-        <a class='carddelete ${index}'>삭제</a>
-    </div>
-    </div>`;
+
+		            <div class="detail_container">
+                        <p class="book_price"> ${data.price.toLocaleString()}원</p>
+		            </div>
+
+                    <div class="action_container"> 
+                        <div class="book_cntbtn">
+                            <button class="minus_btn ${index}">-</button>
+                            <p id=count${index} class="countvalue">${data.amount}</p>
+                            <button class="plus_btn ${index}">+</button>
+                        </div>
+                        <button class="carddelete ${index}">삭제</button>
+                    </div>
+                </div>
+            </div>`;
 };
 const fetchUser = async () => {
   await fetch("/api/v1/users/me", {
@@ -230,3 +221,11 @@ const fetchUser = async () => {
     }
   });
 };
+
+
+//released Date
+{/* <p class="releasedDate_label">
+${data.releasedDate.slice(0, -20)}년
+${data.releasedDate.slice(5, -17)}월
+${data.releasedDate.slice(8, -14)}일
+</p> */}
