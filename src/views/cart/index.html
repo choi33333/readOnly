@@ -40,6 +40,7 @@
             <section>
                 <div class="cart_container">
                     <div class="cart_wrap">
+
                         <div class="list_container">
                             <div class="label_container">
                                 <h4>Cart</h4>
@@ -49,8 +50,46 @@
                             </div>
                         </div>
 
-                        <div class="pay_div">
-                            <p class="user_info">주문자 정보</p>
+                        <div class="order_container">
+                            <p class="delivery_label">Delivery</p>
+                            <div class="delivery_container">
+                                <div class="deliveryfee_container">
+                                    <button class="deliveryfee_btn">무료배송</button>
+                                    <p>빠른배송: 5,000원</p>
+                                </div>
+                                <p>도착예정날짜: 2023-12-23</p>
+                            </div>
+                            
+                            <div class="promo_container">
+                                <div class="promocode_container">
+                                    <input class="promodoce_input" placeholder="PromoCode"
+                                    onfocus="this.placeholder=''" onblur="this.placeholder='PromoCode'"></input>
+                                    <button class="promocode_btn">적용</button>
+                                </div>
+                                <p>도착예정날짜: 2023-12-23</p>
+                            </div>
+
+                            <div class="totalpricediv">
+                                <div class="price_container">
+                                    <h3>총 상품가격</h3>
+                                    <h3 class="totalprice">0원</h3>
+                                </div>
+                                <div class="price_container">
+                                    <h3>배송비</h3>
+                                    <h3 class="deliveryprice">0원</h3>
+                                </div>
+                            </div>
+                            <div class="totalprice_container">
+                                <div class="price_container">
+                                    <h3>최종 결제금액</h3>
+                                    <h3 class="totalprice_all">0원</h3>
+                                </div>
+                            </div>
+                            <div class="pay_btn">
+                                <a class="orderbtn">주문하기</a>
+                            </div>
+                        </div>
+                        <!-- <p class="user_info">주문자 정보</p>
                             <div class="user_container">
                                 <div class="user_tag_container">
                                     <p>Email</p>
@@ -68,35 +107,12 @@
                                     <input class="user_address user_input"></input><br>
                                     <input class="user_addressDetail user_input"></input>
                                 </div>
-                            </div>
-                            <div class="submit_order_container">
-                                <div class="borderdiv">
-                                    <div class="totalpricediv">
-                                        <div class="price_container">
-                                            <h3>총 상품가격</h3>
-                                            <h3 class="totalprice">0원</h3>
-                                        </div>
-                                        <div class="price_container">
-                                            <h3>배송비</h3>
-                                            <h3 class="deliveryprice">0원</h3>
-                                        </div>
-                                    </div>
-                                    <div class="totalprice_container">
-                                        <div class="price_container">
-                                            <h3>최종 결제금액</h3>
-                                            <h3 class="totalprice_all">0원</h3>
-                                        </div>
-                                    </div>
-                                    <div class="pay_btn">
-                                        <a class="orderbtn">주문하기</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            </div> -->
                     </div>
                 </div>
-            </section>
         </div>
+        </section>
+    </div>
     </div>
     <script src="../frontUtils/jwtUtil.js"></script>
     <script src="../frontUtils/loginStatus.js"></script>
