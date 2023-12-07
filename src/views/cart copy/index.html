@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장바구니</title>
+    <link rel="stylesheet" href="cart.css" />
+    <link rel="stylesheet" href="../style/default.css" />
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="content-wrap">
+            <header>
+                <div class="logo_container">
+                    <h1>
+                        <a href="../mainpage"><img src="../img/logo2.svg" alt="로고"></a>
+                    </h1>
+                </div>
+                <div class="search_container">
+                    <input class="search_input" placeholder="Search by author, title, name"
+                        onfocus="this.placeholder=''" onblur="this.placeholder='Search by author, title, name'" />
+                    <img class="search_icon" src="/style/img/search_icon.svg" />
+                </div>
+                <div class="gnb_container">
+                    <div class="user_icon">
+                        <img src="/style/img/ico-mypage.svg" />
+                    </div>
+                    <div class="user_icon">
+                        <img src="/style/img/ico-cart.svg" />
+                    </div>
+                    <div class="user_icon">
+                        <img src="/style/img/ico-instagram.svg" />
+                    </div>
+                </div>
+            </header>
+
+            <section>
+                <div class="cart_container">
+                    <div class="cart_wrap">
+                        <div class="list_container">
+                            <div class="label_container">
+                                <p>Cart</p>
+                                <button class="clear_btn">장바구니 비우기</button>
+                            </div>
+                            <div class="products_list">
+                            </div>
+                        </div>
+
+                        <div class="slide_container">
+                            <div class="order_container">
+                                <p class="delivery_label">Delivery</p>
+                                <div class="delivery_container">
+                                    <div class="deliveryfee_container">
+                                        <button class="deliveryfee_btn">무료배송</button>
+                                        <p>빠른배송: 5,000원</p>
+                                    </div>
+                                    <p>도착예정날짜: 2023-12-23</p>
+                                </div>
+
+                                <div class="promo_container">
+                                    <div class="promocode_container">
+                                        <input class="promodoce_input" placeholder="PromoCode"
+                                            onfocus="this.placeholder=''" onblur="this.placeholder='PromoCode'"></input>
+                                        <button class="promocode_btn">적용</button>
+                                    </div>
+                                    <p>Enter Your PromoCode</p>
+                                </div>
+
+                                <div class="subtotal_container">
+                                    <div class="price_container">
+                                        <p>SubTotal</p>
+                                        <p class="subtotal_price">0원</p>
+                                    </div>
+                                    <div class="price_container">
+                                        <h3>Discount</h3>
+                                        <h3 class="Discount_price">0원</h3>
+                                    </div>
+                                    <div class="price_container">
+                                        <h3>Delivery</h3>
+                                        <h3 class="delivery_price">0원</h3>
+                                    </div>
+                                </div>
+
+                                <div class="total_container">
+                                    <div class="price_container">
+                                        <p>Total</p>
+                                        <p class="total_price">0원</p>
+                                    </div>
+                                </div>
+                                <div class="btn_container">
+                                    <a class="checkout_btn">주문하기</a>
+                                    <a href="../mainpage/" class="shopping_btn">쇼핑계속하기</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <p class="user_info">주문자 정보</p>
+                            <div class="user_container">
+                                <div class="user_tag_container">
+                                    <p>Email</p>
+                                    <p>이 름</p>
+                                    <p>전화번호</p>
+                                    <p>우편번호</p>
+                                    <p>주소</p>
+                                    <p>상세주소</p>
+                                </div>
+                                <div class="user_input_container">
+                                    <input class="user_email user_input" disabled></input><br>
+                                    <input class="user_name user_input"></input><br>
+                                    <input class="user_phoneNumber user_input"></input><br>
+                                    <input class="user_postCode user_input"></input><br>
+                                    <input class="user_address user_input"></input><br>
+                                    <input class="user_addressDetail user_input"></input>
+                                </div>
+                            </div> -->
+                    </div>
+                </div>
+        </div>
+        </section>
+    </div>
+    </div>
+    <script src="../frontUtils/jwtUtil.js"></script>
+    <script src="../frontUtils/loginStatus.js"></script>
+    <script src="cart.js"></script>
+</body>
+
+</html>
