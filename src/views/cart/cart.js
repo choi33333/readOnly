@@ -1,5 +1,6 @@
 let cartArr = JSON.parse(localStorage.getItem("bookdata"));
 let sumPrice = 0;
+let deliveryPrice = 0;
 let renderData = [];
 let userData = [];
 
@@ -9,7 +10,6 @@ const setCartItem = async () => {
     try {
       let response = await fetch(`/api/v1/products/${data._id}`);
       let set = await response.json();
-      console.log(cartArr);
       set.data.amount = data.amount;
       renderData.push(set.data);
     } catch (err) {
@@ -32,27 +32,21 @@ window.addEventListener("load", async () => {
         data,
         index
       );
-      sumPrice += data.price * data.amount;
+      sumPrice += data.price * data.amount + deliveryPrice;
     });
-    document.querySelector(
-      ".subtotal_price"
-    ).innerHTML = `${sumPrice.toLocaleString()}원`;
-    document.querySelector(
-      ".total_price"
-    ).innerHTML = `${sumPrice.toLocaleString()}원`;
+    document.querySelector(".subtotal_price").innerHTML = `${sumPrice.toLocaleString()}원`;
+    document.querySelector(".total_price").innerHTML = `${sumPrice.toLocaleString()}원`;
     sumPrice = 0;
   } else {
-    document.querySelector(
-      ".products_list"
-    ).innerHTML = `<div class='cart_empty'>
+    document.querySelector(".products_list").innerHTML = 
+    `<div class='cart_empty'>
 	    <div class=cart_empty_svg>
-		    <h1>!</h1>
+		    <p>!</p>
 	    </div>
-	    <h3>장바구니가 비었습니다!</h3>
+	    <p>장바구니가 비었습니다!</p>
 	</div>`;
   }
 
-  const bookcard = document.querySelector(".product_container");
   //querySelector로 선택
   const plusbtn = document.querySelectorAll(".plus_btn");
   const minusbtn = document.querySelectorAll(".minus_btn");
@@ -61,42 +55,34 @@ window.addEventListener("load", async () => {
   //카운트 증가 소스
   plusbtn.forEach((plusbtn) =>
     plusbtn.addEventListener("click", function () {
-      console.log("click", renderData);
       const id = plusbtn.classList[1];
       renderData[id].amount += 1;
-      document.getElementById(
-        `count${id}`
-      ).innerHTML = `${renderData[id].amount}`;
+      document.getElementById(`count${id}`).innerHTML = `${renderData[id].amount}`;
       localStorage.setItem("bookdata", JSON.stringify(renderData));
-      document.getElementById(`sum${id}`).innerHTML = `${(
-        renderData[id].amount * renderData[id].price
-      ).toLocaleString()}원`;
+      document.getElementById(`sum${id}`).innerHTML = `${(renderData[id].amount * renderData[id].price).toLocaleString()}원`;
       totalsum();
       totalPrice = 0;
     })
   );
+
   //카운트 감소 소스
   minusbtn.forEach((minusbtn) =>
     minusbtn.addEventListener("click", function () {
       const id = minusbtn.classList[1];
-      console.log(id);
       renderData[id].amount -= 1;
       if (renderData[id].amount < 1) {
         renderData[id].amount = 1;
         alert("수량은 1보다 적을수 없습니다.");
       }
-      document.getElementById(
-        `count${id}`
-      ).innerHTML = `${renderData[id].amount}`;
+      document.getElementById(`count${id}`).innerHTML = `${renderData[id].amount}`;
       localStorage.setItem("bookdata", JSON.stringify(renderData));
-      document.getElementById(`sum${id}`).innerHTML = `${(
-        renderData[id].amount * renderData[id].price
-      ).toLocaleString()}원`;
+      document.getElementById(`sum${id}`).innerHTML = `${(renderData[id].amount * renderData[id].price).toLocaleString()}원`;
       totalsum();
       totalPrice = 0;
     })
   );
-  //card 삭제 소스
+
+  //product 삭제 소스
   deletebtn.forEach((deletebtn) =>
     deletebtn.addEventListener("click", function () {
       const id = deletebtn.classList[1];
@@ -108,80 +94,47 @@ window.addEventListener("load", async () => {
       alert("삭제되었습니다.");
     })
   );
+
   //총 결제 예정금액
   const totalsum = () => {
-    renderData.forEach((data) => {
-      sumPrice += data.price * data.amount;
-    });
-    const totalPrice = sumPrice;
+    renderData.forEach((data) => {sumPrice += data.price * data.amount;});
+    let totalPrice = sumPrice + deliveryPrice;
     sumPrice = 0;
-    document.querySelector(
-      ".subtotal_price"
-    ).innerHTML = `${totalPrice.toLocaleString()}원`;
+    document.querySelector(".subtotal_price").innerHTML = `${totalPrice.toLocaleString()}원`;
     document.querySelector(".total_price").innerHTML = `${totalPrice.toLocaleString()}원`;
   };
 
-  //userInfo DP
-  await fetchUser();
-  document.querySelector(".user_email").value = `${userData[0].email}`;
-  document.querySelector(".user_name").value = `${userData[0].username}`;
-  document.querySelector(
-    ".user_phoneNumber"
-  ).value = `${userData[0].phoneNumber}`;
-  document.querySelector(".user_postCode").value = `${userData[0].postCode}`;
-  document.querySelector(".user_address").value = `${userData[0].address}`;
-  document.querySelector(
-    ".user_addressDetail"
-  ).value = `${userData[0].addressDetail}`;
+  deliveryDate();
 });
+
+
+// 배송예정날짜
+function deliveryDate(){
+    var date = new Date();
+    var estimatedDate = `배송예정일 : ${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()+4}`
+    document.querySelector(".deliverydate_label").innerHTML = estimatedDate;
+}
+
+// 배송방법 변경
+const deliveryBtn = document.querySelector(".deliveryfee_btn");
+deliveryBtn.addEventListener("click", function () {
+    if( deliveryBtn.innerHTML === '무료배송'){
+        deliveryBtn.innerHTML = '당일배송';
+        deliveryPrice = 5000;
+    }else{
+        deliveryBtn.innerHTML = '무료배송';
+        deliveryPrice = 0;
+    }
+});
+
+// 장바구니 비우기 버튼
 document.querySelector(".clear_btn").addEventListener("click", function () {
   let reset = [];
   localStorage.setItem("bookdata", JSON.stringify(reset));
   location.reload();
 });
-//주문하기 누를시 실행되는 코드
-document
-  .querySelector(".checkout_btn")
-  .addEventListener("click", async function () {
-    alert("주문이 완료되었습니다.");
-    const productData = JSON.parse(localStorage.getItem("bookdata"));
-    const transformedArray = productData.map((item) => ({
-      productId: item._id,
-      quantity: item.amount,
-    }));
-    console.log(transformedArray);
-    const data = {
-      orderedBy: document.querySelector(".user_name").value,
-      postCode: document.querySelector(".user_postCode").value,
-      address: document.querySelector(".user_address").value,
-      addressDetail: document.querySelector(".user_addressDetail").value,
-      phoneNumber: document.querySelector(".user_phoneNumber").value,
-      // products: [{ productId: "6549140ad11299b256f2d87d", quantity: 1 }],
-      products: transformedArray,
-    };
-    const response = await fetch("/api/v1/orders/", {
-      method: "POST",
-      body: JSON.stringify(data), // 데이터를 JSON 문자열로 변환
-      headers: {
-        "Content-Type": "application/json", // JSON 데이터 전송 헤더
-        authorization: "Bearer " + localStorage.getItem("Token"),
-      },
-    });
 
-    if (response.status === 200) {
-      const result = await response.json(); // 결과를 기다리도록 수정
-      console.log("성공:", result);
-      console.log(result.data.orderNumber);
-      const reset = [];
-      localStorage.setItem("bookdata", JSON.stringify(reset));
-      window.location.href = `/orderumin/?orderNumber=${result.data.orderNumber}`;
-    } else {
-      console.error("주문 실패:", response.status);
-      // 에러 처리 코드 추가
-      alert("로그인이 필요해요!");
-    }
-  });
-
+// 장바구니 제품 템플릿 
 const getCartItemTemplate = (data, index) => {
   return `<div id=${index} class="product_container">
                 <div class="img_container">
@@ -192,9 +145,7 @@ const getCartItemTemplate = (data, index) => {
                     
                     <div class="title_container">
                         <p class="book_title">${data.name}
-                        <p id='sum${index}' class="book_sum">${(
-    data.price * data.amount
-  ).toLocaleString()}원</p>
+                        <p id='sum${index}' class="book_sum">${(data.price * data.amount).toLocaleString()}원</p>
                     </div>
 
 		            <div class="detail_container">
@@ -206,9 +157,7 @@ const getCartItemTemplate = (data, index) => {
                             <button class="minus_btn ${index}">
                                 <img src="./img/minus_btn.svg">
                             </button>
-                            <p id=count${index} class="countvalue">${
-    data.amount
-  }</p>
+                            <p id=count${index} class="countvalue">${data.amount}</p>
                             <button class="plus_btn ${index}">
                                 <img src="./img/plus_btn.svg">
                             </button>
@@ -225,6 +174,8 @@ const getCartItemTemplate = (data, index) => {
                 </div>
             </div>`;
 };
+
+// 유저 검사
 const fetchUser = async () => {
   await fetch("/api/v1/users/me", {
     method: "GET",
@@ -242,12 +193,3 @@ const fetchUser = async () => {
     }
   });
 };
-
-//released Date
-{
-  /* <p class="releasedDate_label">
-${data.releasedDate.slice(0, -20)}년
-${data.releasedDate.slice(5, -17)}월
-${data.releasedDate.slice(8, -14)}일
-</p> */
-}

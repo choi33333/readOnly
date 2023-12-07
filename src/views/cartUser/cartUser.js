@@ -118,7 +118,9 @@ window.addEventListener("load", async () => {
     document.querySelector(
       ".subtotal_price"
     ).innerHTML = `${totalPrice.toLocaleString()}원`;
-    document.querySelector(".total_price").innerHTML = `${totalPrice.toLocaleString()}원`;
+    document.querySelector(
+      ".total_price"
+    ).innerHTML = `${totalPrice.toLocaleString()}원`;
   };
 
   //userInfo DP

@@ -2,17 +2,17 @@ html{
 	font-size: 15px;
 }
 
-
 /* cart wrap*/
 .cart_container{
 	display: flex;
 	margin: 5rem auto;
-	width: 80%;
 	justify-content: center;
 }
 
 .cart_wrap {
 	display: flex;
+	width: 80%;
+	min-width: 920px;
 }
 
 /* cart list*/
@@ -22,7 +22,7 @@ html{
 	flex-direction: column;
 	width: 100%;
 	border: solid 1px rgb(200, 200, 200);
-	border-radius: 1rem;
+	border-radius: 8px;
 }
 .list_container .label_container {
 	font-size: 1.2rem;
@@ -52,7 +52,7 @@ html{
 
 /*product list*/
 .products_list {
-	border-top: 1px solid grey;
+	border-top: solid 1px rgb(200, 200, 200);
 }
 
 .cart_empty {
@@ -80,7 +80,7 @@ html{
 	height: 12rem;
 	display: flex;
 	align-items: center;
-	border-bottom: 1px solid grey;
+	border-bottom: solid 1px rgb(200, 200, 200);
 }
 
 .product_container:last-child {
@@ -221,18 +221,19 @@ html{
 .slide_container {
 	position: relative;
 	max-height: auto;
+	padding: 0;
 }
 .order_container {
 	top: 2rem;
 	position: sticky;
 	height: auto;
-	margin-left: 1rem;
+	margin:0 0 0 1rem;
 	padding: 1.5rem;
 	display: flex;
 	flex-direction: column;
-	min-width: 300px;
+	min-width: 240px;
 	border: solid 1px rgb(200, 200, 200);
-	border-radius: 1rem;
+	border-radius: 8px;
 }
 .order_container .delivery_label{
 	font-size: 1.2rem;
@@ -257,8 +258,9 @@ html{
 	background-color: rgb(240, 240, 240);
 }
 .deliveryfee_btn{
+	font-size: 1rem;
 	height: 33px;
-	width: 5rem;
+	width: 6rem;
 	margin: 1px;
 	background-color: #fff;
 	border: none;
@@ -266,7 +268,13 @@ html{
 	cursor: pointer;
 }
 .deliveryfee_container p {
+	font-size: 1rem;
 	margin: auto;
+	color: grey;
+}
+.delivery_container > p {
+	font-size: 1rem;
+	color: grey;
 }
 
 .promo_container{
@@ -287,11 +295,12 @@ html{
 	border-radius: 4px;
 }
 .promodoce_input {
+	font-size: 1rem;
 	height: 33px;
 	width: auto;
 	border: none;
 	border-radius: 4px;
-	padding-left: 1rem;
+	padding-left: 10px;
 	&:focus {
 		outline: none;
 	}
@@ -305,6 +314,10 @@ html{
 	cursor: pointer;
 	border: none;
 	border-left: solid 1px rgb(220, 220, 220);
+}
+.promo_container > p{
+	font-size: 1rem;
+	color: grey;
 }
 
 .price_container {
