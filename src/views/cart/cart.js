@@ -2,8 +2,9 @@ let cartArr = JSON.parse(localStorage.getItem("bookdata"));
 let sumPrice = 0;
 let renderData = [];
 let userData = [];
+
+// 장바구니 데이터 불러오기
 const setCartItem = async () => {
-  // console.log(cartArr);
   for (const data of cartArr) {
     try {
       let response = await fetch(`/api/v1/products/${data._id}`);
@@ -16,6 +17,8 @@ const setCartItem = async () => {
     }
   }
 };
+
+// 페이지 로드
 window.addEventListener("load", async () => {
   const Token = localStorage.getItem("Token");
   if (!Token) {
@@ -32,15 +35,16 @@ window.addEventListener("load", async () => {
       sumPrice += data.price * data.amount;
     });
     document.querySelector(
-      ".totalprice"
+      ".subtotal_price"
     ).innerHTML = `${sumPrice.toLocaleString()}원`;
-	document.querySelector(
-		".totalprice_all"
-	  ).innerHTML = `${sumPrice.toLocaleString()}원`;
+    document.querySelector(
+      ".total_price"
+    ).innerHTML = `${sumPrice.toLocaleString()}원`;
     sumPrice = 0;
   } else {
-    document.querySelector(".products_list").innerHTML = 
-    `<div class='cart_empty'>
+    document.querySelector(
+      ".products_list"
+    ).innerHTML = `<div class='cart_empty'>
 	    <div class=cart_empty_svg>
 		    <h1>!</h1>
 	    </div>
@@ -112,21 +116,23 @@ window.addEventListener("load", async () => {
     const totalPrice = sumPrice;
     sumPrice = 0;
     document.querySelector(
-      ".totalprice"
+      ".subtotal_price"
     ).innerHTML = `${totalPrice.toLocaleString()}원`;
-	document.querySelector(
-		".totalprice_all"
-	  ).innerHTML = `${totalPrice.toLocaleString()}원`;
+    document.querySelector(".total_price").innerHTML = `${totalPrice.toLocaleString()}원`;
   };
 
   //userInfo DP
   await fetchUser();
   document.querySelector(".user_email").value = `${userData[0].email}`;
   document.querySelector(".user_name").value = `${userData[0].username}`;
-  document.querySelector(".user_phoneNumber").value = `${userData[0].phoneNumber}`;
+  document.querySelector(
+    ".user_phoneNumber"
+  ).value = `${userData[0].phoneNumber}`;
   document.querySelector(".user_postCode").value = `${userData[0].postCode}`;
   document.querySelector(".user_address").value = `${userData[0].address}`;
-  document.querySelector(".user_addressDetail").value = `${userData[0].addressDetail}`;
+  document.querySelector(
+    ".user_addressDetail"
+  ).value = `${userData[0].addressDetail}`;
 });
 document.querySelector(".clear_btn").addEventListener("click", function () {
   let reset = [];
@@ -135,7 +141,7 @@ document.querySelector(".clear_btn").addEventListener("click", function () {
 });
 //주문하기 누를시 실행되는 코드
 document
-  .querySelector(".orderbtn")
+  .querySelector(".checkout_btn")
   .addEventListener("click", async function () {
     alert("주문이 완료되었습니다.");
     const productData = JSON.parse(localStorage.getItem("bookdata"));
@@ -177,7 +183,7 @@ document
   });
 
 const getCartItemTemplate = (data, index) => {
-  return    `<div id=${index} class="product_container">
+  return `<div id=${index} class="product_container">
                 <div class="img_container">
                     <img src=${data.imageUrl}>
                 </div>
@@ -186,7 +192,9 @@ const getCartItemTemplate = (data, index) => {
                     
                     <div class="title_container">
                         <p class="book_title">${data.name}
-                        <p id='sum${index}' class="book_sum">${(data.price * data.amount).toLocaleString()}원</p>
+                        <p id='sum${index}' class="book_sum">${(
+    data.price * data.amount
+  ).toLocaleString()}원</p>
                     </div>
 
 		            <div class="detail_container">
@@ -198,7 +206,9 @@ const getCartItemTemplate = (data, index) => {
                             <button class="minus_btn ${index}">
                                 <img src="./img/minus_btn.svg">
                             </button>
-                            <p id=count${index} class="countvalue">${data.amount}</p>
+                            <p id=count${index} class="countvalue">${
+    data.amount
+  }</p>
                             <button class="plus_btn ${index}">
                                 <img src="./img/plus_btn.svg">
                             </button>
@@ -233,10 +243,11 @@ const fetchUser = async () => {
   });
 };
 
-
 //released Date
-{/* <p class="releasedDate_label">
+{
+  /* <p class="releasedDate_label">
 ${data.releasedDate.slice(0, -20)}년
 ${data.releasedDate.slice(5, -17)}월
 ${data.releasedDate.slice(8, -14)}일
-</p> */}
+</p> */
+}

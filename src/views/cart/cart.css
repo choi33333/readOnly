@@ -2,15 +2,16 @@ html{
 	font-size: 15px;
 }
 
+
 /* cart wrap*/
 .cart_container{
 	display: flex;
 	margin: 5rem auto;
 	width: 80%;
+	justify-content: center;
 }
 
 .cart_wrap {
-	min-width: 80%;
 	display: flex;
 }
 
@@ -19,15 +20,16 @@ html{
 	padding: 1.5rem 1.5rem 0 1.5rem;
 	display: flex;
 	flex-direction: column;
-	min-width: 70%;
+	width: 100%;
 	border: solid 1px rgb(200, 200, 200);
 	border-radius: 1rem;
 }
 .list_container .label_container {
-	font-size: 20px;
+	font-size: 1.2rem;
+	font-weight: bold;
 	display: flex;
 	align-items: center;
-	height: 3rem;
+	height: 2.5rem;
 	margin: 0 0 1rem 0;
 	justify-content: space-between;
 }
@@ -215,17 +217,28 @@ html{
 
 
 
-
+/*order slide*/
+.slide_container {
+	position: relative;
+	max-height: auto;
+}
 .order_container {
-	height: 20rem;
+	top: 2rem;
+	position: sticky;
+	height: auto;
 	margin-left: 1rem;
 	padding: 1.5rem;
 	display: flex;
 	flex-direction: column;
-	min-width: 40%;
+	min-width: 300px;
 	border: solid 1px rgb(200, 200, 200);
 	border-radius: 1rem;
 }
+.order_container .delivery_label{
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
 .delivery_container{
 	height: auto;
 	width: auto;
@@ -277,105 +290,95 @@ html{
 	height: 33px;
 	width: auto;
 	border: none;
+	border-radius: 4px;
+	padding-left: 1rem;
+	&:focus {
+		outline: none;
+	}
 }
 .promocode_btn{
 	margin: 0;
 	height: 35px;
 	width: 5rem;
 	background-color: #fff;
-	border: none;
 	border-radius: 4px;
 	cursor: pointer;
+	border: none;
 	border-left: solid 1px rgb(220, 220, 220);
 }
 
-.user_container {
-	padding-top: 0;
-	height: 20rem;
-	width: 100%;
+.price_container {
+	color: grey;
 	display: flex;
 	text-align: center;
-	align-items: center;
-	justify-content: center;
-	padding-bottom: 0.5rem;
+	justify-content: space-between;
+	height: 30px;
+	width: 100%;
 }
-
-.totalpricediv {
-	height: 8rem;
-	border-bottom: 1px solid grey;
+.subtotal_container {
+	height: auto;
+	border-bottom: solid 1px rgb(200, 200, 200);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	padding: 0.5rem 0rem;
 }
-.totalprice_container {
+.total_container {
 	height: 5rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	margin-bottom: 1.5rem;
 }
-.totalprice {
-	padding-left: 2rem;
+
+.subtotal_container .price_container:first-child {
+	font-weight: bold;
+	font-size: 1.2rem;
+	margin: 10px 0;
 }
-.deliveryprice {
-	padding-left: 2rem;
+.total_container .price_container {
+	font-weight: bold;
+	font-size: 1.2rem;
+	color: #000;
+	margin: 10px 0;
 }
-.price_container {
+
+
+
+.btn_container{
+	height: auto;
 	display: flex;
-}
-.totalprice_all {
-	padding-left: 2rem;
-}
-.pay_btn {
-	height: 3.5rem;
-	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
-.orderbtn {
-	color: white;
+.btn_container a{
 	font-weight: bold;
-	font-size: 18px;
+	font-size: 1.2rem;
 	width: 100%;
 	height: 3.5rem;
 	display: flex;
-	border: 1px solid rgb(16, 16, 160);
-	background-color: rgb(16, 16, 160);
 	align-items: center;
 	justify-content: center;
-	border-radius: 4px;
+	border-radius: 8px;
 	cursor: pointer;
+}
+.btn_container .checkout_btn {
+	color: white;
+	margin-bottom: 1rem;
+	border: 1px solid var(--main-color);
+	background-color: var(--main-color);
 	&:hover {
-		border-color: rgb(12, 12, 105);
-		background-color: rgb(12, 12, 105);
+		border-color: var(--sub-color);
+		background-color: var(--sub-color);
 	}
 }
-
-.user_info {
-	font-weight: bold;
-	font-size: 1.7rem;
-	padding: 0;
-	margin: 0;
-}
-
-.user_tag_container p {
-	padding: 0.2rem;
-}
-
-.user_input {
-	height: 2rem;
-	font-size: 1rem;
-	width: 12rem;
-	margin: 0.2rem;
-	text-align: center;
-	border-radius: 4px;
-	border: 1px solid rgb(16, 16, 160);
-	align-items: center;
-	justify-content: center;
-	cursor: pointer;
+.btn_container .shopping_btn {
+	color: #000;
+	border: 1px solid rgb(220, 220, 220);
+	background-color: #fff;
 	&:hover {
-		border-color: rgb(12, 12, 105);
+		background-color: rgb(250, 250, 250);
 	}
 }
